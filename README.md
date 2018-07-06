@@ -5,11 +5,11 @@ FOLLOW:
 
 SETUP:
   run these commands
-    - cd ~/Desktop
-    - git clone https://github.com/Michael-Equi/ROV_Test_Bench.git
-    - cd ROV_Test_Bench/scripts
-    - ./GitSetup,sh
-    - ./setup.sh
+    - 'cd ~/Desktop'
+    - 'git clone https://github.com/Michael-Equi/ROV_Test_Bench.git'
+    - 'cd ROV_Test_Bench/scripts'
+    - './GitSetup,sh'
+    - './setup.sh'
     
 Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
 Only develop with clion, webstorm, pycharm, and arduino 
