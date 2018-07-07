@@ -2,6 +2,10 @@
 
 One Paragraph of project description goes here
 
+[![Build Status](https://travis-ci.com/Michael-Equi/ROV_Test_Bench.svg?branch=master)](https://travis-ci.com/Michael-Equi/ROV_Test_Bench)
+
+[![Coverage Status](https://coveralls.io/repos/github/Michael-Equi/ROV_Test_Bench/badge.svg?branch=master)](https://coveralls.io/github/Michael-Equi/ROV_Test_Bench?branch=master)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
