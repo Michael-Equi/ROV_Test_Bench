@@ -5,4 +5,6 @@ compiler:
   - gcc
   - g++
  
-script: make ./test/Simple\ Travis\ Test.cpp
+script: 
+ - cmake .
+ - cmake --build . -- -j2
