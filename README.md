@@ -35,6 +35,10 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
+On your Raspberry Pi 3 B/B+ make sure you are running debian stretch (version 9)
+* cat /etc/os-release
+* https://www.intorobotics.com/how-to-install-ros-kinetic-on-raspberry-pi-3-running-raspbian-stretch-lite/
+
 Say what the step will be
 
 ```
