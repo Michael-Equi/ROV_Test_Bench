@@ -1,4 +1,5 @@
 language: cpp
+sudo: true
 
 compiler:
   - clang
@@ -6,5 +7,5 @@ compiler:
   - g++
  
 script: 
- - cmake .
+ - cmake ./tests/Simple Travis Test/
  - cmake --build . -- -j2
