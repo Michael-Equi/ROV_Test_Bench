@@ -5,3 +5,4 @@ compiler:
   - gcc
   - g++
  
+script: make ./test/Simple\ Travis\ Test.cpp
