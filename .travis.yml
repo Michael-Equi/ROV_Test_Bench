@@ -1,0 +1,8 @@
+language: cpp
+
+compiler:
+  - clang
+  - gcc
+  - g++
+ 
+script: make ./test/Simple\ Travis\ Test.cpp
