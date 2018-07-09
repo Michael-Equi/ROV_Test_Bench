@@ -3,12 +3,14 @@
 #include <sensor_msgs/Joy.h>
 
 //Location of axis in the joy message array
-const int linearAxisFBIndex = 0; //forward-backward
-const int linearAxisLRIndex = 1; //left-right
+const int linearAxisFBIndex = 1; //forward-backward
+const int linearAxisLRIndex = 0; //left-right
 const int angularAxisIndex = 2;
 const int verticalAxisIndex = 3;
 
 //list buttons
+
+
 
 
 class logitechExtreme3DJoystick
@@ -24,6 +26,10 @@ class logitechExtreme3DJoystick
     double a_axis, l_axisLR, l_axisFB, v_axis;
 
     bool thrustEN; //thrusters enabled
+
+    //inversion added here
+    //inversion -> 1 Front, 2 Left, 3 Back, 4 Right
+    int inversion;
 
     //subscribing to the logitech joystick and outputting control vectors
     ros::Publisher vel_pub;
