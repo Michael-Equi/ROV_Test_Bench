@@ -19,6 +19,9 @@ Initial SETUP:
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup,sh`
 * `./setup.sh`
+
+* make sure all computers are on a dhcp network (no static IP's)
+* use `hostname` to find the hostname of your conputers and make sure they can ping each other `ping hostname.local`
     
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
 Only develop with clion, webstorm, pycharm, and arduino*
