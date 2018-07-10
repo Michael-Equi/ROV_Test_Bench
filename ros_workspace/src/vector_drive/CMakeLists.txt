@@ -104,8 +104,8 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES vector_drive
-#  CATKIN_DEPENDS roscpp
-  DEPENDS message_runtime
+  CATKIN_DEPENDS message_runtime roscpp
+#  DEPENDS message_runtime
 )
 
 ###########
