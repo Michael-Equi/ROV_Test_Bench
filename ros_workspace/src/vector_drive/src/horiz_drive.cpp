@@ -108,8 +108,10 @@ void commandVectorCallback(const geometry_msgs::Twist::ConstPtr& vel)
     //angular
     double angularX = vel->angular.x;
 
+    vectorMath(linearX, linearY, angularX);
+
     //publish message
-    pub.publish(vectorMath(linearX, linearY, angularX));
+    pub.publish(thrustPercents);
 }
 
 int main(int argc, char **argv)
