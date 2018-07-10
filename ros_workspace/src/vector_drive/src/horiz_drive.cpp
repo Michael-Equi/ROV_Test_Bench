@@ -59,11 +59,6 @@ const vector_drive::thrusterPercents& vectorMath(double &linearX, double &linear
         ros::param::set("thrustersEnabled", false);
     }
 
-    //All values come in as [-1, 1] -> convert them to percents [-100, 100]
-    linearX*=100;
-    linearY*=100;
-    angularX*=100;
-
     //inversion, sensitivity, bi-linear threshold are handled in logi_joystick (vectorCommand node)
     //deadzone handled by joy package
 
