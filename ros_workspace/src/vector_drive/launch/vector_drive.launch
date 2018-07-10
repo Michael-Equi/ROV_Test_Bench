@@ -12,7 +12,7 @@
  <!-- horizontal vector drive node -->
    <node pkg="vector_drive" type="horiz_drive" name="horiz_drive"/>
 
- <!-- Thrusters Enabled -->
-  <param name="thrustersEnabled" value="false" />
+ <!-- temp copilot interface -->
+   <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
 
 </launch>

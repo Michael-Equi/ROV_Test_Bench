@@ -10,6 +10,8 @@ project(rov_control_interface)
 find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
+  copilot_interface#
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
