@@ -1,7 +1,7 @@
 #! /bin/bash
 
 function clion(){
-   path=$(find /home -name "clion.sh")
+   path=$(find / -name "clion.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -23,7 +23,7 @@ function clion(){
 }
 
 function webstorm(){
-   path=$(find /home -name "webstorm.sh")
+   path=$(find / -name "webstorm.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -45,7 +45,7 @@ function webstorm(){
 }
 
 function pycharm(){
-   path=$(find /home -name "pycharm.sh")
+   path=$(find / -name "pycharm.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -67,7 +67,7 @@ function pycharm(){
 }
 
 function arduino(){
-   path=$(find /home -type f -name arduino)
+   path=$(find / -type f -name arduino)
    
    sudo "${path}"
 }
