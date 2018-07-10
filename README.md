@@ -30,12 +30,19 @@ What things you need to install the software and how to install them
 ```
 Give examples
 ```
+### Network Setup
+
+What things you need to do so that the ROS network operates properly 
+
+```
+Give examples
+```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-On your Raspberry Pi 3 B/B+ make sure you are running debian stretch (version 9)
+On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here https://drive.google.com/open?id=1497jupJ2dBQqy_o_x5JBPTjY3lto7-rI)
 * cat /etc/os-release
 * https://www.intorobotics.com/how-to-install-ros-kinetic-on-raspberry-pi-3-running-raspbian-stretch-lite/
 * http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick (replace indigo with kinetic)
