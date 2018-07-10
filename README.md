@@ -19,6 +19,7 @@ Initial SETUP:
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup,sh`
 * `./setup.sh`
+* (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
 
 * make sure all computers are on a dhcp network (no static IP's)
 * use `hostname` to find the hostname of your conputers and make sure they can ping each other `ping hostname.local`
