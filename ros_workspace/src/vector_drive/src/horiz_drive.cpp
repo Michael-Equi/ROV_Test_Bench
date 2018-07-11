@@ -56,7 +56,6 @@ const vector_drive::thrusterPercents& vectorMath(double &linearX, double &linear
     if(abs(linearX) > 1 || abs(linearY) > 1 || abs(angularX) > 1){
         //ROS_ERROR("cmd_vel value out of range!\nEntering safe mode and disabling thrusters... ");
         ROS_ERROR_STREAM("linearX: " << linearX << "  linearY: " << linearY << "  angularX: " << angularX);
-        ros::param::set("thrustersEnabled", false);
     }
 
     //inversion, sensitivity, bi-linear threshold are handled in logi_joystick (vectorCommand node)
