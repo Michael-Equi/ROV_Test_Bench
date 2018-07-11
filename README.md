@@ -34,6 +34,11 @@ Give examples
 
 What things you need to do so that the ROS network operates properly 
 
+On ubuntu 16.04 go to Network Connections app and add a new ethernet connection (name the connection `ROVEthernetConnection`)
+* On the topside computer have a static (manual) IP of `192.168.1.100`, netmask `24`, Gateway `92.168.1.1`, DNS server `27.0.1.1, 8.8.8.8, 192.168.1.1`
+* On the bottomside computer have a static (manual) IP of `192.168.1.111`, netmask `24`, Gateway `192.168.1.1`, DNS server `127.0.1.1, 8.8.8.8, 192.168.1.1`
+* Run the setupROSNetwork.sh script in the scripts folder
+
 ```
 Give examples
 ```
