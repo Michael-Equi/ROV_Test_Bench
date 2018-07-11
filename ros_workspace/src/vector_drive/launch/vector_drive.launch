@@ -12,6 +12,9 @@
  <!-- horizontal vector drive node -->
    <node pkg="vector_drive" type="horiz_drive" name="horiz_drive"/>
 
+ <!-- vertical vector drive node -->
+    <node pkg="vector_drive" type="vert_drive" name="vert_drive"/>
+
  <!-- temp copilot interface -->
    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
 
