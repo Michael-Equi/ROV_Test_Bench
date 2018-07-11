@@ -17,7 +17,7 @@ chmod 700 ~/.ssh
 ssh-keygen -t rsa
 
 if [ $ROS_HOSTNAME == "master" ]; then
-   ssh-copy-id -i .ssh/id_rsa.pub bottomside
+   ssh-copy-id -i ~/.ssh/id_rsa.pub bottomside
 elif [ $ROS_HOSTNAME == "bottomside" ]; then
    ssh-copy-id -i ~/.ssh/id_rsa.pub master
 else
