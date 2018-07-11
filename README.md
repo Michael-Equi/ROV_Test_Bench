@@ -27,6 +27,13 @@ Only develop with clion, webstorm, pycharm, and arduino*
 
 What things you need to install the software and how to install them
 
+I2C interface on Ubutnu Mate
+* `cd /boot/config.txt`
+* uncomment `dtparam=i2c_arm=off` and change to `dtparam=i2c_arm=on`
+* uncomment `dtparam=i2c_arm_baudrate=100000` and change to `dtparam=i2c_arm_baudrate=400000`
+* restart pi
+
+
 ```
 Give examples
 ```
