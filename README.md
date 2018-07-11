@@ -55,6 +55,7 @@ Once the network connection has been verified (on bottomside `ping master` / on 
 Other usefull links for common problems:
 * https://superuser.com/questions/421004/how-to-fix-warning-about-ecdsa-host-key
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
+* https://answers.ros.org/question/41446/a-is-not-in-your-ssh-known_hosts-file/
 
 ```
 Give examples
