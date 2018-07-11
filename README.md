@@ -39,6 +39,19 @@ On ubuntu 16.04 go to Network Connections app and add a new ethernet connection 
 * On the bottomside computer have a static (manual) IP of `192.168.1.111`, netmask `24`, Gateway `192.168.1.1`, DNS server `127.0.1.1, 8.8.8.8, 192.168.1.1`
 * Run the setupROSNetwork.sh script in the scripts folder
 
+Once the network connection has been verified (on bottomside `ping master` / on topside `ping bottomside`)
+* Run `sshSetup.sh` in the scripts folder
+* Do not add any paraphrases 
+* on bottomside `ssh master` / on topside `ssh bottomside`
+* Make sure both work without entering a password 
+
+## Network Setup DEBUG
+* IF you recieve `/usr/bin/ssh-copy-id: ERROR: ssh: connect to host bottomside port 22: Connection refused` go to the opposite machine from the one you recieved it on and run the following:
+    * `sudo rm /etc/ssh/sshd_config`
+    * `sudo apt-get purge openssh-server`
+    * `sudo apt-get install openssh-server`
+    * `./sshSetup.sh`
+
 ```
 Give examples
 ```
