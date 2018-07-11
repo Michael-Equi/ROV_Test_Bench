@@ -51,6 +51,10 @@ Once the network connection has been verified (on bottomside `ping master` / on 
     * `sudo apt-get purge openssh-server`
     * `sudo apt-get install openssh-server`
     * `./sshSetup.sh`
+    
+Other usefull links for common problems:
+* https://superuser.com/questions/421004/how-to-fix-warning-about-ecdsa-host-key
+* https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
 
 ```
 Give examples
