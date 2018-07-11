@@ -27,6 +27,9 @@ Only develop with clion, webstorm, pycharm, and arduino*
 
 What things you need to install the software and how to install them
 
+Code Blocks IDE on rpi ubuntu mate
+* `sudo apt-get install codeblocks`
+
 I2C interface on Ubutnu Mate
 * `cd /boot/config.txt`
 * uncomment `dtparam=i2c_arm=off` and change to `dtparam=i2c_arm=on`
