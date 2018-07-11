@@ -45,7 +45,7 @@ Once the network connection has been verified (on bottomside `ping master` / on 
 * on bottomside `ssh master` / on topside `ssh bottomside`
 * Make sure both work without entering a password 
 
-## Network Setup DEBUG
+#### Network Setup DEBUG
 * IF you recieve `/usr/bin/ssh-copy-id: ERROR: ssh: connect to host bottomside port 22: Connection refused` go to the opposite machine from the one you recieved it on and run the following:
     * `sudo rm /etc/ssh/sshd_config`
     * `sudo apt-get purge openssh-server`
