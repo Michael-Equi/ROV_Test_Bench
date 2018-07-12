@@ -43,6 +43,8 @@ Setup the ros_lib file for arduino serial
 
 For running rosserial the first time make sure to `sudo apt-get install ros-kinetic-rosserial` and install the rosserial library from the arduino library manager
 
+Add vector_drive/thrusterPercents.h to the libraries folder in arduino
+
 
 ```
 Give examples
