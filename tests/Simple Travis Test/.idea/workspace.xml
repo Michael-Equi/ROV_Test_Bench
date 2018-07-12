@@ -11,9 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12a73943-09d4-4091-8f40-887e3ffc1ec3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ros_workspace/src/rov_control_interface/launch/control_interface.launch" beforeDir="false" afterPath="$PROJECT_DIR$/../../ros_workspace/src/rov_control_interface/launch/control_interface.launch" afterDir="false" />
-    </list>
+    <list default="true" id="12a73943-09d4-4091-8f40-887e3ffc1ec3" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,11 +97,12 @@
       <updated>1531008649746</updated>
       <workItem from="1531008650950" duration="45000" />
       <workItem from="1531109359562" duration="2000" />
+      <workItem from="1531354816707" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47000" />
+    <option name="totallyTimeSpent" value="49000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="677" y="457" width="2495" height="1444" extended-state="0" />
@@ -140,6 +139,13 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
