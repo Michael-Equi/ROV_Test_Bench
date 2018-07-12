@@ -40,6 +40,7 @@ Setup the ros_lib file for arduino serial
 * If a new msg needs to be added to the file run `sudo rm -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib` and `rosrun rosserial_client make_libraries ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries` (make sure to have sourced the correct devel/setup.bash)
 * Run `sudo rm -R /opt/ros/kinetic/share/rosserial_client/src/ros_lib`
 * Run `sudo cp ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib /opt/ros/kinetic/share/rosserial_client/src`
+
 For running rosserial the first time make sure to `sudo apt-get install ros-kinetic-rosserial` and install the rosserial library from the arduino library manager
 
 
