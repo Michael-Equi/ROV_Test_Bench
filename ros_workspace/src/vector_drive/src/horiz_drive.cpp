@@ -85,11 +85,11 @@ const vector_drive::thrusterPercents& vectorMath(double &linearX, double &linear
     ROS_DEBUG_STREAM("T1: " << thrustPercents.t1 << "  T2: " <<
                                 thrustPercents.t2 << "  T3: " << thrustPercents.t3 << "  T4: " << thrustPercents.t4);
 
-    //load thruster values into custom float64 ROS message
-    thrustPercents.t1 = T1;
-    thrustPercents.t2 = T2;
-    thrustPercents.t3 = T3;
-    thrustPercents.t4 = T4;
+    //load thruster values into custom int32 ROS message
+    thrustPercents.t1 = T1*1000;
+    thrustPercents.t2 = T2*1000;
+    thrustPercents.t3 = T3*1000;
+    thrustPercents.t4 = T4*1000;
 
 
     return thrustPercents;

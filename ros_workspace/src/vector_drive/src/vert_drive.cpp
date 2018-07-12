@@ -55,10 +55,10 @@ void commandVectorCallback(const geometry_msgs::Twist::ConstPtr& vel)
     //vertical value
     double linearZ = vel->linear.z;
 
-    double T5 = linearZ;
-    double T6 = linearZ;
-    double T7 = linearZ;
-    double T8 = linearZ;
+    double T5 = linearZ*1000;
+    double T6 = linearZ*1000;
+    double T7 = linearZ*1000;
+    double T8 = linearZ*1000;
 
     thrustPercents.t1 = T5;
     thrustPercents.t2 = T6;
