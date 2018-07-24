@@ -31,6 +31,55 @@ Only develop with clion, webstorm, pycharm, and arduino*
 
 What things you need to install the software and how to install them
 
+Code Blocks IDE on rpi ubuntu mate
+* `sudo apt-get install codeblocks`
+
+I2C interface on Ubutnu Mate
+* `cd /boot/config.txt`
+* uncomment `dtparam=i2c_arm=off` and change to `dtparam=i2c_arm=on`
+* uncomment `dtparam=i2c_arm_baudrate=100000` and change to `dtparam=i2c_arm_baudrate=400000`
+* restart pi
+
+Setup the ros_lib file for arduino serial
+* If a new msg needs to be added to the file run `sudo rm -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib` and `rosrun rosserial_client make_libraries ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries` (make sure to have sourced the correct devel/setup.bash)
+* Run `sudo rm -R /opt/ros/kinetic/share/rosserial_client/src/ros_lib`
+* Run `sudo cp -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib /opt/ros/kinetic/share/rosserial_client/src`
+
+For running rosserial the first time make sure to `sudo apt-get install ros-kinetic-rosserial` and install the rosserial library from the arduino library manager
+
+Add vector_drive/thrusterPercents.h to the libraries folder in arduino
+
+
+```
+Give examples
+```
+### Network Setup
+
+What things you need to do so that the ROS network operates properly 
+
+On ubuntu 16.04 go to Network Connections app and add a new ethernet connection (name the connection `ROVEthernetConnection`)
+* On the topside computer have a static (manual) IP of `192.168.1.100`, netmask `24`, Gateway `92.168.1.1`, DNS server `27.0.1.1, 8.8.8.8, 192.168.1.1`
+* On the bottomside computer have a static (manual) IP of `192.168.1.111`, netmask `24`, Gateway `192.168.1.1`, DNS server `127.0.1.1, 8.8.8.8, 192.168.1.1`
+* Run the setupROSNetwork.sh script in the scripts folder
+
+Once the network connection has been verified (on bottomside `ping master` / on topside `ping bottomside`)
+* Run `sshSetup.sh` in the scripts folder
+* Do not add any paraphrases 
+* on bottomside `ssh master` / on topside `ssh bottomside`
+* Make sure both work without entering a password 
+
+#### Network Setup DEBUG
+* IF you recieve `/usr/bin/ssh-copy-id: ERROR: ssh: connect to host bottomside port 22: Connection refused` go to the opposite machine from the one you recieved it on and run the following:
+    * `sudo rm /etc/ssh/sshd_config`
+    * `sudo apt-get purge openssh-server`
+    * `sudo apt-get install openssh-server`
+    * `./sshSetup.sh`
+    
+Other usefull links for common problems:
+* https://superuser.com/questions/421004/how-to-fix-warning-about-ecdsa-host-key
+* https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
+* https://answers.ros.org/question/41446/a-is-not-in-your-ssh-known_hosts-file/
+
 ```
 Give examples
 ```
@@ -39,7 +88,7 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
-On your Raspberry Pi 3 B/B+ make sure you are running debian stretch (version 9)
+On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here https://drive.google.com/open?id=1497jupJ2dBQqy_o_x5JBPTjY3lto7-rI)
 * cat /etc/os-release
 * https://www.intorobotics.com/how-to-install-ros-kinetic-on-raspberry-pi-3-running-raspbian-stretch-lite/
 * http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick (replace indigo with kinetic)
