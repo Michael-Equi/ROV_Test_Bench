@@ -36,7 +36,7 @@ inline boolean receivePacket() {
        if(negative){
            temp*=-1;
          }
-         Serial.println(temp);
+         SerialUSB.println(temp);
          packetInput[valueIndex] = 0;
        
      } else {
