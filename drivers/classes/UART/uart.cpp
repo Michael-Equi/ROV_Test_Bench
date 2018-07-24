@@ -11,9 +11,9 @@ uart::uart(int baud)
 {
     /*http://linuc.die.net/man/3/tcgetattr*/
 
-    flags = O_RDWR | O_NOCTTY | O_NONBLOCK; //set flag to read/write nonblocking mode with no controlling terminal
+    flags = O_RDWR | O_NOCTTY | O_NONBLOCK; //set flag to read/write non-blocking mode with no controlling terminal
 
-    fd = open("/dev/ttyACM3", flags);
+    fd = open("/dev/ttyACM0", flags);
     tcgetattr(fd, &tty);
 
     tty.c_cflag = (uart::tty.c_cflag & ~CSIZE) | CS8;
@@ -43,7 +43,7 @@ uart::uart(int baud)
     //set read and write cflag
     tty.c_cflag |= CREAD; //Enable reciver
     tty.c_cflag |= PARENB; //Enable even parity
-    tty.c_cflag &= ~CSTOPB; //No duplicate stop bits (protocal only uses one stop bit)
+    tty.c_cflag &= ~CSTOPB; //No duplicate stop bits (protocol only uses one stop bit)
 
     //control modes lflag
     //Canonical mode -> makes input available at EOL

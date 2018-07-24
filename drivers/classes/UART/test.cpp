@@ -9,7 +9,7 @@ int main(){
     std::string data;
 
     while(1){
-        serialCom.write_data("4327\n", 5);
+        serialCom.write_data("1000 1000 1000 1000 1000 1000 1000 1000\n", 40);
         std::cout << "Wrote Hello World\n";
         if(serialCom.available() > 0){
             serialCom.read_data(data);
