@@ -45,7 +45,7 @@ void setThrusters(){ //update thrusters
 /*------------------------------Start of runtime program------------------------------*/
 void setup() {
   // initialize serial to 115200 baud (SERIAL_8E1) 8 bit, even parity, 1 stop bit
-  Serial.begin(115200);
+  Serial.begin(115200, SERIAL_8E1);
   // reserve 100 bytes for the packet:
   packet.reserve(100);
 
