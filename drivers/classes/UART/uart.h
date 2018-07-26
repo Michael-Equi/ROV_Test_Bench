@@ -9,23 +9,20 @@
 class uart
 {
 
- struct termios tty;
- int flags;
- int fd; //linux file identifier
-
- unsigned char rxBuffer[1024]; //1024 = max receive message size
- unsigned int length;
+ struct termios m_tty;
+ char m_fileName[20];
+ int m_flags;
+ int m_fd; //linux file identifier
 
  public:
-    uart(int baud = 115200);
+    uart(int baud = 115200, const char* file = "/dev/ttyACM0"); //file is a max of twenty chars and must be null terminated
     virtual ~uart();
 
     //read all chars from the buffer
-    void read_data(std::string&);
+    int read_data(char*);
 
-    int write_data(char*, int); //give a null reminated char array, returns -1 if an error occured
+    int write_data(char*, size_t); //give a null terminated char array, returns -1 if an error occurred
 
-    int available(); // get size and update the rxBuffer -> prevents hanging programs
 
 };
 

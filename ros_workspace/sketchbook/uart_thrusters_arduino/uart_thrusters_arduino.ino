@@ -37,8 +37,8 @@ void setThrusters(){ //update thrusters
   T4.writeMicroseconds(thrusters[3]);
   T5.writeMicroseconds(thrusters[4]);
   T6.writeMicroseconds(thrusters[5]);
-  //T7
-  //T8
+  T7.writeMicroseconds(thrusters[6]);
+  T8.writeMicroseconds(thrusters[7]);
   }
 
 
@@ -50,12 +50,14 @@ void setup() {
   packet.reserve(100);
 
   //Setup Servo pins
-  T1.attach(3);
-  T2.attach(5);
-  T3.attach(6);
-  T4.attach(7);
-  T5.attach(10);
-  T6.attach(11);
+  T1.attach(2);
+  T2.attach(3);
+  T3.attach(4);
+  T4.attach(5);
+  T5.attach(6);
+  T6.attach(7);
+  T7.attach(8);
+  T8.attach(9);
 
   //Set thrusters
   T1.writeMicroseconds(thrusters[0]);
@@ -64,6 +66,8 @@ void setup() {
   T4.writeMicroseconds(thrusters[3]);
   T5.writeMicroseconds(thrusters[4]);
   T6.writeMicroseconds(thrusters[5]);
+  T7.writeMicroseconds(thrusters[6]);
+  T8.writeMicroseconds(thrusters[7]);
 
   delay(1000); //delay to make sure thrusters get setup properly
   Serial.println("Thruster controller initialized");
