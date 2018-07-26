@@ -1,16 +1,17 @@
-# uart_thrusters_arduino
+# uart_thrusters_arduino_SAMD21
 
-This is the core firmware and logic for the bottomside arduino microntroller. This firmware is equiped with a new packet parsing algorith and thruster control software.
+This is the core firmware and logic for the bottomside arduino microntroller. This firmware is equiped with a new packet parsing algorith and thruster control software. Additioanlly, extra accomidations for the native USB port on the SMAD21 Cortex-M microntroller have been made.
 
 ### Goal
 
-For a reliable independant microcontroller to provide additional safety features over a direct I2C to PWM converter or onboard PWM signal on the main bottomside computer.  
+A reliable independant microcontroller to provide additional safety features over a direct I2C to PWM converter or onboard PWM signal on the main bottomside computer. 
 
 ### Requirments and Description
 
 * Flawless error handling
 * Clean commented code
 * logical layout and good code practices 
+* Proper Atmel Studio 7 Debugging capabilities
 
 ### Break down into end to end tests
 
@@ -19,24 +20,21 @@ For a reliable independant microcontroller to provide additional safety features
 
 ### Coding detials 
 
+* Built with Atmel Studio 7 
+* Run on SAMD21 (Arduino M0)
 * C++, Arduino
 * No classes
-* Two tabs 
-  * uart_thrusters_arduino.ino
-  * packet_reader.ino
 
 ## Contributing and Project Ownership
 
 * Initial owner: Michael Equi
-* Current maintaner: Michael Equi
-* packet_reader algorithm contributer: Michael Equi
-* uart_thrusters_arduino calculateThrusterValues contributer: Michael Equi 
-
-
+* Current maintaner:
+* packet_reader algorithm contributer: 
+* uart_thrusters_arduino calculateThrusterValues contributer:
 
 ## Versioning
 
-* Latest Version 
+* Out Dated Version 
 * Active
 
 ## Authors
