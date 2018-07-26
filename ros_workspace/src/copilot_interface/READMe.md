@@ -1,6 +1,25 @@
 # copilot_interface
 
+### Goal
 
+Take in copilot input data using the dynamic reconfigure interface 
+
+### Requirments and Description
+
+* dedicated launch file for joy and control_interface 
+* Follow phase 0 arhcitecture design 
+* Run on topside computer
+
+### tests and testing requirements
+
+* Must be able to handle system crashes and worst case scenario events while providing good debug inforamtion 
+  * 1 hour of rigorous testing with a mix a valid and invlaid messages
+
+
+### Coding detials 
+
+* C++, ROS
+* No classes
 
 ## Build Intructions
 
@@ -16,31 +35,50 @@
 
 ## Node Information
 
+Name and Remapping:
+* copilot_control
+
 Topics:
 
-* `/raspicam_node/compressed`:
-  Publishes `sensor_msgs/CompressedImage` with jpeg from the camera module.
+* `topic_name`:
+  Subscribes `message_type` info.
 
-* `/raspicam_node/camera_info`:
-  Publishes `sensor_msgs/CameraInfo` camera info for each frame.
+* `topic_name`:
+  Publishes `message_type` info.
 
 Services:
 
-* `/set_camera_info`: Used to update calibration info for the camera.
+* `service_name`: info
 
-Parameters:
+Parameters/Reconfigs:
 
-* `camera_frame_id` (tf frame): The frame identifier to associate the camera.
+*  `parameter_name`: info
 
-* `camera_info_url`: The URL of the camera calibration `.yaml` file.
+*  `config.l_scale`: linear sensitivity scale
+*  `config.a_scale`: angular sensitivity scale
+*  `config.v_scale`: vertical sensitivity scale
+*  `config.thrustersEnabled`: thrusters enabled button
 
-* `camera_name` (string): The name of the camera, should match with name in camera_info file.
 
-* `framerate` (fps): Framerate to capture at. Maximum 90fps
+## Contributing and Project Ownership
 
-* `height` (pixels): Height to capture images at.
+* Initial owner: Michael Equi
+* Current maintaner: Michael Equi
+* dynamic_reconfigure contributer: Michael Equi
 
-* `width` (pixels): Width to capture images at.
+## Versioning
 
-* `quality` (0-100): Quality of the captured images.
+* Latest Version 
+* Active
+
+## Authors
+
+* Michael Equi
+
+## Helpful Resources
+
+* NONE
+
+
+
 
