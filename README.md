@@ -86,8 +86,8 @@ On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here
 * http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick (replace indigo with kinetic)
 
 
-#UPDATES NEEDED BELOW THIS POINT
-
+##UPDATES NEEDED BELOW THIS POINT
+--------------------------------
 
 ## Running the tests
 
