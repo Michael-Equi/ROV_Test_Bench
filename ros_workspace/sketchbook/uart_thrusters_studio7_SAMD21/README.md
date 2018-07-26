@@ -1,4 +1,4 @@
-# uart_thrusters_arduino_SAMD21
+# uart_thrusters_studio7_SAMD21
 
 This is the core firmware and logic for the bottomside arduino microntroller. This firmware is equiped with a new packet parsing algorith and thruster control software. Additioanlly, extra accomidations for the native USB port on the SMAD21 Cortex-M microntroller have been made.
 
