@@ -6,7 +6,7 @@ This is the core firmware and logic for the bottomside arduino microntroller. Th
 
 For a reliable independant microcontroller to provide additional safety features over a direct I2C to PWM converter or onboard PWM signal on the main bottomside computer.  
 
-### Req
+### Requirments and Description
 
 * Flawless error handling
 * Clean commented code
