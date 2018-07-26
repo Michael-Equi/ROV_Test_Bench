@@ -49,6 +49,9 @@ For running rosserial the first time make sure to `sudo apt-get install ros-kine
 
 Add vector_drive/thrusterPercents.h to the libraries folder in arduino
 
+RPI Camera node setup
+* https://github.com/UbiquityRobotics/raspicam_node
+
 
 ```
 Give examples
