@@ -35,8 +35,10 @@ Communicate with non-ROS integrated hardware such as the uart_thrusters_arduino 
 
 ## Node Information
 
+file: hw_thruster_controller_interface.py
+
 Name and Remapping:
-* copilot_control
+* hw_thruster_controller_interface
 
 Topics:
 
