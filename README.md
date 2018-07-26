@@ -1,6 +1,6 @@
 # ROV Test Bench
 
-One Paragraph of project description goes here
+The goal of this project is to develop preseason software technologies based on ROS. This project will explorer development paths and verify new technologies before more permanent hardware development. Key areas of testing are cameras, vector drive, controllers, and PID algortihms. Additionally new workflows/integration tactics are to be tested and documented (Travis CI, Docker, node documentation, doxygen). This project will expire at the beginning of the 2018-2019 robotics season.   
 
 [![Build Status](https://travis-ci.com/Michael-Equi/ROV_Test_Bench.svg?branch=master)](https://travis-ci.com/Michael-Equi/ROV_Test_Bench)
 
@@ -8,7 +8,7 @@ One Paragraph of project description goes here
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on the main ROV system (Master).
 
 FOLLOW:
 *  https://docs.google.com/document/d/1C32ucQTIAsE2H7u9OERmmCfyc6WzUvhrB2U6_GgZuWg/edit?usp=sharing
@@ -17,12 +17,9 @@ Initial SETUP:
 * `cd ~/Desktop`
 * `git clone https://github.com/Michael-Equi/ROV_Test_Bench.git`
 * `cd ROV_Test_Bench/scripts`
-* `./GitSetup,sh`
+* `./GitSetup.sh`
 * `./setup.sh`
 * (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
-
-* make sure all computers are on a dhcp network (no static IP's)
-* use `hostname` to find the hostname of your conputers and make sure they can ping each other `ping hostname.local`
     
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
 Only develop with clion, webstorm, pycharm, and arduino*
@@ -52,10 +49,6 @@ Add vector_drive/thrusterPercents.h to the libraries folder in arduino
 RPI Camera node setup
 * https://github.com/UbiquityRobotics/raspicam_node
 
-
-```
-Give examples
-```
 ### Network Setup
 
 What things you need to do so that the ROS network operates properly 
@@ -83,10 +76,6 @@ Other usefull links for common problems:
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
 * https://answers.ros.org/question/41446/a-is-not-in-your-ssh-known_hosts-file/
 
-```
-Give examples
-```
-
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -96,19 +85,9 @@ On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here
 * https://www.intorobotics.com/how-to-install-ros-kinetic-on-raspberry-pi-3-running-raspbian-stretch-lite/
 * http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick (replace indigo with kinetic)
 
-Say what the step will be
 
-```
-Give the example
-```
+#UPDATES NEEDED BELOW THIS POINT
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -154,12 +133,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+* README Tempalte source https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 * Inspiration
 * etc
