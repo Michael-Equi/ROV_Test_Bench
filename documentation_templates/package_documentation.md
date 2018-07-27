@@ -43,12 +43,8 @@ Services:
 Parameters/Reconfigs:
 *  `parameter_name`: info
 
-example ---------------------------------------------------------------------------------------------
 
-* Running the Node
- * Run on topside/bottomside
- * `rosrun ...`
- 
+
 ### other_node_name (if applicable)
 
 * Node Inforation
@@ -79,18 +75,12 @@ Services:
 Parameters/Reconfigs:
 *  `parameter_name`: info
 
-example ---------------------------------------------------------------------------------------------
-
-* Running the Node
- * Run on topside/bottomside
- * `rosrun ...`
-
-
 
 
 ## Launch Information
  
 Any details about launch files and what they do goes here
+Any remapping information goes here
 
 ## Project Ownership
 
