@@ -4,7 +4,7 @@
 
 ## Description
 
- Pargraph on how this package fit into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
+ Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
 
 ## Build Instructions 
 
@@ -81,6 +81,8 @@ Parameters/Reconfigs:
  
 Any details about launch files and what they do goes here
 Any remapping information goes here
+
+## Troubleshooting
 
 ## Project Ownership
 
