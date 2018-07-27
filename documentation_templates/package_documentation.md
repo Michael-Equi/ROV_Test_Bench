@@ -13,7 +13,7 @@
 
 ## Nodes
 
-###node_name
+### node_name
 
 * Node Inforation
  * What exactly deos this Node do 
@@ -49,7 +49,7 @@ example ------------------------------------------------------------------------
  * Run on topside/bottomside
  * `rosrun ...`
  
-###other_node_name (if applicable)
+### other_node_name (if applicable)
 
 * Node Inforation
  * What exactly deos this Node do 
