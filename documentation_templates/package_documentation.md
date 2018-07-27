@@ -1,4 +1,4 @@
-### Rename to README.md when placed in package (Delete this sentece)
+### Rename to README.md when placed in package (Delete this sentence)
 
 # package_name
 
