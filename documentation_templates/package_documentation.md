@@ -90,7 +90,7 @@ Any remapping information goes here
 * Initial owner:
 * Current owner:
 
-## Contributing 
+## Contributors 
 
 * List contirbutors (anyone who writes stuff into this package) and role here 
 * Current maintaner: 
