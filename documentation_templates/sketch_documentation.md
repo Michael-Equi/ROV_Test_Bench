@@ -4,11 +4,11 @@
 
 ## Description
 
-Pargraph on how this code fits into the overall architecture. What it does and what is runs on? 
+Pargraph on how this code fits into the overall architecture. What it does and what is runs on (cortex-M, arduino ARM/AVR, etc.)? 
 
 ## Instructions 
 
-* Anything that needs special care when buidling this code and running it on the embedded system 
+* Instructions for buidling this code and running it on its respective embedded system 
   * `...`
 
 ## Troubleshooting
