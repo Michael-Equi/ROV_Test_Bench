@@ -4,11 +4,11 @@
 
 ## Description
 
- Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
+Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
 
 ## Build Instructions 
 
-* Anything that needs special care when buidling this package and running the nodes (ex. install)
+* Anything extra steps for buidling this package and running the nodes (ex. install)
   * `sudo apt-get install ...`
 
 ## Nodes
@@ -25,7 +25,7 @@ example ------------------------------------------------------------------------
 
 file: hw_thruster_controller_interface.py
 
-Name and Remapping:
+Node name:
 * hw_thruster_controller_interface
 
 Topics:
@@ -42,7 +42,6 @@ Services:
 
 Parameters/Reconfigs:
 *  `parameter_name`: info
-
 
 
 ### other_node_name (if applicable)
@@ -52,35 +51,12 @@ Parameters/Reconfigs:
  * Where does it run
  * What are its dependencies 
  * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
-
-example ---------------------------------------------------------------------------------------------
-
-file: hw_thruster_controller_interface.py
-
-Name and Remapping:
-* hw_thruster_controller_interface
-
-Topics:
-
-* `rov/cmd_horizontal_vdrive`:
-  Subscribes `vector_drive/thrusterPercents` gives the thruster setting from -1000 to 1000 for thrusters T1,2,3,4.
-  * `rov/cmd_vertical_vdrive`:
-  Subscribes `vector_drive/thrusterPercents`gives the thruster setting from -1000 to 1000 for thrusters T5,6,7,8.
-* `topic_name`:
-  Publishes `message_type` info.
-
-Services:
-* `service_name`: info
-
-Parameters/Reconfigs:
-*  `parameter_name`: info
-
-
+ 
 
 ## Launch Information
  
-Any details about launch files and what they do goes here
-Any remapping information goes here
+Any details about launch files and what they do goes here.
+Any remapping information goes here.
 
 ## Troubleshooting
 
