@@ -138,7 +138,7 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "joystick");
+    ros::init(argc, argv, "pilot_control");
 
     //ROS nodehandle
     ros::NodeHandle n;
