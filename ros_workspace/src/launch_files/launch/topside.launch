@@ -3,8 +3,7 @@
   <node pkg="rov_control_interface" type="pilot_control" name="pilot_control"/>
 
  <!-- joy node -->
-  <node respawn="true" pkg="joy"
-        type="joy_node" name="rov_joy" >
+  <node respawn="true" pkg="joy" type="joy_node" name="rov_joy" >
     <param name="dev" type="string" value="/dev/input/js0" />
     <param name="deadzone" value="0.12" />
   </node>
