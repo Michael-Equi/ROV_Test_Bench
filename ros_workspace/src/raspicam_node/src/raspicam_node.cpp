@@ -96,6 +96,12 @@ int main(int argc, char **argv) {
 
 #include <semaphore.h>
 
+//For IVPort camera mux
+#include <std_msgs::UInt8.h>
+ros::Subscriber camera_select_sub; //Camera select subscriber
+
+
+
 const int IMG_BUFFER_SIZE = 10 * 1024 * 1024;
 /// Camera number to use - we only have one camera, indexed from 0.
 #define CAMERA_NUMBER 0
@@ -878,9 +884,22 @@ void reconfigure_callback(raspicam_node::CameraConfig &config, uint32_t level) {
     ROS_INFO("Reconfigure done");
 }
 
+//Function for switching cameras
+int lastCam(0);
+void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
+    int newCam = msg->data;
+    if(newCam != lastCam){
+        ROS_INFO("Switching to camera %d", msg->data);
+        lastCam = newCam;
+    }
+}
+
 int main(int argc, char **argv) {
     ros::init(argc, argv, "raspicam_node");
     ros::NodeHandle n("~");
+
+    //For IVPort video mux
+    camera_select_sub = n.subscribe("camera_select", 3, updateCameraSelection);
 
     n.param("skip_frames", skip_frames, 0);
 
