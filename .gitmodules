@@ -4,3 +4,6 @@
 [submodule "drivers/ivport-v2"]
 	path = drivers/ivport-v2
 	url = https://github.com/ivmech/ivport-v2.git
+[submodule "drivers/gnublin-api"]
+	path = drivers/gnublin-api
+	url = https://github.com/embeddedprojects/gnublin-api.git
