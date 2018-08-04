@@ -98,6 +98,7 @@ int main(int argc, char **argv) {
 
 //For IVPort camera mux
 #include <std_msgs/UInt8.h>
+#include <unistd.h>
 #include "i2c.h"
 #include "gpio.h"
 ros::Subscriber camera_select_sub; //Camera select subscriber
@@ -949,7 +950,13 @@ int main(int argc, char **argv) {
     gpio.pinMode(f1, "out");
     gpio.pinMode(f2, "out");
 
+    gpio.digitalWrite(ePin, 0);
+    gpio.digitalWrite(f1, 0);
+    gpio.digitalWrite(f2, 1);
+
     if(i2c.send(0x01) == -1){return 2;} //set i2c to camera 1
+
+    usleep(100000);
 
     n.param("skip_frames", skip_frames, 0);
 
