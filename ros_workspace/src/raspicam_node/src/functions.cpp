@@ -3,13 +3,11 @@
 
 //Converting string to number
 int stringToNumber(std::string str){
-	std::stringstream  strin;
 	int var;
 
-	strin << str;
-	strin >> var;
+	//Not supported right now 
 	
-	return var;
+	return -1;
 }
 
 //Converting a number to string
