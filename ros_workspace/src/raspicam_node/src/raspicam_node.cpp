@@ -892,7 +892,7 @@ void reconfigure_callback(raspicam_node::CameraConfig &config, uint32_t level) {
 int lastCam(0);
 gnublin_gpio gpio;
 gnublin_i2c i2c(0x70); //slave address of mux is 0x70
-const int e(7), f1(11), f2(12); //pin numbers for IVport camera mux
+const int ePin(4), f1(17), f2(18); //pin numbers for IVport camera mux
 
 void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
     int newCam = msg->data;
@@ -902,27 +902,31 @@ void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
         switch(msg->data){
             case(1):
                 if(i2c.send(0x01) == -1){return;}
-                gpio.digitalWrite(e, 0);
+                gpio.digitalWrite(ePin, 0);
                 gpio.digitalWrite(f1, 0);
                 gpio.digitalWrite(f2, 1);
+                if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
                 break;
             case(2):
                 if(i2c.send(0x02) == -1){return;}
-                gpio.digitalWrite(e, 1);
+                gpio.digitalWrite(ePin, 1);
                 gpio.digitalWrite(f1, 0);
                 gpio.digitalWrite(f2, 1);
+                if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
                 break;
             case(3):
                 if(i2c.send(0x04) == -1){return;}
-                gpio.digitalWrite(e, 0);
+                gpio.digitalWrite(ePin, 0);
                 gpio.digitalWrite(f1, 1);
                 gpio.digitalWrite(f2, 0);
+                if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
                 break;
             case(4):
                 if(i2c.send(0x08) == -1){return;}
-                gpio.digitalWrite(e, 1);
+                gpio.digitalWrite(ePin, 1);
                 gpio.digitalWrite(f1, 1);
                 gpio.digitalWrite(f2, 0);
+                if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
                 break;
             default:
                 ROS_ERROR("Pin %d not valid!", msg->data);
@@ -941,7 +945,7 @@ int main(int argc, char **argv) {
 
     //For IVPort video mux
     camera_select_sub = nh.subscribe("camera_select", 3, updateCameraSelection);
-    gpio.pinMode(e, "out");
+    gpio.pinMode(ePin, "out");
     gpio.pinMode(f1, "out");
     gpio.pinMode(f2, "out");
 
