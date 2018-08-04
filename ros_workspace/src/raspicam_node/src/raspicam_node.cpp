@@ -887,11 +887,49 @@ void reconfigure_callback(raspicam_node::CameraConfig &config, uint32_t level) {
 }
 
 //Function for switching cameras
+#define BOARD RASPBERRY_PI
+
 int lastCam(0);
+gnublin_gpio gpio;
+gnublin_i2c i2c(0x70); //slave address of mux is 0x70
+const int e(7), f1(11), f2(12); //pin numbers for IVport camera mux
+
 void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
     int newCam = msg->data;
     if(newCam != lastCam){
         ROS_INFO("Switching to camera %d", msg->data);
+
+        switch(msg->data){
+            case(1):
+                if(i2c.send(0x01) == -1){return;}
+                gpio.digitalWrite(e, 0);
+                gpio.digitalWrite(f1, 0);
+                gpio.digitalWrite(f2, 1);
+                break;
+            case(2):
+                if(i2c.send(0x02) == -1){return;}
+                gpio.digitalWrite(e, 1);
+                gpio.digitalWrite(f1, 0);
+                gpio.digitalWrite(f2, 1);
+                break;
+            case(3):
+                if(i2c.send(0x04) == -1){return;}
+                gpio.digitalWrite(e, 0);
+                gpio.digitalWrite(f1, 1);
+                gpio.digitalWrite(f2, 0);
+                break;
+            case(4):
+                if(i2c.send(0x08) == -1){return;}
+                gpio.digitalWrite(e, 1);
+                gpio.digitalWrite(f1, 1);
+                gpio.digitalWrite(f2, 0);
+                break;
+            default:
+                ROS_ERROR("Pin %d not valid!", msg->data);
+                return;
+                break;
+        }
+
         lastCam = newCam;
     }
 }
@@ -903,6 +941,11 @@ int main(int argc, char **argv) {
 
     //For IVPort video mux
     camera_select_sub = nh.subscribe("camera_select", 3, updateCameraSelection);
+    gpio.pinMode(e, "out");
+    gpio.pinMode(f1, "out");
+    gpio.pinMode(f2, "out");
+
+    if(i2c.send(0x01) == -1){return 2;} //set i2c to camera 1
 
     n.param("skip_frames", skip_frames, 0);
 
