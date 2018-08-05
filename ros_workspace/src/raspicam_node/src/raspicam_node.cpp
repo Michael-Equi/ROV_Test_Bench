@@ -45,6 +45,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * We use the RaspiCamControl code to handle the specific camera settings.
  * We use the RaspiPreview code to handle the (generic) preview window
+ *
+ * Camera Mux added by Michael Equi
  */
 
 #ifdef __x86_64__
@@ -102,6 +104,13 @@ int main(int argc, char **argv) {
 #include "i2c.h"
 #include "gpio.h"
 ros::Subscriber camera_select_sub; //Camera select subscriber
+
+#define BOARD RASPBERRY_PI
+
+int lastCam(0);
+gnublin_gpio gpio;
+gnublin_i2c i2c(0x70); //slave address of mux is 0x70
+const int ePin(4), f1(17), f2(18); //pin numbers for IVport camera mux
 
 
 
@@ -787,6 +796,15 @@ int start_capture(RASPIVID_STATE *state) {
 }
 
 int close_cam(RASPIVID_STATE *state) {
+
+    //Return to camera 1
+    i2c.send(0x01);
+    gpio.digitalWrite(ePin, 0);
+    gpio.digitalWrite(f1, 0);
+    gpio.digitalWrite(f2, 1);
+
+    usleep(100000); //delay for a tenth of a second
+
     if (state->isInit) {
         state->isInit = 0;
         MMAL_COMPONENT_T *camera = state->camera_component;
@@ -888,13 +906,6 @@ void reconfigure_callback(raspicam_node::CameraConfig &config, uint32_t level) {
 }
 
 //Function for switching cameras
-#define BOARD RASPBERRY_PI
-
-int lastCam(0);
-gnublin_gpio gpio;
-gnublin_i2c i2c(0x70); //slave address of mux is 0x70
-const int ePin(4), f1(17), f2(18); //pin numbers for IVport camera mux
-
 void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
     int newCam = msg->data;
     if(newCam != lastCam){
@@ -907,6 +918,7 @@ void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
                 gpio.digitalWrite(f1, 0);
                 gpio.digitalWrite(f2, 1);
                 if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
+                if(i2c.fail()){ROS_DEBUG("I2C FAILED!");}
                 break;
             case(2):
                 if(i2c.send(0x02) == -1){return;}
@@ -914,6 +926,7 @@ void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
                 gpio.digitalWrite(f1, 0);
                 gpio.digitalWrite(f2, 1);
                 if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
+                if(i2c.fail()){ROS_DEBUG("I2C FAILED!");}
                 break;
             case(3):
                 if(i2c.send(0x04) == -1){return;}
@@ -921,6 +934,7 @@ void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
                 gpio.digitalWrite(f1, 1);
                 gpio.digitalWrite(f2, 0);
                 if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
+                if(i2c.fail()){ROS_DEBUG("I2C FAILED!");}
                 break;
             case(4):
                 if(i2c.send(0x08) == -1){return;}
@@ -928,9 +942,10 @@ void updateCameraSelection(const std_msgs::UInt8::ConstPtr& msg){
                 gpio.digitalWrite(f1, 1);
                 gpio.digitalWrite(f2, 0);
                 if(gpio.fail()){ROS_DEBUG("GPIO FAILED!");}
+                if(i2c.fail()){ROS_DEBUG("I2C FAILED!");}
                 break;
             default:
-                ROS_ERROR("Pin %d not valid!", msg->data);
+                ROS_ERROR("Camera %d not valid!", msg->data);
                 return;
                 break;
         }
@@ -955,8 +970,22 @@ int main(int argc, char **argv) {
     gpio.digitalWrite(f2, 1);
 
     if(i2c.send(0x01) == -1){return 2;} //set i2c to camera 1
+    if(i2c.fail()){ROS_DEBUG("I2C FAILED!");}
 
-    usleep(100000);
+
+    usleep(500000); //delay for a 1/2 second
+
+    //written twice to prevent start up fail problem
+
+    gpio.pinMode(ePin, "out");
+    gpio.pinMode(f1, "out");
+    gpio.pinMode(f2, "out");
+
+    gpio.digitalWrite(ePin, 0);
+    gpio.digitalWrite(f1, 0);
+    gpio.digitalWrite(f2, 1);
+
+    usleep(500000); //delay for a 1/2 second
 
     n.param("skip_frames", skip_frames, 0);
 
