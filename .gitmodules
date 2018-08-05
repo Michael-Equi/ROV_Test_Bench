@@ -7,3 +7,6 @@
 [submodule "drivers/gnublin-api"]
 	path = drivers/gnublin-api
 	url = https://github.com/embeddedprojects/gnublin-api.git
+[submodule "drivers/smbus2"]
+	path = drivers/smbus2
+	url = https://github.com/kplindegaard/smbus2.git
