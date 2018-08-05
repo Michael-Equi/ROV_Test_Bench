@@ -10,7 +10,8 @@ Pargraph on how this code fits into the overall architecture. What it does and w
 
 * Instructions for buidling this code and running it on its respective embedded system 
   * `...`
-
+## Communication Architecture
+* messages, how this code communicates or fits in with the rest of the architecture
 ## Troubleshooting
 
 ## Project Ownership
