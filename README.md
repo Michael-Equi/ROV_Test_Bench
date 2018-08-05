@@ -16,6 +16,7 @@ FOLLOW:
 Initial SETUP:
 * `cd ~/Desktop`
 * `git clone https://github.com/Michael-Equi/ROV_Test_Bench.git`
+* `git submodule update --init`
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup.sh`
 * `./setup.sh`
