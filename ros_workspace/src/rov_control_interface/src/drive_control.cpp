@@ -5,6 +5,10 @@
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
 
+#include <std_msgs/UInt8.h> //For camera Pub
+
+//Added temporary camera mux publisher - delete when fixed
+
 //Location of axis in the joy message array
 const int linearAxisFBIndex = 1; //forward-backward
 const int linearAxisLRIndex = 0; //left-right
@@ -32,6 +36,10 @@ const double bilinearThreshold(1.0 / bilinearRatio);
 //subscribing to the logitech joystick and outputting control vectors
 ros::Publisher vel_pub;
 ros::Subscriber joy_sub;
+
+
+ros::Publisher camera_select; //Camera pub
+
 
 void bilinearCalc(double &axis){
     if((bilinearThreshold * -0.32768)<= axis && axis < (bilinearThreshold * 0.32767)){ //middle range
@@ -126,19 +134,23 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
 
     thrustEN = config.thrustersEnabled;
 
-   l_scale = config.l_scale;
+    l_scale = config.l_scale;
     a_scale = config.a_scale;
     v_scale = config.v_scale;
 
     inversion = config.inversion;
 
+    //Camera publisher
+    std_msgs::UInt8 msg;
+    msg.data = config.camera;
+    camera_select.publish(msg);
 }
 
 
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "joystick");
+    ros::init(argc, argv, "drive_control");
 
     //ROS nodehandle
     ros::NodeHandle n;
@@ -148,7 +160,7 @@ int main(int argc, char **argv)
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
 
-
+    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3); //Camera pub
 
     //setup dynamic reconfigure
     dynamic_reconfigure::Server<copilot_interface::copilotControlParamsConfig> server;

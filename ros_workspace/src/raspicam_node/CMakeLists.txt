@@ -124,6 +124,18 @@ add_library(raspicamcontrol STATIC
   src/RaspiCamControl.cpp 
 )
 
+add_library(i2c STATIC
+  src/i2c.cpp 
+)
+
+add_library(gpio STATIC
+  src/gpio.cpp 
+)
+
+add_library(gnublin_func STATIC
+  src/functions.cpp 
+)
+
 ## Declare a cpp executable
 add_executable(raspicam_node src/raspicam_node.cpp)
 
@@ -135,7 +147,7 @@ add_dependencies(raspicam_node raspicam_node_gencfg)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(raspicam_node
   ${catkin_LIBRARIES}
-  raspicamcontrol raspicli
+  raspicamcontrol raspicli i2c gpio gnublin_func
   ${RPI_LIBRARIES} 
 )
 

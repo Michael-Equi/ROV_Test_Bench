@@ -23,20 +23,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="horiz_drive.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vector_drive/src/horiz_drive.cpp">
+      <file leaf-file-name="raspicam_node.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/raspicam_node/src/raspicam_node.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="copilot_interface.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="19" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="19" />
+            <state relative-caret-position="282">
+              <caret line="892" column="25" lean-forward="true" selection-start-line="892" selection-start-column="25" selection-end-line="892" selection-end-column="25" />
+              <folding>
+                <element signature="e#2408#2584#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,42 +38,56 @@
       <file leaf-file-name="vert_drive.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
+            <state relative-caret-position="585">
               <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topside.launch" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/launch_files/launch/topside.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bottomside.launch" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/launch_files/launch/bottomside.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RaspiCamControl.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/raspicam_node/src/RaspiCamControl.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
               <folding>
-                <element signature="e#340#535#0" />
-                <element signature="e#537#628#0" />
-                <element signature="e#630#743#0" />
-                <element signature="e#745#858#0" />
-                <element signature="e#860#1032#0" />
+                <element signature="e#1582#43157#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vector_drive.launch" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vector_drive/launch/vector_drive.launch">
+      <file leaf-file-name="copilot_interface.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+            <state relative-caret-position="300">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vector_drive/CMakeLists.txt">
+      <file leaf-file-name="drive_control.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vector_drive/package.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+            <state relative-caret-position="600">
+              <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -101,22 +109,41 @@
       <find>n.</find>
       <find>map</find>
       <find>pub</find>
+      <find>start_capture</find>
+      <find>dri</find>
+      <find>image_pub</find>
+      <find>pilot</find>
+      <find>find_pac</find>
+      <find>messages</find>
+      <find>copil</find>
+      <find>ROS_INFO</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/vector_drive/package.xml" />
-        <option value="$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp" />
         <option value="$PROJECT_DIR$/src/vector_drive/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/rov_control_interface/package.xml" />
-        <option value="$PROJECT_DIR$/src/rov_control_interface/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp" />
-        <option value="$PROJECT_DIR$/src/vector_drive/launch/vector_drive.launch" />
         <option value="$PROJECT_DIR$/src/vector_drive/msg/thrusterPercents.msg" />
         <option value="$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp" />
         <option value="$PROJECT_DIR$/src/vector_drive/src/horiz_drive.cpp" />
+        <option value="$PROJECT_DIR$/src/launch_files/package.xml" />
+        <option value="$PROJECT_DIR$/src/rov_control_interface/src/pilot_control.cpp" />
+        <option value="$PROJECT_DIR$/src/rov_control_interface/launch/control_interface.launch" />
+        <option value="$PROJECT_DIR$/src/hardware_interface/src/hw_thruster_controller.py" />
+        <option value="$PROJECT_DIR$/src/launch_files/launch/bottomside.launch" />
+        <option value="$PROJECT_DIR$/src/hardware_interface/launch/vector_drive_topside.launch" />
+        <option value="$PROJECT_DIR$/src/hardware_interface/launch/vector_drive_hw.launch" />
+        <option value="$PROJECT_DIR$/src/vector_drive/launch/vector_drive.launch" />
+        <option value="$PROJECT_DIR$/src/vector_drive/launch/distributed_vector_drive.launch" />
+        <option value="$PROJECT_DIR$/src/rov_control_interface/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/launch_files/launch/topside.launch" />
+        <option value="$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp" />
+        <option value="$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp" />
+        <option value="$PROJECT_DIR$/src/raspicam_node/src/raspicam_node.cpp" />
       </list>
     </option>
   </component>
@@ -129,17 +156,18 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="1312" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1248" />
-    <option name="height" value="1416" />
+    <option name="width" value="2493" />
+    <option name="height" value="1408" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,25 +178,40 @@
             <path>
               <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="raspicam_node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="raspicam_node" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rov_control_interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rov_control_interface" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="vector_drive" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="vector_drive" type="462c0819:PsiDirectoryNode" />
-              <item name="launch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ros_workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vector_drive" type="462c0819:PsiDirectoryNode" />
-              <item name="msg" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,26 +257,30 @@
       <workItem from="1531366041457" duration="608000" />
       <workItem from="1532401873088" duration="69000" />
       <workItem from="1532402071669" duration="1394000" />
+      <workItem from="1533242862498" duration="2749000" />
+      <workItem from="1533247538113" duration="2370000" />
+      <workItem from="1533332507597" duration="5031000" />
+      <workItem from="1533337662357" duration="1406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47199000" />
+    <option name="totallyTimeSpent" value="58755000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1248" y="24" width="1248" height="1416" extended-state="4" />
+    <frame x="65" y="24" width="2493" height="1408" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.49439102" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1091055" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.23129772" />
+      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.22580644" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -244,23 +291,23 @@
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.2264574" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24729459" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10941884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.2309417" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.2264574" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.2309417" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -270,107 +317,35 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="300">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/cfg/copilotControlParams.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2220">
-          <caret line="148" column="16" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/horiz_drive.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="65" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/package.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="2175">
+          <caret line="145" column="31" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/copilot_interface/cfg/copilotControlParams.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="53" lean-forward="true" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/horiz_drive.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -381,7 +356,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
@@ -416,7 +391,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2610">
           <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
@@ -465,14 +440,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2610">
           <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1410">
           <caret line="94" column="35" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="35" />
@@ -493,7 +468,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
@@ -514,7 +489,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
@@ -542,43 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/package.xml">
+    <entry file="file://$PROJECT_DIR$/src/vector_drive/msg/thrusterPercents.msg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/cfg/copilotControlParams.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/package.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/logi_joystick.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="148" column="16" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="16" />
+        <state relative-caret-position="45">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -589,6 +531,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/launch_files/package.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/launch/control_interface.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/raspicam_node/launch/camerav2_1280x960.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hardware_interface/src/hw_thruster_controller_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/raspicam_node/launch/camerav2_1280x720.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hardware_interface/launch/vector_drive_topside.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hardware_interface/launch/vector_drive_hw.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vector_drive/launch/vector_drive.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vector_drive/launch/distributed_vector_drive.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vector_drive/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -596,45 +601,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
-          <folding>
-            <element signature="e#340#535#0" />
-            <element signature="e#537#628#0" />
-            <element signature="e#630#743#0" />
-            <element signature="e#745#858#0" />
-            <element signature="e#860#1032#0" />
-          </folding>
+        <state relative-caret-position="3030">
+          <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/package.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="19" />
+        <state relative-caret-position="885">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/msg/thrusterPercents.msg">
+    <entry file="file://$PROJECT_DIR$/src/copilot_interface/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vector_drive/launch/vector_drive.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        <state relative-caret-position="135">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vector_drive/src/horiz_drive.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="447">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/copilot_interface/cfg/copilotControlParams.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/copilot_interface/src/copilot_interface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/raspicam_node/src/RaspiCamControl.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+          <folding>
+            <element signature="e#1582#43157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launch_files/launch/topside.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launch_files/launch/bottomside.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rov_control_interface/src/drive_control.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vector_drive/src/vert_drive.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/raspicam_node/src/raspicam_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="892" column="25" lean-forward="true" selection-start-line="892" selection-start-column="25" selection-end-line="892" selection-end-column="25" />
+          <folding>
+            <element signature="e#2408#2584#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

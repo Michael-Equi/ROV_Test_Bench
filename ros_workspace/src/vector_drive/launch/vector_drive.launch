@@ -1,6 +1,6 @@
 <launch>
  <!-- joystick -> vectorCommand-->
-  <node pkg="rov_control_interface" type="logi_joystick" name="vectorCommand"/>
+  <node pkg="rov_control_interface" type="drive_control" name="drive_control"/>
 
  <!-- joy node -->
   <node respawn="true" pkg="joy"
