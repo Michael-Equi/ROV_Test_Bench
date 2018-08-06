@@ -7,10 +7,10 @@
     <node pkg="vector_drive" type="vert_drive" name="vert_drive"/>
 
  <!-- harware interface -->
-   <node respawn="true"
-	pkg="hardware_interface" 
-	type="hw_thruster_controller_interface.py" 
-	name="hw_thruster_controller_interface"/>
+   <node respawn="true" pkg="hardware_interface" type="hw_thruster_controller_interface.py"
+	name="hw_thruster_controller_interface">
+	<param name="thrusterControllerPort" value="/dev/ttyACM0"/>
+   </node>
 
   <!-- start rpi pilot cameras -->
   <node type="raspicam_node" pkg="raspicam_node" name="raspicam_node" output="screen">
