@@ -1,6 +1,7 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python
 
 import time
+import rospy
 from smbus2 import SMBusWrapper
 
 #recommended sampling frequency = 3
@@ -57,15 +58,15 @@ class BMP280:
 						bus.write_byte_data(self.address, BMP280_REGISTER_CONTROL, 0xFF)
 						bus.write_byte_data(self.address, BMP280_REGISTER_CONFIG, 0x1C)
 					except Exception as e:
-						print("Error writting to BMP280 sensor: ", e)
+						rospy.logerr("Error writting mode and settings to BMP280 sensor: %s", e)
 				calibrationSuccess = True 
 			except Exception as e:
 				attempts += 1
-				print("Error reading BMP280 calibration data: ", e)
+				rospy.logerr("Error reading BMP280 calibration data: %s", e)
 				time.sleep(0.25)
 
 		if(attempts == 10):
-			print("BMP280 failed program closing!")
+			rospy.logerr("BMP280 failed program closing!")
 			exit()
 		
 	def updateValues(self):
@@ -89,7 +90,7 @@ class BMP280:
 					self.readError = False
 					break
 				except Exception as e:
-					print("BMP280 read error: ", e)
+					rospy.logerr("BMP280 read error: %s", e)
 					self.readError = True
 					numOfTries+=1
 					time.sleep(.001)
