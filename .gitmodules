@@ -10,3 +10,6 @@
 [submodule "drivers/smbus2"]
 	path = drivers/smbus2
 	url = https://github.com/kplindegaard/smbus2.git
+[submodule "drivers/classes/ms5837/ms5837-python"]
+	path = drivers/classes/ms5837/ms5837-python
+	url = https://github.com/bluerobotics/ms5837-python.git
