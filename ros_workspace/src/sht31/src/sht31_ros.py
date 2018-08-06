@@ -11,7 +11,7 @@ sensor = SHT31(0x44)
 def publisher():
 	pub = rospy.Publisher('rov/sht31', sht31_data, queue_size=3)
 	rospy.init_node('sht31')
-	rate = rospy.Rate(1) #1Hz data read
+	rate = rospy.Rate(3) #3Hz data read
 	
 	while not rospy.is_shutdown():
 		msg = sht31_data()
