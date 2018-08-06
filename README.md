@@ -21,6 +21,7 @@ Initial SETUP:
 * `./GitSetup.sh`
 * `./setup.sh`
 * (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
+* `sudo apt-get install python-smbus`
     
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
 Only develop with clion, webstorm, pycharm, and arduino*
