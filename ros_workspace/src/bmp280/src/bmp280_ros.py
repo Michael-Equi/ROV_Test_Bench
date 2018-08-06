@@ -4,6 +4,7 @@ from bmp280_driver import BMP280
 
 import rospy
 from bmp280.msg import bmp280_data
+from std_msgs.msg import Header
 
 sensor = BMP280(0x77)
 
@@ -14,6 +15,7 @@ def publisher():
 	
 	while not rospy.is_shutdown():
 		msg = bmp280_data()
+		header = Header()
 
 		sensor.updateValues()
 
@@ -21,6 +23,12 @@ def publisher():
 		msg.pressureP = sensor.getPressureP()
 		msg.pressureA = sensor.getPressureA()
 		msg.altitudeM = sensor.getAltitudeM()
+
+		#update message headers
+		header.stamp = rospy.Time.now()
+		header.frame_id = 'pressure_data'
+		msg.header = header
+
 		pub.publish(msg)
 
 		rate.sleep()

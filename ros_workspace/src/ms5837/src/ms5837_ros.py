@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 import ms5837_driver
-import time
 
 import rospy
 from ms5837.msg import ms5837_data
+from std_msgs.msg import Header
 
 # Choose seawater or freshwater depth calibration using ros param
 # freshwater = 997 kg/m^3
@@ -31,7 +31,7 @@ def publisher():
 		except Exception as e:
 			rospy.logerr("Sensor could not be initialized! %s", e)
 			attempts += 1
-			time.sleep(0.25)
+			rospy.sleep(0.25)
 
 	if(attempts == 10):
 		rospy.logerr("Sensor could not be initialized! Program end")
@@ -41,6 +41,7 @@ def publisher():
 	
 	while not rospy.is_shutdown():
 		msg = ms5837_data()
+		header = Header()
 
 		goodRead = False
 		while(goodRead != True):
@@ -49,12 +50,18 @@ def publisher():
 				goodRead = True
 			except Exception as e:
 				rospy.logerr("Sensor read failed! %s", e)
-				time.sleep(0.2)
+				rospy.sleep(0.2)
 
 		msg.tempC = sensor.temperature(ms5837_driver.UNITS_Centigrade)
 		msg.tempF = sensor.temperature(ms5837_driver.UNITS_Farenheit)
 		msg.depth = sensor.depth() 
 		msg.altitudeM = sensor.altitude()
+
+		#update message headers
+		header.stamp = rospy.Time.now()
+		header.frame_id = 'depth_data'
+		msg.header = header
+
 		pub.publish(msg)
 
 		rate.sleep()

@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-import time
+
 import rospy
 from smbus2 import SMBusWrapper
 
@@ -21,7 +21,7 @@ class SHT31:
 				rospy.logerr("Error writting to SHT31 sensor: %s", e)
 				
 		
-		time.sleep(.012) #experimentally found rest time before reading values
+		rospy.sleep(.015) #experimentally found rest time before reading values
 		with SMBusWrapper(1) as bus:
 			#read 16 bit temp and humidity with 2 CRC bytes (6 bytes)
 			numOfTries = 0
@@ -34,7 +34,7 @@ class SHT31:
 					rospy.logerr("SHT31-D read error: %s", e)
 					self.readError = True
 					numOfTries+=1
-					time.sleep(.001)
+					rospy.sleep(.001)
 					#print "Retrying..."
 			if(not self.readError):
 				self.decodeMessage(dataBlock)

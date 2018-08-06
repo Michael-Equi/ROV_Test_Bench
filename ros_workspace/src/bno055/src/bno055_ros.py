@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-import time
 import math
 
 import BNO055
 
 import rospy
+from std_msgs.msg import Header
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Vector3
@@ -31,7 +31,7 @@ def publisher():
 		except Exception as e:
 			rospy.logerr('Failed to initialize BNO055! %s', e)
 			attempts += 1
-			time.sleep(0.25)
+			rospy.sleep(0.25)
 
 	if(attempts == 10):	
 		rospy.logerr('Failed to initialize BNO055! Program end')
@@ -66,6 +66,8 @@ def publisher():
 	
 	while not rospy.is_shutdown():
 		# Define messages 
+		msgHeader = Header()
+		infoHeader = Header()
 		msg = Imu()
 		info = bno055_info()
 		
@@ -87,7 +89,7 @@ def publisher():
 			except Exception as e:
 				rospy.logerr('Failed to read BNO055 calibration stat and temp! %s', e)
 				attempts += 1
-				time.sleep(0.01)
+				rospy.sleep(0.01)
 	
 		if(attempts != 4):
 			info.sysCalibration = sys
@@ -116,13 +118,21 @@ def publisher():
 			except Exception as e:
 				rospy.logerr('Failed to read BNO055 data! %s', e)
 				attempts += 1
-				time.sleep(0.01)	
+				rospy.sleep(0.01)	
 
 		if(attempts != 4):
 			msg.orientation = orientation
 			msg.angular_velocity = angular_vel
-			msg.linear_acceleration = linear_accel
+			msg.linear_acceleration = linear_accel	
+		
+		#update message headers
+		msgHeader.stamp = rospy.Time.now()
+		msgHeader.frame_id = 'imu_data'
+		msg.header = msgHeader
 
+		infoHeader.stamp = rospy.Time.now()
+		infoHeader.frame_id = 'imu_info'
+		info.header = infoHeader
 
 		dataPub.publish(msg)
 		infoPub.publish(info)
