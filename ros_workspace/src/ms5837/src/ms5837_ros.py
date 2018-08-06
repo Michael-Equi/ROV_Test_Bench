@@ -15,7 +15,7 @@ def publisher():
 	#set up ros stuff
 	pub = rospy.Publisher('rov/ms5837', ms5837_data, queue_size=3)
 	rospy.init_node('ms5837')
-	rate = rospy.Rate(10) #10Hz data read
+	rate = rospy.Rate(30) #30Hz data read
 
 
 	sensor = ms5837_driver.MS5837_30BA() # Default I2C bus is 1 (Raspberry Pi 3)
