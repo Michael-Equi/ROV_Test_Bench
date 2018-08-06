@@ -13,3 +13,6 @@
 [submodule "drivers/classes/ms5837/ms5837-python"]
 	path = drivers/classes/ms5837/ms5837-python
 	url = https://github.com/bluerobotics/ms5837-python.git
+[submodule "drivers/Adafruit_Python_BNO055"]
+	path = drivers/Adafruit_Python_BNO055
+	url = https://github.com/adafruit/Adafruit_Python_BNO055.git
