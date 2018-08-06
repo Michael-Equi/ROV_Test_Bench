@@ -7,7 +7,7 @@ import BNO055
 
 import rospy
 from sensor_msgs.msg import Imu
-from geometry_msgs.msg import Quaterion
+from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Vector3
 from bno055.msg import bno055_info
 
@@ -23,18 +23,17 @@ def publisher():
 	sensor = BNO055.BNO055(rst=27)
 
 	attempts = 0
-	beginSucccess = False
 	# Initialize the BNO055 and stop if something went wrong.
-	while(beginSucccess != True and attempts < 10) 
+	while(attempts < 10):
 		try:
-			sensor.begin():
-			beginSucccess = True
+			sensor.begin()
+			break
 		except Exception as e:
 			rospy.logerr('Failed to initialize BNO055! %s', e)
 			attempts += 1
 			time.sleep(0.25)
 
-	if(attempts = 10):	
+	if(attempts == 10):	
 		rospy.logerr('Failed to initialize BNO055! Program end')
 		exit(1)
 
@@ -47,8 +46,8 @@ def publisher():
 	rospy.logdebug('System status: %s', status)
 	rospy.logdebug('Self test result (0x0F is normal): %s', hex(self_test))
 	# Print out an error if system status is in error mode.
-	if status == 0x01:
-    	rospy.logerr('System error: %s', error)
+	if(status == 0x01):
+		rospy.logerr('System error: %s', error)
    		rospy.logerr('See datasheet section 4.3.59 for the meaning.')
 
 	# Print BNO055 software revision and other diagnostic data.
@@ -70,21 +69,21 @@ def publisher():
 		msg = Imu()
 		info = bno055_info()
 		
-		orientation = Quaterion()
+		orientation = Quaternion()
 		angular_vel = Vector3() 
 		linear_accel =  Vector3()
 
 		#no covarience vlaues known
 
-
 		# Update data
 
 		attempts = 0	
-		while(attempts < 4)
+		while(attempts < 4):
 			try:
 				# Read the calibration status, 0=uncalibrated and 3=fully calibrated.
 				sys, gyro, accel, mag = sensor.get_calibration_status()
 				temp_c = sensor.read_temp()
+				break
 			except Exception as e:
 				rospy.logerr('Failed to read BNO055 calibration stat and temp! %s', e)
 				attempts += 1
@@ -94,21 +93,26 @@ def publisher():
 			info.sysCalibration = sys
 			info.accelCalibration = accel
 			info.gyroCalibration = gyro
-			info.magCalibration = mag
+			info.magnoCalibration = mag
 			info.tempC = temp_c
 
+
 		attempts = 0	
-		while(attempts < 4)
+		while(attempts < 4):
 			try:
     			# Orientation as a quaternion:
-				orientation = sensor.read_quaterion()
+				orientation.x, orientation.y, orientation.z, orientation.w  = sensor.read_quaternion()
 
 				# Gyroscope data (in degrees per second converted to radians per second):
-				angular_vel = math.radians(f) for f in sensor.read_gyroscope()
+				gry_x, gry_y, gry_z = sensor.read_gyroscope()
+				angular_vel.x = math.radians(gry_x)
+				angular_vel.y = math.radians(gry_y)
+				angular_vel.z = math.radians(gry_z)
 
 				# Linear acceleration data (i.e. acceleration from movement, not gravity--
     			# returned in meters per second squared):
-				linear_accel = sensor.read_linear_acceleration()
+				linear_accel.x, linear_accel.y, linear_accel.z = sensor.read_linear_acceleration()
+				break
 			except Exception as e:
 				rospy.logerr('Failed to read BNO055 data! %s', e)
 				attempts += 1
