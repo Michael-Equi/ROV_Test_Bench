@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import time
 import rospy
 from smbus2 import SMBusWrapper
 
@@ -63,7 +62,7 @@ class BMP280:
 			except Exception as e:
 				attempts += 1
 				rospy.logerr("Error reading BMP280 calibration data: %s", e)
-				time.sleep(0.25)
+				rospy.sleep(0.25)
 
 		if(attempts == 10):
 			rospy.logerr("BMP280 failed program closing!")
@@ -93,7 +92,7 @@ class BMP280:
 					rospy.logerr("BMP280 read error: %s", e)
 					self.readError = True
 					numOfTries+=1
-					time.sleep(.001)
+					rospy.sleep(.001)
 					#print "Retrying..."
 			if(self.readError):
 				self.rawTemp = 0
