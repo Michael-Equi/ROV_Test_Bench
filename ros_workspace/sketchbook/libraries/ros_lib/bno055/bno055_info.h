@@ -15,7 +15,7 @@ namespace bno055
     public:
       typedef std_msgs::Header _header_type;
       _header_type header;
-      typedef double _tempC_type;
+      typedef float _tempC_type;
       _tempC_type tempC;
       typedef uint8_t _accelCalibration_type;
       _accelCalibration_type accelCalibration;
@@ -40,20 +40,7 @@ namespace bno055
     {
       int offset = 0;
       offset += this->header.serialize(outbuffer + offset);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempC;
-      u_tempC.real = this->tempC;
-      *(outbuffer + offset + 0) = (u_tempC.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_tempC.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_tempC.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_tempC.base >> (8 * 3)) & 0xFF;
-      *(outbuffer + offset + 4) = (u_tempC.base >> (8 * 4)) & 0xFF;
-      *(outbuffer + offset + 5) = (u_tempC.base >> (8 * 5)) & 0xFF;
-      *(outbuffer + offset + 6) = (u_tempC.base >> (8 * 6)) & 0xFF;
-      *(outbuffer + offset + 7) = (u_tempC.base >> (8 * 7)) & 0xFF;
-      offset += sizeof(this->tempC);
+      offset += serializeAvrFloat64(outbuffer + offset, this->tempC);
       *(outbuffer + offset + 0) = (this->accelCalibration >> (8 * 0)) & 0xFF;
       offset += sizeof(this->accelCalibration);
       *(outbuffer + offset + 0) = (this->gyroCalibration >> (8 * 0)) & 0xFF;
@@ -69,21 +56,7 @@ namespace bno055
     {
       int offset = 0;
       offset += this->header.deserialize(inbuffer + offset);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempC;
-      u_tempC.base = 0;
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 4))) << (8 * 4);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 5))) << (8 * 5);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 6))) << (8 * 6);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 7))) << (8 * 7);
-      this->tempC = u_tempC.real;
-      offset += sizeof(this->tempC);
+      offset += deserializeAvrFloat64(inbuffer + offset, &(this->tempC));
       this->accelCalibration =  ((uint8_t) (*(inbuffer + offset)));
       offset += sizeof(this->accelCalibration);
       this->gyroCalibration =  ((uint8_t) (*(inbuffer + offset)));
