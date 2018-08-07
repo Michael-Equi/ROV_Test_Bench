@@ -2,17 +2,6 @@ from smbus import SMBus
 import math
 
 class pmbus:
-    
-    #constants initialized on object creation
-    VOUT_MODE = 0b00000
-    VOUT_N = 0b00000
-    
-    #class instance variables
-    voltageIn = 0.0
-    voltageOut = 0.0
-    current = 0.0
-    tempurature = 0.0
-    powerOut = 0.0
 	
     def __init__(self, addr):
         self.address = addr
