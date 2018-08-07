@@ -15,11 +15,11 @@ namespace sht31
     public:
       typedef std_msgs::Header _header_type;
       _header_type header;
-      typedef double _tempC_type;
+      typedef float _tempC_type;
       _tempC_type tempC;
-      typedef double _tempF_type;
+      typedef float _tempF_type;
       _tempF_type tempF;
-      typedef double _humidity_type;
+      typedef float _humidity_type;
       _humidity_type humidity;
 
     sht31_data():
@@ -34,48 +34,9 @@ namespace sht31
     {
       int offset = 0;
       offset += this->header.serialize(outbuffer + offset);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempC;
-      u_tempC.real = this->tempC;
-      *(outbuffer + offset + 0) = (u_tempC.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_tempC.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_tempC.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_tempC.base >> (8 * 3)) & 0xFF;
-      *(outbuffer + offset + 4) = (u_tempC.base >> (8 * 4)) & 0xFF;
-      *(outbuffer + offset + 5) = (u_tempC.base >> (8 * 5)) & 0xFF;
-      *(outbuffer + offset + 6) = (u_tempC.base >> (8 * 6)) & 0xFF;
-      *(outbuffer + offset + 7) = (u_tempC.base >> (8 * 7)) & 0xFF;
-      offset += sizeof(this->tempC);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempF;
-      u_tempF.real = this->tempF;
-      *(outbuffer + offset + 0) = (u_tempF.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_tempF.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_tempF.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_tempF.base >> (8 * 3)) & 0xFF;
-      *(outbuffer + offset + 4) = (u_tempF.base >> (8 * 4)) & 0xFF;
-      *(outbuffer + offset + 5) = (u_tempF.base >> (8 * 5)) & 0xFF;
-      *(outbuffer + offset + 6) = (u_tempF.base >> (8 * 6)) & 0xFF;
-      *(outbuffer + offset + 7) = (u_tempF.base >> (8 * 7)) & 0xFF;
-      offset += sizeof(this->tempF);
-      union {
-        double real;
-        uint64_t base;
-      } u_humidity;
-      u_humidity.real = this->humidity;
-      *(outbuffer + offset + 0) = (u_humidity.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_humidity.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_humidity.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_humidity.base >> (8 * 3)) & 0xFF;
-      *(outbuffer + offset + 4) = (u_humidity.base >> (8 * 4)) & 0xFF;
-      *(outbuffer + offset + 5) = (u_humidity.base >> (8 * 5)) & 0xFF;
-      *(outbuffer + offset + 6) = (u_humidity.base >> (8 * 6)) & 0xFF;
-      *(outbuffer + offset + 7) = (u_humidity.base >> (8 * 7)) & 0xFF;
-      offset += sizeof(this->humidity);
+      offset += serializeAvrFloat64(outbuffer + offset, this->tempC);
+      offset += serializeAvrFloat64(outbuffer + offset, this->tempF);
+      offset += serializeAvrFloat64(outbuffer + offset, this->humidity);
       return offset;
     }
 
@@ -83,51 +44,9 @@ namespace sht31
     {
       int offset = 0;
       offset += this->header.deserialize(inbuffer + offset);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempC;
-      u_tempC.base = 0;
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 4))) << (8 * 4);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 5))) << (8 * 5);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 6))) << (8 * 6);
-      u_tempC.base |= ((uint64_t) (*(inbuffer + offset + 7))) << (8 * 7);
-      this->tempC = u_tempC.real;
-      offset += sizeof(this->tempC);
-      union {
-        double real;
-        uint64_t base;
-      } u_tempF;
-      u_tempF.base = 0;
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 4))) << (8 * 4);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 5))) << (8 * 5);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 6))) << (8 * 6);
-      u_tempF.base |= ((uint64_t) (*(inbuffer + offset + 7))) << (8 * 7);
-      this->tempF = u_tempF.real;
-      offset += sizeof(this->tempF);
-      union {
-        double real;
-        uint64_t base;
-      } u_humidity;
-      u_humidity.base = 0;
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 4))) << (8 * 4);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 5))) << (8 * 5);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 6))) << (8 * 6);
-      u_humidity.base |= ((uint64_t) (*(inbuffer + offset + 7))) << (8 * 7);
-      this->humidity = u_humidity.real;
-      offset += sizeof(this->humidity);
+      offset += deserializeAvrFloat64(inbuffer + offset, &(this->tempC));
+      offset += deserializeAvrFloat64(inbuffer + offset, &(this->tempF));
+      offset += deserializeAvrFloat64(inbuffer + offset, &(this->humidity));
      return offset;
     }
 
