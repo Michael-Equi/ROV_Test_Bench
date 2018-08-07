@@ -5,8 +5,8 @@ In order to set this as your arduino path run:
 * Click on preferences 
 * Change the `/root/Arduino` sketchbook location to `/home/"username"/Desktop/ROV_Test_Bench/ros_workspace/sketchbook`
 * Click ok
-* sudo apt-get install ros-kinetic-rosserial-arduino
-* sudo apt-get install ros-kinetic-rosserial
+* `sudo apt-get install ros-kinetic-rosserial-arduino`
+* `sudo apt-get install ros-kinetic-rosserial`
 
 https://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use/how-to-install-a-library
 
