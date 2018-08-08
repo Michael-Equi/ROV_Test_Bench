@@ -7,3 +7,18 @@
 [submodule "drivers/gnublin-api"]
 	path = drivers/gnublin-api
 	url = https://github.com/embeddedprojects/gnublin-api.git
+[submodule "drivers/smbus2"]
+	path = drivers/smbus2
+	url = https://github.com/kplindegaard/smbus2.git
+[submodule "drivers/classes/ms5837/ms5837-python"]
+	path = drivers/classes/ms5837/ms5837-python
+	url = https://github.com/bluerobotics/ms5837-python.git
+[submodule "drivers/Adafruit_Python_BNO055"]
+	path = drivers/Adafruit_Python_BNO055
+	url = https://github.com/adafruit/Adafruit_Python_BNO055.git
+[submodule "ros_workspace/sketchbook/libraries/Adafruit_SHT31"]
+	path = ros_workspace/sketchbook/libraries/Adafruit_SHT31
+	url = https://github.com/adafruit/Adafruit_SHT31.git
+[submodule "ros_workspace/sketchbook/libraries/Adafruit_INA219"]
+	path = ros_workspace/sketchbook/libraries/Adafruit_INA219
+	url = https://github.com/adafruit/Adafruit_INA219.git
