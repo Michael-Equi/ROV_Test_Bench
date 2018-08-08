@@ -16,3 +16,9 @@
 [submodule "drivers/Adafruit_Python_BNO055"]
 	path = drivers/Adafruit_Python_BNO055
 	url = https://github.com/adafruit/Adafruit_Python_BNO055.git
+[submodule "ros_workspace/sketchbook/libraries/Adafruit_SHT31"]
+	path = ros_workspace/sketchbook/libraries/Adafruit_SHT31
+	url = https://github.com/adafruit/Adafruit_SHT31.git
+[submodule "ros_workspace/sketchbook/libraries/Adafruit_INA219"]
+	path = ros_workspace/sketchbook/libraries/Adafruit_INA219
+	url = https://github.com/adafruit/Adafruit_INA219.git
