@@ -5,9 +5,12 @@
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
 
+//Temporary
 #include <std_msgs/UInt8.h> //For camera Pub
+#include <tcu_board_msgs/tcu_main_relay.h> //tcu relay controller
+#include <tcu_board_msgs/tcu_main_solenoid.h>  //tcu solenoid controller
 
-//Added temporary camera mux publisher - delete when fixed
+//Added 3 temporary publishers - delete when fixed
 
 //Location of axis in the joy message array
 const int linearAxisFBIndex = 1; //forward-backward
@@ -37,8 +40,10 @@ const double bilinearThreshold(1.0 / bilinearRatio);
 ros::Publisher vel_pub;
 ros::Subscriber joy_sub;
 
-
+//Temporary publishers
 ros::Publisher camera_select; //Camera pub
+ros::Publisher power_control; //tcu relay controller
+ros::Publisher solenoid_control; //tcu solenoid controller
 
 
 void bilinearCalc(double &axis){
@@ -144,6 +149,14 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     std_msgs::UInt8 msg;
     msg.data = config.camera;
     camera_select.publish(msg);
+
+    //tcu board publishers
+    tcu_board_msgs::tcu_main_relay relayMsg;
+    tcu_board_msgs::tcu_main_solenoid solMsg;
+    relayMsg.status = config.power;
+    solMsg.status = config.pneumatics;
+    power_control.publish(relayMsg);
+    solenoid_control.publish(solMsg);
 }
 
 
@@ -161,6 +174,8 @@ int main(int argc, char **argv)
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
 
     camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3); //Camera pub
+    power_control = n.advertise<tcu_board_msgs::tcu_main_relay>("tcu/main_relay", 3); //Relay pub
+    solenoid_control = n.advertise<tcu_board_msgs::tcu_main_solenoid >("tcu/main_solenoid", 3); //Solenoid pub
 
     //setup dynamic reconfigure
     dynamic_reconfigure::Server<copilot_interface::copilotControlParamsConfig> server;
