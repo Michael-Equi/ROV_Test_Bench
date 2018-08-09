@@ -7,9 +7,8 @@
 
 #include <ros.h>
 #include <tcu_board_msgs/tcu_board_data.h>
-#include <tcu_board_msgs/tcu_leds.h>
-#include <tcu_board_msgs/tcu_main_relay.h>
-#include <tcu_board_msgs/tcu_main_solenoid.h>
+#include <std_msgs/Bool.h>
+#include <std_msgs/ColorRGBA.h> //A = W for RGBW
 
 //TCU board i2c bus needs to be switched!!! 
 //Serial is on programming port not the native port
@@ -44,17 +43,18 @@ float current_mA;
 float loadvoltage;
 float power_mW;
 
-uint8_t neoPixelSetting; //1-3 determines neopixel routine (More to be added soon)
+uint8_t neoPixelSetting; //1-3 determines neopixel routine (More to be added soon) OUTDATED
+//New neopixel implementation comming soon
 
 tcu_board_msgs::tcu_board_data msg;
 ros::Publisher tcuPub("tcu/tcu_data", &msg);
 
 //Subscriber callbacks
-void ledCb(const tcu_board_msgs::tcu_leds& npxMode){
-  neoPixelSetting = npxMode.led_routine;
+void ledCb(const std_msgs::ColorRGBA& npxSetting){
+  //neoPixelSetting = npxMode.led_routine;
 }
 
-void mainRelayCb(const tcu_board_msgs::tcu_main_relay& relayToggle){
+void mainRelayCb(const std_msgs::Bool& relayToggle){
   if(!relayToggle.status){
    digitalWrite(ROVpower, LOW);
    digitalWrite(LED, LOW);
@@ -65,7 +65,7 @@ void mainRelayCb(const tcu_board_msgs::tcu_main_relay& relayToggle){
   }
 }
 
-void mainSolCb(const tcu_board_msgs::tcu_main_solenoid& solenoidToggle){
+void mainSolCb(const std_msgs::Bool& solenoidToggle){
   if(!solenoidToggle.status){
    digitalWrite(mainSolenoid, LOW);
   } 
@@ -74,9 +74,9 @@ void mainSolCb(const tcu_board_msgs::tcu_main_solenoid& solenoidToggle){
   }
 }
 
-ros::Subscriber<tcu_board_msgs::tcu_leds> ledSub("tcu/leds", ledCb);
-ros::Subscriber<tcu_board_msgs::tcu_main_relay> mainRelaySub("tcu/main_relay", mainRelayCb);
-ros::Subscriber<tcu_board_msgs::tcu_main_solenoid> mainSolSub("tcu/main_solenoid", mainSolCb);
+ros::Subscriber<std_msgs::ColorRGBA> ledSub("tcu/leds", ledCb);
+ros::Subscriber<std_msgs::Bool> mainRelaySub("tcu/main_relay", mainRelayCb);
+ros::Subscriber<std_msgs::Bool> mainSolSub("tcu/main_solenoid", mainSolCb);
 
 void setup() { 
 
