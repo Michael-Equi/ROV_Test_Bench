@@ -83,7 +83,7 @@ Other usefull links for common problems:
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
 * https://answers.ros.org/question/41446/a-is-not-in-your-ssh-known_hosts-file/
 
-### Installing
+### Installing OS
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -95,7 +95,7 @@ On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Explain how to run the automated tests for this system (travis CI)
 
 ### Break down into end to end tests
 
@@ -107,7 +107,7 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
+Explain what these tests test and why (coveralls)
 
 ```
 Give an example
@@ -115,7 +115,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system (docker)
 
 ## Built With
 
