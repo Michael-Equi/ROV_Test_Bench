@@ -21,7 +21,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 3. Detailed documenation on the ROS packaged should be provided through rosdoc_lite and doxygen
 4. Every file must be well commented
 
---Updates needed beyond this point--
+## --Updates needed beyond this point--
 
 ## Code of Conduct
 Be nice :)
