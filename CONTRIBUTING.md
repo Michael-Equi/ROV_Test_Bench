@@ -15,7 +15,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
    do not have permission to do that, you may request the second reviewer to merge it for you.
    
-## Documnetation guidlines
+## Documnetation guidelines
 1. Each ROS package and embedded C project (arduino, atmel studio, etc.) should have its own README.md that is based off the provided templates. This documentation should provide and overview of the packagem including setup, architecture (topics, publishers, subscirbers). and meta-information (versioning and contributing). 
 2. Individual driver documentation is more relaxed and should be custom tailored to provide a detailed overview of the API and how to ude it.
 3. Detailed documenation on the ROS packaged should be provided through rosdoc_lite and doxygen
