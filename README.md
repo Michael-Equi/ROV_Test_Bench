@@ -43,7 +43,7 @@ What things you should to install to develop and run software and how to install
 Code Blocks IDE on rpi ubuntu mate
 * `sudo apt-get install codeblocks`
 
-On the RPI turn on the CSI, I2C, and UART interfaces using `sudo raspi-config`
+On the RPI turn on the CSI, SPI, I2C, and UART interfaces using `sudo raspi-config`
 
 Setup the I2C interface on Ubutnu Mate
 * `cd /boot/config.txt`
