@@ -29,13 +29,14 @@ Initial SETUP:
 * `cd ~/Desktop/ROV_Test_Bench/ros_workspace`
 * `catkin_make`
  * Check for errors
+ * Check prerequisites
     
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
 Only develop with clion, webstorm, pycharm, and arduino*
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things you should to install to develop and run software and how to install them
 
 Code Blocks IDE on rpi ubuntu mate
 * `sudo apt-get install codeblocks`
@@ -47,13 +48,12 @@ I2C interface on Ubutnu Mate
 * restart pi
 
 Setup the ros_lib file for arduino serial
+* Set proper sketchbook path for arduino IDE (see sketchbook documentation)
 * If a new msg needs to be added to the file run `sudo rm -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib` and `rosrun rosserial_client make_libraries ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries` (make sure to have sourced the correct devel/setup.bash)
 * Run `sudo rm -R /opt/ros/kinetic/share/rosserial_client/src/ros_lib`
 * Run `sudo cp -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib /opt/ros/kinetic/share/rosserial_client/src`
 
 For running rosserial the first time make sure to `sudo apt-get install ros-kinetic-rosserial` and install the rosserial library from the arduino library manager
-
-Add vector_drive/thrusterPercents.h to the libraries folder in arduino
 
 RPI Camera node setup
 * https://github.com/UbiquityRobotics/raspicam_node
