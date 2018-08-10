@@ -52,13 +52,10 @@ Setup the I2C interface on Ubutnu Mate
 * restart pi
 
 Setup the ros_lib file for arduino serial
-* Set proper sketchbook path for arduino IDE (see sketchbook README.md documentation)
-* If a new msg needs to be added to the file run `sudo rm -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib` and `rosrun rosserial_client make_libraries ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries` (make sure to have sourced the correct devel/setup.bash)
-* Run `sudo rm -R /opt/ros/kinetic/share/rosserial_client/src/ros_lib`
-* Run `sudo cp -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib /opt/ros/kinetic/share/rosserial_client/src`
+* See sketchbook README.md documentation
 
 RPI Camera node setup
-* https://github.com/UbiquityRobotics/raspicam_node
+* See raspicam_node README.md documentation
 
 ### Network Setup
 
