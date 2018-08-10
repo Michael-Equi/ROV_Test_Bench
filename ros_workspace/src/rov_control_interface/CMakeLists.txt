@@ -1,3 +1,7 @@
+
+
+
+
 cmake_minimum_required(VERSION 2.8.3)
 project(rov_control_interface)
 
@@ -10,7 +14,7 @@ project(rov_control_interface)
 find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
-  copilot_interface#
+  copilot_interface
   dynamic_reconfigure
 )
 

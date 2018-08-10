@@ -55,7 +55,7 @@ void ledCb(const std_msgs::ColorRGBA& npxSetting){
 }
 
 void mainRelayCb(const std_msgs::Bool& relayToggle){
-  if(!relayToggle.status){
+  if(!relayToggle.data){
    digitalWrite(ROVpower, LOW);
    digitalWrite(LED, LOW);
   } 
@@ -66,7 +66,7 @@ void mainRelayCb(const std_msgs::Bool& relayToggle){
 }
 
 void mainSolCb(const std_msgs::Bool& solenoidToggle){
-  if(!solenoidToggle.status){
+  if(!solenoidToggle.data){
    digitalWrite(mainSolenoid, LOW);
   } 
   else{
