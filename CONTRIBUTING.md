@@ -1,9 +1,8 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. 
+When contributing to this repository, please first discuss the change based on the guidelines provided by the rovotics github workflow infographic: https://drive.google.com/drive/folders/1jU-FIVXCQNhYr2nQe4ZDVrosyF5O_hYB?usp=sharing
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+Also consult the phase diagram to better the priority of your project: https://drive.google.com/drive/folders/19IMiH6qa5t3C6XOmDr3fkemhwTR5T3LL?usp=sharing
 
 ## Pull Request Process
 
