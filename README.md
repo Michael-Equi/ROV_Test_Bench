@@ -135,7 +135,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Michael Equi** - *Initial work*
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Michael-Equi/ROV_Test_Bench/graphs/contributors) who participated in this project.
 
 ## Acknowledgments
 
