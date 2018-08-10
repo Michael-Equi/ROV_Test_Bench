@@ -20,6 +20,7 @@ Initial SETUP:
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup.sh`
 * `./setup.sh`
+* `sudo apt-get install ros-kinetic-joy`
 * (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
 * `sudo apt-get install python-smbus`
 * `sudo apt-get install doxygen`
