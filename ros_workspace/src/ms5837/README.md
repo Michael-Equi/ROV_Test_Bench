@@ -25,7 +25,7 @@ Node name:
 Topics:
 
 * `rov/ms5837`:
-  Publishes `ms5837_data` Custom message with tempurature (celcius), pressure (pascal and atm), and altitude (meters) data.
+  Publishes `ms5837_data` Custom message with tempurature (celcius), depth, and altitude (meters) data.
 
 Parameters/Reconfigs:
 *  `fluidDensity`: This is the parameter that is used to tune the depth sensor based on fluid density in kg/m^3 (default = freshwater = 997, saltwater = 1029)
