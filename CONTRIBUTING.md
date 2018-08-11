@@ -20,6 +20,13 @@ Also consult the phase diagram to better the priority of your project: https://d
 3. Detailed documenation on the ROS packaged should be provided through rosdoc_lite and doxygen
 4. Every file must be well commented
 
+Review how to use rosdoc_lite: http://wiki.ros.org/rosdoc_lite
+1. `sudo apt-get install ros-kinetic-rosdoc-lite`
+2. Go to the the directory of your package (ex. ~/Desktop/ROV_Test_Bench/ros_workspace/src/rov_control_interface)
+3. Make a config file if needed
+4. Run `rosdoc_lite <package name>`
+5. Veiw documentation by opening the `index.html` file (stored in the doc folder) with your web prefered browser 
+
 ## --Updates needed beyond this point--
 
 ## Code of Conduct
