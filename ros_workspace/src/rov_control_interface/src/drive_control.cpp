@@ -173,7 +173,7 @@ int main(int argc, char **argv)
 
     camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3); //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3); //Relay pub
-    solenoid_control = n.advertise< std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
+    solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
 
     //setup dynamic reconfigure
     dynamic_reconfigure::Server<copilot_interface::copilotControlParamsConfig> server;
