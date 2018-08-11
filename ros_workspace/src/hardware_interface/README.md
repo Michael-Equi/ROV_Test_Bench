@@ -1,81 +1,57 @@
-# hardwware_interface
+# hardware_interface
 
-### Goal
+## Description
 
-Communicate with non-ROS integrated hardware such as the uart_thrusters_arduino and other pysserial devices. 
+ROS to "packet" peripheral interface for communicating with non-ROS hardware peripherals. 
 
-### Requirments and Description
+## Goal
 
-* dedicated launch file for the entire vector drive pipeline on one machine 
-* dedicated launch file(s) for the entire vector drive pipeline distributted across topside and bottomside 
-* Run primarily on botomside
-
-### tests and testing requirements
-
-* Must be able to handle system crashes and worst case scenario events while providing good debug inforamtion 
-  * 1 hour of rigorous testing with a mix a valid and invlaid messages
+Communicate with non-ROS integrated hardware such as the uart_thrusters_arduino and other devices using hardware interfaces and do not use rosserial. 
 
 
-### Coding detials 
+## Build Instructions 
 
-* Python, ROS
-* No classes
+* `sudo apt-get install python-serial`
+* No build or source needed
 
-## Build Intructions
+## Nodes
 
-
-## Running the Node
-
-
-## Configuring the node with dynamic reconfigure
-
-
-## Troubleshooting
-
-
-## Node Information
+### hw_thruster_controller_interface
 
 file: hw_thruster_controller_interface.py
 
-Name and Remapping:
+Node name:
 * hw_thruster_controller_interface
 
 Topics:
 
 * `rov/cmd_horizontal_vdrive`:
   Subscribes `vector_drive/thrusterPercents` gives the thruster setting from -1000 to 1000 for thrusters T1,2,3,4.
-  
   * `rov/cmd_vertical_vdrive`:
-  Subscribes `vector_drive/thrusterPercents`gives the thruster setting from -1000 to 1000 for thrusters T5,6,7,8.
-
-* `topic_name`:
-  Publishes `message_type` info.
-
-Services:
-
-* `service_name`: info
+  Subscribes `vector_drive/thrusterPercents` gives the thruster setting from -1000 to 1000 for thrusters T5,6,7,8.
 
 Parameters/Reconfigs:
+*  `thrusterControllerPort`: ROS parameter that gets the port to use. By default the port is `/dev/ttyACM0`.
+ 
 
-*  `parameter_name`: info
+## Launch Information
+ 
+`<node respawn="true" pkg="hardware_interface" type="hw_thruster_controller_interface.py"`
+	`name="hw_thruster_controller_interface">`
+	`<param name="thrusterControllerPort" value="/dev/ttyACM0"/>`
+`</node>`
 
-## Contributing and Project Ownership
+## Troubleshooting
 
-* Initial owner: Michael Equi
+## Contributors 
+
 * Current maintaner: Michael Equi
-* pyserial contributer: Michael Equi
 
-## Versioning
-
-* Latest Version 
-* Active
-
-## Authors
-
-* Michael Equi
+* Contirbutors:
+  * Michael Equi - initial work
 
 ## Helpful Resources
 
-* NONE
+* https://pythonhosted.org/pyserial/
 
 
