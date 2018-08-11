@@ -25,7 +25,7 @@ Node name:
 Topics:
 
 * `rov/bmp280`:
-  Publishes `bmp280_data` Custom message with tempurature (celcius and fahrenheit), depth, and altitude (meters) data.
+  Publishes `bmp280_data` Custom message with tempurature (celcius), pressure (pascal and atm), and altitude (meters) data.
  
 
 ## Launch Information
