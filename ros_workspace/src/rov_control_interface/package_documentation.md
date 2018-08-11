@@ -6,10 +6,6 @@
 
 Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
 
-## Goal 
-
-What is the goal of the code and why it was done the way it was. This will help with tech report.
-
 ## Build Instructions 
 
 * Anything extra steps for buidling this package and running the nodes (ex. install)
@@ -64,12 +60,17 @@ Any remapping information goes here.
 
 ## Troubleshooting
 
+## Project Ownership
+
+* List the primary person responsible for this peice of software
+* Initial owner:
+* Current owner:
+
 ## Contributors 
 
+* List contirbutors (anyone who writes stuff into this package) and role here 
 * Current maintaner: 
-
-* Contributors:
-  * name (anyone who writes stuff into this package) - role (what was the work said person did)
+* name contributer: 
 
 ## Helpful Resources
 

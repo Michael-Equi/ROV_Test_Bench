@@ -24,7 +24,7 @@ What is the purpose of this software and why was this chosen over alternative op
 
 * Current maintaner: 
 
-* Contirbutors:
+* Contributors:
   * name (anyone who writes stuff into this package) - role (what was the work said person did)
 
 ## Helpful Resources
