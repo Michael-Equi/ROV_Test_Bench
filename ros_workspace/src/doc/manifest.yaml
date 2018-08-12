@@ -3,16 +3,15 @@ authors: ''
 brief: ''
 bugtracker: ''
 depends:
-- message_generation
+- joy
 - catkin
-- message_runtime
-- std_msgs
 - roscpp
-description: The vector_drive package
+- copilot_interface
+description: The rov_control_interface package handles bilinear control, control sensitivity,
+  and inversion. Temporarily handles cameras and tcu harware (relay and solenoid)
 license: TODO
-maintainers: michael <michael@todo.todo>
-msgs:
-- thrusterPercents
+maintainers: michael <equim20@student.jhs.net>
+msgs: []
 package_type: package
 repo_url: ''
 srvs: []
