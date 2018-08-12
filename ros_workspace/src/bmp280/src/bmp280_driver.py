@@ -6,13 +6,14 @@ from smbus2 import SMBusWrapper
 #recommended sampling frequency = 3
 #x16 oversampling 
 
-# BMP280 default address.
+## BMP280 default address (0x77).
 BMP280_I2CADDR           = 0x77
 
 # BMP280 Temperature Registers
 BMP280_REGISTER_DIG_T1 = 0x88
 BMP280_REGISTER_DIG_T2 = 0x8A
 BMP280_REGISTER_DIG_T3 = 0x8C
+
 # BMP280 Pressure Registers
 BMP280_REGISTER_DIG_P1 = 0x8E
 BMP280_REGISTER_DIG_P2 = 0x90
@@ -41,7 +42,10 @@ BMP280_READCMD = 0x3F
 #Always read tempurature first then pressure in main program!!!
 
 class BMP280:
-	def __init__(self, addr):
+	
+	##The constructor 
+	# @param addr Sets the I2C device address
+	def __init__(self, addr=0x77):
 		self.address = addr
 
 		#calibration values 
@@ -67,7 +71,8 @@ class BMP280:
 		if(attempts == 10):
 			rospy.logerr("BMP280 failed program closing!")
 			exit()
-		
+	##Updates the raw bmp280 sensor values and stores them into class member variables to be extracted by the getter functions.
+	# Must be run before getting sensor values.
 	def updateValues(self):
 
 		with SMBusWrapper(1) as bus:
@@ -97,15 +102,20 @@ class BMP280:
 			if(self.readError):
 				self.rawTemp = 0
 				self.rawPressure = 0
-		
+
+	##Gets the absolute tempurature in celcius 
+	# @return Tempurature in celcius
 	def getTempuratureC(self):
 		TMP_PART1 = (((self.rawTemp>>3) - (self.cal_REGISTER_DIG_T1<<1)) * self.cal_REGISTER_DIG_T2) >> 11
 		TMP_PART2 = (((((self.rawTemp>>4) - (self.cal_REGISTER_DIG_T1)) * ((self.rawTemp>>4) - (self.cal_REGISTER_DIG_T1))) >> 12) * (self.cal_REGISTER_DIG_T3)) >> 14
 		TMP_FINE = TMP_PART1 + TMP_PART2
+		## Value needed for tempurature compensation on pressure and altitude values
 		self.tfine = TMP_FINE
 		self.temp = ((TMP_FINE*5+128)>>8)/100.0
 		return self.temp
 	
+	##Gets the absolute compensated pressure in pascal
+	# @return Pressure in pascal
 	def getPressureP(self):
 		#for pressure calculation we need a temperature, checking if we have one, and reading data if not
 		self.getTempuratureC()
@@ -131,10 +141,15 @@ class BMP280:
 		#return pressure in pascals
 		return self.pressure;
 
+	##Gets the absolute compensated pressure in atm
+	# @return Pressure in atm
 	def getPressureA(self):
 		return self.getPressureP()/101325
 		
 
+	##Gets the relative compensated pressure in pascal with relation to a known altitude
+	# @param altitude_m Known altitude in meters for a relative pressure setting 
+	# @return Relative pressure in pascal
 	def getPressureSeaLevelP(self, altitude_m=0.0):
 		#Calculates the pressure at sealevel when given a known altitude in meters. Returns a value in Pascals.
 		self.getPressureP()
@@ -142,13 +157,16 @@ class BMP280:
 		p0 = pressure / pow(1.0 - altitude_m/44330.0, 5.255)
 		return p0 
 
+	##Gets the relative altitude in meters with relation to pressure at sealevel
+	# @param sealevel_pa Known pressure in pascal for a relative altitude setting
+	# @return Relative altitude in meters
 	def getAltitudeM(self, sealevel_pa=101325.0):
 		self.getPressureP()
 		altitude = 44330.0 * (1.0 - pow(self.pressure / sealevel_pa, (1.0/5.255)))
 		#return altitude in meters
 		return altitude 
 		
-
+	##Loads factory calibration data set on the BMP280
 	def loadCalibration(self):
 		with SMBusWrapper(1) as bus:
 			self.cal_REGISTER_DIG_T1 = bus.read_word_data(self.address, BMP280_REGISTER_DIG_T1) # UINT16
