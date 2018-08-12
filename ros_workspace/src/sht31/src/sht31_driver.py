@@ -1,17 +1,21 @@
-#! /usr/bin/env python3
-
+#!/usr/bin/env python
 
 import rospy
 from smbus2 import SMBusWrapper
 
 class SHT31:
-	def __init__(self, addr):
-		self.address = addr
-		self.tempuratureC = 0
-		self.tempuratureF = 0
-		self.humidity = 0
-		self.readError = False
-		
+	
+	##The constructor 
+	# @param addr Sets the I2C device address
+	def __init__(self, addr=0x44):
+		self.address = addr    ## Device address (0x44 default or 0x45)
+		self.tempuratureC = 0  ## Tempurature in celcius
+		self.tempuratureF = 0  ## Tempurature in fahrenheit
+		self.humidity = 0      ## Humidity in % RH (relative humidity)
+		self.readError = False ## Status variable for indicating a read error of the SHT31 I2C device
+	
+	##Updates and decodes the raw sht31 sensor values and stores them into class member variables to be extracted by the getter functions.
+	# Must be run before getting sensor values.
 	def updateValues(self):
 		with SMBusWrapper(1) as bus:
 			#put sensor into signle shot mode with no clock stretching
@@ -41,16 +45,24 @@ class SHT31:
 			else:
 				self.decodeMessage([0,0,0,0,0,0])
 				
-			
+	## Get the tempurature in degrees celcius
+	# @return Tempurature in degrees celcius	
 	def getTempuratureC(self):
 		return self.tempuratureC
-		
+	
+	## Get the tempurature in degrees fahrenheit
+	# @return Tempurature in degrees fahrenheit	
 	def getTempuratureF(self):
 		return self.tempuratureF
 	
+	## Get the humidity in % RH (relative humidity)
+	# @return Humidity in % RH	
 	def getHumidity(self):
 		return self.humidity 
-		
+	
+	## Calculate the actual data values from the raw sensor data. 
+	# Stores the actual data into class member variables.
+	# @param raw data from the SHT31	
 	def decodeMessage(self, msg):
 		rawTemp = (msg[0] << 8) | msg[1]
 		rawHum = (msg[3] << 8) | msg[4]
@@ -58,3 +70,5 @@ class SHT31:
 		self.humidity = 100 * (rawHum/(65535.0))
 		self.tempuratureC = -45 + 175 * (rawTemp/(65535.0))
 		self.tempuratureF = -49 + 315 * (rawTemp/(65535.0))
+
+

@@ -3,15 +3,16 @@ authors: ''
 brief: ''
 bugtracker: ''
 depends:
-- joy
+- message_generation
+- rospy
+- message_runtime
+- std_msgs
 - catkin
-- roscpp
-- copilot_interface
-description: The rov_control_interface package handles bilinear control, control sensitivity,
-  and inversion. Temporarily handles cameras and tcu harware (relay and solenoid)
+description: The sht31 package
 license: TODO
-maintainers: michael <equim20@student.jhs.net>
-msgs: []
+maintainers: michael <michael@todo.todo>
+msgs:
+- sht31_data
 package_type: package
 repo_url: ''
 srvs: []
