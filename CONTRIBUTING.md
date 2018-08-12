@@ -20,6 +20,13 @@ Also consult the phase diagram to better the priority of your project: https://d
 3. Detailed documenation on the ROS packaged should be provided through rosdoc_lite and doxygen
 4. Every file must be well commented
 
+Review how to use rosdoc_lite: http://wiki.ros.org/rosdoc_lite
+1. `sudo apt-get install ros-kinetic-rosdoc-lite`
+2. Copy the `rosdoc.yaml` template (documenation_templates) file into your package and make the necessary edits
+3. Go to the the src directory of your ros_workspace (ex. ~/Desktop/ROV_Test_Bench/ros_workspace/src/)
+4. Run `rosdoc_lite <package_name>`
+5. Veiw documentation by opening the `index.html` file stored in the `ros_workspace/src/doc/html/package_name` directory with your prefered web browser 
+
 ## --Updates needed beyond this point--
 
 ## Code of Conduct
