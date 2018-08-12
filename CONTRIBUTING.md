@@ -22,10 +22,10 @@ Also consult the phase diagram to better the priority of your project: https://d
 
 Review how to use rosdoc_lite: http://wiki.ros.org/rosdoc_lite
 1. `sudo apt-get install ros-kinetic-rosdoc-lite`
-2. Go to the the directory of your package (ex. ~/Desktop/ROV_Test_Bench/ros_workspace/src/rov_control_interface)
-3. Make a config file if needed
-4. Run `rosdoc_lite <package name>`
-5. Veiw documentation by opening the `index.html` file (stored in the doc folder) with your web prefered browser 
+2. Copy the `rosdoc.yaml` template (documenation_templates) file into your package and make the necessary edits
+3. Go to the the src directory of your ros_workspace (ex. ~/Desktop/ROV_Test_Bench/ros_workspace/src/)
+4. Run `rosdoc_lite <package_name>`
+5. Veiw documentation by opening the `index.html` file stored in the `ros_workspace/src/doc/html/package_name` directory with your prefered web browser 
 
 ## --Updates needed beyond this point--
 
