@@ -27,6 +27,8 @@ Review how to use rosdoc_lite: http://wiki.ros.org/rosdoc_lite
 4. Run `rosdoc_lite <package_name>`
 5. Veiw documentation by opening the `index.html` file stored in the `ros_workspace/src/doc/html/package_name` directory with your prefered web browser 
 
+Document code using the javadoc style comments with JAVADOC_AUTOBRIEF=NO: http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html
+
 ## --Updates needed beyond this point--
 
 ## Code of Conduct
