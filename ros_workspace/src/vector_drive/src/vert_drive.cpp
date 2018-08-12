@@ -1,3 +1,5 @@
+//Doc mainpage written in horiz_drive.cpp
+
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
@@ -12,7 +14,7 @@ ros::Subscriber sub;
 //message being published
 vector_drive::thrusterPercents thrustPercents; //To be filled with thrustersSet values
 
-//template class for simple functions
+//template class for simple functions (breifs in horiz_drive.cpp)
 template <class T>
 void constrain(T &value, T min, T max){
     if(value > max){
@@ -48,6 +50,10 @@ T map(T input, T inMin, T inMax, T outMin, T outMax){
     T output = (input - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     return output;
 }
+
+/**
+* @breif updates control percents, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic. Currently no vector math is needed due to primitive vertical control system. Control percents are directly multiplied by 1000 for thrusters percents. 
+*/
 
 void commandVectorCallback(const geometry_msgs::Twist::ConstPtr& vel)
 {
