@@ -3,15 +3,16 @@ authors: ''
 brief: ''
 bugtracker: ''
 depends:
-- dynamic_reconfigure
-- std_msgs
-- rospy
-- roscpp
+- message_generation
 - catkin
-description: The copilot_interface package
+- message_runtime
+- std_msgs
+- roscpp
+description: The vector_drive package
 license: TODO
 maintainers: michael <michael@todo.todo>
-msgs: []
+msgs:
+- thrusterPercents
 package_type: package
 repo_url: ''
 srvs: []

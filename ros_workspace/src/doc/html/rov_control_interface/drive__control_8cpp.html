@@ -41,8 +41,6 @@
 Include dependency graph for drive_control.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="drive__control_8cpp__incl.png" border="0" usemap="#drive__control_8cpp" alt=""/></div>
-<map name="drive__control_8cpp" id="drive__control_8cpp">
-</map>
 </div>
 </div>
 <p><a href="drive__control_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -50,18 +48,23 @@ Include dependency graph for drive_control.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a85d5c43d2c1ef6d64cae89abd58ff08b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a85d5c43d2c1ef6d64cae89abd58ff08b">a_axis</a> (0)</td></tr>
+<tr class="memdesc:a85d5c43d2c1ef6d64cae89abd58ff08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">doubles for holding the value of the control axis  <a href="#a85d5c43d2c1ef6d64cae89abd58ff08b">More...</a><br /></td></tr>
 <tr class="separator:a85d5c43d2c1ef6d64cae89abd58ff08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b0bfeb5e85b6933fe6609ea3fb9111d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a6b0bfeb5e85b6933fe6609ea3fb9111d">a_scale</a> (0.5)</td></tr>
 <tr class="separator:a6b0bfeb5e85b6933fe6609ea3fb9111d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a220a48c6308bf31123e09a5b6c07d6d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a220a48c6308bf31123e09a5b6c07d6d1">bilinearCalc</a> (double &amp;axis)</td></tr>
+<tr class="memdesc:a220a48c6308bf31123e09a5b6c07d6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls variable joystick sensitivity. Small movements that use a small percent of the maximum control vecotr magnitude have a lower sensitivity than larger movements with the joystick.  <a href="#a220a48c6308bf31123e09a5b6c07d6d1">More...</a><br /></td></tr>
 <tr class="separator:a220a48c6308bf31123e09a5b6c07d6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42f7c6c58121f30abbc316b7940ccd8c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a42f7c6c58121f30abbc316b7940ccd8c">bilinearRatio</a> (1.5)</td></tr>
+<tr class="memdesc:a42f7c6c58121f30abbc316b7940ccd8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">variable for determining the bilinear threshold  <a href="#a42f7c6c58121f30abbc316b7940ccd8c">More...</a><br /></td></tr>
 <tr class="separator:a42f7c6c58121f30abbc316b7940ccd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a104cfb94761e64ce8de71daa9b5eab71"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a104cfb94761e64ce8de71daa9b5eab71">bilinearThreshold</a> (1.0/<a class="el" href="drive__control_8cpp.html#a42f7c6c58121f30abbc316b7940ccd8c">bilinearRatio</a>)</td></tr>
+<tr class="memdesc:a104cfb94761e64ce8de71daa9b5eab71"><td class="mdescLeft">&#160;</td><td class="mdescRight">At what percent of the joysticks axis magnitude to apply the additional thrust.  <a href="#a104cfb94761e64ce8de71daa9b5eab71">More...</a><br /></td></tr>
 <tr class="separator:a104cfb94761e64ce8de71daa9b5eab71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4741f3511188f94531a9f0a8e96d9630"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a4741f3511188f94531a9f0a8e96d9630">controlCallback</a> (copilot_interface::copilotControlParamsConfig &amp;config, uint32_t level)</td></tr>
 <tr class="separator:a4741f3511188f94531a9f0a8e96d9630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fa83a9570ac824fe0e7effd1fff5878"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a8fa83a9570ac824fe0e7effd1fff5878">inversion</a> (0)</td></tr>
+<tr class="memdesc:a8fa83a9570ac824fe0e7effd1fff5878"><td class="mdescLeft">&#160;</td><td class="mdescRight">inversion -&gt; 1 Front, 2 Left, 3 Back, 4 Right  <a href="#a8fa83a9570ac824fe0e7effd1fff5878">More...</a><br /></td></tr>
 <tr class="separator:a8fa83a9570ac824fe0e7effd1fff5878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a270cf1227523891ffd3a4c8d3d6a0df5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a270cf1227523891ffd3a4c8d3d6a0df5">joyCallback</a> (const sensor_msgs::Joy::ConstPtr &amp;joy)</td></tr>
 <tr class="separator:a270cf1227523891ffd3a4c8d3d6a0df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -70,10 +73,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a59fee881db090325624464f47489d8a2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a59fee881db090325624464f47489d8a2">l_axisLR</a> (0)</td></tr>
 <tr class="separator:a59fee881db090325624464f47489d8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd1007c7bf86651229237d456956d43e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#afd1007c7bf86651229237d456956d43e">l_scale</a> (0.5)</td></tr>
+<tr class="memdesc:afd1007c7bf86651229237d456956d43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">doubles for sensitively control  <a href="#afd1007c7bf86651229237d456956d43e">More...</a><br /></td></tr>
 <tr class="separator:afd1007c7bf86651229237d456956d43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9afdc9be6fbe06ef5b69a6b93eecbb2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a9afdc9be6fbe06ef5b69a6b93eecbb2c">thrustEN</a> (false)</td></tr>
+<tr class="memdesc:a9afdc9be6fbe06ef5b69a6b93eecbb2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">thrusters enabled  <a href="#a9afdc9be6fbe06ef5b69a6b93eecbb2c">More...</a><br /></td></tr>
 <tr class="separator:a9afdc9be6fbe06ef5b69a6b93eecbb2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41acc18220ace902833be76abf843dea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a41acc18220ace902833be76abf843dea">v_axis</a> (0)</td></tr>
 <tr class="separator:a41acc18220ace902833be76abf843dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -85,18 +90,25 @@ Variables</h2></td></tr>
 <tr class="memitem:aebb79dd9b697c17bf04e644f9de07d61"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#aebb79dd9b697c17bf04e644f9de07d61">angularAxisIndex</a> = 2</td></tr>
 <tr class="separator:aebb79dd9b697c17bf04e644f9de07d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5ba8d1afdcde6c63d91b250fcd10c2"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a3b5ba8d1afdcde6c63d91b250fcd10c2">camera_select</a></td></tr>
+<tr class="memdesc:a3b5ba8d1afdcde6c63d91b250fcd10c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary Camera pub.  <a href="#a3b5ba8d1afdcde6c63d91b250fcd10c2">More...</a><br /></td></tr>
 <tr class="separator:a3b5ba8d1afdcde6c63d91b250fcd10c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef25d55c9b7a4853da4c056ba859857"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a4ef25d55c9b7a4853da4c056ba859857">joy_sub</a></td></tr>
+<tr class="memdesc:a4ef25d55c9b7a4853da4c056ba859857"><td class="mdescLeft">&#160;</td><td class="mdescRight">subscriber to the logitech joystick  <a href="#a4ef25d55c9b7a4853da4c056ba859857">More...</a><br /></td></tr>
 <tr class="separator:a4ef25d55c9b7a4853da4c056ba859857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa4b5d46eb6dd77bb40da9340bab877f"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#afa4b5d46eb6dd77bb40da9340bab877f">linearAxisFBIndex</a> = 1</td></tr>
+<tr class="memdesc:afa4b5d46eb6dd77bb40da9340bab877f"><td class="mdescLeft">&#160;</td><td class="mdescRight">forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro  <a href="#afa4b5d46eb6dd77bb40da9340bab877f">More...</a><br /></td></tr>
 <tr class="separator:afa4b5d46eb6dd77bb40da9340bab877f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5b9d78a0659bbf9266ea1ad6b1f1e21"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#ae5b9d78a0659bbf9266ea1ad6b1f1e21">linearAxisLRIndex</a> = 0</td></tr>
+<tr class="memdesc:ae5b9d78a0659bbf9266ea1ad6b1f1e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">left-right axis index in the joy topic array from the logitech Extreme 3D Pro  <a href="#ae5b9d78a0659bbf9266ea1ad6b1f1e21">More...</a><br /></td></tr>
 <tr class="separator:ae5b9d78a0659bbf9266ea1ad6b1f1e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c246b834ebd6f3f94bf2b1d9364134"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a47c246b834ebd6f3f94bf2b1d9364134">power_control</a></td></tr>
+<tr class="memdesc:a47c246b834ebd6f3f94bf2b1d9364134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary TCU relay controller.  <a href="#a47c246b834ebd6f3f94bf2b1d9364134">More...</a><br /></td></tr>
 <tr class="separator:a47c246b834ebd6f3f94bf2b1d9364134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affac0434bcae945082f3c0a30c9351ca"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#affac0434bcae945082f3c0a30c9351ca">solenoid_control</a></td></tr>
+<tr class="memdesc:affac0434bcae945082f3c0a30c9351ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary TCU solenoid controller.  <a href="#affac0434bcae945082f3c0a30c9351ca">More...</a><br /></td></tr>
 <tr class="separator:affac0434bcae945082f3c0a30c9351ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386815232f40557cb23a15e99759d740"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a386815232f40557cb23a15e99759d740">vel_pub</a></td></tr>
+<tr class="memdesc:a386815232f40557cb23a15e99759d740"><td class="mdescLeft">&#160;</td><td class="mdescRight">publisher that publishes a Twist message containing 2 non-standard Vector3 data sets  <a href="#a386815232f40557cb23a15e99759d740">More...</a><br /></td></tr>
 <tr class="separator:a386815232f40557cb23a15e99759d740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0976b5ea3eef4ca74dde6a0b2eb2512d"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drive__control_8cpp.html#a0976b5ea3eef4ca74dde6a0b2eb2512d">verticalAxisIndex</a> = 3</td></tr>
 <tr class="separator:a0976b5ea3eef4ca74dde6a0b2eb2512d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,6 +127,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>doubles for holding the value of the control axis </p>
 
 </div>
 </div>
@@ -148,7 +162,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00047">47</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Controls variable joystick sensitivity. Small movements that use a small percent of the maximum control vecotr magnitude have a lower sensitivity than larger movements with the joystick. </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00062">62</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,6 +182,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>variable for determining the bilinear threshold </p>
+
 </div>
 </div>
 <a class="anchor" id="a104cfb94761e64ce8de71daa9b5eab71"></a>
@@ -181,6 +199,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>At what percent of the joysticks axis magnitude to apply the additional thrust. </p>
 
 </div>
 </div>
@@ -207,8 +227,12 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Handles copilot input: updates thrusters, enables sensitivity, and enables inversion. Callback to anything published by the dynamic reconfigure copilot page </p>
+<p>Camera publisher</p>
+<p>&lt;tcu board publisher</p>
+<p>&lt;tcu board publisher </p>
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00136">136</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00156">156</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -226,6 +250,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>inversion -&gt; 1 Front, 2 Left, 3 Back, 4 Right </p>
+
 </div>
 </div>
 <a class="anchor" id="a270cf1227523891ffd3a4c8d3d6a0df5"></a>
@@ -241,8 +267,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>What the node does when joystick publishes a new message </p>
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00062">62</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00080">80</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -292,6 +319,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>doubles for sensitively control </p>
+
 </div>
 </div>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
@@ -317,8 +346,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ROS nodehandle </p>
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00162">162</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00182">182</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,6 +365,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>thrusters enabled </p>
 
 </div>
 </div>
@@ -381,7 +413,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00016">16</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00029">29</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +427,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00042">42</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Temporary Camera pub. </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00054">54</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +443,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00039">39</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>subscriber to the logitech joystick </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00051">51</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +459,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00014">14</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00027">27</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -437,7 +475,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00015">15</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>left-right axis index in the joy topic array from the logitech Extreme 3D Pro </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00028">28</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +491,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00043">43</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Temporary TCU relay controller. </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00055">55</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -465,7 +507,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00044">44</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Temporary TCU solenoid controller. </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00056">56</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +523,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00038">38</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>publisher that publishes a Twist message containing 2 non-standard Vector3 data sets </p>
+
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00050">50</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -493,7 +539,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00017">17</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
+<p>Definition at line <a class="el" href="drive__control_8cpp_source.html#l00030">30</a> of file <a class="el" href="drive__control_8cpp_source.html">drive_control.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +549,7 @@ Variables</h2></td></tr>
 <hr size="1"><div style="align: right;">
 <a href="http://wiki.ros.org/rov_control_interface">rov_control_interface</a><br />
 Author(s): </br />
-<small>autogenerated on Sat Aug 11 2018 17:38:57</small>
+<small>autogenerated on Sat Aug 11 2018 22:09:57</small>
 </div>
 </body>
 </html>

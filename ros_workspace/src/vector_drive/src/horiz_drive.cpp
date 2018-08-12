@@ -1,3 +1,15 @@
+/**
+* @author Michael Equi
+* @version 0.1
+* @date 8-11-2018
+* @mainpage The drive_control node
+* @section intro_sec Introduction
+* This code contains implementations for converting horizontal and vertical control vectors into individual thruster percents (multiplied by 10 for more accuracy without needing to be stored as doubles) from -1000 to 1000
+* @section compile_sec Compilation
+* Compile using catkin_make in the ros_workspace directory. 
+*/
+
+
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
@@ -9,10 +21,13 @@
 ros::Publisher pub;
 ros::Subscriber sub;
 
-//message being published
+//!message being published
 vector_drive::thrusterPercents thrustPercents; //To be filled with thrustersSet values
 
-//template class for simple functions
+//template classes for simple functions
+/**
+* @breif constrians value between min and max inclusive. Value is returned by reference.
+*/
 template <class T>
 void constrain(T &value, T min, T max){
     if(value > max){
@@ -22,6 +37,9 @@ void constrain(T &value, T min, T max){
     }
 }
 
+/**
+* @breif returns the absolute value of value
+*/
 template <class T>
 T abs(T value){
     if(value < 0)
@@ -29,6 +47,9 @@ T abs(T value){
     return value;
 }
 
+/**
+* @breif returns the larger number between vlaue1 and value2
+*/
 template <class T>
 T max(T value1, T value2){
     if(value1 > value2)
@@ -36,6 +57,9 @@ T max(T value1, T value2){
     return value2;
 }
 
+/**
+* @breif returns the smaller number between vlaue1 and value2
+*/
 template <class T>
 T min(T value1, T value2){
     if(value1 < value2)
@@ -43,13 +67,18 @@ T min(T value1, T value2){
     return value2;
 }
 
+/**
+* @breif returns a number mapped proportioanlly from one range of numbers to another
+*/
 template <class T>
 T map(T input, T inMin, T inMax, T outMin, T outMax){
     T output = (input - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     return output;
 }
 
-
+/**
+* @breif Takes in linearX, linearY, and anguarX percents (-1 to 1) and translates tham to indvidual thrusters percents from -1000 to 1000. These percents are for thrusters T1, T2, T3, and T4.
+*/
 const vector_drive::thrusterPercents& vectorMath(double &linearX, double &linearY, double &angularX){
 
     //if values out of range flag an error
@@ -96,6 +125,9 @@ const vector_drive::thrusterPercents& vectorMath(double &linearX, double &linear
 
 }
 
+/**
+* @breif updates control percents, runs vectorMath, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic
+*/
 
 void commandVectorCallback(const geometry_msgs::Twist::ConstPtr& vel)
 {
@@ -121,10 +153,10 @@ int main(int argc, char **argv)
 
     ros::NodeHandle n;
 
-    //ROS publisher to send thruster percent to hardware control node for CAN transmission
+    //!ROS publisher to send thruster percent to hardware control node for CAN transmission
     pub = n.advertise<vector_drive::thrusterPercents>("rov/cmd_horizontal_vdrive", 1);
 
-    //ROS subscriber to get vectors from the joystick control input
+    //!ROS subscriber to get vectors from the joystick control input
     sub = n.subscribe("rov/cmd_vel", 1, commandVectorCallback);
 
 
