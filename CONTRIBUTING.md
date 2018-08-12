@@ -29,4 +29,4 @@ Review how to use rosdoc_lite: http://wiki.ros.org/rosdoc_lite
 
 Document code using the javadoc style comments with JAVADOC_AUTOBRIEF=NO: http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html
 
-Good examples of doxygen comments can be found in the rov_control_interface and vector_drive packages for C++ and in the bmp280_driver.py and sht31_drive.py files
+Good examples of doxygen comments can be found in the rov_control_interface and vector_drive packages for C++ and in the bmp280_driver.py and sht31_drive.py files for python
