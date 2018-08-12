@@ -66,10 +66,13 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a350594df3e8f6948c8462edfd41ce086"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vert__drive_8cpp.html#a350594df3e8f6948c8462edfd41ce086">pub</a></td></tr>
+<tr class="memdesc:a350594df3e8f6948c8462edfd41ce086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes thrusterPercent (-1000 to 1000) message for thruster 5, 6, 7, and 8.  <a href="#a350594df3e8f6948c8462edfd41ce086">More...</a><br /></td></tr>
 <tr class="separator:a350594df3e8f6948c8462edfd41ce086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24d694a9a8bf73ee31fe92724886a276"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vert__drive_8cpp.html#a24d694a9a8bf73ee31fe92724886a276">sub</a></td></tr>
+<tr class="memdesc:a24d694a9a8bf73ee31fe92724886a276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to rov/cmd_vel in order to get command/control vectors for vector drive algorithm.  <a href="#a24d694a9a8bf73ee31fe92724886a276">More...</a><br /></td></tr>
 <tr class="separator:a24d694a9a8bf73ee31fe92724886a276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a132e869d49dd183d192ed81a9138d"><td class="memItemLeft" align="right" valign="top">vector_drive::thrusterPercents&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vert__drive_8cpp.html#a53a132e869d49dd183d192ed81a9138d">thrustPercents</a></td></tr>
+<tr class="memdesc:a53a132e869d49dd183d192ed81a9138d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message being published by pub.  <a href="#a53a132e869d49dd183d192ed81a9138d">More...</a><br /></td></tr>
 <tr class="separator:a53a132e869d49dd183d192ed81a9138d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -89,7 +92,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00028">28</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00026">26</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -106,9 +109,14 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>updates control percents, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic. Currently no vector math is needed due to primitive vertical control system. Control percents are directly multiplied by 1000 for thrusters percents. </p>
+<p>updates control percents, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic. Currently no vector math is needed due to primitive vertical control system. Control percents are directly multiplied by 1000 for thrusters percents. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vel</td><td>vel Input from the joystick, ros_control_interface and ROS Control PID algorithms </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00058">58</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00057">57</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -144,7 +152,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00019">19</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00017">17</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -172,7 +180,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00078">78</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00077">77</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +228,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00049">49</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00047">47</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -250,7 +258,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00035">35</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00033">33</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +288,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00042">42</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00040">40</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +303,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00011">11</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Publishes thrusterPercent (-1000 to 1000) message for thruster 5, 6, 7, and 8. </p>
+
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00010">10</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +319,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00012">12</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Subscribes to rov/cmd_vel in order to get command/control vectors for vector drive algorithm. </p>
+
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00011">11</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -323,7 +335,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00015">15</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
+<p>Message being published by pub. </p>
+
+<p>Definition at line <a class="el" href="vert__drive_8cpp_source.html#l00013">13</a> of file <a class="el" href="vert__drive_8cpp_source.html">vert_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +347,7 @@ template&lt;class T &gt; </div>
 <hr size="1"><div style="align: right;">
 <a href="http://wiki.ros.org/vector_drive">vector_drive</a><br />
 Author(s): </br />
-<small>autogenerated on Sat Aug 11 2018 22:29:14</small>
+<small>autogenerated on Sun Aug 12 2018 14:06:23</small>
 </div>
 </body>
 </html>

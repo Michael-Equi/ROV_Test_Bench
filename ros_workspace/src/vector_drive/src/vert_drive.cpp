@@ -3,16 +3,14 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-//custom message for holding 4 float32 thruster percents
+//custom message for holding 4 int32 thruster percents
 #include "vector_drive/thrusterPercents.h"
 
 
-//pub and sub declarations
-ros::Publisher pub;
-ros::Subscriber sub;
+ros::Publisher pub;  //!< Publishes thrusterPercent (-1000 to 1000) message for thruster 5, 6, 7, and 8
+ros::Subscriber sub; //!< Subscribes to rov/cmd_vel in order to get command/control vectors for vector drive algorithm   
 
-//message being published
-vector_drive::thrusterPercents thrustPercents; //To be filled with thrustersSet values
+vector_drive::thrusterPercents thrustPercents; //!< Message being published by pub
 
 //template class for simple functions (breifs in horiz_drive.cpp)
 template <class T>
@@ -53,6 +51,7 @@ T map(T input, T inMin, T inMax, T outMin, T outMax){
 
 /**
 * @breif updates control percents, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic. Currently no vector math is needed due to primitive vertical control system. Control percents are directly multiplied by 1000 for thrusters percents. 
+* @param[in] vel vel Input from the joystick, ros_control_interface and ROS Control PID algorithms
 */
 
 void commandVectorCallback(const geometry_msgs::Twist::ConstPtr& vel)

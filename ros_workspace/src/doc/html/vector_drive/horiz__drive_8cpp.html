@@ -62,17 +62,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a63bddbf27a50a67c582c25f41ec35176"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a63bddbf27a50a67c582c25f41ec35176"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#a63bddbf27a50a67c582c25f41ec35176">min</a> (T value1, T value2)</td></tr>
 <tr class="separator:a63bddbf27a50a67c582c25f41ec35176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeccab01121435091b0bda11325f2b5d2"><td class="memItemLeft" align="right" valign="top">const vector_drive::thrusterPercents &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#aeccab01121435091b0bda11325f2b5d2">vectorMath</a> (double &amp;linearX, double &amp;linearY, double &amp;angularX)</td></tr>
-<tr class="separator:aeccab01121435091b0bda11325f2b5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24c638cbe4f5f42f99524bb5bdf6943"><td class="memItemLeft" align="right" valign="top">const vector_drive::thrusterPercents &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#ad24c638cbe4f5f42f99524bb5bdf6943">vectorMath</a> (const double &amp;linearX, const double &amp;linearY, const double &amp;angularX)</td></tr>
+<tr class="separator:ad24c638cbe4f5f42f99524bb5bdf6943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a350594df3e8f6948c8462edfd41ce086"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#a350594df3e8f6948c8462edfd41ce086">pub</a></td></tr>
+<tr class="memdesc:a350594df3e8f6948c8462edfd41ce086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes thrusterPercent (-1000 to 1000) message for thruster 1, 2, 3, and 4.  <a href="#a350594df3e8f6948c8462edfd41ce086">More...</a><br /></td></tr>
 <tr class="separator:a350594df3e8f6948c8462edfd41ce086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24d694a9a8bf73ee31fe92724886a276"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#a24d694a9a8bf73ee31fe92724886a276">sub</a></td></tr>
+<tr class="memdesc:a24d694a9a8bf73ee31fe92724886a276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to rov/cmd_vel in order to get command/control vectors for vector drive algorithm.  <a href="#a24d694a9a8bf73ee31fe92724886a276">More...</a><br /></td></tr>
 <tr class="separator:a24d694a9a8bf73ee31fe92724886a276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a132e869d49dd183d192ed81a9138d"><td class="memItemLeft" align="right" valign="top">vector_drive::thrusterPercents&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__drive_8cpp.html#a53a132e869d49dd183d192ed81a9138d">thrustPercents</a></td></tr>
-<tr class="memdesc:a53a132e869d49dd183d192ed81a9138d"><td class="mdescLeft">&#160;</td><td class="mdescRight">message being published  <a href="#a53a132e869d49dd183d192ed81a9138d">More...</a><br /></td></tr>
+<tr class="memdesc:a53a132e869d49dd183d192ed81a9138d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message being published by pub.  <a href="#a53a132e869d49dd183d192ed81a9138d">More...</a><br /></td></tr>
 <tr class="separator:a53a132e869d49dd183d192ed81a9138d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -91,9 +93,15 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>returns the absolute value of value </p>
+<p>returns the absolute value of value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the absolute value of value input </dd></dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00044">44</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00048">48</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -110,9 +118,14 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>updates control percents, runs vectorMath, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic </p>
+<p>updates control percents, runs vectorMath, updates thruster percents, and publishes the updates thruster percents to the rov/cmd_horizontal_vdrive topic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vel</td><td>Input from the joystick, ros_control_interface and ROS Control PID algorithms </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00132">132</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00152">152</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -147,9 +160,16 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>constrians value between min and max inclusive. Value is returned by reference. </p>
+<p>constrians value between min and max inclusive. Value is returned by reference. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">value</td><td>input to be constrianed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min</td><td>The minimum value that "value" should be able to be </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max</td><td>The maximum value that "value" should be able to be </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00032">32</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00034">34</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -176,10 +196,8 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ROS publisher to send thruster percent to hardware control node for CAN transmission</p>
-<p>ROS subscriber to get vectors from the joystick control input </p>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00148">148</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00171">171</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -226,9 +244,19 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>returns a number mapped proportioanlly from one range of numbers to another </p>
+<p>returns a number mapped proportioanlly from one range of numbers to another </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>Value to be mapped </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inMax</td><td>The maximum value for the range of the input </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inMin</td><td>The minimum value for the range of the input </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">outMin</td><td>The minimum value for the range of the output </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">outMax</td><td>The maximum value for the range of the output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The input trnslated proportionally from range in to range out </dd></dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00074">74</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00090">90</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -257,9 +285,16 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>returns the larger number between vlaue1 and value2 </p>
+<p>returns the larger number between vlaue1 and value2 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value1</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The larger of the two values </dd></dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00054">54</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00061">61</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,32 +323,39 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>returns the smaller number between vlaue1 and value2 </p>
+<p>returns the smaller number between value1 and value2 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value1</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The smaller of the two values </dd></dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00064">64</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00074">74</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aeccab01121435091b0bda11325f2b5d2"></a>
+<a class="anchor" id="ad24c638cbe4f5f42f99524bb5bdf6943"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">const vector_drive::thrusterPercents&amp; vectorMath </td>
           <td>(</td>
-          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramtype">const double &amp;&#160;</td>
           <td class="paramname"><em>linearX</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramtype">const double &amp;&#160;</td>
           <td class="paramname"><em>linearY</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramtype">const double &amp;&#160;</td>
           <td class="paramname"><em>angularX</em>&#160;</td>
         </tr>
         <tr>
@@ -323,9 +365,17 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Takes in linearX, linearY, and anguarX percents (-1 to 1) and translates tham to indvidual thrusters percents from -1000 to 1000. These percents are for thrusters T1, T2, T3, and T4. </p>
+<p>Takes in linearX, linearY, and anguarX percents (-1 to 1) and translates tham to indvidual thrusters percents from -1000 to 1000. These percents are for thrusters T1, T2, T3, and T4. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">linearX</td><td>Equivalent to the left-right axis of the joystick </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">linearY</td><td>Equivalent to the front-back axis of the joystick </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">angularX</td><td>Equivalent to the rotational/angular axis of the joystick </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Const vector_drive/thrusterPercents message ready to be published to the rov/cmd_horizontal_vdrive topic </dd></dl>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00082">82</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00102">102</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +390,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00021">21</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Publishes thrusterPercent (-1000 to 1000) message for thruster 1, 2, 3, and 4. </p>
+
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00020">20</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -354,7 +406,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00022">22</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Subscribes to rov/cmd_vel in order to get command/control vectors for vector drive algorithm. </p>
+
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00021">21</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -368,9 +422,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>message being published </p>
+<p>Message being published by pub. </p>
 
-<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00025">25</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
+<p>Definition at line <a class="el" href="horiz__drive_8cpp_source.html#l00023">23</a> of file <a class="el" href="horiz__drive_8cpp_source.html">horiz_drive.cpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +434,7 @@ template&lt;class T &gt; </div>
 <hr size="1"><div style="align: right;">
 <a href="http://wiki.ros.org/vector_drive">vector_drive</a><br />
 Author(s): </br />
-<small>autogenerated on Sat Aug 11 2018 22:29:14</small>
+<small>autogenerated on Sun Aug 12 2018 14:06:23</small>
 </div>
 </body>
 </html>
