@@ -1,0 +1,18 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- dynamic_reconfigure
+- std_msgs
+- rospy
+- roscpp
+- catkin
+description: The copilot_interface package
+license: TODO
+maintainers: michael <michael@todo.todo>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''
