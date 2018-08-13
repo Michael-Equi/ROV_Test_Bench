@@ -17,6 +17,7 @@ class SHT31:
 	##Updates and decodes the raw sht31 sensor values and stores them into class member variables to be extracted by the getter functions.
 	# Must be run before getting sensor values.
 	def updateValues(self):
+		
 		attempts = 0
 		success = False
 		with SMBusWrapper(1) as bus:
@@ -34,6 +35,7 @@ class SHT31:
 				rospy.logerr("SHT31-D connection failed! Ending program")
 				exit(1)
 
+		rospy.sleep(.015) #experimentally found rest time before reading values
 		with SMBusWrapper(1) as bus:
 			#read 16 bit temp and humidity with 2 CRC bytes (6 bytes)
 			numOfTries = 0
