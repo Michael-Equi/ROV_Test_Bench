@@ -17,7 +17,7 @@ class SHT31:
 	##Updates and decodes the raw sht31 sensor values and stores them into class member variables to be extracted by the getter functions.
 	# Must be run before getting sensor values.
 	def updateValues(self):
-		
+
 		attempts = 0
 		success = False
 		with SMBusWrapper(1) as bus:
