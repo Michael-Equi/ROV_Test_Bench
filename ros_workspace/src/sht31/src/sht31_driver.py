@@ -13,19 +13,27 @@ class SHT31:
 		self.tempuratureF = 0  ## Tempurature in fahrenheit
 		self.humidity = 0      ## Humidity in % RH (relative humidity)
 		self.readError = False ## Status variable for indicating a read error of the SHT31 I2C device
+
+		attempts = 0
+		success = False
+		with SMBusWrapper(1) as bus:
+			while(success != True and attempts < 10):
+				#put sensor into signle shot mode with no clock stretching
+				try:
+					bus.write_word_data(self.address, 0x24, 0x00)
+					success = True
+				except Exception as e:
+					rospy.logerr("Error writting to SHT31 sensor: %s", e)
+					attempts+=1
+					rospy.sleep(0.25)
+
+			if(attempts == 10):
+				rospy.logerr("SHT31-D connection failed! Ending program")
+				exit(1)
 	
 	##Updates and decodes the raw sht31 sensor values and stores them into class member variables to be extracted by the getter functions.
 	# Must be run before getting sensor values.
 	def updateValues(self):
-		with SMBusWrapper(1) as bus:
-			#put sensor into signle shot mode with no clock stretching
-			try:
-				bus.write_word_data(self.address, 0x24, 0x00)
-			except Exception as e:
-				rospy.logerr("Error writting to SHT31 sensor: %s", e)
-				
-		
-		rospy.sleep(.015) #experimentally found rest time before reading values
 		with SMBusWrapper(1) as bus:
 			#read 16 bit temp and humidity with 2 CRC bytes (6 bytes)
 			numOfTries = 0
