@@ -1,3 +1,15 @@
+/**
+* @author Michael Equi
+* @version 0.1
+* @date 8-11-2018
+* @warning This file contains temporary implementations for cameras, tcu board control, and copilot interface.
+* @mainpage The drive_control node
+* @section intro_sec Introduction
+* This code contains implementations for bilinear control, sensitivity, and 4-way inversion. The node subscribes to a joy topic and publishes rov/cmd_vel to PID algorithms and vector drive.
+* @section compile_sec Compilation
+* Compile using catkin_make in the ros_workspace directory. 
+*/
+
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
@@ -7,45 +19,48 @@
 
 //Temporary
 #include <std_msgs/UInt8.h> //For camera Pub
-#include <tcu_board_msgs/tcu_main_relay.h> //tcu relay controller
-#include <tcu_board_msgs/tcu_main_solenoid.h>  //tcu solenoid controller
-
-//Added 3 temporary publishers - delete when fixed
-
-//Location of axis in the joy message array
-const int linearAxisFBIndex = 1; //forward-backward
-const int linearAxisLRIndex = 0; //left-right
-const int angularAxisIndex = 2;
-const int verticalAxisIndex = 3;
+#include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
-//doubles for sensitively control (placeholders for now)
-double l_scale(0.5), a_scale(0.5), v_scale(0.5);
+const int linearAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
+const int linearAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
+const int angularAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
+const int verticalAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
+ 
+double l_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
+double a_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
+double v_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 
-//doubles for holding the value of the control axis
-double a_axis(0), l_axisLR(0), l_axisFB(0), v_axis(0);
+double a_axis(0);   //!< Holds the value of the rotational/angular control axis
+double l_axisLR(0); //!< Holds the value of the right-left linear control axis
+double l_axisFB(0); //!< Holds the value of the front-back linear control axis
+double v_axis(0);   //!< Holds the value of the vertical control axis
 
-bool thrustEN(false); //thrusters enabled?
+
+bool thrustEN(false); //!<thrusters enabled (True = yes, False = default = no)
 
 
-//inversion -> 1 Front, 2 Left, 3 Back, 4 Right
+//! inversion -> 1 Front, 2 Left, 3 Back, 4 Right
 int inversion(0);
 
-//variables for bilinear control
+//! Variable for determining the bilinear threshold 
 const double bilinearRatio(1.5);
+
+//! At what percent of the joysticks axis magnitude (-1 to 1) to apply the additional thrust 
 const double bilinearThreshold(1.0 / bilinearRatio);
 
-
-//subscribing to the logitech joystick and outputting control vectors
-ros::Publisher vel_pub;
-ros::Subscriber joy_sub;
+ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
+ros::Subscriber joy_sub; //!<subscriber to the logitech joystick
 
 //Temporary publishers
-ros::Publisher camera_select; //Camera pub
-ros::Publisher power_control; //tcu relay controller
-ros::Publisher solenoid_control; //tcu solenoid controller
+ros::Publisher camera_select;    //!<Temporary Camera pub
+ros::Publisher power_control;    //!<Temporary TCU relay controller
+ros::Publisher solenoid_control; //!<Temporary TCU solenoid controller
 
-
+/**
+* @brief Controls variable joystick sensitivity. Small movements that use a small percent of the maximum control vecotr magnitude have a lower sensitivity than larger movements with the joystick.
+* @param[in,out] axis Takes in a reference to the axis (a_axis, l_axisLR/FB, v_axis)
+*/
 void bilinearCalc(double &axis){
     if((bilinearThreshold * -0.32768)<= axis && axis < (bilinearThreshold * 0.32767)){ //middle range
         axis/=bilinearRatio;
@@ -60,7 +75,10 @@ void bilinearCalc(double &axis){
 }
 
 
-//What the node does when joy_sub receives a new publish message
+/**
+* @breif What the node does when joystick publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
 void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
 
@@ -133,8 +151,12 @@ void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
 }
 
 
-//For handling base copilot input
-//Updates thrusters enabled sensitivity and inversion
+/**
+* @breif Handles copilot input: updates thrusters, enables sensitivity, and enables inversion.
+* Callback to anything published by the dynamic reconfigure copilot page
+* @param[in] &config New copilot_interface param
+* @param[in] level The OR-ing of all the values that have changed in the copilot_interface param (not used yet) 
+*/
 void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint32_t level) {
 
     thrustEN = config.thrustersEnabled;
@@ -150,11 +172,11 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     msg.data = config.camera;
     camera_select.publish(msg);
 
-    //tcu board publishers
-    tcu_board_msgs::tcu_main_relay relayMsg;
-    tcu_board_msgs::tcu_main_solenoid solMsg;
-    relayMsg.status = config.power;
-    solMsg.status = config.pneumatics;
+
+    std_msgs::Bool relayMsg; //tcu board publisher
+    std_msgs::Bool solMsg;   //tcu board publisher
+    relayMsg.data = config.power;
+    solMsg.data = config.pneumatics;
     power_control.publish(relayMsg);
     solenoid_control.publish(solMsg);
 }
@@ -165,17 +187,17 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "drive_control");
 
-    //ROS nodehandle
     ros::NodeHandle n;
 
 
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
-    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
+    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback); 
 
-    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3); //Camera pub
-    power_control = n.advertise<tcu_board_msgs::tcu_main_relay>("tcu/main_relay", 3); //Relay pub
-    solenoid_control = n.advertise<tcu_board_msgs::tcu_main_solenoid >("tcu/main_solenoid", 3); //Solenoid pub
+    //setup temporary publishers
+    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
+    power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
+    solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
 
     //setup dynamic reconfigure
     dynamic_reconfigure::Server<copilot_interface::copilotControlParamsConfig> server;

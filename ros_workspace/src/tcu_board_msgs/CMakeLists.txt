@@ -49,9 +49,6 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    tcu_board_data.msg
-   tcu_leds.msg
-   tcu_main_relay.msg
-   tcu_main_solenoid.msg
  )
 
 ## Generate services in the 'srv' folder

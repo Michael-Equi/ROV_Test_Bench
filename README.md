@@ -20,36 +20,41 @@ Initial SETUP:
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup.sh`
 * `./setup.sh`
+* `sudo apt-get install ros-kinetic-joy`
 * (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
 * `sudo apt-get install python-smbus`
+* `sudo apt-get install doxygen`
+* `sudo apt-get install ros-kinetic-rosdoc-lite`
+* `sudo apt-get install ros-kinetic-rosserial-arduino`
+* `sudo apt-get install ros-kinetic-rosserial`
+* Check individual package setup documentation
+* `cd ~/Desktop/ROV_Test_Bench/ros_workspace`
+* `catkin_make`
+ * Check for errors
+ * Check prerequisites
     
-*Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)
-Only develop with clion, webstorm, pycharm, and arduino*
+*Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)*
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things you should to install to develop and run software and how to install them
 
 Code Blocks IDE on rpi ubuntu mate
 * `sudo apt-get install codeblocks`
 
-I2C interface on Ubutnu Mate
+On the RPI turn on the CSI, SPI, I2C, and UART interfaces using `sudo raspi-config`
+
+Setup the I2C interface on Ubutnu Mate
 * `cd /boot/config.txt`
 * uncomment `dtparam=i2c_arm=off` and change to `dtparam=i2c_arm=on`
 * uncomment `dtparam=i2c_arm_baudrate=100000` and change to `dtparam=i2c_arm_baudrate=400000`
 * restart pi
 
 Setup the ros_lib file for arduino serial
-* If a new msg needs to be added to the file run `sudo rm -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib` and `rosrun rosserial_client make_libraries ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries` (make sure to have sourced the correct devel/setup.bash)
-* Run `sudo rm -R /opt/ros/kinetic/share/rosserial_client/src/ros_lib`
-* Run `sudo cp -R ~/Desktop/ROV_Test_Bench/ros_workspace/sketchbook/libraries/ros_lib /opt/ros/kinetic/share/rosserial_client/src`
-
-For running rosserial the first time make sure to `sudo apt-get install ros-kinetic-rosserial` and install the rosserial library from the arduino library manager
-
-Add vector_drive/thrusterPercents.h to the libraries folder in arduino
+* See sketchbook README.md documentation
 
 RPI Camera node setup
-* https://github.com/UbiquityRobotics/raspicam_node
+* See raspicam_node README.md documentation
 
 ### Network Setup
 
@@ -78,22 +83,19 @@ Other usefull links for common problems:
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
 * https://answers.ros.org/question/41446/a-is-not-in-your-ssh-known_hosts-file/
 
-### Installing
+### Installing OS
 
 A step by step series of examples that tell you how to get a development env running
 
 On your Raspberry Pi 3 B make sure you are running ubuntu mate 16.04 (image here https://drive.google.com/open?id=1497jupJ2dBQqy_o_x5JBPTjY3lto7-rI)
 * cat /etc/os-release
-* https://www.intorobotics.com/how-to-install-ros-kinetic-on-raspberry-pi-3-running-raspbian-stretch-lite/
-* http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick (replace indigo with kinetic)
-
 
 ##UPDATES NEEDED BELOW THIS POINT
 --------------------------------
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Explain how to run the automated tests for this system (travis CI)
 
 ### Break down into end to end tests
 
@@ -105,7 +107,7 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
+Explain what these tests test and why (coveralls)
 
 ```
 Give an example
@@ -113,7 +115,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system (docker)
 
 ## Built With
 
@@ -133,7 +135,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Michael Equi** - *Initial work*
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Michael-Equi/ROV_Test_Bench/graphs/contributors) who participated in this project.
 
 ## Acknowledgments
 
