@@ -1,0 +1,3 @@
+ - builder: doxygen
+   name: raspicam_node
+   output_dir: raspicam_node

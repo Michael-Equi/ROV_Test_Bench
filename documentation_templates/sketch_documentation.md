@@ -6,25 +6,26 @@
 
 Pargraph on how this code fits into the overall architecture. What it does and what is runs on (cortex-M, arduino ARM/AVR, etc.)? 
 
+## Goal
+
+What is the purpose of this software and why was this chosen over alternative options (this will help during tech report writting)
+
 ## Instructions 
 
 * Instructions for buidling this code and running it on its respective embedded system 
   * `...`
+
 ## Communication Architecture
 * messages, how this code communicates or fits in with the rest of the architecture
+
 ## Troubleshooting
-
-## Project Ownership
-
-* List the primary person responsible for this peice of software
-* Initial owner:
-* Current owner:
 
 ## Contributors 
 
-* List contirbutors (anyone who writes stuff into this package) and role here 
 * Current maintaner: 
-* name contributer: 
+
+* Contributors:
+  * name (anyone who writes stuff into this package) - role (what was the work said person did)
 
 ## Helpful Resources
 

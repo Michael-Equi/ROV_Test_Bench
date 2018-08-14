@@ -1,48 +1,33 @@
 # uart_thrusters_arduino
 
+## Description
+
 This is the core firmware and logic for the bottomside arduino microntroller. This firmware is equiped with a new packet parsing algorith and thruster control software.
 
-### Goal
+## Goal
 
-For a reliable independant microcontroller to provide additional safety features over a direct I2C to PWM converter or onboard PWM signal on the main bottomside computer.  
+Allow a reliable independant microcontroller to provide additional safety features over a direct I2C to PWM converter or PWM signal generation on the main bottomside computer. 
 
-### Requirments and Description
+## Instructions 
 
-* Flawless error handling
-* Clean commented code
-* logical layout and good code practices 
+* Upload to an arduino and plug the default serial into /dev/ttyACM0 
 
-### Break down into end to end tests
+## Communication Architecture
+* Uses custom communication framework over a seiral port 
+* Works with the hw_thruster_controller_interface.py under the hardware_interfaces package
+* Wathcdog timer monitors if communication has been lost and will turn the thrsters OFF
 
-* 1 hour of rigorous testing on two distinct arduinos with a mix a valid and invlaid messages
-* Must be able to handle system crashes and worst case scenario events while providing good debug inforamtion
 
-### Coding detials 
+## Troubleshooting
 
-* C++, Arduino
-* No classes
-* Two tabs 
-  * uart_thrusters_arduino.ino
-  * packet_reader.ino
+## Contributors 
 
-## Contributing and Project Ownership
-
-* Initial owner: Michael Equi
 * Current maintaner: Michael Equi
-* packet_reader algorithm contributer: Michael Equi
-* uart_thrusters_arduino calculateThrusterValues contributer: Michael Equi 
 
-
-
-## Versioning
-
-* Latest Version 
-* Active
-
-## Authors
-
-* Michael Equi
+* Contirbutors:
+  * Michae Equi - inital work
 
 ## Helpful Resources
 
-* NONE
+* Links, information, external articles that were helpful in creating anything in this package
+
