@@ -2,13 +2,13 @@
 
 # package_name
 
-## Description
+## Overview Description
 
 Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
 
-## Goal 
+## Goal and User Experience
 
-What is the goal of the code and why it was done the way it was. This will help with tech report.
+What is the goal of the code and why it was done the way it was. How does this add to the user experience. What should the user experience with this code be like (some packages will have a lot more on this than others), provide examples and walk through the features. This will help with tech report.
 
 ## Build Instructions 
 
