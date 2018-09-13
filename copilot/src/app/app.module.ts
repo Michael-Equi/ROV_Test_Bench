@@ -9,6 +9,19 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './components/nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { DashboardComponent } from './components/Example Pages/dashboard/dashboard.component';
+import { TableComponent } from './components/Example Pages/table/table.component';
+
+import { RouterModule, Routes } from '@angular/router';
+import { FirstPageComponent } from './components/Example Pages/first-page/first-page.component';
+import { SecondPageComponent } from './components/Example Pages/second-page/second-page.component';
+import { ThirdPageComponent } from './components/Example Pages/third-page/third-page.component';
+import { CopilotComponent } from './components/copilot/copilot.component';
+import { MainCameraModuleComponent } from './components/main-camera-module/main-camera-module.component';
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,7 +31,6 @@ import { ElectronService } from './providers/electron.service';
 import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,8 +40,15 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    NavComponent,
+    DashboardComponent,
+    TableComponent,
+    FirstPageComponent,
+    SecondPageComponent,
+    ThirdPageComponent,
+    CopilotComponent,
+    MainCameraModuleComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +61,20 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]
