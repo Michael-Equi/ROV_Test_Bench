@@ -25,9 +25,19 @@
               "src/favicon.512x512.png"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "src/my-theme.scss"
+              },
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/@shopify/draggable/lib/draggable.js",
+              "./node_modules/@shopify/draggable/lib/droppable.js",
+              "./node_modules/@shopify/draggable/lib/sortable.js",
+              "./node_modules/@shopify/draggable/lib/swappable.js"
+            ]
           },
           "configurations": {
             "dev": {
