@@ -1,0 +1,25 @@
+<mat-card class="dashboard-card">
+  <mat-card-header class="mb-0">
+    <mat-card-title>
+      Secondary Camera
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Temporary Camera Feed Placeholder -->
+    <div style="width:100%;height:180px;background-color: lightgrey;"></div>
+    <mat-form-field>
+      <mat-select placeholder="Secondary Camera" class="align-content-center">
+        <mat-option *ngFor="let camera of cameras">
+          {{camera}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
