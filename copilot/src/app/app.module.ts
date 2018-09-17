@@ -1,46 +1,32 @@
-import 'zone.js/dist/zone-mix';
-import 'reflect-metadata';
-import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './components/nav/nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import { DashboardComponent } from './components/Example Pages/dashboard/dashboard.component';
-import { TableComponent } from './components/Example Pages/table/table.component';
-
-import { RouterModule, Routes } from '@angular/router';
-import { FirstPageComponent } from './components/Example Pages/first-page/first-page.component';
-import { SecondPageComponent } from './components/Example Pages/second-page/second-page.component';
-import { ThirdPageComponent } from './components/Example Pages/third-page/third-page.component';
-import { CopilotComponent } from './components/copilot/copilot.component';
-import { MainCameraModuleComponent } from './components/main-camera-module/main-camera-module.component';
-// NG Translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { ElectronService } from './providers/electron.service';
-
-import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSelectModule } from '@angular/material';
+import { DashboardComponent } from './Example Pages/dashboard/dashboard.component';
+import { TableComponent } from './Example Pages/table/table.component';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { RouterModule, Routes } from '@angular/router';
+import { FirstPageComponent } from './Example Pages/first-page/first-page.component';
+import { SecondPageComponent } from './Example Pages/second-page/second-page.component';
+import { ThirdPageComponent } from './Example Pages/third-page/third-page.component';
+import { CopilotComponent } from './copilot/copilot.component';
+import { MainCameraModuleComponent } from './Modules/main-camera-module/main-camera-module.component';
+import { SecondaryCameraModuleComponent } from './Modules/secondary-camera-module/secondary-camera-module.component';
+
+const appRoutes: Routes = [
+  { path: 'first-page', component: FirstPageComponent },
+  { path: 'second-page', component: SecondPageComponent },
+  { path: 'third-page', component: ThirdPageComponent },
+  { path: 'copilot', component: CopilotComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    WebviewDirective,
     NavComponent,
     DashboardComponent,
     TableComponent,
@@ -48,20 +34,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecondPageComponent,
     ThirdPageComponent,
     CopilotComponent,
-    MainCameraModuleComponent
+    MainCameraModuleComponent,
+    SecondaryCameraModuleComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    }),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -75,8 +52,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSelectModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [ElectronService],
+  providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
