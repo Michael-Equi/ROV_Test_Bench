@@ -16,6 +16,7 @@ import { ThirdPageComponent } from './Example Pages/third-page/third-page.compon
 import { CopilotComponent } from './copilot/copilot.component';
 import { MainCameraModuleComponent } from './Modules/main-camera-module/main-camera-module.component';
 import { SecondaryCameraModuleComponent } from './Modules/secondary-camera-module/secondary-camera-module.component';
+import { TimerModuleComponent } from './Modules/timer-module/timer-module.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     CopilotComponent,
     MainCameraModuleComponent,
     SecondaryCameraModuleComponent,
+    TimerModuleComponent,
   ],
   imports: [
     BrowserModule,

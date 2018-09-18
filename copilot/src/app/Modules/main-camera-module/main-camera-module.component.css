@@ -1,5 +1,5 @@
 .camera-buttons > button {
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .grid-container {
@@ -17,6 +17,6 @@
   right: 10px;
 }
 
-.dashboard-card-content {
+.mat-card-content {
   text-align: center;
 }
