@@ -1,22 +1,11 @@
-<mat-card class="dashboard-card m-0 p-3 py-3">
-  <mat-card-header class="mb-0">
-    <mat-card-title>
-      Main Camera
-      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" style="top: 1%">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Expand</button>
-        <button mat-menu-item>Remove</button>
-      </mat-menu>
-    </mat-card-title>
-  </mat-card-header>
+<mat-card class="dashboard-card">
+    <app-card-header></app-card-header>
   <mat-card-content>
     <mat-grid-list cols="3" rowHeight="1.7:1" class="camera-buttons mt-0">
       <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let camera of cameras">
         <mat-card-actions>
-          <button mat-raised-button color="primary" class="pt-1 px-4">
-            <h3 class="my-3">{{ camera }}</h3>
+          <button mat-raised-button color="primary" class="pt-1 px-3">
+            <h2 class="my-3">{{ camera }}</h2>
           </button>
         </mat-card-actions>
       </mat-grid-tile>

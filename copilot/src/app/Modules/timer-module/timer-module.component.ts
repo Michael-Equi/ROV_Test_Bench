@@ -7,6 +7,34 @@ import { Component } from '@angular/core';
 })
 export class TimerModuleComponent {
 
-  time = '0:00';
+  seconds = 0;
+  minutes = 0;
+  timerInterval;
+  stopped:boolean;
 
+  startTimer() {
+    let start = Date.now();
+    this.timerInterval = setInterval(() => {
+        let delta = Date.now() - start; // milliseconds elapsed since start
+        this.seconds = Math.floor(delta / 1000); // in seconds
+    }, 1000);
+    this.stopped = false;
+  }
+
+  resetTimer() {
+    this.seconds = 0;
+  }
+
+  stopTimer() {
+    clearInterval(this.timerInterval);
+    this.stopped = true;
+  }
+
+  countTime() {
+    this.minutes += 1;
+    if (this.seconds = 60) {
+      this.seconds = 0;
+      this.minutes = 1;
+    }
+  }
 }
