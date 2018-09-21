@@ -5,7 +5,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSelectModule } from '@angular/material';
+import {
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule,
+    MatButtonToggleModule
+} from '@angular/material';
 import { DashboardComponent } from './Example Pages/dashboard/dashboard.component';
 import { TableComponent } from './Example Pages/table/table.component';
 
@@ -17,6 +31,7 @@ import { CopilotComponent } from './copilot/copilot.component';
 import { MainCameraModuleComponent } from './Modules/main-camera-module/main-camera-module.component';
 import { SecondaryCameraModuleComponent } from './Modules/secondary-camera-module/secondary-camera-module.component';
 import { TimerModuleComponent } from './Modules/timer-module/timer-module.component';
+import { CardHeaderComponent } from './card-header/card-header.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
@@ -38,6 +53,7 @@ const appRoutes: Routes = [
     MainCameraModuleComponent,
     SecondaryCameraModuleComponent,
     TimerModuleComponent,
+    CardHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +71,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
+    MatButtonToggleModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
