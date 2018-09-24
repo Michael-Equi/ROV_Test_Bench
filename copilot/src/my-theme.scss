@@ -9,14 +9,14 @@
  // Color Variables are taken from theming.scss or material colors
 
 $rovotics-theme-primary: mat-palette($mat-cyan);
-$rovotics-theme-accent: mat-palette($mat-cyan, A200, A100, A400);
+$rovotics-theme-accent: mat-palette($mat-cyan, 700, 800, 900);
 $rovotics-theme-warn: mat-palette($mat-red);
 
 // Import Theme into Angular Material
 $rovotics-theme: mat-dark-theme($rovotics-theme-primary, $rovotics-theme-accent, $rovotics-theme-warn);
 
 // Success/Warn Theme
-$success-alternate-theme: mat-palette($mat-green);
+$success-alternate-theme: mat-palette($mat-green, 600);
 $warn-alternate-theme: mat-palette($mat-red);
 $alternate-theme: mat-dark-theme($rovotics-theme-primary, $success-alternate-theme, $warn-alternate-theme);
 
