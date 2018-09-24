@@ -1,9 +1,9 @@
 <mat-card class="dashboard-card">
   <app-card-header [card-name]="name"></app-card-header>
-  <mat-card-content class="">
-    <h1>{{ minutes }}:{{ seconds }}</h1>
-    <button mat-raised-button (click)="startTimer()" color="primary" *ngIf="stopped">Start</button>
-    <button mat-raised-button (click)="stopTimer()" color="primary" *ngIf="!stopped">Stop</button>
-    <button mat-raised-button (click)="resetTimer()" color="primary" [disabled]="!stopped">Reset</button>
+  <mat-card-content>
+    <h1 id="time" class="mb-4">{{ minutes }}:{{ seconds }}</h1>
+    <button mat-raised-button (click)="startTimer()" color="primary" *ngIf="stopped" class="mx-3 px-4"> <h1>Start</h1> </button>
+    <button mat-raised-button (click)="stopTimer()" color="warn" *ngIf="!stopped" class="mx-3 px-4"> <h1>Stop</h1> </button>
+    <button mat-raised-button (click)="resetTimer()" color="primary" [disabled]="!stopped"  class="mx-3 px-4"><h1>Reset</h1></button>
   </mat-card-content>
 </mat-card>

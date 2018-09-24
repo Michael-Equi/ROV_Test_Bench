@@ -15,5 +15,16 @@ $rovotics-theme-warn: mat-palette($mat-red);
 // Import Theme into Angular Material
 $rovotics-theme: mat-dark-theme($rovotics-theme-primary, $rovotics-theme-accent, $rovotics-theme-warn);
 
+// Success/Warn Theme
+$success-alternate-theme: mat-palette($mat-green);
+$warn-alternate-theme: mat-palette($mat-red);
+$alternate-theme: mat-dark-theme($rovotics-theme-primary, $success-alternate-theme, $warn-alternate-theme);
+
+// Parent class .success-warn-theme, you use this style
+ .success-warn-theme {
+   @include angular-material-theme($alternate-theme);
+ }
+
+
  // Merges this style with default theme
- @include angular-material-theme($rovotics-theme)
+ @include angular-material-theme($rovotics-theme);
