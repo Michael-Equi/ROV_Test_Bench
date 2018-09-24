@@ -1,7 +1,12 @@
 .dashboard-card {
     margin: 8px !important;
+    text-align: center;
 }
 
-.white {
-    color: white !important;
+#time {
+    font-size: 80pt;
+}
+
+.mat-raised-button {
+    line-height: 18px !important;
 }
