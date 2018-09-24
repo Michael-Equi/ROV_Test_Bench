@@ -34,6 +34,7 @@ import { SecondaryCameraModuleComponent } from './Modules/secondary-camera-modul
 import { TimerModuleComponent } from './Modules/timer-module/timer-module.component';
 import { CardHeaderComponent } from './card-header/card-header.component';
 import { ThrusterSensativityComponent } from './Modules/thruster-sensativity/thruster-sensativity.component';
+import { DepthChartComponent } from './Modules/depth-chart/depth-chart.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     TimerModuleComponent,
     CardHeaderComponent,
     ThrusterSensativityComponent,
+    DepthChartComponent,
   ],
   imports: [
     BrowserModule,
