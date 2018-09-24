@@ -18,7 +18,8 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSliderModule
 } from '@angular/material';
 import { DashboardComponent } from './Example Pages/dashboard/dashboard.component';
 import { TableComponent } from './Example Pages/table/table.component';
@@ -32,6 +33,7 @@ import { MainCameraModuleComponent } from './Modules/main-camera-module/main-cam
 import { SecondaryCameraModuleComponent } from './Modules/secondary-camera-module/secondary-camera-module.component';
 import { TimerModuleComponent } from './Modules/timer-module/timer-module.component';
 import { CardHeaderComponent } from './card-header/card-header.component';
+import { ThrusterSensativityComponent } from './Modules/thruster-sensativity/thruster-sensativity.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     SecondaryCameraModuleComponent,
     TimerModuleComponent,
     CardHeaderComponent,
+    ThrusterSensativityComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ const appRoutes: Routes = [
     MatSortModule,
     MatSelectModule,
     MatButtonToggleModule,
+    MatSliderModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

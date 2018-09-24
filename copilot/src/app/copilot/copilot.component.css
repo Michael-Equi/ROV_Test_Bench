@@ -4,3 +4,9 @@ mat-grid-tile {
   height: 100%;
 
 }
+
+mat-grid-list {
+  width: 1750.547px;
+  position: fixed;
+  overflow: hidden;
+}
