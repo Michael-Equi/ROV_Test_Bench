@@ -21,6 +21,7 @@ import {
     MatButtonToggleModule,
     MatSliderModule
 } from '@angular/material';
+import { ChartModule } from 'angular2-chartjs';
 import { DashboardComponent } from './Example Pages/dashboard/dashboard.component';
 import { TableComponent } from './Example Pages/table/table.component';
 
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatButtonToggleModule,
     MatSliderModule,
+    ChartModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
