@@ -36,13 +36,14 @@ import { TimerModuleComponent } from './Modules/timer-module/timer-module.compon
 import { CardHeaderComponent } from './card-header/card-header.component';
 import { ThrusterSensativityComponent } from './Modules/thruster-sensativity/thruster-sensativity.component';
 import { DepthChartComponent } from './Modules/depth-chart/depth-chart.component';
+import { VelocityGraphComponent } from './Modules/velocity-graph/velocity-graph.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
   { path: 'second-page', component: SecondPageComponent },
   { path: 'third-page', component: ThirdPageComponent },
   { path: 'copilot', component: CopilotComponent}
-]
+];
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
     CardHeaderComponent,
     ThrusterSensativityComponent,
     DepthChartComponent,
+    VelocityGraphComponent,
   ],
   imports: [
     BrowserModule,
