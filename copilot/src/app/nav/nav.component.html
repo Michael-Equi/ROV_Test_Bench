@@ -1,11 +1,14 @@
 <mat-sidenav-container class="sidenav-container" color="secondary">
   <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
+    <div class="centeringdiv"></div>
     <mat-nav-list color="primary">
-      <a mat-list-item href="/first-page">First Page</a>
-      <a mat-list-item href="/second-page">Second Page</a>
-      <a mat-list-item href="/third-page">Third Page</a>
-      <a mat-list-item href="/copilot">Copilot</a>
+      <a mat-list-item style="padding-bottom: 17px;" href="/copilot"><img src="/src/assets/HouseUnselected.svg" alt="Home" width="42" height="42" border="0"></a>
+      <a mat-list-item style="padding-bottom: 17px;" href="/first-page"><img src="/src/assets/Bolt(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
+      <a mat-list-item style="padding-bottom: 17px;" href="/second-page"><img src="/src/assets/CircutBoard(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
+      <a mat-list-item href="/third-page"><img src="/src/assets/Settings(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
+
     </mat-nav-list>
+    <div class="centeringdiv"></div>
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- Router Outlet means that all navigable links go through this outlet -->
@@ -14,4 +17,3 @@
 
   </mat-sidenav-content>
 </mat-sidenav-container>
-
