@@ -13,4 +13,9 @@
 
 .mat-drawer {
   /* Put Colors here*/
+  background-color: #313349 !important;
+}
+
+.centeringdiv {
+  height: 36%;
 }
