@@ -1,7 +1,14 @@
 <mat-card class="dashboard-card">
   <app-card-header [card-name]="name"></app-card-header>
-  <svg height="80%" width="100%">
-    <circle cx="50%" cy="50%" r="100" stroke="#4B4D6A" stroke-width="7" fill="none" />
-    <circle cx="50%" cy="50%" r="7" stroke="white" stroke-width="3"></circle>
-  </svg>
+  <div class="container">
+    <div class="imageOne image">
+      <img src="/src/assets/Outside-Circle.png" alt="Outside Circle" id="outside-circle">
+    </div>
+    <div class="imageTwo image">
+      <img src="/src/assets/Inner-Circle.png" alt="Inner Circle" id="inner-circle">
+    </div>
+    <div class="image">
+      <img src="/src/assets/Crosshairs.png" alt="Cross Hairs" id="crosshairs">
+    </div>
+  </div>
 </mat-card>
