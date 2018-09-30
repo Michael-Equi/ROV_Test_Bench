@@ -38,6 +38,9 @@ import { ThrusterSensativityComponent } from './Modules/thruster-sensativity/thr
 import { DepthChartComponent } from './Modules/depth-chart/depth-chart.component';
 import { VelocityGraphComponent } from './Modules/velocity-graph/velocity-graph.component';
 import { ToolsComponent } from './Modules/tools/tools.component';
+import { ThrustersComponent } from './Modules/thrusters/thrusters.component';
+import { SystemsComponent } from './Modules/systems/systems.component';
+import { TelemetrydataComponent } from './Modules/telemetrydata/telemetrydata.component';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
@@ -64,6 +67,9 @@ const appRoutes: Routes = [
     DepthChartComponent,
     VelocityGraphComponent,
     ToolsComponent,
+    ThrustersComponent,
+    SystemsComponent,
+    TelemetrydataComponent,
   ],
   imports: [
     BrowserModule,
