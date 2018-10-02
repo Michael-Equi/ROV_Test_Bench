@@ -57,3 +57,21 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .mat-menu-panel {
     background-color: #2A2B3C !important;
 }
+.dashboard-card-drq{
+    width: 95%;
+    height: 95%;
+    text-align: center;
+}
+.dashboard-card-settings{
+    width: 95%;
+    height: 97%;
+    text-align: center;
+}
+.dashboard-card-drq-status{
+    width: 16%;
+    height: 86%;
+    margin-right: 3%;
+    text-align: center;
+    float: right;
+    background-color: #4CAF50 !important;
+}

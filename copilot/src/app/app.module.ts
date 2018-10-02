@@ -41,9 +41,19 @@ import { ToolsComponent } from './Modules/tools/tools.component';
 import { ThrustersComponent } from './Modules/thrusters/thrusters.component';
 import { SystemsComponent } from './Modules/systems/systems.component';
 import { TelemetrydataComponent } from './Modules/telemetrydata/telemetrydata.component';
+import { DrqComponent } from './drq/drq.component';
+import { Drq1Component } from './Modules/drq1/drq1.component';
+import { Drq2Component } from './Modules/drq2/drq2.component';
+import { DrqsettingsComponent } from './Modules/drqsettings/drqsettings.component';
+import { Drq1dataComponent } from './Modules/drq1data/drq1data.component';
+import { Drq2dataComponent } from './Modules/drq2data/drq2data.component';
+import { Statusdrq1Component } from './Modules/statusdrq1/statusdrq1.component';
+import { Statusdrq2Component } from './Modules/statusdrq2/statusdrq2.component';
+import { Settingsdrq1Component } from './Modules/settingsdrq1/settingsdrq1.component';
+import { Settingsdrq2Component } from './Modules/settingsdrq2/settingsdrq2.component';
 
 const appRoutes: Routes = [
-  { path: 'first-page', component: FirstPageComponent },
+  { path: 'drq', component: DrqComponent },
   { path: 'second-page', component: SecondPageComponent },
   { path: 'third-page', component: ThirdPageComponent },
   { path: 'copilot', component: CopilotComponent}
@@ -70,6 +80,16 @@ const appRoutes: Routes = [
     ThrustersComponent,
     SystemsComponent,
     TelemetrydataComponent,
+    DrqComponent,
+    Drq1Component,
+    Drq2Component,
+    DrqsettingsComponent,
+    Drq1dataComponent,
+    Drq2dataComponent,
+    Statusdrq1Component,
+    Statusdrq2Component,
+    Settingsdrq1Component,
+    Settingsdrq2Component,
   ],
   imports: [
     BrowserModule,
