@@ -9,5 +9,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() {}
+
+  click(click) {
+    console.log("Click");
+    console.log(click);
+  };
+
   }
