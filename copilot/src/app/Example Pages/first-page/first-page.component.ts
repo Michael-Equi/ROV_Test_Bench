@@ -10,6 +10,12 @@ export class FirstPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('OnInit');
   }
+
+  click(event) {
+      console.log('Clicked');
+      console.log(event);
+  };
 
 }
