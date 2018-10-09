@@ -2,7 +2,17 @@
   <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
     <div class="centeringdiv"></div>
     <mat-nav-list color="primary">
-      <a mat-list-item style="padding-bottom: 17px;" href="/copilot" (click)="click($event)"><img src="/src/assets/HouseUnselected.svg" alt="Home" width="42" height="42" border="0"></a>
+      <a mat-list-item style="padding-bottom: 17px;"
+         (click)="click($event)"
+      >
+            <img #House
+                 id="house"
+                 [src]="house.src"
+                 alt="Home"
+                 width="42"
+                 height="42"
+                 border="0">
+      </a>
       <a mat-list-item style="padding-bottom: 17px;" href="/drq"><img src="/src/assets/Bolt(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
       <a mat-list-item style="padding-bottom: 17px;" href="/second-page"><img src="/src/assets/CircutBoard(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
       <a mat-list-item href="/third-page"><img src="/src/assets/Settings(Unselected).svg" alt="Home" width="42" height="42" border="0"></a>
