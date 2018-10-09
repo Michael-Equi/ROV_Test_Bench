@@ -11,9 +11,19 @@ import { map } from 'rxjs/operators';
 export class NavComponent {
   constructor() {}
 
-  click(click) {
-    console.log("Click");
-    console.log(click);
+  HouseUnselected = '/src/assets/HouseUnselected.svg';
+  HouseSelected = '/src/assets/HouseSelected.svg';
+  house = {
+    selected: true;
+    src: '/src/assets/HouseUnselected.svg'
   };
 
-  }
+  click(click) {
+    console.log('Click');
+    console.log(click);
+    console.log(this.house.selected);
+    const componentId = click.srcElement.id;
+    this.house.src = '/src/assets/HouseSelected.svg';
+  };
+
+}
