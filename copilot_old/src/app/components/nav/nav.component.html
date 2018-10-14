@@ -1,0 +1,17 @@
+<mat-sidenav-container class="sidenav-container" color="secondary">
+  <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
+    <mat-nav-list color="primary">
+      <!--<a mat-list-item href="/first-page">First Page</a>-->
+      <a mat-list-item href="/second-page">Second Page</a>
+      <a mat-list-item href="/third-page">Third Page</a>
+      <a mat-list-item href="/copilot">Copilot</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Router Outlet means that all navigable links go through this outlet -->
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
