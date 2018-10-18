@@ -51,10 +51,13 @@ import { Statusdrq1Component } from './DRQModules/statusdrq1/statusdrq1.componen
 import { Statusdrq2Component } from './DRQModules/statusdrq2/statusdrq2.component';
 import { Settingsdrq1Component } from './DRQModules/settingsdrq1/settingsdrq1.component';
 import { Settingsdrq2Component } from './DRQModules/settingsdrq2/settingsdrq2.component';
+import { SensortelemetryComponent } from './sensortelemetry/sensortelemetry.component';
+import { TubedataComponent } from './SensorTelemetryModules/tubedata/tubedata.component';
+import { TcudataComponent } from './SensorTelemetryModules/tcudata/tcudata.component';
 
 const appRoutes: Routes = [
   { path: 'drq', component: DrqComponent },
-  { path: 'second-page', component: SecondPageComponent },
+  { path: 'sensortelemetry', component: SensortelemetryComponent },
   { path: 'third-page', component: ThirdPageComponent },
   { path: 'copilot', component: CopilotComponent}
 ];
@@ -89,7 +92,10 @@ const appRoutes: Routes = [
     Statusdrq1Component,
     Statusdrq2Component,
     Settingsdrq1Component,
-    Settingsdrq2Component
+    Settingsdrq2Component,
+    SensortelemetryComponent,
+    TubedataComponent,
+    TcudataComponent
   ],
   imports: [
     BrowserModule,
