@@ -20,6 +20,7 @@ Initial SETUP:
 * `cd ROV_Test_Bench/scripts`
 * `./GitSetup.sh`
 * `./setup.sh`
+* Try to install all ros depednencies (joy, rosserial, etc) at once using `rosdep install --from-paths src --ignore-src -r -y` in your ros_workspace
 * `sudo apt-get install ros-kinetic-joy`
 * (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
 * `sudo apt-get install python-smbus`
