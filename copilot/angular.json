@@ -35,7 +35,10 @@
               "./node_modules/@shopify/draggable/lib/draggable.js",
               "./node_modules/@shopify/draggable/lib/droppable.js",
               "./node_modules/@shopify/draggable/lib/sortable.js",
-              "./node_modules/@shopify/draggable/lib/swappable.js"
+              "./node_modules/@shopify/draggable/lib/swappable.js",
+              "./node_modules/roslib/src/RosLib.js",
+              "./node_modules/roslibjs-client/build/roslibjs-client.js",
+              "./node_modules/eventemitter2/lib/eventemitter2.js"
             ]
           },
           "configurations": {
