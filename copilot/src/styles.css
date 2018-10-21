@@ -75,3 +75,10 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     float: right;
     background-color: #4CAF50 !important;
 }
+
+.fullcard {
+    width: 95%;
+    height: 94%;
+    margin: 8px;
+    text-align: center;
+}
