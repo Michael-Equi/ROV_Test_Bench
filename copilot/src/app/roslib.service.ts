@@ -1,19 +1,18 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import * as ROSLIB from '../assets/roslib.min.js';
+import  '../assets/roslib.js';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoslibService implements OnInit{
-
+export class RoslibService {
   ros = new ROSLIB.Ros({
     url : 'ws://localhost:9090'
   });
 
   data;
 
-  ngOnInit() {
+  initialize() {
     this.ros.on('error', function(error) {
       console.log(error);
     });
