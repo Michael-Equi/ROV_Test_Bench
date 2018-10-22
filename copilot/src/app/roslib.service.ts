@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
-import * as ROSLIB from '../../node_modules/roslib/src/RosLib.js';
+import * as ROSLIB from '../assets/roslib.min.js';
 
 @Injectable({
   providedIn: 'root'
