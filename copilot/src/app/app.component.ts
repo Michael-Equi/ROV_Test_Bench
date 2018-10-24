@@ -7,14 +7,15 @@ import { RoslibService } from './roslib.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  // The constructor takes the roslibservice import statement and assigns it
+    // The constructor takes the roslibservice import statement and assigns it
   // Done before onInit
   constructor(private roslibservice: RoslibService) { }
   // OnInit initializes the Roslib service, and gets data to test connection
   ngOnInit() {
     this.roslibservice.initialize();
-    this.roslibservice.getDriveControlData();
+    this.roslibservice.getDriveControlData().subscribe(data => {
+      console.log(data);
+    });
   }
 
-  title = 'materialdashboard';
 }
