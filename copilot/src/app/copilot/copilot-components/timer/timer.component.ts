@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-timer-module',
-  templateUrl: './timer-module.component.html',
-  styleUrls: ['./timer-module.component.css']
+  templateUrl: './timer.component.html',
+  styleUrls: ['./timer.component.css']
 })
-export class TimerModuleComponent {
+export class TimerComponent {
 
   name = 'Stopwatch';
   seconds = '00';

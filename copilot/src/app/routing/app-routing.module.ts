@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {CopilotComponent} from './copilot/copilot.component';
-import {DrqComponent} from './drq/drq.component';
-import {SensortelemetryComponent} from './sensortelemetry/sensortelemetry.component';
+import {CopilotComponent} from '../copilot/copilot.component';
+import {DrqComponent} from '../drq/drq.component';
+import {SensortelemetryComponent} from '../sensor-telemetry/sensortelemetry.component';
 
 const appRoutes: Routes = [
   { path: 'drq', component: DrqComponent },
-  { path: 'sensortelemetry', component: SensortelemetryComponent },
+  { path: 'sensor-telemetry', component: SensortelemetryComponent },
   { path: 'copilot', component: CopilotComponent},
   { path: '*', component: CopilotComponent}
 ];

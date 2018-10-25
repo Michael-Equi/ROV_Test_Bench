@@ -10,10 +10,10 @@ import { ChartModule } from 'angular2-chartjs';
 
 import { CopilotModule } from './copilot/copilot.module';
 import { DrqModule } from './drq/drq.module';
-import { SensortelemetryModule } from './sensortelemetry/sensortelemetry.module';
+import { SensortelemetryModule } from './sensor-telemetry/sensortelemetry.module';
 import { SharedModule } from './shared/shared.module';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 
 
 
