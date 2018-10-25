@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   // OnInit initializes the Roslib service, and gets data to test connection
   ngOnInit() {
     this.roslibservice.initialize();
+    this.roslibservice.initializeBmp280();
+    this.roslibservice.getBmp280Data();
   }
 
 }

@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21c801ed-5191-4dbb-8e42-ba382765228c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/dictionaries/caelinsutch.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/app/shared/drivecontroldata.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/roslib.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/roslib.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/shared/drivecontroldata.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/shared/RosData.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -35,34 +37,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="65" />
+          <entry key="html" value="99" />
           <entry key="js" value="5" />
           <entry key="json" value="3" />
-          <entry key="ts" value="2479" />
+          <entry key="ts" value="4286" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="65" />
+          <entry key="HTML" value="99" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="5" />
-          <entry key="TypeScript" value="2479" />
+          <entry key="TypeScript" value="4286" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="2" />
+          <entry key="html" value="4" />
           <entry key="js" value="1" />
           <entry key="json" value="1" />
-          <entry key="ts" value="6" />
+          <entry key="ts" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="4" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
-          <entry key="TypeScript" value="6" />
+          <entry key="TypeScript" value="9" />
         </counts>
       </usages-collector>
     </session>
@@ -70,19 +72,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/app/shared/shared.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/app/roslib.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="372">
+              <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -91,10 +84,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/app/shared/RosData.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1116">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="465">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -102,11 +113,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="589">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -118,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="62">
-              <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -156,11 +176,14 @@
         <option value="$PROJECT_DIR$/../src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/../src/assets/roslib.js" />
         <option value="$PROJECT_DIR$/../angular.json" />
-        <option value="$PROJECT_DIR$/../src/app/roslib.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/shared/drivecontroldata.model.ts" />
-        <option value="$PROJECT_DIR$/../src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/../src/app/copilot/copilot.component.html" />
         <option value="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" />
+        <option value="$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts" />
+        <option value="$PROJECT_DIR$/../src/app/copilot/copilot.component.html" />
+        <option value="$PROJECT_DIR$/../src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/../src/app/roslib.service.ts" />
+        <option value="$PROJECT_DIR$/../src/app/shared/RosData.model.ts" />
+        <option value="$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html" />
       </list>
     </option>
   </component>
@@ -183,11 +206,11 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/../package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="76" />
-    <option name="y" value="33" />
-    <option name="width" value="1882" />
-    <option name="height" value="2127" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3590" />
+    <option name="y" value="542" />
+    <option name="width" value="3764" />
+    <option name="height" value="2177" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -221,7 +244,30 @@
               <item name="copilot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot-components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot-components" type="462c0819:PsiDirectoryNode" />
+              <item name="velocity-graph" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,18 +319,18 @@
       <workItem from="1539979798040" duration="18000" />
       <workItem from="1539979894060" duration="7498000" />
       <workItem from="1540142957103" duration="295000" />
-      <workItem from="1540248946146" duration="7742000" />
+      <workItem from="1540248946146" duration="12355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15553000" />
+    <option name="totallyTimeSpent" value="20166000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="76" y="33" width="1882" height="2127" extended-state="4" />
+    <frame x="1996" y="-6" width="3764" height="2166" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26408076" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13204038" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -297,7 +343,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49973205" visible="true" weight="0.19888663" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49973205" visible="true" weight="0.19503722" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500268" side_tool="true" weight="0.32778618" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -345,16 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/material.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -363,9 +399,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/shared/card-header/card-header.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot-components/depth-chart/depth-chart.component.html">
@@ -437,47 +470,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/roslib.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/shared/drivecontroldata.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
-          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/roslib.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/shared/RosData.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot-components/velocity-graph/velocity-graph.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
         </state>
       </provider>
     </entry>

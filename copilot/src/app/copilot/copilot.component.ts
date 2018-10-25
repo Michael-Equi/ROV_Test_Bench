@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RoslibService} from '../roslib.service'; [ RoslibService ];
-import { DriveControlData } from '../shared/drivecontroldata.model';
+import { DriveControlData } from '../shared/RosData.model';
 
 @Component({
   selector: 'app-copilot',
@@ -16,6 +16,7 @@ export class CopilotComponent {
     console.log("Clicked");
     this.roslibservice.getDriveControlData().subscribe(msg => {
       this.data = msg;
+      console.log(msg);
     });
   }
 }
