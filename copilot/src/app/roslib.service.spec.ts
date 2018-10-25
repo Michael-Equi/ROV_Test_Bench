@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RoslibService } from './roslib.service';
+import { DriveControlService } from './services/drive-control.service';
 
-describe('RoslibService', () => {
+describe('DriveControlService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RoslibService]
+      providers: [DriveControlService]
     });
   });
 
-  it('should be created', inject([RoslibService], (service: RoslibService) => {
+  it('should be created', inject([DriveControlService], (service: DriveControlService) => {
     expect(service).toBeTruthy();
   }));
 });
