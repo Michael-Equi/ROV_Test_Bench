@@ -11,15 +11,15 @@ export class DriveControlData {
         { name: String, value: number }
     ];
     groups: [
-        { state: bool, name: string}
+        { state: boolean, name: string}
     ];
     ints: [
         { name: string, value: number },
         { name: string, value: number }
     ];
     strs: [
-        length: 0;
-    ]
+        { length: 0; }
+    ];
 }
 
 export class Bmp280Data {

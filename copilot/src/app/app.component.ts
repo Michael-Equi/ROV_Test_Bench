@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { RoslibService } from './roslib.service';
+import { RosService } from './services/ros.service';
+import { DriveControlService } from './services/drive-control.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,11 @@ import { RoslibService } from './roslib.service';
 export class AppComponent implements OnInit {
     // The constructor takes the roslibservice import statement and assigns it
   // Done before onInit
-  constructor(private roslibservice: RoslibService) { }
+  constructor(private RosService : RosService, private DriveControlService : DriveControlService ) { }
   // OnInit initializes the Roslib service, and gets data to test connection
   ngOnInit() {
-    this.roslibservice.initialize();
-    this.roslibservice.initializeBmp280();
-    this.roslibservice.getBmp280Data();
+    this.RosService.initialize();
+    this.DriveControlService.initializeDriveControl();
   }
 
 }

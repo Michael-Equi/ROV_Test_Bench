@@ -13,7 +13,7 @@ import { DrqModule } from './drq/drq.module';
 import { SensortelemetryModule } from './sensortelemetry/sensortelemetry.module';
 import { SharedModule } from './shared/shared.module';
 
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
