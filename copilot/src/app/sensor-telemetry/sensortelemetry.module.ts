@@ -4,8 +4,8 @@ import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { SensortelemetryComponent } from './sensortelemetry.component';
-import { TubedataComponent } from './sensor-telemetry-modules/tubedata/tubedata.component';
-import { TcudataComponent } from './sensor-telemetry-modules/tcudata/tcudata.component';
+import { TubedataComponent } from './sensor-telemetry-components/tubedata/tubedata.component';
+import { TcudataComponent } from './sensor-telemetry-components/tcudata/tcudata.component';
 
 @NgModule({
   imports: [

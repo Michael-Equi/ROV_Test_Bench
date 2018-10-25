@@ -5,16 +5,16 @@ import { SharedModule } from '../shared/shared.module';
 import { ChartModule } from 'angular2-chartjs';
 
 import { CopilotComponent } from './copilot.component';
-import { MainCameraModuleComponent } from './copilot-components/main-camera-module/main-camera-module.component';
-import { SecondaryCameraModuleComponent } from './copilot-components/secondary-camera-module/secondary-camera-module.component';
-import { TimerModuleComponent } from './copilot-components/timer-module/timer-module.component';
+import { MainCameraComponent } from './copilot-components/main-camera/main-camera.component';
+import { SecondaryCameraComponent } from './copilot-components/secondary-camera/secondary-camera.component';
+import { TimerComponent } from './copilot-components/timer/timer.component';
 import { ThrusterSensativityComponent } from './copilot-components/thruster-sensativity/thruster-sensativity.component';
 import { DepthChartComponent } from './copilot-components/depth-chart/depth-chart.component';
 import { VelocityGraphComponent } from './copilot-components/velocity-graph/velocity-graph.component';
 import { ToolsComponent } from './copilot-components/tools/tools.component';
 import { ThrustersComponent } from './copilot-components/thrusters/thrusters.component';
 import { SystemsComponent } from './copilot-components/systems/systems.component';
-import { TelemetrydataComponent } from './copilot-components/telemetrydata/telemetrydata.component';
+import { TelemetrydataComponent } from './copilot-components/telemetry-data/telemetrydata.component';
 
 @NgModule({
   imports: [
@@ -25,9 +25,9 @@ import { TelemetrydataComponent } from './copilot-components/telemetrydata/telem
   ],
   declarations: [
     CopilotComponent,
-    MainCameraModuleComponent,
-    SecondaryCameraModuleComponent,
-    TimerModuleComponent,
+    MainCameraComponent,
+    SecondaryCameraComponent,
+    TimerComponent,
     ThrusterSensativityComponent,
     DepthChartComponent,
     VelocityGraphComponent,
@@ -37,9 +37,9 @@ import { TelemetrydataComponent } from './copilot-components/telemetrydata/telem
     TelemetrydataComponent,
   ],
   exports: [
-    MainCameraModuleComponent,
-    SecondaryCameraModuleComponent,
-    TimerModuleComponent,
+    MainCameraComponent,
+    SecondaryCameraComponent,
+    TimerComponent,
     ThrusterSensativityComponent,
     DepthChartComponent,
     VelocityGraphComponent,

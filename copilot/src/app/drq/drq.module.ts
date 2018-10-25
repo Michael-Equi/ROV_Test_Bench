@@ -4,15 +4,15 @@ import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { DrqComponent } from './drq.component';
-import { Drq1Component } from './drq-modules/drq1/drq1.component';
-import { Drq2Component } from './drq-modules/drq2/drq2.component';
-import { DrqsettingsComponent } from './drq-modules/drqsettings/drqsettings.component';
-import { Drq1dataComponent } from './drq-modules/drq1data/drq1data.component';
-import { Drq2dataComponent } from './drq-modules/drq2data/drq2data.component';
-import { Statusdrq1Component } from './drq-modules/statusdrq1/statusdrq1.component';
-import { Statusdrq2Component } from './drq-modules/statusdrq2/statusdrq2.component';
-import { Settingsdrq1Component } from './drq-modules/settingsdrq1/settingsdrq1.component';
-import { Settingsdrq2Component } from './drq-modules/settingsdrq2/settingsdrq2.component';
+import { Drq1Component } from './drq-components/drq1/drq1.component';
+import { Drq2Component } from './drq-components/drq2/drq2.component';
+import { DrqsettingsComponent } from './drq-components/drqsettings/drqsettings.component';
+import { Drq1dataComponent } from './drq-components/drq1/drq1data/drq1data.component';
+import { Drq2dataComponent } from './drq-components/drq2/drq2data/drq2data.component';
+import { Statusdrq1Component } from './drq-components/drq1/statusdrq1/statusdrq1.component';
+import { Statusdrq2Component } from './drq-components/drq2/statusdrq2/statusdrq2.component';
+import { Settingsdrq1Component } from './drq-components/drq1/settingsdrq1/settingsdrq1.component';
+import { Settingsdrq2Component } from './drq-components/drq2/settingsdrq2/settingsdrq2.component';
 
 @NgModule({
   imports: [

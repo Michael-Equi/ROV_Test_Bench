@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainCameraModuleComponent } from './main-camera-module.component';
+import { SecondaryCameraComponent } from './secondary-camera.component';
 
-describe('MainCameraModuleComponent', () => {
-  let component: MainCameraModuleComponent;
-  let fixture: ComponentFixture<MainCameraModuleComponent>;
+describe('SecondaryCameraComponent', () => {
+  let component: SecondaryCameraComponent;
+  let fixture: ComponentFixture<SecondaryCameraComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainCameraModuleComponent ]
+      declarations: [ SecondaryCameraComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainCameraModuleComponent);
+    fixture = TestBed.createComponent(SecondaryCameraComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
