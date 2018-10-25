@@ -15,13 +15,13 @@ export class Ms5837Service {
   // Define subject to hold data values
   ms5837: BehaviorSubject<any> = new BehaviorSubject('Untouched');
   // Initializer to be called every time BMP280 is going to be used
-  initializeBmp280() {
+  initialize() {
     // Get Data from ROS bmp280 Topic
     // @ts-ignore
     const ms5837Listener = new ROSLIB.Topic({
       ros: this.ros,
       name: '/rov/ms5837',
-      messageType: 'ms5837/ms5837'
+      messageType: 'ms5837/ms5837_data'
     });
 
     // Subscribe to bmpListener
