@@ -23,18 +23,19 @@ export class Bno055Service {
     // Get Data from bno055 sensor
     // Quaternion Orientation, linear acceleration, angular velocity
     // @ts-ignore
-    // const bmpListener = new ROSLIB.Topic({
-    //     ros: this.ros,
-    //     name: '/rov/bno055',
-    //     messageType: 'bmp280/bmp280_data'
-    // });
+    const bno055Listener = new ROSLIB.Topic({
+        ros: this.ros,
+        name: '/rov/bno055',
+        messageType: 'geometry_msgs/Imu'
+    });
     // Subscribe to bmpListener
-    // bmpListener.subscribe((message) => {
-    //     console.log('Recieved Message on ' + bmpListener.name + ' : ' + message);
-    //     this.bmp280.next(message);
-    // });
+    bno055Listener.subscribe((message) => {
+        console.log('Recieved Message on ' + bno055Listener.name + ' : ' + message);
+        this.bno055.next(message);
+    });
     // -------------------------------------------------
     // Initialize data from bno055 info topic
+    // @ts-ignore
     const bno055InfoListener = new ROSLIB.Topic({
       ros: this.ros,
       name: '/rov/bno055_info',
@@ -47,5 +48,6 @@ export class Bno055Service {
     });
   }
 
+  getBno055(): Observable<any> { return this.bno055.asObservable(); }
   getBno055Info(): Observable<any> { return this.bno055Info.asObservable(); }
 }
