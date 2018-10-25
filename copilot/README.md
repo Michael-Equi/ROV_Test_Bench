@@ -39,7 +39,8 @@ INCOMPLETE = Not Finished
 │   ├── sensor-telemetry-components             # Components for ROV CORE Diagram Module Page
 │   │   ├── tcudata                             # TCU Icon with Data
 │   │   ├── tubedata                            # Tube Icon with Data
-├── services                                    # List of services that are connection with ROS (ReadMe.md) INCOMPLETE
+├── services                                    # Services that are connection with ROS (ReadMe.md) INCOMPLETE
+│   ├── data-models                             # Data models for each service INCOMPLETE
 ├── shared                                      # Components that are used throughout multiple submodules
 │   ├── card-header                             # Cardheader with dropdown menu INCOMPLETE
 │   ├── nav                                     # Navigation side menu
