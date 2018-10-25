@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { RosService } from './services/ros.service';
 import { Ms5837Service } from './services/ms5837.service';
+import { Bno055Service } from './services/bno055.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,11 @@ import { Ms5837Service } from './services/ms5837.service';
 export class AppComponent implements OnInit {
     // The constructor takes the roslibservice import statement and assigns it
   // Done before onInit
-  constructor(private RosService: RosService, private Ms5837Service: Ms5837Service ) { }
+  constructor(private RosService: RosService, private Bno055Service: Bno055Service ) { }
   // OnInit initializes the Roslib service, and gets data to test connection
   ngOnInit() {
     this.RosService.initialize();
-    this.Ms5837Service.initialize();
-    this.Ms5837Service.getMs5837Data().subscribe((msg) => {
-      console.log(msg);
-    });
+    this.Bno055Service.initializeBno055();
   }
 
 }
