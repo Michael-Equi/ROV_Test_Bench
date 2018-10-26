@@ -1,5 +1,5 @@
 
-export class DriveControlData {
+export class DriveControlModel {
     bools: [
         { name: String, value: boolean },
         { name: String, value: boolean },
