@@ -32,5 +32,5 @@ export class Sht31Service {
     });
   }
   // Define data getter
-  getSht31Data(): Observable<any> { return this.sht31.asObservable(); }
+  getData(): Observable<any> { return this.sht31.asObservable(); }
 }

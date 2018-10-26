@@ -32,5 +32,5 @@ export class Ms5837Service {
     });
   }
   // Define data getter
-  getMs5837Data(): Observable<any> { return this.ms5837.asObservable(); }
+  getData(): Observable<any> { return this.ms5837.asObservable(); }
 }
