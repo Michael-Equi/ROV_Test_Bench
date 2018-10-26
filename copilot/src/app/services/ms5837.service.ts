@@ -13,7 +13,7 @@ export class Ms5837Service {
     url : 'ws://localhost:9090'
   });
   // Define subject to hold data values
-  ms5837: BehaviorSubject<any> = new BehaviorSubject(1);
+  ms5837: BehaviorSubject<any> = new BehaviorSubject(undefined);
   // Initializer to be called every time BMP280 is going to be used
   initialize() {
     // Get Data from ROS bmp280 Topic
@@ -33,7 +33,7 @@ export class Ms5837Service {
   }
   // Define data getter
   getData(): Observable<any> {
-    if (this.ms5837) {
+    if (this.ms5837 !== undefined) {
       return this.ms5837.asObservable();
     }
   }
