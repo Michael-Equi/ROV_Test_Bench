@@ -27,7 +27,7 @@ export class Bmp280Service {
       // Subscribe to bmpListener
       bmp280Listener.subscribe((message) => {
           console.log('Recieved Message on ' + bmp280Listener.name + ' : ' + message);
-          console.log(message);
+          // console.log(message);
           this.bmp280.next(message);
       });
   }

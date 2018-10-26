@@ -13,7 +13,7 @@ export class Ms5837Service {
     url : 'ws://localhost:9090'
   });
   // Define subject to hold data values
-  ms5837: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+  ms5837: BehaviorSubject<any> = new BehaviorSubject(1);
   // Initializer to be called every time BMP280 is going to be used
   initialize() {
     // Get Data from ROS bmp280 Topic
@@ -27,10 +27,14 @@ export class Ms5837Service {
     // Subscribe to bmpListener
     ms5837Listener.subscribe((message) => {
       console.log('Recieved Message on ' + ms5837Listener.name + ' : ' + message);
-      console.log(message);
+      // console.log(message);
       this.ms5837.next(message);
     });
   }
   // Define data getter
-  getData(): Observable<any> { return this.ms5837.asObservable(); }
+  getData(): Observable<any> {
+    if (this.ms5837) {
+      return this.ms5837.asObservable();
+    }
+  }
 }

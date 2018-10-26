@@ -9,7 +9,7 @@ export class Bmp280Model {
       secs: number
     };
   };
-  preassureA: number;
+  pressureA: number;
   pressureP: number;
   tempC: number;
 }
