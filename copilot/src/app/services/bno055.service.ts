@@ -18,7 +18,7 @@ export class Bno055Service {
   bno055: BehaviorSubject<any> = new BehaviorSubject('Untouched');
   bno055Info: BehaviorSubject<any> = new BehaviorSubject('Untouched');
 
-  initializeBno055() {
+  initialize() {
     // MISSING BNO055 MSG TYPE
     // Get Data from bno055 sensor
     // Quaternion Orientation, linear acceleration, angular velocity
@@ -48,6 +48,6 @@ export class Bno055Service {
     });
   }
 
-  getBno055(): Observable<any> { return this.bno055.asObservable(); }
-  getBno055Info(): Observable<any> { return this.bno055Info.asObservable(); }
+  getData(): Observable<any> { return this.bno055.asObservable(); }
+  getInfoData(): Observable<any> { return this.bno055Info.asObservable(); }
 }
