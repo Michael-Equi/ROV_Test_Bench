@@ -1,5 +1,5 @@
 
-export class Bmp280Data {
+export class Bmp280Model {
   altitudeM: number;
   header: {
     frame_id: string;

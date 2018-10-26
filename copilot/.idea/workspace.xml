@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21c801ed-5191-4dbb-8e42-ba382765228c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/app/services/data-models/horizontal-drive.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/services/data-models/vertical-drive.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/bmp280.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/bmp280.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/bno055.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/bno055.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/drive-control.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/drive-control.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/ms5837.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/ms5837.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/sht31.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/sht31.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/data-models/bmp280.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/data-models/bmp280.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/data-models/bno055.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/data-models/bno055.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/data-models/drive-control.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/data-models/drive-control.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -44,7 +46,7 @@
           <entry key="js" value="5" />
           <entry key="json" value="3" />
           <entry key="md" value="2211" />
-          <entry key="ts" value="5757" />
+          <entry key="ts" value="5906" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -53,25 +55,25 @@
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="5" />
           <entry key="Markdown" value="2211" />
-          <entry key="TypeScript" value="5757" />
+          <entry key="TypeScript" value="5906" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="7" />
+          <entry key="html" value="8" />
           <entry key="js" value="1" />
           <entry key="json" value="2" />
           <entry key="md" value="1" />
-          <entry key="ts" value="38" />
+          <entry key="ts" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="7" />
+          <entry key="HTML" value="8" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="TypeScript" value="37" />
+          <entry key="TypeScript" value="47" />
           <entry key="UML" value="1" />
         </counts>
       </usages-collector>
@@ -81,11 +83,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="713">
-                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="527">
+                  <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#48#0" expanded="true" />
                   </folding>
@@ -94,13 +96,52 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts">
+            <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1023">
-                  <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+                <state relative-caret-position="62">
+                  <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
                   <folding>
-                    <element signature="e#0#43#0" expanded="true" />
+                    <element signature="e#0#42#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="62">
+                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../src/app/services/drive-control.service.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="620">
+                  <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/horizontal-drive.model.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="217">
+                  <caret line="7" selection-end-line="7" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/vertical-drive.model.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="31">
+                  <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -112,8 +153,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1116">
-                  <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+                <state relative-caret-position="775">
+                  <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -164,21 +205,26 @@
         <option value="$PROJECT_DIR$/../src/app/shared/RosData.model.ts" />
         <option value="$PROJECT_DIR$/../src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/roslib.service.ts" />
-        <option value="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/ros.service.ts" />
         <option value="$PROJECT_DIR$/../README.md" />
         <option value="$PROJECT_DIR$/../src/app/services/bmp280.model.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/drive-control.model.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/data-models/sht31.model.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/thrusters.service.ts" />
-        <option value="$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts" />
-        <option value="$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/sht31.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/ms5837.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/drive-control.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/bmp280.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/services/bno055.service.ts" />
         <option value="$PROJECT_DIR$/../src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/../src/app/copilot/copilot.component.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/data-models/bmp280.model.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/data-models/bno055.model.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/data-models/drive-control.model.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/data-models/horizontal-drive.model.ts" />
+        <option value="$PROJECT_DIR$/../src/app/services/data-models/vertical-drive.model.ts" />
       </list>
     </option>
   </component>
@@ -252,7 +298,22 @@
               <item name="copilot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="copilot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="data-models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,12 +369,12 @@
       <workItem from="1539979894060" duration="7498000" />
       <workItem from="1540142957103" duration="295000" />
       <workItem from="1540248946146" duration="15757000" />
-      <workItem from="1540519823094" duration="1098000" />
+      <workItem from="1540519823094" duration="2059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24666000" />
+    <option name="totallyTimeSpent" value="25627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1995" y="-2" width="3766" height="2163" extended-state="6" />
@@ -439,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/shared/nav/nav.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -523,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../src/app/roslib.service.spec.ts" />
     <entry file="file://$PROJECT_DIR$/../src/app/services/ros.service.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -573,26 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/services/drive-control.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,23 +677,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts">
+    <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1023">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        <state relative-caret-position="527">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/copilot/copilot.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/drive-control.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/vertical-drive.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/app/app.component.ts">
+    <entry file="file://$PROJECT_DIR$/../src/app/services/horizontal-drive.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="775">
+          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/bmp280.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/bno055.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/drive-control.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/horizontal-drive.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/app/services/data-models/vertical-drive.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>
