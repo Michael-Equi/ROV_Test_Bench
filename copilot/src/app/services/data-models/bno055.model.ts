@@ -1,4 +1,4 @@
 
-export class Bno055 {
+export class Bno055Model {
 
 }

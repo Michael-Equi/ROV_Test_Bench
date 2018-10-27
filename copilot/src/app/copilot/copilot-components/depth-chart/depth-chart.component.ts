@@ -1,19 +1,23 @@
-import {AfterViewInit, Component } from '@angular/core';
+import {OnInit, Component, AfterViewInit} from '@angular/core';
 import { Chart } from 'chart.js';
+import { Ms5837Service } from '../../../services/ms5837.service';
+import { Ms5837Data } from '../../../services/data-models/ms5837.model';
 
 @Component({
   selector: 'app-depth-chart',
   templateUrl: './depth-chart.component.html',
   styleUrls: ['./depth-chart.component.css']
 })
-export class DepthChartComponent implements AfterViewInit {
+export class DepthChartComponent implements OnInit {
+    exteriorAltitude = [0];
+    seconds = [0];
     name = 'Depth Chart';
     type = 'line';
     data = {
-        labels: ["5", "10", "15", "20", "25", "30", "35"],
+        labels: this.seconds,
         datasets: [{
-            label: "Example Data",
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Depth',
+            data: this.exteriorAltitude,
             backgroundColor: [
                 'rgba(0,188,212, .3)'
             ],
@@ -30,12 +34,24 @@ export class DepthChartComponent implements AfterViewInit {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero: true
                     }
                 }]
             }
         }
     };
-    ngAfterViewInit() {
+    constructor(private ms5837Service: Ms5837Service) {}
+    ngOnInit() {
+        this.ms5837Service.initialize();
+        this.ms5837Service.getData().subscribe((msg: Ms5837Data) => {
+            if (msg !== undefined) {
+              console.log(msg);
+              console.log(msg.altitudeM);
+              this.exteriorAltitude.push(msg.altitudeM);
+              console.log(this.exteriorAltitude);
+              // console.log(msg.header.stamp.secs);
+              // this.seconds.push(msg.header.stamp.secs);
+            }
+        });
     }
 }

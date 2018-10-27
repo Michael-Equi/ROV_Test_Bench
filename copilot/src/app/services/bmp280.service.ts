@@ -15,7 +15,7 @@ export class Bmp280Service {
   // Define subject to hold data values
   bmp280: BehaviorSubject<any> = new BehaviorSubject('Untouched');
   // Initializer to be called every time BMP280 is going to be used
-  initializeBmp280() {
+  initialize() {
       // Get Data from ROS bmp280 Topic
       // @ts-ignore
       const bmp280Listener = new ROSLIB.Topic({
@@ -27,10 +27,10 @@ export class Bmp280Service {
       // Subscribe to bmpListener
       bmp280Listener.subscribe((message) => {
           console.log('Recieved Message on ' + bmp280Listener.name + ' : ' + message);
-          console.log(message);
+          // console.log(message);
           this.bmp280.next(message);
       });
   }
   // Define data getter
-  getBmp280Data(): Observable<any> { return this.bmp280.asObservable(); }
+  getData(): Observable<any> { return this.bmp280.asObservable(); }
 }

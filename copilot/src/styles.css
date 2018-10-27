@@ -82,3 +82,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     margin: 8px;
     text-align: center;
 }
+
+.error {
+    color: #f44336 !important;
+}

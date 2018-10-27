@@ -1,5 +1,5 @@
 
-export class Bmp280Data {
+export class Bmp280Model {
   altitudeM: number;
   header: {
     frame_id: string;
@@ -9,7 +9,7 @@ export class Bmp280Data {
       secs: number
     };
   };
-  preassureA: number;
+  pressureA: number;
   pressureP: number;
   tempC: number;
 }
