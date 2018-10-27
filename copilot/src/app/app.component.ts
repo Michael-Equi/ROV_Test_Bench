@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { RosService } from './services/ros.service';
-import { Ms5837Service } from './services/ms5837.service';
 import { Bno055Service } from './services/bno055.service';
 
 @Component({
