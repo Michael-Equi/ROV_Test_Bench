@@ -18,7 +18,7 @@ export class DriveControlService {
 
   // Initialize function sets everything up, called on a ngOnInit in app.component
 
-  initializeDriveControl() {
+  initialize() {
       // Get Data from ROS Drive Control Listener Topic
       // @ts-ignore
       const driveControlListener = new ROSLIB.Topic({
@@ -37,7 +37,7 @@ export class DriveControlService {
 
   // Getters
   // Get data variable and return it as observable
-  getDriveControlData(): Observable<any> { return this.driveControl.asObservable(); }
+  getData(): Observable<any> { return this.driveControl.asObservable(); }
 }
 
 // ----------------------------------------------------------------------------------------
