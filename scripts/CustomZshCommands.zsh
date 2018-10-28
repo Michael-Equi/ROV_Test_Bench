@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 function clion(){
-   path=$(find / -name "clion.sh")
+   cmdpath=$(find / -name "clion.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -19,11 +19,11 @@ function clion(){
 
     done
 
-    sudo "${path}"
+    sudo "${cmdpath}"
 }
 
 function webstorm(){
-   path=$(find / -name "webstorm.sh")
+   cmdpath=$(find / -name "webstorm.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -41,11 +41,11 @@ function webstorm(){
 
     done
 
-    sudo "${path}"
+    sudo "${cmdpath}"
 }
 
 function pycharm(){
-   path=$(find / -name "pycharm.sh")
+   cmdpath=$(find / -name "pycharm.sh")
    ROSWorkspace=$(find /home -type d -name "ros_workspace")
    continue="f"
    while [ $continue != "t" ];
@@ -63,12 +63,12 @@ function pycharm(){
 
     done
 
-    sudo "${path}"
+    sudo "${cmdpath}"
 }
 
 function arduino(){
-   path=$(find / -type f -name arduino)
+   cmdpath=$(find / -type f -name arduino)
    
-   sudo "${path}"
+   sudo "${cmdpath}"
 }
 
