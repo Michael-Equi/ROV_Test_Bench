@@ -25,7 +25,7 @@ export class TelemetrydataComponent implements OnInit {
       this.rovAltitude = msg.altitudeM;
     });
     this.sht31Service.initialize();
-    this.sht31Service.getData().subscribe((msg: Sht31Data) {
+    this.sht31Service.getData().subscribe((msg: Sht31Data) => {
       this.rovHumidity = msg.humidity;
     });
   }
