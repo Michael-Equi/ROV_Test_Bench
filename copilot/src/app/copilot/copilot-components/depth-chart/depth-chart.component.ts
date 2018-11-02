@@ -1,4 +1,4 @@
-import {OnInit, Component, AfterViewInit, ViewChild} from '@angular/core';
+import {OnInit, Component, AfterViewInit, } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Ms5837Service } from '../../../services/ms5837.service';
 import { Ms5837Data } from '../../../services/data-models/ms5837.model';
