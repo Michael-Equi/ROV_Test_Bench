@@ -5,7 +5,7 @@
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Temperature</h2>
     </div>
-    <h2 class="righttext" [class.error]="!rovTemperature">{{ rovTemperature ? rovTemperature + " Celsius" : "No Data"}} </h2>
+    <app-error-text [align]="'righttext'" [name]="rovTemperature" [unit]="'C'"></app-error-text>
     <hr class="line mt-2">
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Pressure</h2>
