@@ -20,7 +20,7 @@ mat-slider {
   margin-top: 2%;
   left: 2%;
   width: 96%;
-  height: 20%;
+  height: 30%;
 }
 
 h2 {
@@ -37,11 +37,12 @@ h2 {
 }
 
 .slider {
-  width: 95%;
+  width: 94%;
 }
 
 .slidertext{
   width: 20px;
   float: right;
   margin-top: 14px;
+  color: white;
 }
