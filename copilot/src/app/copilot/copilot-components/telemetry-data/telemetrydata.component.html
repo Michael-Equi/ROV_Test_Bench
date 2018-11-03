@@ -10,12 +10,12 @@
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Pressure</h2>
     </div>
-    <h2 class="righttext" [class.error]="!rovPressure">{{ rovPressure ? rovPressure + " ATM" : "No Data" }}</h2>
+    <app-error-text [align]="'righttext'" [name]="rovPressure" [unit]="'atm'"></app-error-text>
     <hr class="line mt-2">
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Humidity</h2>
     </div>
-    <h2 class="righttext" [class.error]="!rovHumidity">{{ rovHumidity ? rovHumidity + "%" : "No Data" }}</h2>
+    <app-error-text [align]="'righttext'" [name]="rovHumidity" [unit]="'%'"></app-error-text>
     <hr class="line mt-2">
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Voltage</h2>
