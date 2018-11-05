@@ -9,21 +9,19 @@ import { Ms5837Data } from '../../../services/data-models/ms5837.model';
   styleUrls: ['./depth-chart.component.css']
 })
 
-export class DepthChartComponent implements OnInit {
+export class DepthChartComponent implements AfterViewInit {
     rovDepth: number; // ROV Depth in Meters
 
     constructor(private ms5837Service: Ms5837Service) {}
-    ngOnInit() {
+    ngAfterViewInit() {
         this.ms5837Service.initialize();
         this.ms5837Service.getData().subscribe((msg: Ms5837Data) => {
-            this.rovDepth = msg.depth;
-            // if (msg !== undefined) {
-            //   // console.log(msg);
-            //   // this.data.datasets[0].data.push(msg.altitudeM);
-            //   // console.log(this.data.datasets[0].data);
-            //   // this.data.labels.push(msg.header.stamp.secs);
-            //   // console.log(this.data.labels);
-            // }
+            // Try catch error because originally gets undefined value
+            try {
+                this.rovDepth = msg.depth;
+            } catch(err) {
+                console.log(err)
+            }
         });
     }
 }
