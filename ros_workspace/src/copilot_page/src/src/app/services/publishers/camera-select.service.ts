@@ -10,7 +10,7 @@ export class CameraSelectService {
 
   // Creates object with the ROS Library
   // @ts-ignore
-  ros = new ROSLIB.ROS({
+  ros = new ROSLIB.Ros({
       // Set listen URL for ROS Communication
       url : 'ws://localhost:9090'
   });
@@ -18,7 +18,7 @@ export class CameraSelectService {
   // Set variable for data
   initialize() {
     // @ts-ignore
-     cameraSelectPublisher = new ROSLIB.Topic({
+     this.cameraSelectPublisher = new ROSLIB.Topic({
         ros: this.ros,
         name: '/rov/camera_select',
         messageType: 'std_msgs/UInt8'
@@ -26,8 +26,12 @@ export class CameraSelectService {
   }
 
   publish(data) {
-    if (data <=8 && data > 0) {
-        this.cameraSelectPublisher.publish(data);
-    }
+    const number = Number(data);
+    // @ts-ignore
+    const message = new ROSLIB.Message({
+        data : number
+    });
+    console.log(data);
+    this.cameraSelectPublisher.publish(message);
   }
 }

@@ -16,12 +16,10 @@ export class MainCameraComponent implements AfterViewInit, OnInit {
     cameraValue;
 
     onChange(value) {
-        console.log(value);
+        // console.log(value.split(' ')[1]);
+        const cameraNumber = value.split(' ')[1];
         // @ts-ignore
-        const message = new ROSLIB.Message({
-            data : value
-        });
-        this.cameraSelectService.publish(message);
+        this.cameraSelectService.publish(cameraNumber);
     }
 
     name = "Main Camera";
