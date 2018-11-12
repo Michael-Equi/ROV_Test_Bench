@@ -18,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/src/app/services/drive-control.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/drive-control.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/horizontal-drive.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/horizontal-drive.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/ms5837.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/ms5837.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/ros.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/ros.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/sht31.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/sht31.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/vertical-drive.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/subscribers/vertical-drive.service.ts" afterDir="false" />
@@ -68,7 +69,7 @@
           <entry key="css" value="113" />
           <entry key="html" value="535" />
           <entry key="scss" value="287" />
-          <entry key="ts" value="1039" />
+          <entry key="ts" value="1303" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -76,7 +77,7 @@
           <entry key="CSS" value="113" />
           <entry key="HTML" value="535" />
           <entry key="SCSS" value="287" />
-          <entry key="TypeScript" value="1039" />
+          <entry key="TypeScript" value="1303" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -86,11 +87,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="775">
-                  <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+                <state relative-caret-position="868">
+                  <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -98,11 +99,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="155">
-                  <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+                <state relative-caret-position="62">
+                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -126,8 +127,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/services/subscribers/bno055.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="186">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                <state relative-caret-position="713">
+                  <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -138,8 +139,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="349">
-                  <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+                <state relative-caret-position="558">
+                  <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
                   <folding>
                     <element signature="e#0#91#0" expanded="true" />
                   </folding>
@@ -175,6 +176,7 @@
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.html" />
         <option value="$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts" />
       </list>
     </option>
   </component>
@@ -245,18 +247,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="copilot" type="462c0819:PsiDirectoryNode" />
-              <item name="copilot-components" type="462c0819:PsiDirectoryNode" />
-              <item name="main-camera" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="copilot" type="462c0819:PsiDirectoryNode" />
-              <item name="copilot-components" type="462c0819:PsiDirectoryNode" />
-              <item name="telemetry-data" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
@@ -264,6 +255,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="publishers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -345,12 +337,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542000837540</updated>
-      <workItem from="1542000841485" duration="6696000" />
+      <workItem from="1542000841485" duration="8256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6696000" />
+    <option name="totallyTimeSpent" value="8256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2003" y="-6" width="3757" height="2166" extended-state="6" />
@@ -358,12 +350,12 @@
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12275047" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12275047" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32978183" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32978183" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -387,16 +379,6 @@
     <entry file="file://$PROJECT_DIR$/src/app/services/subscribers/bmp280.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/subscribers/bno055.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -427,20 +409,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/services/subscribers/bno055.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        <state relative-caret-position="713">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -453,12 +428,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/copilot/copilot-components/main-camera/main-camera.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="558">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/publishers/camera-select.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="868">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
