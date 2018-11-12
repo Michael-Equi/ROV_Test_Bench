@@ -19,7 +19,6 @@ export class Bno055Service {
   bno055Info: BehaviorSubject<any> = new BehaviorSubject('Untouched');
 
   initialize() {
-    // MISSING BNO055 MSG TYPE
     // Get Data from bno055 sensor
     // Quaternion Orientation, linear acceleration, angular velocity
     // @ts-ignore
