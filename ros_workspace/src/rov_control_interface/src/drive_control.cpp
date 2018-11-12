@@ -16,9 +16,9 @@
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
+#include <std_msgs/UInt8.h> //For camera Pub and Inversion
 
-//Temporary
-#include <std_msgs/UInt8.h> //For camera Pub
+// Temporary
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
@@ -183,7 +183,13 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     solenoid_control.publish(solMsg);
 }
 
-
+/**
+* @breif What the node does when copilot inversion setting publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
+void inversionCallback(const std_msgs::UInt8::ConstPtr& inversion) {
+    inversion_sub.subscribe(inversion);
+}
 
 int main(int argc, char **argv)
 {
@@ -195,6 +201,8 @@ int main(int argc, char **argv)
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
+    inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
+    // sensitivity_sub = n.subscribe<
 
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
