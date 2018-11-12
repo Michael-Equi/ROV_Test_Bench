@@ -25,6 +25,24 @@ $alternate-theme: mat-dark-theme($rovotics-theme-primary, $success-alternate-the
    @include angular-material-theme($alternate-theme);
  }
 
+ // Mixin for Toggle Buttons
+ @mixin mix-app-theme($rovotics-theme) {
+   $primary: map-get($rovotics-theme, primary);
+   $accent: map-get($rovotics-theme, accent);
+
+   .mat-button-toggle {
+     background-color: mat-color($accent);
+     color: mat-color($accent, default-contrast);
+   }
+
+   .mat-button-toggle-checked {
+     background-color: mat-color($primary);
+     color: mat-color($primary, default-contrast);
+   }
+ }
 
  // Merges this style with default theme
  @include angular-material-theme($rovotics-theme);
+
+ // Merges mixin with theme
+ @include mix-app-theme($rovotics-theme);

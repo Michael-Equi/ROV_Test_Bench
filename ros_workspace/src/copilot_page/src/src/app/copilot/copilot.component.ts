@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DriveControlService} from '../services/drive-control.service'; [ DriveControlService ];
+import {DriveControlService} from '../services/subscribers/drive-control.service'; [ DriveControlService ];
 
 @Component({
   selector: 'app-copilot',

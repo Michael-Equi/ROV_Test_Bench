@@ -6,7 +6,7 @@
             <mat-button-toggle value="{{ number }}">{{ camera }}</mat-button-toggle>
         </mat-grid-tile>
     </mat-grid-list>
-    <mat-button-toggle-group name="cameraList" aria-label="Font Style">
+    <mat-button-toggle-group name="cameraList" aria-label="Font Style" (change)="onChange(group.value)" [value]="cameraValue">
     </mat-button-toggle-group>
   </mat-card-content>
 </mat-card>

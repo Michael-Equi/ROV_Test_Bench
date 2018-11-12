@@ -14,6 +14,7 @@ import { SensortelemetryModule } from './sensor-telemetry/sensortelemetry.module
 import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './routing/app-routing.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -24,7 +25,9 @@ import { AppRoutingModule } from './routing/app-routing.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     LayoutModule,
+    ReactiveFormsModule,
     ChartModule,
     MaterialModule,
     CopilotModule,
