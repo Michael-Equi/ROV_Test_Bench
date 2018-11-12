@@ -4,75 +4,49 @@
 
 ## Overview Description
 
-Pargraph on how this package fits into the overall architecture. What its nodes do and what is their general (common) purpose. Why do nodes in this package belong in this package?
+This package includes the copilot webpage. The webpage is an angular page, more information is in the `src` file.
 
 ## Goal and User Experience
 
-What is the goal of the code and why it was done the way it was. How does this add to the user experience. What should the user experience with this code be like (some packages will have a lot more on this than others), provide examples and walk through the features. This will help with tech report.
+Allow for an easy to use interface for controlling ROV Settings, functions, and viewing important telemetry information such as depth, temperature, pressure, etc.
 
-## Build Instructions 
+## Build Instructions
 
-* Anything extra steps for buidling this package and running the nodes (ex. install)
-  * `sudo apt-get install ...`
+* `catkin_make`
+* `source devel.setup.bash`
+* `cd src`
+* `npm i` Install Dependencies
+* `npm i -g @angular/cli` Install angular command line interface
+* `ng s` (Start Development Server for Webpage)
 
 ## Nodes
 
-### node_name
-
-* Node Inforation
- * What exactly deos this Node do 
- * Where does it run
- * What are its dependencies 
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
-
-example ---------------------------------------------------------------------------------------------
-
-file: hw_thruster_controller_interface.py
-
-Node name:
-* hw_thruster_controller_interface
+### NA
 
 Topics:
 
-* `rov/cmd_horizontal_vdrive`:
-  Subscribes `vector_drive/thrusterPercents` gives the thruster setting from -1000 to 1000 for thrusters T1,2,3,4.
-  * `rov/cmd_vertical_vdrive`:
-  Subscribes `vector_drive/thrusterPercents`gives the thruster setting from -1000 to 1000 for thrusters T5,6,7,8.
-* `topic_name`:
-  Publishes `message_type` info.
-
-Services:
-* `service_name`: info
-
-Parameters/Reconfigs:
-*  `parameter_name`: info
-
-
-### other_node_name (if applicable)
-
-* Node Inforation
- * What exactly deos this Node do 
- * Where does it run
- * What are its dependencies 
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
- 
+* `/rov/camera_select`: Publishes the current selected camera
+  * Publishes float64
+* `/rov/sensitivity`: Publishes ROV sensitity on the x, y, and z axis
+  * Publishes `rov_sensitivity` message type
+* `/rov/inversion`: Publishes whether or not inversion is enabled depending on the camera
+* `/rov/thrusters_enabled`: Publishes a boolean whether or not thrusters are enabled
 
 ## Launch Information
- 
-Any details about launch files and what they do goes here.
-Any remapping information goes here.
+
+Not applicable since it's an angular webpage.
 
 ## Troubleshooting
 
-## Contributors 
+## Contributors
 
-* Current maintaner: 
+* Current maintaner: Caelin Sutch
 
 * Contributors:
-  * name (anyone who writes stuff into this package) - role (what was the work said person did)
+  * Caelin Sutch - Development Lead
+  * Alden Parker - Front End Developer
 
 ## Helpful Resources
 
-* Links, information, external articles that were helpful in creating anything in this package
-
-
+* http://wiki.ros.org/roslibjs
+* https://angular.io
