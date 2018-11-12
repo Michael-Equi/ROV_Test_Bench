@@ -8,7 +8,7 @@ Edit the command vector from the joystick. TEMPORARILY serve as the copilot page
 
 Edit the joystick command vectors before being sent to PID and the vector drive node. Allow for more intuitive control vector manipulation.
 
-## Build Instructions 
+## Build Instructions
 
 * `sudo apt-get install ros-kinetic-joy`
 
@@ -24,12 +24,12 @@ Node name:
 Topics:
 
 * `joy`:
-  Subscribes `sensor_msgs/Joy` gives the input from the logitech Extreme 3D Pro joystick to the node for inital proccessing 
+  Subscribes `sensor_msgs/Joy` gives the input from the logitech Extreme 3D Pro joystick to the node for inital proccessing
 
 * `rov/cmd_vel`:
   Publishes `geometry_msgs/Twist` Outputs 2 command velocity vectors. Not a tradition vector3 implementaton: linear.x = linear axis left-right, linear.y = linear axis front-back, linear.z = vertical axis, angular.x = rotational axis, angular.y and angular.z = 0
 
-* `camera_select`:
+* `rov/camera_select`:
   Publishes `std_msgs/UInt8` Camera mux control (1-8).
 
 * `tcu/main_relay`:
@@ -39,8 +39,8 @@ Topics:
   Publishes `std_msgs/Bool` If true then the main solenoid is on else off.
 
 Parameters/Reconfigs:
-*  `copilot_interface/copilotControlParamsConfig`: TEMPORARY copilot interface through a dynamic reconfigure that contains all the params for a fully fucntional ROV. See copilot_interface/cfg dir for more info.
- 
+*  `copilot_interface/copilotControlParamsConfig`: TEMPORARY copilot interface through a dynamic reconfigure that contains all the params for a fully functional ROV. See copilot_interface/cfg dir for more info.
+
 
 ## Launch Information
 Launch the rov_control_interface/drive_control node:
@@ -56,7 +56,7 @@ Launch the joy node:
 
 If the tcu messages are not immediatly responsive wait for the `serial_node` or `tcu_board` to restart and properly connect to the arduino DUE.
 
-## Contributors 
+## Contributors
 
 * Current maintaner: Michael Equi
 
@@ -67,5 +67,3 @@ If the tcu messages are not immediatly responsive wait for the `serial_node` or 
 
 * http://wiki.ros.org/joy
 * Previous vector drive implementation: https://github.com/JHSRobo/Programming/blob/Development/Mako/Bottomside/bottomside/VectorDrive.py
-
-
