@@ -19,6 +19,9 @@
 #include <copilot_interface/copilotControlParamsConfig.h>
 #include <std_msgs/UInt8.h> //For camera Pub and Inversion
 
+// Custom message type for sensitivty
+#include "rov_control_interface/rov_sensitivity.h"
+
 // Temporary
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
@@ -192,6 +195,13 @@ void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
     inversion = data->data;
 }
 
+void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr& data) {
+  l_scale = data->l_scale;
+  a_scale = data->a_scale;
+  v_scale = data->v_scale;
+  ROS_INFO_STREAM(l_scale);
+}
+
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "drive_control");
@@ -203,7 +213,7 @@ int main(int argc, char **argv)
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
     inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
-    // sensitivity_sub = n.subscribe<
+    sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
 
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
