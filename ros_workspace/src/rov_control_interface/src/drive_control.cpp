@@ -13,6 +13,7 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <ros/console.h>
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
@@ -187,8 +188,8 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
 * @breif What the node does when copilot inversion setting publishes a new message
 * @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
 */
-void inversionCallback(const std_msgs::UInt8::ConstPtr& inversion) {
-    inversion_sub.subscribe(inversion);
+void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
+    inversion = data->data;
 }
 
 int main(int argc, char **argv)
@@ -215,7 +216,6 @@ int main(int argc, char **argv)
 
     f = boost::bind(&controlCallback, _1, _2);
     server.setCallback(f);
-
 
     //Enter the event loop
     ros::spin();

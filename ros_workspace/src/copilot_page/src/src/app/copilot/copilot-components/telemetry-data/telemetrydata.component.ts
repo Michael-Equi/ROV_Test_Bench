@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Bmp280Service } from '../../../services/bmp280.service';
+import { Bmp280Service } from '../../../services/subscribers/bmp280.service';
 import { Bmp280Model } from '../../../services/data-models/bmp280.model';
-import { Sht31Service } from '../../../services/sht31.service';
+import { Sht31Service } from '../../../services/subscribers/sht31.service';
 import { Sht31Data } from '../../../services/data-models/sht31.model';
 
 @Component({

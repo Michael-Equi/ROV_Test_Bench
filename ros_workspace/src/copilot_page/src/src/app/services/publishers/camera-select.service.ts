@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import '../../assets/roslib';
+import '../../../assets/roslib';
 
 @Injectable({
   providedIn: 'root'

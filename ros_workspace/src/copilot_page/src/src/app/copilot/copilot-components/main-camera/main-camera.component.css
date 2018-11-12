@@ -1,8 +1,3 @@
 .mat-raised-button {
     line-height: 0px !important;
 }
-
-mat-button-toggle {
-    display: flow;
-    color: #000;
-}
