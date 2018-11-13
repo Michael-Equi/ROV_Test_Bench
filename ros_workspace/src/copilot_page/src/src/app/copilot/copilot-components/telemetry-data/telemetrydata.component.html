@@ -20,11 +20,11 @@
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Voltage</h2>
     </div>
-    <h2 class="righttext">47.5 V</h2>
+    <app-error-text [align]="'righttext'" [name]="rovVoltage" [unit]="'%'"></app-error-text>
     <hr class="line mt-2">
     <div style="width: 50%; margin-left: 7%; float: left;">
       <h2 class="smalltext">ROV Current</h2>
     </div>
-    <h2 class="righttext">30 A</h2>
+    <app-error-text [align]="'righttext'" [name]="rovCurrent" [unit]="'%'"></app-error-text>
   </mat-card-content>
 </mat-card>
