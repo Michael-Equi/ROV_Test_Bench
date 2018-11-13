@@ -7,8 +7,6 @@ import { SensitivityModel } from '../data-models/sensitivity.model';
 })
 export class SensitivityService {
 
-  constructor(sensitivityModel: SensitivityModel) {}
-
   sensitivityPublisher;
 
   // Creates object with the ROS Library
@@ -29,6 +27,8 @@ export class SensitivityService {
   }
 
   publish(data: SensitivityModel) {
+      console.log("Service Called");
+      console.log(data);
       // @ts-ignore
       const message = new ROSLIB.Message({
         l_scale: data.l_scale,
