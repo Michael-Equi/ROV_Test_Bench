@@ -28,8 +28,9 @@ Topics:
 * `/rov/camera_select`: Publishes the current selected camera
   * Publishes float64
 * `/rov/sensitivity`: Publishes ROV sensitity on the x, y, and z axis
-  * Publishes `rov_sensitivity` message type
+  * Publishes `rov_control_interface/rov_sensitivity` message type
 * `/rov/inversion`: Publishes whether or not inversion is enabled depending on the camera
+  * Publishes `UInt8` message type
 * `/rov/thrusters_enabled`: Publishes a boolean whether or not thrusters are enabled
 
 ## Launch Information
