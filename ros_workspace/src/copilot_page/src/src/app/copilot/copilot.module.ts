@@ -8,7 +8,7 @@ import { CopilotComponent } from './copilot.component';
 import { MainCameraComponent } from './copilot-components/main-camera/main-camera.component';
 import { SecondaryCameraComponent } from './copilot-components/secondary-camera/secondary-camera.component';
 import { TimerComponent } from './copilot-components/timer/timer.component';
-import { ThrusterSensativityComponent } from './copilot-components/thruster-sensativity/thruster-sensativity.component';
+import { ThrusterSensitivityComponent } from './copilot-components/thruster-sensitivity/thruster-sensitivity.component';
 import { DepthChartComponent } from './copilot-components/depth-chart/depth-chart.component';
 import { VelocityGraphComponent } from './copilot-components/velocity-graph/velocity-graph.component';
 import { ToolsComponent } from './copilot-components/tools/tools.component';
@@ -28,7 +28,7 @@ import { TelemetrydataComponent } from './copilot-components/telemetry-data/tele
     MainCameraComponent,
     SecondaryCameraComponent,
     TimerComponent,
-    ThrusterSensativityComponent,
+    ThrusterSensitivityComponent,
     DepthChartComponent,
     VelocityGraphComponent,
     ToolsComponent,
@@ -40,7 +40,7 @@ import { TelemetrydataComponent } from './copilot-components/telemetry-data/tele
     MainCameraComponent,
     SecondaryCameraComponent,
     TimerComponent,
-    ThrusterSensativityComponent,
+    ThrusterSensitivityComponent,
     DepthChartComponent,
     VelocityGraphComponent,
     ToolsComponent,
