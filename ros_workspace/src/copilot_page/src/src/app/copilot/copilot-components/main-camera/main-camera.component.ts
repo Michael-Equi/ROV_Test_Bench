@@ -8,21 +8,21 @@ import {fromEvent, Observable} from 'rxjs';
   templateUrl: './main-camera.component.html',
   styleUrls: ['./main-camera.component.css']
 })
-export class MainCameraComponent implements AfterViewInit, OnInit {
+export class MainCameraComponent implements OnInit {
 
-    @ViewChild(MatButtonToggleGroup) group: MatButtonToggleGroup;
-    @ViewChildren(MatButtonToggle) toggles: QueryList<MatButtonToggle>;
-
+    // Initializes CameraSelectService
     constructor(public cameraSelectService: CameraSelectService) {}
 
+    // Declares name for window, arrays for cameras (should probably change to objects)
     name = 'Main Camera';
     cameras = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     selectedStatus = [true, false, false, false, false, false, false, false, false];
     colors = ['primary', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn'];
+    // Holds current camera value for publishing
     cameraValue: string;
 
     keyPress(character) {
-        // console.log('Pressed ', character.key);
+        // Switch that takes input of pressed key and does things
         switch (character.key) {
             case 'Digit1':
                 this.cameraValue = '1';
@@ -53,21 +53,19 @@ export class MainCameraComponent implements AfterViewInit, OnInit {
                 this.cameraValue = '9';
                 break;
         }
-        console.log(this.cameraValue)
+        console.log(this.cameraValue);
     }
 
+    // Onclick passes event that contains ton of information
     onClick(event) {
         console.log(event);
     }
 
     ngOnInit() {
+        // Initialize camera select service
         this.cameraSelectService.initialize();
+        // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
     }
 
-    ngAfterViewInit() {
-        setTimeout(() => {
-            this.toggles.forEach(toggle => toggle.buttonToggleGroup = this.group);
-        });
-    }
 }

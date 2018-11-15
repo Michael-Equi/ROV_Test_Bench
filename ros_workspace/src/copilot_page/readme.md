@@ -4,7 +4,7 @@
 
 ## Overview Description
 
-This package includes the copilot webpage. The webpage is an angular page, more information is in the `src` file.
+This package includes the copilot webpage. The webpage is an angular page, more information about the page itself is in readme in the `src` file.
 
 ## Goal and User Experience
 
@@ -23,7 +23,7 @@ Allow for an easy to use interface for controlling ROV Settings, functions, and 
 
 ### NA
 
-Topics:
+Publishers:
 
 * `/rov/camera_select`: Publishes the current selected camera
   * Publishes float64
@@ -32,6 +32,7 @@ Topics:
 * `/rov/inversion`: Publishes whether or not inversion is enabled depending on the camera
   * Publishes `UInt8` message type
 * `/rov/thrusters_enabled`: Publishes a boolean whether or not thrusters are enabled
+  * Publishes `std_msgs/Bool` message type
 
 ## Launch Information
 
