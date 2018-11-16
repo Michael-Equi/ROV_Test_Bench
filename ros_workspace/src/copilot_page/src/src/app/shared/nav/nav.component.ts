@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -6,18 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  icons = [
+    icons = [
       {src: '../../../assets/House(Unselected).svg', clickedsrc: '../../../assets/House(Selected).svg', selected: false, link: '/copilot'},
       {src: '../../../assets/Bolt(Unselected).svg', clickedsrc: '../../../assets/Bolt(Selected).svg', selected: false, link: '/drq'},
       {src: '../../../assets/CircuitBoard(Unselected).svg', clickedsrc: '../../../assets/CircuitBoard(Selected).svg', selected: false, link: '/sensor-telemetry'},
       {src: '../../../assets/Settings(Unselected).svg', clickedsrc: '../../../assets/Settings(Selected).svg', selected: false}
-  ];
+    ];
 
-  selected(icon) {
+    selected(icon) {
     for (let icon of this.icons) {
       icon.selected = false;
     }
     icon.selected = true;
-  }
+    }
 
 }
