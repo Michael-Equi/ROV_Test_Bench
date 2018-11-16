@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material';
 import { CameraSelectService } from '../../../services/publishers/camera-select.service';
+import {fromEvent, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-main-camera-module',
@@ -8,26 +9,60 @@ import { CameraSelectService } from '../../../services/publishers/camera-select.
   styleUrls: ['./main-camera.component.css']
 })
 export class MainCameraComponent implements AfterViewInit, OnInit {
+
     @ViewChild(MatButtonToggleGroup) group: MatButtonToggleGroup;
     @ViewChildren(MatButtonToggle) toggles: QueryList<MatButtonToggle>;
 
     constructor(public cameraSelectService: CameraSelectService) {}
 
-    cameraValue;
+    name = 'Main Camera';
+    cameras = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    selectedStatus = [true, false, false, false, false, false, false, false, false];
+    colors = ['primary', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn'];
+    cameraValue: string;
 
-    onChange(value) {
-        // console.log(value.split(' ')[1]);
-        const cameraNumber = value.split(' ')[1];
-        // @ts-ignore
-        this.cameraSelectService.publish(cameraNumber);
+    keyPress(character) {
+        // console.log('Pressed ', character.key);
+        switch (character.key) {
+            case 'Digit1':
+                this.cameraValue = '1';
+                console.log(this.cameraValue);
+                break;
+            case 'Digit2':
+                this.cameraValue = '2';
+                break;
+            case 'Digit3':
+                this.cameraValue = '3';
+                break;
+            case 'Digit4':
+                this.cameraValue = '4';
+                break;
+            case 'Digit5':
+                this.cameraValue = '5';
+                break;
+            case 'Digit6':
+                this.cameraValue = '6';
+                break;
+            case 'Digit7':
+                this.cameraValue = '7';
+                break;
+            case 'Digit8':
+                this.cameraValue = '8';
+                break;
+            case 'Digit9':
+                this.cameraValue = '9';
+                break;
+        }
+        console.log(this.cameraValue)
     }
 
-    name = "Main Camera";
-    cameras = ['Camera 1', 'Camera 2', 'Camera 3', 'Camera 4', 'Camera 5', 'Camera 6', 'Camera 7', 'Camera 8', 'Camera 9'];
-    numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    onClick(event) {
+        console.log(event);
+    }
 
     ngOnInit() {
         this.cameraSelectService.initialize();
+        fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
     }
 
     ngAfterViewInit() {
@@ -35,5 +70,4 @@ export class MainCameraComponent implements AfterViewInit, OnInit {
             this.toggles.forEach(toggle => toggle.buttonToggleGroup = this.group);
         });
     }
-
 }

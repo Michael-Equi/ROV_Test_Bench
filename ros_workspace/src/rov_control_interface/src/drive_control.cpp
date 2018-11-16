@@ -57,6 +57,7 @@ ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 
 ros::Subscriber joy_sub; //!<subscriber to the logitech joystick
 ros::Subscriber inversion_sub; //!<subscriber to the inversion topic from copilot page
 ros::Subscriber sensitivity_sub; //!<subscriber to the sensitivty topic from the copilot page
+ros::Subscriber thruster_status_sub; //!>subscriber to the thruster status topic from the copilot page
 
 //Temporary publishers
 ros::Publisher camera_select;    //!<Temporary Camera pub
@@ -199,7 +200,11 @@ void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr&
   l_scale = data->l_scale;
   a_scale = data->a_scale;
   v_scale = data->v_scale;
-  ROS_INFO_STREAM(l_scale);
+}
+
+void thrusterStatusCallback(const std_msgs::Bool::ConstPtr& data) {
+  thrustEN = data->data;
+  ROS_INFO_STREAM(thrustEN);
 }
 
 int main(int argc, char **argv)
@@ -214,6 +219,7 @@ int main(int argc, char **argv)
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
     inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
     sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
+    thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
 
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
