@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ConfirmdialogComponent } from '../confirmdialog/confirmdialog.component';
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css']
 })
-export class ButtonsComponent implements OnInit {
+export class ButtonsComponent {
 
-  constructor() { }
+    constructor(private dialog: MatDialog) {}
 
-  ngOnInit() {
-  }
+    openConfirm() {
+
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = false;
+        dialogConfig.autoFocus = true;
+
+        this.dialog.open(ConfirmdialogComponent, dialogConfig);
+    }
 
 }
