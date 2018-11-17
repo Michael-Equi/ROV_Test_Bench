@@ -11,7 +11,7 @@ mat-slider {
 
 .secondarysliders {
   float: right;
-  width: 30%;
+  width: 36%;
   margin-right: 2%;
   margin-top: 1%;
 }
@@ -45,4 +45,29 @@ h2 {
   float: right;
   margin-top: 14px;
   color: white;
+}
+
+::ng-deep .custom-slider .ng5-slider .ng5-slider-selection {
+  background: #496de0;
+}
+::ng-deep .custom-slider .ng5-slider .ng5-slider-pointer {
+  width: 8px;
+  height: 16px;
+  top: auto;
+  /* to remove the default positioning */
+  bottom: -5px;
+  background-color: cornflowerblue;
+}
+::ng-deep .custom-slider .ng5-slider .ng5-slider-pointer:after {
+  display: none;
+}
+::ng-deep .custom-slider .ng5-slider .ng5-slider-bubble {
+  bottom: 14px;
+}
+::ng-deep .custom-slider .ng5-slider .ng5-slider-limit {
+  font-weight: bold;
+  color: orange;
+}
+::ng-deep .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+  background: orange;
 }
