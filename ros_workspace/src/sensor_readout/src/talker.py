@@ -9,13 +9,13 @@ sense = SenseHat()
 
 
 def talker():
-	temp_pub = rospy.Publisher('rov/temperature', String, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
-	pressure_pub = rospy.Publisher('rov/pressure', String, queue_size = 3) #yaw, pitch and roll
-	humidity_pub = rospy.Publisher('rov/humidity', String, queue_size = 3)
+	temp_pub = rospy.Publisher('rov/temperature', int, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
+	pressure_pub = rospy.Publisher('rov/pressure', int, queue_size = 3) #yaw, pitch and roll
+	humidity_pub = rospy.Publisher('rov/humidity', int, queue_size = 3)
 
-	yaw_pub = rospy.Publisher('rov/yaw', String, queue_size = 3)
-	pitch_pub = rospy.Publisher('rov/pitch', String, queue_size = 3)
-	roll_pub = rospy.Publisher('rov/roll', String, queue_size = 3)
+	yaw_pub = rospy.Publisher('rov/yaw', int, queue_size = 3)
+	pitch_pub = rospy.Publisher('rov/pitch', int, queue_size = 3)
+	roll_pub = rospy.Publisher('rov/roll', int, queue_size = 3)
 
 	rospy.init_node('sensors_readout')
 	rate = rospy.Rate(60)
