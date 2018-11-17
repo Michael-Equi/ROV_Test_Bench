@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { Ng5SliderModule } from 'ng5-slider';
+import { FormsModule } from '@angular/forms';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -19,7 +21,9 @@ import { ButtonsComponent } from './buttons/buttons.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    Ng5SliderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
