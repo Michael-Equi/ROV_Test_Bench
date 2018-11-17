@@ -1,21 +1,21 @@
 #include <ros.h>
-#include <std_msgs/Empty.h>
+#include <neopixels/flash.msg> 
+//neopixels is the name of the package this .ino and flash.msg will be in
 #include <Adafruit_NeoPixel.h>
 #define NUM_LEDS 20
 #define PIN 6
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 ros::NodeHandle nh;
-string neo[5]
-void messageCb( const std_msgs::Int32MultiArray.h& statusChange)
+
+
+void messageCb(const neopixels::flash& statusChange)
 { 
-  
-  Strobe(0xff, 0xff, 0xff, 10, 50);
+  Strobe(statusChange.red, statusChange.green, statusChange.blue, statusChange.count, statusChange.wait);
 }
-ros::Subscriber<std_msgs::Int32MultiArray.h> sub("/rov/neopixels", &messageCb );
+ros::Subscriber<neopixels::flash> sub("/rov/neopixels", &messageCb );
 
 void setup() 
 {
-
 strip.begin();
 strip.show();
 nh.initNode();
@@ -24,7 +24,6 @@ nh.subscribe(sub);
 
 void loop() 
 {
-  
   nh.spinOnce();
 }
 
