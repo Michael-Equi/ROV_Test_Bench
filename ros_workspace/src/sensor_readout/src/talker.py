@@ -3,21 +3,21 @@
 import rospy
 from sense_hat import SenseHat
 import time
-from std_msgs.msg import String
+from std_msgs.msg import Int64
 
 sense = SenseHat()
 
 
 def talker():
-	temp_pub = rospy.Publisher('rov/temperature', int, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
-	pressure_pub = rospy.Publisher('rov/pressure', int, queue_size = 3) #yaw, pitch and roll
-	humidity_pub = rospy.Publisher('rov/humidity', int, queue_size = 3)
+	temp_pub = rospy.Publisher('rov/temperature', Int64, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
+	pressure_pub = rospy.Publisher('rov/pressure', Int64, queue_size = 3) #yaw, pitch and roll
+	humidity_pub = rospy.Publisher('rov/humidity', Int64, queue_size = 3)
 
-	yaw_pub = rospy.Publisher('rov/yaw', int, queue_size = 3)
-	pitch_pub = rospy.Publisher('rov/pitch', int, queue_size = 3)
-	roll_pub = rospy.Publisher('rov/roll', int, queue_size = 3)
+	yaw_pub = rospy.Publisher('rov/yaw', Int64, queue_size = 3)
+	pitch_pub = rospy.Publisher('rov/pitch', Int64, queue_size = 3)
+	roll_pub = rospy.Publisher('rov/roll', Int64, queue_size = 3)
 
-	rospy.init_node('sensors_readout')
+	rospy.init_node('sensor_readout')
 	rate = rospy.Rate(60)
 	while not rospy.is_shutdown():
 		temp_pub.publish(round(sense.get_temperature()))#Actually pubish the things stated above
