@@ -84,7 +84,7 @@ env:
 
 # Create a catkin workspace with the package under integration.
 install:
-  - cd ~/JHSRobo/ROSbasic/ros_workspace
+  - cd ./ros_workspace
   - catkin_make
   - source devel/setup.bash
 
