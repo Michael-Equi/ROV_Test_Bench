@@ -10,14 +10,12 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlidersComponent,
-    ButtonsComponent,
-    ConfirmdialogComponent
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +29,5 @@ import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component'
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ ConfirmdialogComponent ]
 })
 export class AppModule { }

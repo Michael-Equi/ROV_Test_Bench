@@ -1,8 +1,22 @@
+<div class="shadow" [ngClass]="{'visible' : visible, 'hidden': !visible}">
+  <div class="dialog">
+    <h2 class="title">Confirm?</h2>
+    <h3 class="content">Are you sure you want to continue?</h3>
+    <div class="buttons">
+      <button mat-raised-button color="warn" class="mat-raised-button" (click)="close()">
+        Cancel
+      </button>
+      <button mat-raised-button style="margin-left: 10px; color: white;" class="mat-raised-button green" (click)="confirm()">
+        Continue
+      </button>
+    </div>
+  </div>
+</div>
 <mat-card class="button-card">
   <mat-card-content id="content">
     <div class="powerwrapper">
-      <button mat-raised-button color="primary" class="mat-raised-button {{buttonStyle}}" (click)="openConfirm()">
-        <h2 class="my-3">{{buttonText}}</h2>
+      <button mat-raised-button [ngClass]="{'green' : power, 'red': !power}" class="mat-raised-button powerbutton" (click)="openConfirm()">
+        <h2 class="my-3">Power</h2>
       </button>
     </div>
     <div class="triplebuttonwrapper">
