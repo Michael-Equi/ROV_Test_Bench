@@ -7,18 +7,22 @@
 * @section intro_sec Introduction
 * This code contains implementations for bilinear control, sensitivity, and 4-way inversion. The node subscribes to a joy topic and publishes rov/cmd_vel to PID algorithms and vector drive.
 * @section compile_sec Compilation
-* Compile using catkin_make in the ros_workspace directory. 
+* Compile using catkin_make in the ros_workspace directory.
 */
 
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <ros/console.h>
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
+#include <std_msgs/UInt8.h> //For camera Pub and Inversion
 
-//Temporary
-#include <std_msgs/UInt8.h> //For camera Pub
+// Custom message type for sensitivty
+#include "rov_control_interface/rov_sensitivity.h"
+
+// Temporary
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
@@ -26,7 +30,7 @@ const int linearAxisFBIndex(1); //!<forward-backward axis index in the joy topic
 const int linearAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
 const int angularAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
 const int verticalAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
- 
+
 double l_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 double a_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 double v_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
@@ -43,14 +47,17 @@ bool thrustEN(false); //!<thrusters enabled (True = yes, False = default = no)
 //! inversion -> 1 Front, 2 Left, 3 Back, 4 Right
 int inversion(0);
 
-//! Variable for determining the bilinear threshold 
+//! Variable for determining the bilinear threshold
 const double bilinearRatio(1.5);
 
-//! At what percent of the joysticks axis magnitude (-1 to 1) to apply the additional thrust 
+//! At what percent of the joysticks axis magnitude (-1 to 1) to apply the additional thrust
 const double bilinearThreshold(1.0 / bilinearRatio);
 
 ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
 ros::Subscriber joy_sub; //!<subscriber to the logitech joystick
+ros::Subscriber inversion_sub; //!<subscriber to the inversion topic from copilot page
+ros::Subscriber sensitivity_sub; //!<subscriber to the sensitivty topic from the copilot page
+ros::Subscriber thruster_status_sub; //!>subscriber to the thruster status topic from the copilot page
 
 //Temporary publishers
 ros::Publisher camera_select;    //!<Temporary Camera pub
@@ -155,7 +162,7 @@ void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
 * @breif Handles copilot input: updates thrusters, enables sensitivity, and enables inversion.
 * Callback to anything published by the dynamic reconfigure copilot page
 * @param[in] &config New copilot_interface param
-* @param[in] level The OR-ing of all the values that have changed in the copilot_interface param (not used yet) 
+* @param[in] level The OR-ing of all the values that have changed in the copilot_interface param (not used yet)
 */
 void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint32_t level) {
 
@@ -181,7 +188,24 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     solenoid_control.publish(solMsg);
 }
 
+/**
+* @breif What the node does when copilot inversion setting publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
+void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
+    inversion = data->data;
+}
 
+void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr& data) {
+  l_scale = data->l_scale;
+  a_scale = data->a_scale;
+  v_scale = data->v_scale;
+}
+
+void thrusterStatusCallback(const std_msgs::Bool::ConstPtr& data) {
+  thrustEN = data->data;
+  ROS_INFO_STREAM(thrustEN);
+}
 
 int main(int argc, char **argv)
 {
@@ -192,10 +216,13 @@ int main(int argc, char **argv)
 
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
-    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback); 
+    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
+    inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
+    sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
+    thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
 
     //setup temporary publishers
-    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
+    camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
     solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
 
@@ -205,7 +232,6 @@ int main(int argc, char **argv)
 
     f = boost::bind(&controlCallback, _1, _2);
     server.setCallback(f);
-
 
     //Enter the event loop
     ros::spin();
