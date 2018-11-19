@@ -26,17 +26,28 @@ sensor_readout
 Topics:
 
  /rov/temperature:
-  Publishes temperature data from the pi at 60 hz through an int64
+ 
+ Publishes temperature data from the pi at 60 hz through an int64
+ 
  /rov/pressure:
-  Publishes pressure data from the pi at 60 hz through an int64
+ 
+ Publishes pressure data from the pi at 60 hz through an int64
+ 
  /rov/humidity:
-  Publishes pressure data from the pi at 60 hz through an int64
+ 
+ Publishes pressure data from the pi at 60 hz through an int64
+ 
  /rov/yaw: //IF YOU DON'T KNOW THESE LOOK THEM UP
-  Publishes data from the gyroscope about the ROV's yaw at 60 hz through an int64
+ 
+ Publishes data from the gyroscope about the ROV's yaw at 60 hz through an int64
+ 
  /rov/pitch:
-  Publishes data from the gyroscope about the ROV's pitch at 60 hz through an int64
+ 
+ Publishes data from the gyroscope about the ROV's pitch at 60 hz through an int64
+ 
  /rov/roll:
-  Publishes data from the gyroscope about the ROV's roll at 60 hz through an int64
+ 
+ Publishes data from the gyroscope about the ROV's roll at 60 hz through an int64
 
 ## Launch Information
  
