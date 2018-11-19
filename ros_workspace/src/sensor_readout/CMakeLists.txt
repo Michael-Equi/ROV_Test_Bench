@@ -9,10 +9,7 @@ project(sensor_readout)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
-# message_generation
 )
-
-
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -39,7 +36,7 @@ find_package(catkin REQUIRED COMPONENTS
 ##     * add a exec_depend tag for "message_runtime"
 ## * In this file (CMakeLists.txt):
 ##   * add "message_generation" and every package in MSG_DEP_SET to
-##    find_package(catkin REQUIRED COMPONENTS ...)
+##     find_package(catkin REQUIRED COMPONENTS ...)
 ##   * add "message_runtime" and every package in MSG_DEP_SET to
 ##     catkin_package(CATKIN_DEPENDS ...)
 ##   * uncomment the add_*_files sections below as needed
@@ -50,8 +47,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
-#   sensor_hat.msg
-#)
+#   Message1.msg
+#   Message2.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -69,7 +67,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
-#  DEPENDENCIES
+#   DEPENDENCIES
 #   std_msgs  # Or other packages containing msgs
 # )
 
@@ -107,7 +105,6 @@ catkin_package(
 #  LIBRARIES sensor_readout
 #  CATKIN_DEPENDS rospy
 #  DEPENDS system_lib
-#	CATKIN_DEPENDS message_runtime
 )
 
 ###########

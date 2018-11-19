@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-
 import rospy
 from sense_hat import SenseHat
 import time
 from std_msgs.msg import Int64
 
 sense = SenseHat()
-
 
 def talker():
 	temp_pub = rospy.Publisher('rov/temperature', Int64, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
@@ -35,8 +33,8 @@ def talker():
 
 		acceleration = sense.get_accelerometer_raw()#x y and z G force, not rounded
 		x_direction_pub.publish(acceleration['x'])
-                y_direction_pub.publish(acceleration['y'])
-                z_direction_pub.publish(acceleration['z'])
+		y_direction_pub.publish(acceleration['y'])
+		z_direction_pub.publish(acceleration['z'])
 		
 		rate.sleep()
 
