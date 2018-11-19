@@ -10,12 +10,14 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { ErrorTextComponent } from './error-text/error-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlidersComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    ErrorTextComponent
   ],
   imports: [
     BrowserModule,
