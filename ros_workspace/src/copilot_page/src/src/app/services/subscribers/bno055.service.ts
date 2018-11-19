@@ -5,8 +5,8 @@ import '../../../assets/roslib';
 @Injectable({
   providedIn: 'root'
 })
-export class Bno055Service {
 
+export class Bno055Service {
   // Creates object with the ROS library
   // @ts-ignore <= Makes ts happy, wont error
   ros = new ROSLIB.Ros({
