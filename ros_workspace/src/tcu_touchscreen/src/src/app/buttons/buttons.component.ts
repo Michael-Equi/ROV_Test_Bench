@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ConfirmdialogComponent } from '../confirmdialog/confirmdialog.component';
 
@@ -7,38 +7,38 @@ import { ConfirmdialogComponent } from '../confirmdialog/confirmdialog.component
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css']
 })
-export class ButtonsComponent implements OnInit {
+export class ButtonsComponent {
 
-    buttonText: string;
-    buttonStyle: string;
+    buttonStyle = 'powerbuttonoff';
+    buttonText = 'Power Off';
     togglework = false;
     togglesaftey = false;
     togglepneu = false;
 
-
-
     LightToggle() {
         this.togglework = !this.togglework;
+        console.log('Light');
     }
 
     SafteyToggle() {
         this.togglesaftey = !this.togglesaftey;
+        console.log('Saftey');
     }
 
     PneumaticsToggle() {
         this.togglepneu = !this.togglepneu;
+        console.log('Pneumatics');
     }
 
-    updatevars() {
-        this.buttonText = localStorage.getItem('buttonText');
-        this.buttonStyle = localStorage.getItem('buttonStyle');
-    }
+    constructor(
+        private dialog: MatDialog
+        // private dialogRef: MatDialogRef<ConfirmdialogComponent>
+    ) {}
 
-    ngOnInit() {
-        setInterval(this.updatevars(), 1000)
-    }
-
-    constructor(private dialog: MatDialog) {}
+    // changePower() {
+    //     this.buttonStyle = 'powerbuttonon';
+    //     this.buttonText = 'Power On';
+    // }
 
     openConfirm() {
 
@@ -48,6 +48,12 @@ export class ButtonsComponent implements OnInit {
         dialogConfig.autoFocus = true;
 
         this.dialog.open(ConfirmdialogComponent, dialogConfig);
+        //
+        // this.dialogRef.afterClosed().subscribe(result => {
+        //     this.changePower();
+        // });
     }
+
+
 
 }
