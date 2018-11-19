@@ -5,8 +5,15 @@
   height: 59%;
 }
 
-.powerbutton {
+.powerbuttonon {
   background-color: #4CAF50 !important;
+  width: 92%;
+  margin-left: 4%;
+  margin-top: 7%;
+}
+
+.powerbuttonoff {
+  background-color: #af3735 !important;
   width: 92%;
   margin-left: 4%;
   margin-top: 7%;
@@ -23,3 +30,14 @@
   margin-left: 4%;
 }
 
+h2 {
+  color: white;
+}
+
+.red {
+  background-color: #af3735 !important;
+}
+
+.green {
+  background-color: #4CAF50 !important;
+}

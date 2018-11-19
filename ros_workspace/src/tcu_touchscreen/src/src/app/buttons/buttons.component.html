@@ -1,18 +1,18 @@
 <mat-card class="button-card">
   <mat-card-content id="content">
     <div class="powerwrapper">
-      <button mat-raised-button color="primary" class="powerbutton" (click)="openConfirm()">
-        <h2 class="my-3">Power On</h2>
+      <button mat-raised-button color="primary" class="mat-raised-button {{buttonStyle}}" (click)="openConfirm()">
+        <h2 class="my-3">{{buttonText}}</h2>
       </button>
     </div>
     <div class="triplebuttonwrapper">
-      <button mat-raised-button color="primary" class="systembutton otherbuttons">
+      <button mat-raised-button color="primary" [ngClass]="{'green' : togglework, 'red': !togglework}" class="mat-raised-button systembutton otherbuttons" (click)="LightToggle()">
         <h2 class="my-3">Work Light</h2>
       </button>
-      <button mat-raised-button color="primary" class="systembutton otherbuttons">
+      <button mat-raised-button color="primary" [ngClass]="{'green' : togglesaftey, 'red': !togglesaftey}" class="mat-raised-button systembutton otherbuttons" (click)="SafteyToggle()">
         <h2 class="my-3">Saftey Mode</h2>
       </button>
-      <button mat-raised-button color="primary" class="systembutton otherbuttons">
+      <button mat-raised-button color="primary" [ngClass]="{'green' : togglepneu, 'red': !togglepneu}" class="mat-raised-button systembutton otherbuttons" (click)="PneumaticsToggle()">
         <h2 class="my-3">Pneumatics</h2>
       </button>
     </div>

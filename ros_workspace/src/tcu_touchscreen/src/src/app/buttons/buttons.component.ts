@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ConfirmdialogComponent } from '../confirmdialog/confirmdialog.component';
 
@@ -7,7 +7,36 @@ import { ConfirmdialogComponent } from '../confirmdialog/confirmdialog.component
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css']
 })
-export class ButtonsComponent {
+export class ButtonsComponent implements OnInit {
+
+    buttonText: string;
+    buttonStyle: string;
+    togglework = false;
+    togglesaftey = false;
+    togglepneu = false;
+
+
+
+    LightToggle() {
+        this.togglework = !this.togglework;
+    }
+
+    SafteyToggle() {
+        this.togglesaftey = !this.togglesaftey;
+    }
+
+    PneumaticsToggle() {
+        this.togglepneu = !this.togglepneu;
+    }
+
+    updatevars() {
+        this.buttonText = localStorage.getItem('buttonText');
+        this.buttonStyle = localStorage.getItem('buttonStyle');
+    }
+
+    ngOnInit() {
+        setInterval(this.updatevars(), 1000)
+    }
 
     constructor(private dialog: MatDialog) {}
 

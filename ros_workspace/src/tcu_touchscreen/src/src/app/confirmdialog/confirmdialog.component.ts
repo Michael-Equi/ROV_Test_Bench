@@ -9,6 +9,8 @@ export class ConfirmdialogComponent {
 
     confirm() {
        console.log('Confirm');
+       localStorage.setItem('buttonText', 'Power On');
+       localStorage.setItem('buttonStyle', 'powerbuttonon');
     }
 
 }
