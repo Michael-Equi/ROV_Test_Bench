@@ -1,5 +1,5 @@
 <div class="shadow" [ngClass]="{'visible' : visible, 'hidden': !visible}">
-  <div class="dialog">
+  <div class="dialog" [ngClass]="{'animated fadeInDown faster' : visible, '': !visible}">
     <h2 class="title">Confirm?</h2>
     <h3 class="content">Are you sure you want to continue?</h3>
     <div class="buttons">
