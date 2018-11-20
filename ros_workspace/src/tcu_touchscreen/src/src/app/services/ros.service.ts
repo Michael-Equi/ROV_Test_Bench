@@ -13,7 +13,6 @@ export class RosService {
     });
 
     initialize() {
-        let data;
         // Listens for error from ROS and logs it
         this.ros.on('error', function(error) {
             console.log(error);
