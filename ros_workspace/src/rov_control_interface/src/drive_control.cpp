@@ -7,7 +7,7 @@
 * @section intro_sec Introduction
 * This code contains implementations for bilinear control, sensitivity, and 4-way inversion. The node subscribes to a joy topic and publishes rov/cmd_vel to PID algorithms and vector drive.
 * @section compile_sec Compilation
-* Compile using catkin_make in the ros_workspace directory. 
+* Compile using catkin_make in the ros_workspace directory.
 */
 
 #include <ros/ros.h>
@@ -22,11 +22,13 @@
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
-const int linearAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
-const int linearAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
-const int angularAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
-const int verticalAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
- 
+const int linearJoyAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
+const int linearJoyAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
+const int angularJoyAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
+const int verticalJoyAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
+
+const int verticalThrottleAxis(2); //!<vertical axis index in the joy topic array from the Thrustmaster TWCS Throttle
+
 double l_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 double a_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 double v_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
@@ -43,14 +45,15 @@ bool thrustEN(false); //!<thrusters enabled (True = yes, False = default = no)
 //! inversion -> 1 Front, 2 Left, 3 Back, 4 Right
 int inversion(0);
 
-//! Variable for determining the bilinear threshold 
+//! Variable for determining the bilinear threshold
 const double bilinearRatio(1.5);
 
-//! At what percent of the joysticks axis magnitude (-1 to 1) to apply the additional thrust 
+//! At what percent of the joysticks axis magnitude (-1 to 1) to apply the additional thrust
 const double bilinearThreshold(1.0 / bilinearRatio);
 
 ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
-ros::Subscriber joy_sub; //!<subscriber to the logitech joystick
+ros::Subscriber joy_sub1; //!<subscriber to the logitech joystick
+ros::Subscriber joy_sub2; //!<subscriber to the thrustmaster throttle
 
 //Temporary publishers
 ros::Publisher camera_select;    //!<Temporary Camera pub
@@ -79,7 +82,7 @@ void bilinearCalc(double &axis){
 * @breif What the node does when joystick publishes a new message
 * @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
 */
-void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
+void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
 
     //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
@@ -92,25 +95,24 @@ void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
         //int32[] buttons         the buttons measurements from a joystick
 
         //store axes variables and handle 4 cases of inversion
-        a_axis = joy->axes[angularAxisIndex] * a_scale;
-        v_axis = joy->axes[verticalAxisIndex] * v_scale;
+        a_axis = joy->axes[angularJoyAxisIndex] * a_scale;
 
         switch (inversion){
         case 1 : //left side is front
-            l_axisFB = joy->axes[linearAxisLRIndex] * l_scale;
-            l_axisLR = joy->axes[linearAxisFBIndex] * l_scale;
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
+            l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         case 2 : //back side is front
-            l_axisLR = joy->axes[linearAxisLRIndex] * l_scale * -1;
-            l_axisFB = joy->axes[linearAxisFBIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+            l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
         case 3 : //right side is front
-            l_axisFB = joy->axes[linearAxisLRIndex] * l_scale * -1;
-            l_axisLR = joy->axes[linearAxisFBIndex] * l_scale * -1;
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
         default: //front side is front
-            l_axisLR = joy->axes[linearAxisLRIndex] * l_scale;
-            l_axisFB = joy->axes[linearAxisFBIndex] * l_scale;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
+            l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         }
 
@@ -150,12 +152,50 @@ void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
 }
 
+void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
+
+      //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
+
+      //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
+      if (thrustEN) {
+
+          //joystick message
+          //float32[] axes          the axes measurements from a joystick
+          //int32[] buttons         the buttons measurements from a joystick
+
+          //store axes variables and handle 4 cases of inversion
+          v_axis = joy->axes[verticalThrottleAxis] * v_scale;
+
+          bilinearCalc(v_axis);
+
+      } else {
+
+          v_axis = 0;
+
+      }
+
+      //publish the vector values -> build up command vector message
+      geometry_msgs::Twist commandVectors;
+
+      commandVectors.linear.x = l_axisLR;
+      commandVectors.linear.y = l_axisFB;
+      commandVectors.linear.z = v_axis; //linear z is for vertical strength
+
+      commandVectors.angular.x = a_axis;
+
+      //other angular axis for roll and pitch have phase 2 implementation
+      commandVectors.angular.y = 0;
+      commandVectors.angular.z = 0;
+
+      vel_pub.publish(commandVectors);
+}
+
 
 /**
 * @breif Handles copilot input: updates thrusters, enables sensitivity, and enables inversion.
 * Callback to anything published by the dynamic reconfigure copilot page
 * @param[in] &config New copilot_interface param
-* @param[in] level The OR-ing of all the values that have changed in the copilot_interface param (not used yet) 
+* @param[in] level The OR-ing of all the values that have changed in the copilot_interface param (not used yet)
 */
 void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint32_t level) {
 
@@ -192,7 +232,8 @@ int main(int argc, char **argv)
 
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
-    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback); 
+    joy_sub1 = n.subscribe<sensor_msgs::Joy>("joy/joy1", 2, &joyHorizontalCallback);
+    joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
 
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
