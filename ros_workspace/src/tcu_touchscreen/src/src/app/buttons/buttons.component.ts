@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { ThrustersService } from "../services/thrusters.service";
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.css']
 })
-export class ButtonsComponent {
+export class ButtonsComponent implements OnInit{
+
+    constructor(public thrusterService: ThrustersService) {}
+
+    ngOnInit() {
+        this.thrusterService.initialize();
+    }
 
     buttonStyle = 'powerbuttonoff';
     togglework = false;
