@@ -17,11 +17,8 @@ def talker():
 	pressure_pub = rospy.Publisher('rov/pressure', Int64, queue_size = 3) 
 	humidity_pub = rospy.Publisher('rov/humidity', Int64, queue_size = 3)
 
-	imu_pub = rospy.Publisher("rov/rotation", Imu, queue_size = 3) #rotation
-
-	x_direction_pub = rospy.Publisher('rov/Xacceleration', Float64, queue_size = 3)#X, y and z with speed
-	y_direction_pub = rospy.Publisher('rov/Yacceleration', Float64, queue_size = 3)
-	z_direction_pub = rospy.Publisher('rov/Zacceleration', Float64, queue_size = 3)
+	imu_pub = rospy.Publisher("rov/imu", Imu, queue_size = 3) #Imu publisher
+	xSpeed, ySpeed, zSpeed = 0
 
 	rospy.init_node('sensor_readout')
 	rate = rospy.Rate(60)
@@ -30,16 +27,18 @@ def talker():
 		pressure_pub.publish(round(sense.get_pressure()))
 		humidity_pub.publish(round(sense.get_humidity()))#Temperature pressure humidity
 
+		message = Imu() #make a new object of class IMU with name message
+
+		acceleration = sense.get_accelerometer_raw()#x y and z G force, not rounded
+		xSpeed += (acceleration['x'] * acceleration['x']) / 2
+		ySpeed += (acceleration['y'] * acceleration['y']) / 2 #Integrate
+		zSpeed += (acceleration['z'] * acceleration['z']) / 2
+		message.linear_acceleration(xSpeed, ySpeed, zSpeed)
+
 		orientation = sense.get_orientation()#roll pitch and yaw
-		message = Imu();
 		message.orientation = quaternion_from_euler(radians(orientation["yaw"]), radians(orientation["pitch"]), radians(orientation["roll"])) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
 		
 		imu_pub.publish(message)	
-
-		acceleration = sense.get_accelerometer_raw()#x y and z G force, not rounded
-		x_direction_pub.publish(acceleration['x'])
-		y_direction_pub.publish(acceleration['y'])
-		z_direction_pub.publish(acceleration['z'])
 		
 		rate.sleep()
 
