@@ -7,7 +7,8 @@ from sense_hat import SenseHat
 from std_msgs.msg import Int64
 from std_msgs.msg import Float64
 #from geometry_msgs.msg import Quaternion
-#from tf.transformations import quaternion_from_euler 
+from tf.transformations import quaternion_from_euler 
+from sensor_msgs.msg import Imu
 
 sense = SenseHat()
 
@@ -16,7 +17,7 @@ def talker():
 	pressure_pub = rospy.Publisher('rov/pressure', Int64, queue_size = 3) 
 	humidity_pub = rospy.Publisher('rov/humidity', Int64, queue_size = 3)
 
-	#rotation_pub = rospy.Publisher("rov/rotation", Quaternion, queue_size = 3) #rotation
+	imu_pub = rospy.Publisher("rov/rotation", Imu, queue_size = 3) #rotation
 
 	x_direction_pub = rospy.Publisher('rov/Xacceleration', Float64, queue_size = 3)#X, y and z with speed
 	y_direction_pub = rospy.Publisher('rov/Yacceleration', Float64, queue_size = 3)
@@ -30,7 +31,10 @@ def talker():
 		humidity_pub.publish(round(sense.get_humidity()))#Temperature pressure humidity
 
 		orientation = sense.get_orientation()#roll pitch and yaw
-	#	rotation_pub.publish(quaternion_from_euler(radians(orientation["yaw"]), radians(orientation["pitch"]), radians(orientation["roll"])))	#converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
+		message = Imu();
+		message.orientation = quaternion_from_euler(radians(orientation["yaw"]), radians(orientation["pitch"]), radians(orientation["roll"])) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
+		
+		imu_pub.publish(message)	
 
 		acceleration = sense.get_accelerometer_raw()#x y and z G force, not rounded
 		x_direction_pub.publish(acceleration['x'])
