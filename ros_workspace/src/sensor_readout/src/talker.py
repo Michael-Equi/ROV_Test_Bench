@@ -8,24 +8,26 @@ from std_msgs.msg import Int64
 from std_msgs.msg import Float64
 #from geometry_msgs.msg import Quaternion
 from tf.transformations import quaternion_from_euler 
-from sensor_msgs.msg import Imu
+from sensor_msgs.msg import Imu, Temperature, Humidity, Pressure
 
 sense = SenseHat()
 
 def talker():
-	temp_pub = rospy.Publisher('rov/temperature', Int64, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
-	pressure_pub = rospy.Publisher('rov/pressure', Int64, queue_size = 3) 
-	humidity_pub = rospy.Publisher('rov/humidity', Int64, queue_size = 3)
+	rospy.init_node('sensor_readout')
+
+	temp_pub = rospy.Publisher('rov/temperature', Temperature, queue_size = 3) #Publisher for the different sensors: Temperature, Humidity, Pressure, 
+	pressure_pub = rospy.Publisher('rov/pressure', Pressure, queue_size = 3) 
+	humidity_pub = rospy.Publisher('rov/humidity', Humidity, queue_size = 3)
 
 	imu_pub = rospy.Publisher("rov/imu", Imu, queue_size = 3) #Imu publisher
 	xSpeed, ySpeed, zSpeed = 0
 
-	rospy.init_node('sensor_readout')
+	
 	rate = rospy.Rate(60)
 	while not rospy.is_shutdown():
-		temp_pub.publish(round(sense.get_temperature()))#Actually pubish the things stated above
-		pressure_pub.publish(round(sense.get_pressure()))
-		humidity_pub.publish(round(sense.get_humidity()))#Temperature pressure humidity
+		temp_pub.publish(sense.get_temperature())#Actually pubish the things stated above
+		pressure_pub.publish(sense.get_pressure())
+		humidity_pub.publish(sense.get_humidity())#Temperature pressure humidity
 
 		message = Imu() #make a new object of class IMU with name message
 
