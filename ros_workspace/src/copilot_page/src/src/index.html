@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <meta charset="utf-8">
   <title>Copilot Interface</title>
   <base href="/">
@@ -10,52 +10,39 @@
   <style type="text/css">
     body, html {
       height: 100%;
+      background-color: #2A2B3C;
     }
-    .app-loading {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    #nav {
+      width: 74px;
       height: 100%;
-      background-color: #313349;
-    }
-    .app-loading .spinner {
-      height: 200px;
-      width: 200px;
-      animation: rotate 2s linear infinite;
-      transform-origin: center center;
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
+      z-index: 1000;
+      margin-top: -5px;
+      margin-left: -5px;
     }
-    .app-loading .spinner .path {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-      animation: dash 1.5s ease-in-out infinite;
-      stroke-linecap: round;
-      stroke: #ddd;
+    #card {
+      width: 420px;
+      height: 300px;
+      position: absolute;
+      z-index: 1000;
+      border-radius: 20px;
     }
-    @keyframes rotate {
-      100% {
-        transform: rotate(360deg);
+    .skeletonLoader {
+      background: linear-gradient(270deg, #313349, #595d85);
+      background-size: 400% 400%;
+
+      -webkit-animation: skeletonLoader 1s ease infinite;
+      animation: skeletonLoader 1s ease infinite;
+
+      @-webkit-keyframes skeletonLoader {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
       }
-    }
-    @keyframes dash {
-      0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-      }
-      50% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -35px;
-      }
-      100% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -124px;
+      @keyframes skeletonLoader {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
       }
     }
   </style>
@@ -65,12 +52,19 @@
 </head>
 <body>
   <app-root>
-    <div class="app-loading">
-      <div class="logo"></div>
-      <svg class="spinner" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-      </svg>
-    </div>
+    <div id="nav" class="skeletonLoader"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 20px; margin-left: 100px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 20px; margin-left: 560px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 20px; margin-left: 1020px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 20px; margin-left: 1480px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 380px; margin-left: 100px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 380px; margin-left: 560px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 380px; margin-left: 1020px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 380px; margin-left: 1480px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 740px; margin-left: 100px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 740px; margin-left: 560px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 740px; margin-left: 1020px;"></div>
+    <div id="card" class="skeletonLoader" style="margin-top: 740px; margin-left: 1480px;"></div>
   </app-root>
 </body>
 </html>
