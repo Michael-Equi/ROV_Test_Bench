@@ -25,6 +25,7 @@
     "@shopify/draggable": "^1.0.0-beta.8",
     "@swimlane/ngx-charts": "^9.0.0",
     "angular2-chartjs": "^0.5.1",
+    "angular2-hotkeys": "^2.1.4",
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "eventemitter2": "^5.0.1",

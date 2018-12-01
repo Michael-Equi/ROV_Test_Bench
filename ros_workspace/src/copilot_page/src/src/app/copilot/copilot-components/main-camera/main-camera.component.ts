@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material';
+import { Component, OnInit } from '@angular/core';
 import { CameraSelectService } from '../../../services/publishers/camera-select.service';
-import {fromEvent, Observable} from 'rxjs';
+// import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-main-camera-module',
@@ -15,57 +14,118 @@ export class MainCameraComponent implements OnInit {
 
     // Declares name for window, arrays for cameras (should probably change to objects)
     name = 'Main Camera';
-    cameras = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    selectedStatus = [true, false, false, false, false, false, false, false, false];
-    colors = ['primary', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn', 'warn'];
-    // Holds current camera value for publishing
-    cameraValue: string;
-
-    keyPress(character) {
-        // Switch that takes input of pressed key and does things
-        switch (character.key) {
-            case 'Digit1':
-                this.cameraValue = '1';
-                console.log(this.cameraValue);
-                break;
-            case 'Digit2':
-                this.cameraValue = '2';
-                break;
-            case 'Digit3':
-                this.cameraValue = '3';
-                break;
-            case 'Digit4':
-                this.cameraValue = '4';
-                break;
-            case 'Digit5':
-                this.cameraValue = '5';
-                break;
-            case 'Digit6':
-                this.cameraValue = '6';
-                break;
-            case 'Digit7':
-                this.cameraValue = '7';
-                break;
-            case 'Digit8':
-                this.cameraValue = '8';
-                break;
-            case 'Digit9':
-                this.cameraValue = '9';
-                break;
-        }
-        console.log(this.cameraValue);
-    }
+    camera1 = false;
+    camera2 = false;
+    camera3 = false;
+    camera4 = false;
+    camera5 = false;
+    camera6 = false;
+    camera7 = false;
+    camera8 = false;
+    camera9 = false;
 
     // Onclick passes event that contains ton of information
-    onClick(event) {
-        console.log(event);
+    cameraSwitch(value) {
+        console.log("Camera " + value);
+        if (value == 1) {
+            this.camera1 = true;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 2) {
+            this.camera1 = false;
+            this.camera2 = true;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 3) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = true;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 4) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = true;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 5) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = true;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 6) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = true;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 7) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = true;
+            this.camera8 = false;
+            this.camera9 = false;
+        } else if (value == 8) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = true;
+            this.camera9 = false;
+        } else if (value == 9) {
+            this.camera1 = false;
+            this.camera2 = false;
+            this.camera3 = false;
+            this.camera4 = false;
+            this.camera5 = false;
+            this.camera6 = false;
+            this.camera7 = false;
+            this.camera8 = false;
+            this.camera9 = true;
+        }
     }
 
     ngOnInit() {
+        this.camera1 = true;
         // Initialize camera select service
         this.cameraSelectService.initialize();
         // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
-        fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
+        // fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
     }
 
 }
