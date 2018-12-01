@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CameraSelectService } from '../../../services/publishers/camera-select.service';
-// import { fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-main-camera-module',
@@ -23,6 +23,30 @@ export class MainCameraComponent implements OnInit {
     camera7 = false;
     camera8 = false;
     camera9 = false;
+
+    keyPress(event) {
+        if (event.key == 1) {
+            this.cameraSwitch(1);
+        } else if (event.key == 2) {
+            this.cameraSwitch(2);
+        } else if (event.key == 3) {
+            this.cameraSwitch(3);
+        } else if (event.key == 4) {
+            this.cameraSwitch(4);
+        } else if (event.key == 5) {
+            this.cameraSwitch(5);
+        } else if (event.key == 6) {
+            this.cameraSwitch(6);
+        } else if (event.key == 7) {
+            this.cameraSwitch(7);
+        } else if (event.key == 8) {
+            this.cameraSwitch(8);
+        } else if (event.key == 9) {
+            this.cameraSwitch(9);
+        } else {
+            console.log(event.key);
+        }
+    }
 
     // Onclick passes event that contains ton of information
     cameraSwitch(value) {
@@ -125,7 +149,7 @@ export class MainCameraComponent implements OnInit {
         // Initialize camera select service
         this.cameraSelectService.initialize();
         // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
-        // fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
+        fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
     }
 
 }
