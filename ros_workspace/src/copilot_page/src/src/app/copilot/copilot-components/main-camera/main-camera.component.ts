@@ -61,6 +61,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(1);
         } else if (value == 2) {
             this.camera1 = false;
             this.camera2 = true;
@@ -71,6 +72,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(2);
         } else if (value == 3) {
             this.camera1 = false;
             this.camera2 = false;
@@ -81,6 +83,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(3);
         } else if (value == 4) {
             this.camera1 = false;
             this.camera2 = false;
@@ -91,6 +94,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(4);
         } else if (value == 5) {
             this.camera1 = false;
             this.camera2 = false;
@@ -101,6 +105,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(5);
         } else if (value == 6) {
             this.camera1 = false;
             this.camera2 = false;
@@ -111,6 +116,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(6);
         } else if (value == 7) {
             this.camera1 = false;
             this.camera2 = false;
@@ -121,6 +127,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = true;
             this.camera8 = false;
             this.camera9 = false;
+            this.cameraSelectService.publish(7);
         } else if (value == 8) {
             this.camera1 = false;
             this.camera2 = false;
@@ -131,6 +138,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = true;
             this.camera9 = false;
+            this.cameraSelectService.publish(8);
         } else if (value == 9) {
             this.camera1 = false;
             this.camera2 = false;
@@ -141,6 +149,7 @@ export class MainCameraComponent implements OnInit {
             this.camera7 = false;
             this.camera8 = false;
             this.camera9 = true;
+            this.cameraSelectService.publish(9);
         }
     }
 
