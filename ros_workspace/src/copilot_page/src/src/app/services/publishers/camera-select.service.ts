@@ -31,7 +31,7 @@ export class CameraSelectService {
     const message = new ROSLIB.Message({
         data : number
     });
-    console.log(data);
+    // console.log(data);
     this.cameraSelectPublisher.publish(message);
   }
 }
