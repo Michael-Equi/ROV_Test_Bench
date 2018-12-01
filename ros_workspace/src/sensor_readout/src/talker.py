@@ -32,10 +32,10 @@ def talker():
 		message = Imu() #make a new object of class IMU with name message
 
 		acceleration = sense.get_accelerometer_raw()#x y and z G force, not rounded
-		message.linear_acceleration = (acceleration['x'], acceration['y'], acceleration['z'])
+		message.linear_acceleration = (acceleration['x'] * 9.80665, acceration['y'] * 9.80665, acceleration['z'] * 9.80665)#9.80665 is gs to newtons
 
-		orientation = sense.get_orientation()#roll pitch and yaw
-		message.orientation = quaternion_from_euler(radians(orientation["yaw"]), radians(orientation["pitch"]), radians(orientation["roll"])) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
+		orientation = sense.get_orientation_radians()#roll pitch and yaw
+		message.orientation = quaternion_from_euler(orientation["yaw"], orientation["pitch"], radians(orientation["roll"]) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
 		
 		imu_pub.publish(message)	
 		
