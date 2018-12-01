@@ -24,13 +24,12 @@ export class VoltageService {
         const voltageListener = new ROSLIB.Topic({
             ros : this.ros, // Points to ROS variable
             name : '/rov/converter1/voltage', // Topic Name
-            messageType : 'dynamic_reconfigure/Config' // Message Type
+            messageType : 'std_msgs/Float64' // Message Type
         });
 
         // Subscribe to ROS data
         voltageListener.subscribe((message) => {
-            console.log('Recieved Message on ' + voltageListener.name + ' : ' + message.bools);
-            // Adds next value to pass through to observable driveControl
+            // Adds next voltage to pass through to observable driveControl
             this.voltage.next(message);
         });
     }
