@@ -1,50 +1,43 @@
-import 'zone.js/dist/zone-mix';
-import 'reflect-metadata';
-import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-
-// NG Translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { ElectronService } from './providers/electron.service';
-
-import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MaterialModule } from './material.module';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { ChartModule } from 'angular2-chartjs';
+
+import { CopilotModule } from './copilot/copilot.module';
+import { DrqModule } from './drq/drq.module';
+import { SensortelemetryModule } from './sensor-telemetry/sensortelemetry.module';
+import { SharedModule } from './shared/shared.module';
+
+import { AppRoutingModule } from './routing/app-routing.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    WebviewDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    ChartModule,
+    MaterialModule,
+    CopilotModule,
+    DrqModule,
+    SensortelemetryModule,
     AppRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    })
+    SharedModule
   ],
-  providers: [ElectronService],
+  providers: [],
+  exports: [
+    MaterialModule,
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

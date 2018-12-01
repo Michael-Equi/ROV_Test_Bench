@@ -1,26 +1,23 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './providers/electron.service';
-import { TranslateService } from '@ngx-translate/core';
-import { AppConfig } from '../environments/environment';
+import {Component, OnInit} from '@angular/core';
+import { RosService } from './services/ros.service';
+import { Bno055Service } from './services/bno055.service';
+import {HorizontalDriveService} from './services/horizontal-drive.service';
+import {VerticalDriveService} from './services/vertical-drive.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(public electronService: ElectronService,
-    private translate: TranslateService) {
-
-    translate.setDefaultLang('en');
-    console.log('AppConfig', AppConfig);
-
-    if (electronService.isElectron()) {
-      console.log('Mode electron');
-      console.log('Electron ipcRenderer', electronService.ipcRenderer);
-      console.log('NodeJS childProcess', electronService.childProcess);
-    } else {
-      console.log('Mode web');
-    }
+export class AppComponent implements OnInit {
+    // The constructor takes the roslibservice import statement and assigns it
+  // Done before onInit
+  constructor(private RosService: RosService, private horizontal: HorizontalDriveService, private vertical: VerticalDriveService) { }
+  // OnInit initializes the Roslib service, and gets data to test connection
+  ngOnInit() {
+    this.RosService.initialize();
+    this.horizontal.initialize();
+    this.vertical.initialize();
   }
+
 }

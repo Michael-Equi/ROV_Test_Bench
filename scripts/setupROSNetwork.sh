@@ -19,7 +19,7 @@ if [ $(hostname -I) == "192.168.1.100" ]; then
 
 elif [ $(hostname -I) == "192.168.1.111" ]; then
    echo "You are on the bottomisde computer with the IP of $(hostname -I)"
-   if ! grep "export ROS_HOSTNAME=bottomside" ~/.bashrc ; then
+   if ! grep "export ROS_HOSTNAME=master" ~/.bashrc ; then
       echo -e "\nexport ROS_HOSTNAME=bottomside" >> ~/.bashrc
       echo "export ROS_MASTER_URI=http://master:11311" >> ~/.bashrc
    fi
