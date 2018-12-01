@@ -1437,10 +1437,10 @@ function Param(options) {
 }
 
 /**
- * Fetches the value of the param.
+ * Fetches the voltage of the param.
  *
  * @param callback - function with the following params:
- *  * value - the value of the param from ROS.
+ *  * voltage - the voltage of the param from ROS.
  */
 Param.prototype.get = function(callback) {
   var paramClient = new Service({
@@ -1460,9 +1460,9 @@ Param.prototype.get = function(callback) {
 };
 
 /**
- * Sets the value of the param in ROS.
+ * Sets the voltage of the param in ROS.
  *
- * @param value - value to set param to.
+ * @param value - voltage to set param to.
  */
 Param.prototype.set = function(value, callback) {
   var paramClient = new Service({
@@ -2674,10 +2674,10 @@ module.exports = Pose;
  *
  *  @constructor
  *  @param options - object with following keys:
- *   * x - the x value
- *   * y - the y value
- *   * z - the z value
- *   * w - the w value
+ *   * x - the x voltage
+ *   * y - the y voltage
+ *   * z - the z voltage
+ *   * w - the w voltage
  */
 function Quaternion(options) {
   options = options || {};
@@ -2802,9 +2802,9 @@ module.exports = Transform;
  *
  *  @constructor
  *  @param options - object with following keys:
- *   * x - the x value
- *   * y - the y value
- *   * z - the z value
+ *   * x - the x voltage
+ *   * y - the y voltage
+ *   * z - the z voltage
  */
 function Vector3(options) {
   options = options || {};

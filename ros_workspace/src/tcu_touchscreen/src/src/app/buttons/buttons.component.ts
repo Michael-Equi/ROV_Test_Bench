@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { ThrustersService } from "../services/thrusters.service";
+import { ThrustersEnabledService } from "../services/thrusters-enabled.service";
+import { SolenoidService } from '../services/solenoid.service';
+import { SafetyService } from '../services/safety.service';
 
 @Component({
   selector: 'app-buttons',
@@ -8,22 +10,26 @@ import { ThrustersService } from "../services/thrusters.service";
 })
 export class ButtonsComponent implements OnInit{
 
-    constructor(public thrusterService: ThrustersService) {}
+    constructor(
+        public thrusterService: ThrustersEnabledService,
+        public solenoidService: SolenoidService,
+        public safetyService: SafetyService) {}
 
     ngOnInit() {
         this.thrusterService.initialize();
+        this.solenoidService.initialize();
+        this.safetyService.initialize();
     }
 
     buttonStyle = 'powerbuttonoff';
     togglework = false;
-    togglesaftey = false;
+    togglesafety = false;
     togglepneu = false;
     visible = false;
     power = false;
 
     openConfirm() {
         this.visible = true;
-        console.log('Dialog');
     }
     close() {
         this.visible = false;
@@ -31,25 +37,22 @@ export class ButtonsComponent implements OnInit{
 
     confirm() {
         this.power = !this.power;
+        this.thrusterService.publish(this.power);
         this.visible = false;
-        console.log('Power Toggle');
     }
 
     LightToggle() {
         this.togglework = !this.togglework;
-        console.log('Light');
     }
 
-    SafteyToggle() {
-        this.togglesaftey = !this.togglesaftey;
-        console.log('Saftey');
+    SafetyToggle() {
+        this.togglesafety = !this.togglesafety;
+        this.safetyService.publish(this.togglesafety);
     }
 
     PneumaticsToggle() {
         this.togglepneu = !this.togglepneu;
-        console.log('Pneumatics');
+        this.solenoidService.publish(this.togglepneu);
     }
-
-
 
 }
