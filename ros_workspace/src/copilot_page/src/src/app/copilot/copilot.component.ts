@@ -13,6 +13,7 @@ export class CopilotComponent implements OnInit {
 
     // Declares variable to hold thruster status (enabled/disabled)
     thrusterStatus: boolean;
+    audio = new Audio('../../assets/Party.mp3');
 
     constructor(private thrusterStatusService: ThrustersStatusService, public thrusterNotification: MatSnackBar) {
     }
@@ -35,5 +36,27 @@ export class CopilotComponent implements OnInit {
         // Creates and subscribes too observable that listens for keypresses, runs keypress function as callback
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
         this.thrusterStatusService.initialize();
+    }
+
+    visible = false;
+    partyModevisible = false;
+
+    openConfirm() {
+        this.visible = true;
+    }
+    close() {
+        this.visible = false;
+    }
+
+    confirm() {
+        this.visible = false;
+        this.audio.play();
+        this.partyModevisible = true;
+    }
+
+    stop() {
+        this.audio.pause();
+        this.audio.currentTime = 0;
+        this.partyModevisible = false;
     }
 }

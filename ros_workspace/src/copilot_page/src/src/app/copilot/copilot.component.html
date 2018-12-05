@@ -1,3 +1,22 @@
+<div class="shadow" [ngClass]="{'visible' : visible, 'hidden': !visible}">
+  <div class="dialog" [ngClass]="{'animated fadeInDown faster' : visible, '': !visible}">
+    <h2 class="title">Party Mode?</h2>
+    <h3 class="content">Are you sure you want to party?</h3>
+    <div class="buttons">
+      <button mat-raised-button color="warn" class="mat-raised-button" (click)="close()">
+        Cancel
+      </button>
+      <button mat-raised-button style="margin-left: 10px; color: white;" class="mat-raised-button partyConfirm" (click)="confirm()">
+        PARTY!!!!
+      </button>
+    </div>
+  </div>
+</div>
+<div class="partyMode" [ngClass]="{'visible' : partyModevisible, 'hidden': !partyModevisible}">
+  <button mat-raised-button class="mat-raised-button partyStop" (click)="stop()">
+    Stop
+  </button>
+</div>
 <mat-grid-list cols="4" rowHeight="350px" class="p-4">
   <mat-grid-tile [colspan]="1" [rowspan]="1">
     <app-main-camera-module class="module"></app-main-camera-module>
@@ -30,4 +49,5 @@
     <app-systems></app-systems>
   </mat-grid-tile>
 </mat-grid-list>
-
+<button mat-button style="color: white;" class="mat-button party" (click)="openConfirm()">
+</button>
