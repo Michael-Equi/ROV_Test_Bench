@@ -29,6 +29,8 @@ export class CopilotComponent implements OnInit {
                 this.thrusterStatus ? 'Thrusters Enabled' : 'Thrusters Disabled',
                 'Exit'
             );
+        } else {
+            console.log(character.code);
         }
     }
 
