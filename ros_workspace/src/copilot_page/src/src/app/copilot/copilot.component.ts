@@ -13,7 +13,7 @@ export class CopilotComponent implements OnInit {
 
     // Declares variable to hold thruster status (enabled/disabled)
     thrusterStatus: boolean;
-    audio = new Audio('../../assets/Party.mp3');
+
 
     constructor(private thrusterStatusService: ThrustersStatusService, public thrusterNotification: MatSnackBar) {
     }
@@ -40,25 +40,5 @@ export class CopilotComponent implements OnInit {
         this.thrusterStatusService.initialize();
     }
 
-    visible = false;
-    partyModevisible = false;
 
-    openConfirm() {
-        this.visible = true;
-    }
-    close() {
-        this.visible = false;
-    }
-
-    confirm() {
-        this.visible = false;
-        this.audio.play();
-        this.partyModevisible = true;
-    }
-
-    stop() {
-        this.audio.pause();
-        this.audio.currentTime = 0;
-        this.partyModevisible = false;
-    }
 }
