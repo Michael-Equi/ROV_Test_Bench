@@ -9,23 +9,22 @@ import { CurrentService } from '../services/current.service';
   styleUrls: ['./sliders.component.css']
 })
 export class SlidersComponent implements OnInit {
-    voltage: number;
-    currfeent: number;
-    voltageMax: number;
-    currentMax: number;
-    options: Options = {
-        floor: 0,
-        ceil: 40
-    };
-    options2: Options = {
-        floor: 0,
-        ceil: 50
-    };
 
     rovVoltage: number; // ROV temperature in Celsius
     rovCurrent: number; // ROV Altitude in atm (can change to pascal)
     maxVoltage: number;
     maxCurrent: number;
+
+    options: Options = {
+        floor: 0,
+        ceil: 40
+    };
+
+    options2: Options = {
+        floor: 0,
+        ceil: 50
+    };
+
     constructor(private VoltageService: VoltageService, private CurrentService: CurrentService) {}
 
     ngOnInit() {
@@ -33,12 +32,16 @@ export class SlidersComponent implements OnInit {
         this.VoltageService.getData().subscribe((msg: number) => {
             console.log(msg);
             this.rovVoltage = msg;
-            if (this.rovVoltage > this.maxVoltage) { this.maxVoltage = this.rovVoltage }
+            if (this.rovVoltage > this.maxVoltage) {
+                this.maxVoltage = this.rovVoltage;
+            }
         });
         this.CurrentService.initialize();
         this.CurrentService.getData().subscribe((msg: number) => {
             this.rovCurrent = msg;
-            if (this.rovCurrent > this.maxCurrent) { this.maxCurrent = this.rovCurrent }
+            if (this.rovCurrent > this.maxCurrent) {
+                this.maxCurrent = this.rovCurrent;
+            }
         });
     }
 }
