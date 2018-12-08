@@ -5,8 +5,6 @@ import { HorizontalDriveService } from '../../../services/subscribers/horizontal
 import { HorizontalDriveModel } from '../../../services/data-models/horizontal-drive.model';
 import { VerticalDriveService } from '../../../services/subscribers/vertical-drive.service';
 import { VerticalDriveModel } from '../../../services/data-models/vertical-drive.model';
-import {Bmp280Model} from "../../../services/data-models/bmp280.model";
-import {Sht31Data} from "../../../services/data-models/sht31.model";
 
 @Component({
   selector: 'app-thrusters',

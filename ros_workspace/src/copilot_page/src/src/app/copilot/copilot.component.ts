@@ -20,7 +20,7 @@ export class CopilotComponent implements OnInit {
 
     //  Runs on key press
     keyPress(character) {
-        if (character.code = 'keyE') {
+        if (character.code == 'keyE') {
             // Changes thruster status
             this.thrusterStatus = !this.thrusterStatus;
             this.thrusterStatusService.publish(this.thrusterStatus);
