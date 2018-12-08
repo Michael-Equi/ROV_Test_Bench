@@ -8,6 +8,11 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   outline: none !important;
 }
 
+.snackbar {
+    background-color: #313349;
+    color: white;
+}
+
 .grid-container {
   margin: 20px;
 }
