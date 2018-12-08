@@ -23,6 +23,11 @@ export class ThrustersComponent implements OnInit {
 
     constructor(private horizontaldriveService: HorizontalDriveService, private verticaldriveService: VerticalDriveService) {}
 
+    thrustToPercent(msg) {
+        msg = (msg + 500) / 10;
+        return msg;
+    }
+
     ngOnInit() {
         $(".dial").knob({
             'min': 0,
@@ -36,10 +41,10 @@ export class ThrustersComponent implements OnInit {
         });
         this.horizontaldriveService.initialize();
         this.horizontaldriveService.getData().subscribe((msg: HorizontalDriveModel) => {
-            this.thruster1 = msg.t1;
-            this.thruster2 = msg.t2;
-            this.thruster3 = msg.t3;
-            this.thruster4 = msg.t4;
+            this.thruster1 = this.thrustToPercent(msg.t1);
+            this.thruster2 = this.thrustToPercent(msg.t2);
+            this.thruster3 = this.thrustToPercent(msg.t3);
+            this.thruster4 = this.thrustToPercent(msg.t4);
             $('#thruster1')
                 .val(this.thruster1)
                 .trigger('change');
@@ -55,8 +60,8 @@ export class ThrustersComponent implements OnInit {
         });
         this.verticaldriveService.initialize();
         this.verticaldriveService.getData().subscribe((msg: VerticalDriveModel) => {
-            this.thruster5 = msg.t1;
-            this.thruster6 = msg.t2;
+            this.thruster5 = this.thrustToPercent(msg.t1);
+            this.thruster6 = this.thrustToPercent(msg.t2);
             $('#thruster5')
                 .val(this.thruster5)
                 .trigger('change');
