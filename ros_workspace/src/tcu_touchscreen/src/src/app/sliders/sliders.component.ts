@@ -12,8 +12,8 @@ export class SlidersComponent implements OnInit {
 
     rovVoltage: number; // ROV temperature in Celsius
     rovCurrent: number; // ROV Altitude in atm (can change to pascal)
-    maxVoltage: number;
-    maxCurrent: number;
+    maxVoltage = 0;
+    maxCurrent = 0;
 
     options: Options = {
         floor: 0,
@@ -32,15 +32,15 @@ export class SlidersComponent implements OnInit {
         this.VoltageService.getData().subscribe((msg: Float64) => {
             console.log(msg);
             this.rovVoltage = msg.data;
-            if (this.rovVoltage > this.maxVoltage) {
-                this.maxVoltage = this.rovVoltage;
+            if (msg.data > this.maxVoltage) {
+                this.maxVoltage = msg.data;
             }
         });
         this.CurrentService.initialize();
         this.CurrentService.getData().subscribe((msg: Float64) => {
             this.rovCurrent = msg.data;
-            if (this.rovCurrent > this.maxCurrent) {
-                this.maxCurrent = this.rovCurrent;
+            if (msg.data > this.maxCurrent) {
+                this.maxCurrent = msg.data;
             }
         });
     }
