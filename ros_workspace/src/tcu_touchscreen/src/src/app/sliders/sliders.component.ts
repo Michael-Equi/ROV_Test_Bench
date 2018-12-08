@@ -29,19 +29,23 @@ export class SlidersComponent implements OnInit {
 
     ngOnInit() {
         this.VoltageService.initialize();
-        this.VoltageService.getData().subscribe((msg: number) => {
+        this.VoltageService.getData().subscribe((msg: Float64) => {
             console.log(msg);
-            this.rovVoltage = msg;
+            this.rovVoltage = msg.data;
             if (this.rovVoltage > this.maxVoltage) {
                 this.maxVoltage = this.rovVoltage;
             }
         });
         this.CurrentService.initialize();
-        this.CurrentService.getData().subscribe((msg: number) => {
-            this.rovCurrent = msg;
+        this.CurrentService.getData().subscribe((msg: Float64) => {
+            this.rovCurrent = msg.data;
             if (this.rovCurrent > this.maxCurrent) {
                 this.maxCurrent = this.rovCurrent;
             }
         });
     }
+}
+
+class Float64 {
+    data: number;
 }
