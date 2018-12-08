@@ -14,7 +14,7 @@ export class NavComponent {
       {src: '../../../assets/CircuitBoard(Unselected).svg', clickedsrc: '../../../assets/CircuitBoard(Selected).svg', selected: false, link: '/sensor-telemetry'},
       {src: '../../../assets/Settings(Unselected).svg', clickedsrc: '../../../assets/Settings(Selected).svg', selected: false}
     ];
-    
+
 
     selected(icon) {
     for (let icon of this.icons) {
