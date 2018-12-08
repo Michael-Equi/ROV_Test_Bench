@@ -10,7 +10,7 @@ import { CurrentService } from '../services/current.service';
 })
 export class SlidersComponent implements OnInit {
     voltage: number;
-    current: number;
+    currfeent: number;
     voltageMax: number;
     currentMax: number;
     options: Options = {
@@ -31,6 +31,7 @@ export class SlidersComponent implements OnInit {
     ngOnInit() {
         this.VoltageService.initialize();
         this.VoltageService.getData().subscribe((msg: number) => {
+            console.log(msg);
             this.rovVoltage = msg;
             if (this.rovVoltage > this.maxVoltage) { this.maxVoltage = this.rovVoltage }
         });
