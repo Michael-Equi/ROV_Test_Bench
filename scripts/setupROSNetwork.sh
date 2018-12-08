@@ -37,3 +37,8 @@ elif [ response == "control"] ; then
    echo -e "\nexport ROS_HOSTNAME=control" >> ~/.bashrc
   fi
   echo -e "\n\nYou are now configured as control!"
+ 
+else 
+  echo "Response not found"
+
+fi
