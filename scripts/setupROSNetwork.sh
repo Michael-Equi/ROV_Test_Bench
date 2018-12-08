@@ -20,19 +20,19 @@ if ! grep "export ROS_MASTER_URI=https://master:11311" ~/.bashrc ; then
   echo "export ROS_MASTER_URI=http://master:11311" >> ~/.bashrc
 fi
 
-if response = "topside"; then
+if [ "$response" = "topside" ]; then
   if ! grep "export ROS_HOSTNAME=master" ~/.bashrc ; then
    echo -e "\nexport ROS_HOSTNAME=master" >> ~/.bashrc
   fi
   echo -e "\n\nYou are now configured as master!"
 
-elif response == "bottomside"; then
+elif [ "$response" == "bottomside" ]; then
   if ! grep "export ROS_HOSTNAME=bottomside" ~/.bashrc ; then
    echo -e "\nexport ROS_HOSTNAME=bottomside" >> ~/.bashrc
   fi
   echo -e "\n\nYou are now configured as bottomside!"
 
-elif response == "control"; then
+elif [ "$response" == "control" ]; then
   if ! grep "export ROS_HOSTNAME=control" ~/.bashrc ; then
    echo -e "\nexport ROS_HOSTNAME=control" >> ~/.bashrc
   fi
