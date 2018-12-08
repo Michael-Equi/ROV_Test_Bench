@@ -13,27 +13,6 @@ These instructions will get you a copy of the project up and running on your loc
 FOLLOW:
 *  https://docs.google.com/document/d/1C32ucQTIAsE2H7u9OERmmCfyc6WzUvhrB2U6_GgZuWg/edit?usp=sharing
 
-Initial SETUP:
-* `cd ~/Desktop`
-* `git clone https://github.com/Michael-Equi/ROV_Test_Bench.git`
-* `git submodule update --init`
-* `cd ROV_Test_Bench/scripts`
-* `./GitSetup.sh`
-* `./setup.sh`
-* Try to install all ros depednencies (joy, rosserial, etc) at once using `rosdep install --from-paths src --ignore-src -r -y` in your ros_workspace
-* `sudo apt-get install ros-kinetic-joy`
-* (only on rpi w/ ubuntu Mate) `sudo apt-get install samba`
-* `sudo apt-get install python-smbus`
-* `sudo apt-get install doxygen`
-* `sudo apt-get install ros-kinetic-rosdoc-lite`
-* `sudo apt-get install ros-kinetic-rosserial-arduino`
-* `sudo apt-get install ros-kinetic-rosserial`
-* Check individual package setup documentation
-* `cd ~/Desktop/ROV_Test_Bench/ros_workspace`
-* `catkin_make`
- * Check for errors
- * Check prerequisites
-    
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)*
 
 ### Prerequisites
@@ -59,7 +38,7 @@ RPI Camera node setup
 
 ### Network Setup
 
-What things you need to do so that the ROS network operates properly 
+What things you need to do so that the ROS network operates properly
 
 On ubuntu 16.04 go to Network Connections app and add a new ethernet connection (name the connection `ROVEthernetConnection`)
 * On the topside computer have a static (manual) IP of `192.168.1.100`, netmask `24`, Gateway `92.168.1.1`, DNS server `27.0.1.1, 8.8.8.8, 192.168.1.1`
@@ -68,9 +47,9 @@ On ubuntu 16.04 go to Network Connections app and add a new ethernet connection 
 
 Once the network connection has been verified (on bottomside `ping master` / on topside `ping bottomside`)
 * Run `sshSetup.sh` in the scripts folder
-* Do not add any paraphrases 
+* Do not add any paraphrases
 * on bottomside `ssh master` / on topside `ssh bottomside`
-* Make sure both work without entering a password 
+* Make sure both work without entering a password
 
 #### Network Setup DEBUG
 * IF you recieve `/usr/bin/ssh-copy-id: ERROR: ssh: connect to host bottomside port 22: Connection refused` go to the opposite machine from the one you recieved it on and run the following:
@@ -78,7 +57,7 @@ Once the network connection has been verified (on bottomside `ping master` / on 
     * `sudo apt-get purge openssh-server`
     * `sudo apt-get install openssh-server`
     * `./sshSetup.sh`
-    
+
 Other usefull links for common problems:
 * https://superuser.com/questions/421004/how-to-fix-warning-about-ecdsa-host-key
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
@@ -130,7 +109,7 @@ Please read [CONTRIBUTING.md](https://github.com/Michael-Equi/ROV_Test_Bench/blo
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
