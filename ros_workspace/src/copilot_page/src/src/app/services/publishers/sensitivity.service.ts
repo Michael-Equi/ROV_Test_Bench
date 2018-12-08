@@ -27,8 +27,8 @@ export class SensitivityService {
   }
 
   publish(data: SensitivityModel) {
-      console.log("Service Called");
-      console.log(data);
+      //console.log("Service Called");
+      //console.log(data);
       // @ts-ignore
       const message = new ROSLIB.Message({
         l_scale: data.l_scale,

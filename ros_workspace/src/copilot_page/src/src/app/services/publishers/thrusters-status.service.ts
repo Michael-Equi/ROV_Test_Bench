@@ -29,7 +29,7 @@ export class ThrustersStatusService {
             const message = new ROSLIB.Message({
                 data : data
             });
-            console.log(data);
+            //console.log(data);
             this.thrusterStatusPublisher.publish(message);
     }
 

@@ -11,6 +11,12 @@ import { Ms5837Data } from '../../../services/data-models/ms5837.model';
 
 export class DepthChartComponent implements AfterViewInit {
     rovDepth: number; // ROV Depth in Meters
+    multiplier: number;
+
+    round(value, precision) {
+        this.multiplier = Math.pow(10, precision || 0);
+        return Math.round(value * this.multiplier) / this.multiplier;
+    }
 
     constructor(private ms5837Service: Ms5837Service) {}
     ngAfterViewInit() {
@@ -18,7 +24,7 @@ export class DepthChartComponent implements AfterViewInit {
         this.ms5837Service.getData().subscribe((msg: Ms5837Data) => {
             // Try catch error because first function call gets undefined value
             try {
-                this.rovDepth = msg.depth;
+                this.rovDepth = this.round(msg.depth, 1);
             } catch (err) {
                 console.log(err);
             }

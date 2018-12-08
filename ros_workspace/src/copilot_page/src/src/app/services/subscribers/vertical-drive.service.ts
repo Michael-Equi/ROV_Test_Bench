@@ -28,8 +28,8 @@ export class VerticalDriveService {
 
     // Subscribe to verticalDriveLIsteenr
     verticalDriveListener.subscribe((message) => {
-      console.log('Recieved Message on ' + verticalDriveListener.name + ' : ' + message);
-      console.log(message);
+      //console.log('Recieved Message on ' + verticalDriveListener.name + ' : ' + message);
+      //console.log(message);
       this.verticalDrive.next(message);
     });
   }
