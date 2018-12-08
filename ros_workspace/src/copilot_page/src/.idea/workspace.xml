@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a295add8-f749-410e-bcfa-ebc02432138d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot-components/thrusters/thrusters.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot-components/thrusters/thrusters.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/copilot/copilot-components/thrusters/thrusters.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/copilot/copilot-components/thrusters/thrusters.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="a295add8-f749-410e-bcfa-ebc02432138d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -299,16 +295,15 @@
       <workItem from="1542159456669" duration="955000" />
       <workItem from="1542161069831" duration="8241000" />
       <workItem from="1542213063194" duration="10077000" />
-      <workItem from="1543699583807" duration="5757000" />
+      <workItem from="1543699583807" duration="5977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39403000" />
+    <option name="totallyTimeSpent" value="39623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20633188" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
