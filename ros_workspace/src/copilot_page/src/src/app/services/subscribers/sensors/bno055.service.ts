@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import '../../../assets/roslib';
+import '../../../../assets/roslib';
 
 @Injectable({
   providedIn: 'root'

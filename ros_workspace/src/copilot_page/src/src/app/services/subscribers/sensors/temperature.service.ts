@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import '../../../assets/roslib.js';
+import '../../../../assets/roslib.js';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PressureService {
+export class TemperatureService {
     // Creates object with the ROS library
     // @ts-ignore <= Makes ts happy, wont error
     ros = new ROSLIB.Ros({
@@ -13,22 +13,22 @@ export class PressureService {
         url : 'ws://localhost:9090'
     });
     // Define subject to hold data values
-    pressure: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+    temperature: BehaviorSubject<any> = new BehaviorSubject('Untouched');
     // Initializer to be called every time BMP280 is going to be used
     initialize() {
         // Get Data from ROS bmp280 Topic
         // @ts-ignore
-        const pressureSubscriber = new ROSLIB.Topic({
+        const temperatureSubscriber = new ROSLIB.Topic({
             ros: this.ros,
-            name: '/rov/pressure',
-            messageType: 'std_msgs/Int64'
+            name: '/rov/temperature',
+            messageType: 'sensor_msgs/Temperature'
         });
 
         // Subscribe to bmpListener
-        pressureSubscriber.subscribe((message) => {
-            this.pressure.next(message);
+        temperatureSubscriber.subscribe((message) => {
+            this.temperature.next(message);
         });
     }
     // Define data getter
-    getData(): Observable<any> { return this.pressure.asObservable(); }
+    getData(): Observable<any> { return this.temperature.asObservable(); }
 }

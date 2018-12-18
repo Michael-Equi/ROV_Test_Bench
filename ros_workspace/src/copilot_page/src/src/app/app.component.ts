@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { RosService } from './services/subscribers/ros.service';
-import { Bno055Service } from './services/subscribers/bno055.service';
+import { Bno055Service } from './services/subscribers/sensors/bno055.service';
 import {HorizontalDriveService} from './services/subscribers/horizontal-drive.service';
 import {VerticalDriveService} from './services/subscribers/vertical-drive.service';
 

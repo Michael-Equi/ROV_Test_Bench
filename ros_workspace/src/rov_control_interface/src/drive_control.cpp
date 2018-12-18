@@ -26,7 +26,6 @@
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
-
 const int linearAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
 const int linearAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
 const int angularAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
@@ -87,7 +86,7 @@ void bilinearCalc(double &axis){
 * @breif What the node does when joystick publishes a new message
 * @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
 */
-void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
+void joyCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
 
     //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
@@ -100,24 +99,25 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         //int32[] buttons         the buttons measurements from a joystick
 
         //store axes variables and handle 4 cases of inversion
-        a_axis = joy->axes[angularJoyAxisIndex] * a_scale;
+        a_axis = joy->axes[angularAxisIndex] * a_scale;
+        v_axis = joy->axes[verticalAxisIndex] * v_scale;
 
         switch (inversion){
         case 1 : //left side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
-            l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale;
+            l_axisFB = joy->axes[linearAxisLRIndex] * l_scale;
+            l_axisLR = joy->axes[linearAxisFBIndex] * l_scale;
             break;
         case 2 : //back side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
-            l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearAxisLRIndex] * l_scale * -1;
+            l_axisFB = joy->axes[linearAxisFBIndex] * l_scale * -1;
             break;
         case 3 : //right side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
-            l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
+            l_axisFB = joy->axes[linearAxisLRIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearAxisFBIndex] * l_scale * -1;
             break;
         default: //front side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
-            l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale;
+            l_axisLR = joy->axes[linearAxisLRIndex] * l_scale;
+            l_axisFB = joy->axes[linearAxisFBIndex] * l_scale;
             break;
         }
 
@@ -155,44 +155,6 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
     vel_pub.publish(commandVectors);
 
-}
-
-void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
-
-      //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
-
-      //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
-      if (thrustEN) {
-
-          //joystick message
-          //float32[] axes          the axes measurements from a joystick
-          //int32[] buttons         the buttons measurements from a joystick
-
-          //store axes variables and handle 4 cases of inversion
-          v_axis = joy->axes[verticalThrottleAxis] * v_scale;
-
-          bilinearCalc(v_axis);
-
-      } else {
-
-          v_axis = 0;
-
-      }
-
-      //publish the vector values -> build up command vector message
-      geometry_msgs::Twist commandVectors;
-
-      commandVectors.linear.x = l_axisLR;
-      commandVectors.linear.y = l_axisFB;
-      commandVectors.linear.z = v_axis; //linear z is for vertical strength
-
-      commandVectors.angular.x = a_axis;
-
-      //other angular axis for roll and pitch have phase 2 implementation
-      commandVectors.angular.y = 0;
-      commandVectors.angular.z = 0;
-
-      vel_pub.publish(commandVectors);
 }
 
 
@@ -258,6 +220,7 @@ int main(int argc, char **argv)
     inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
     sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
     thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
+
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
