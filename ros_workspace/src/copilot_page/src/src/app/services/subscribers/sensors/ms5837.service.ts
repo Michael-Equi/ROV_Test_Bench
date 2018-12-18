@@ -26,13 +26,12 @@ export class Ms5837Service {
 
     // Subscribe to bmpListener
     ms5837Listener.subscribe((message) => {
-      //console.log('Recieved Message on ' + ms5837Listener.name + ' : ' + message);
-      //this.ms5837.next(message);
+      console.log('Recieved Message on ' + ms5837Listener.name + ' : ' + message);
+      this.ms5837.next(message);
     });
   }
   // Define data getter
   getData(): Observable<any> {
-    console.log(this.ms5837)
     if (this.ms5837 !== undefined) {
         return this.ms5837.asObservable();
     }

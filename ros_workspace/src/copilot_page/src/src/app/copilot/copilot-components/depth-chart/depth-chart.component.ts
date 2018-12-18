@@ -22,7 +22,7 @@ export class DepthChartComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.ms5837Service.initialize();
         this.ms5837Service.getData().subscribe((msg: Ms5837Data) => {
-            console.log("Got Depth (I'm in depth-chart.ts)")
+            // console.log("Got Depth (I'm in depth-chart.ts)")
             // Try catch error because first function call gets undefined value
             try {
                 this.rovDepth = this.round(msg.depth, 1);
