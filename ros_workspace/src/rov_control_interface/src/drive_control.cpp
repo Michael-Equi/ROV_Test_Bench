@@ -87,7 +87,7 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
     //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-    //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
+    //check if thrusters disabled
     if (thrustEN) {
 
         //joystick message
@@ -95,23 +95,26 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         //int32[] buttons         the buttons measurements from a joystick
 
         //store axes variables and handle 4 cases of inversion
-        a_axis = joy->axes[angularJoyAxisIndex] * a_scale;
+        a_axis = joy->axes[angularJoyAxisIndex] * a_scale * -1; //changing sign makes rotate right positive
+
+        //NOTE: right and rotate right are negative on the joystick's LR axis
+        //multiple LR axis by -1 in base position (front-front, etc.)to make right positive
 
         switch (inversion){
-        case 1 : //left side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
+        case 1 : //right side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         case 2 : //back side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
-        case 3 : //right side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+        case 3 : //left side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
         default: //front side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         }
@@ -156,7 +159,7 @@ void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
       //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-      //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
+      //check if thrusters disabled
       if (thrustEN) {
 
           //joystick message
