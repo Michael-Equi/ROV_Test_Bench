@@ -13,12 +13,16 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <ros/console.h>
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
+#include <std_msgs/UInt8.h> //For camera Pub and Inversion
 
-//Temporary
-#include <std_msgs/UInt8.h> //For camera Pub
+// Custom message type for sensitivty
+#include "rov_control_interface/rov_sensitivity.h"
+
+// Temporary
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
@@ -224,7 +228,24 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     solenoid_control.publish(solMsg);
 }
 
+/**
+* @breif What the node does when copilot inversion setting publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
+void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
+    inversion = data->data;
+}
 
+void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr& data) {
+  l_scale = data->l_scale;
+  a_scale = data->a_scale;
+  v_scale = data->v_scale;
+}
+
+void thrusterStatusCallback(const std_msgs::Bool::ConstPtr& data) {
+  thrustEN = data->data;
+  ROS_INFO_STREAM(thrustEN);
+}
 
 int main(int argc, char **argv)
 {
@@ -239,7 +260,7 @@ int main(int argc, char **argv)
     joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
 
     //setup temporary publishers
-    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
+    camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
     solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
 
@@ -249,7 +270,6 @@ int main(int argc, char **argv)
 
     f = boost::bind(&controlCallback, _1, _2);
     server.setCallback(f);
-
 
     //Enter the event loop
     ros::spin();
