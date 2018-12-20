@@ -1,40 +1,50 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import '../../../assets/roslib';
-import { SensitivityModel } from '../data-models/sensitivity.model';
+import {SensitivityModel} from '../data-models/sensitivity.model';
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SensitivityService {
-
-  sensitivityPublisher;
-
+  
+  sensitivityTopic;
+  
+  sensitivityState: BehaviorSubject<SensitivityModel> = new BehaviorSubject(null);
+  
+  
   // Creates object with the ROS Library
   // @ts-ignore
   ros = new ROSLIB.Ros({
-      // Set listen URL for ROS Communication
-      url : 'ws://localhost:9090'
+    // Set listen URL for ROS Communication
+    url: 'ws://localhost:9090'
   });
-
+  
   // Set variable for data
   initialize() {
-      // @ts-ignore
-      this.sensitivityPublisher = new ROSLIB.Topic({
-          ros: this.ros,
-          name: '/rov/sensitivity',
-          messageType: 'rov_control_interface/rov_sensitivity'
-      });
+    // @ts-ignore
+    this.sensitivityTopic = new ROSLIB.Topic({
+      ros: this.ros,
+      name: '/rov/sensitivity',
+      messageType: 'rov_control_interface/rov_sensitivity'
+    });
+    
+    this.sensitivityTopic.subscribe((msg) => { // Subscribe to topic
+      this.sensitivityState.next(msg); // Add value to behavior subject
+    })
   }
-
-  publish(data: SensitivityModel) {
-      //console.log("Service Called");
-      //console.log(data);
-      // @ts-ignore
-      const message = new ROSLIB.Message({
-        l_scale: data.l_scale,
-        a_scale: data.a_scale,
-        v_scale: data.v_scale
-      });
-      this.sensitivityPublisher.publish(message);
+  
+  publish(data: SensitivityModel) { // Define ROS topic publisher
+    // @ts-ignore
+    const message = new ROSLIB.Message({
+      l_scale: data.l_scale,
+      a_scale: data.a_scale,
+      v_scale: data.v_scale
+    });
+    this.sensitivityTopic.publish(message);
+  }
+  
+  getData(): Observable<SensitivityModel> { // Define data getter that returns observable
+    return this.sensitivityState.asObservable();
   }
 }

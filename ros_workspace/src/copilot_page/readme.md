@@ -27,10 +27,12 @@ Publishers:
   * Publishes float64
 * `/rov/sensitivity`: Publishes ROV sensitity on the x, y, and z axis
   * Publishes `rov_control_interface/rov_sensitivity` message type
-* `/rov/inversion`: Publishes whether or not inversion is enabled depending on the camera
+* `/rov/inversion`: Publishes whether or not inversion is enabled depending on the user input (0-3)
   * Publishes `UInt8` message type
 * `/rov/thrusters_enabled`: Publishes a boolean whether or not thrusters are enabled
   * Publishes `std_msgs/Bool` message type
+
+S
 
 ## Launch Information
 

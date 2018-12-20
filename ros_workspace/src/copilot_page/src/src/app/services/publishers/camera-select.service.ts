@@ -1,37 +1,48 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import '../../../assets/roslib';
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CameraSelectService {
-
-  cameraSelectPublisher;
-
+  
+  cameraSelectTopic;
+  
+  cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+  
   // Creates object with the ROS Library
   // @ts-ignore
   ros = new ROSLIB.Ros({
-      // Set listen URL for ROS Communication
-      url : 'ws://localhost:9090'
+    // Set listen URL for ROS Communication
+    url: 'ws://localhost:9090'
   });
-
-  // Set variable for data
+  
   initialize() {
     // @ts-ignore
-     this.cameraSelectPublisher = new ROSLIB.Topic({
-        ros: this.ros,
-        name: '/rov/camera_select',
-        messageType: 'std_msgs/UInt8'
+    this.cameraSelectTopic = new ROSLIB.Topic({
+      ros: this.ros,
+      name: '/rov/camera_select',
+      messageType: 'std_msgs/UInt8'
     });
+    
+    this.cameraSelectTopic.subscribe((msg) => { // Subscribe to camera select topic
+      this.cameraSelectState.next(msg); // Add value to behavior subject
+    })
   }
-
-  publish(data) {
+  
+  publish(data) { // Define data publisher that publishes to topic
     const number = Number(data);
     // @ts-ignore
     const message = new ROSLIB.Message({
-        data : number
+      data: number
     });
     // console.log(data);
-    this.cameraSelectPublisher.publish(message);
+    this.cameraSelectTopic.publish(message);
   }
+  
+  getData(): Observable<any> { // Define data getter that returns observable
+    return this.cameraSelectState.asObservable();
+  }
+  
 }
