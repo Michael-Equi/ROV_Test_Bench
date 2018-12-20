@@ -39,7 +39,7 @@ export class PowerService {
     }
 
     // publish data that's passed through
-    publish(status: Boolean) {
+    publish(status: boolean) {
         console.log('Thruster Service Called');
         console.log(status);
         // @ts-ignore
@@ -49,7 +49,7 @@ export class PowerService {
         this.powerTopic.publish(message);
     }
 
-    getData(): Observable<boolean> {
+    getData(): Observable<any> {
         return this.powerSubscriber.asObservable();
     }
 }
