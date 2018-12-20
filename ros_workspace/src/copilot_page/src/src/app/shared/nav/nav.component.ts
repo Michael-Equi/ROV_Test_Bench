@@ -17,20 +17,18 @@ export class NavComponent implements OnInit{
       {src: '../../../assets/Settings(Unselected).svg', clickedsrc: '../../../assets/Settings(Selected).svg', selected: false}
     ];
 
-    // Declares variable to hold thruster status (enabled/disabled)
     thrusterStatus = false;
-    visible = false;
-    partyModevisible = false;
-    audio = new Audio('../../../assets/Party.mp3');
+    visible = false; // Dialog Visability
+    partyModevisible = false; // Party mode dialog visability
+    audio = new Audio('../../../assets/Party.mp3'); // Part Music
 
 
     constructor(private thrusterStatusService: ThrustersStatusService, public thrusterNotification: MatSnackBar) {}
 
-    thrustersEnabled() {
+    thrustersToggle() { // Toggles UI and code, doesn't publish to topic
         // Changes thruster status
         this.thrusterStatus = !this.thrusterStatus;
-        this.thrusterStatusService.publish(this.thrusterStatus);
-        // Opens snackbar (that's the real name) that displays thruster status)
+        // Opens snackbar (that's the real name) that displays thruster status
         this.thrusterNotification.open(this.thrusterStatus ? 'Thrusters Enabled' : 'Thrusters Disabled', 'Exit', {
             duration: 3000,
             panelClass: ['snackbar']
@@ -40,24 +38,31 @@ export class NavComponent implements OnInit{
     //  Runs on key press
     keyPress(character) {
         if (character.code === 'Space') {
-            this.thrustersEnabled();
-        } else {
-            console.log(character.code);
+            this.thrustersToggle();
+            // Publish to Topic
+            this.thrusterStatusService.publish(this.thrusterStatus);
         }
     }
 
+    selected(icon) {
+        for (let icon of this.icons) {
+          icon.selected = false;
+        }
+        icon.selected = true;
+    }
+    
     ngOnInit() {
         // Creates and subscribes too observable that listens for keypresses, runs keypress function as callback
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
         this.thrusterStatusService.initialize();
+        this.thrusterStatusService.getData().subscribe((msg) => {
+            (this.thrusterStatus != msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
+        })
     }
-
-    selected(icon) {
-    for (let icon of this.icons) {
-      icon.selected = false;
-    }
-    icon.selected = true;
-    }
+    
+    // -------------------------
+    // Party Mode
+    // -------------------------
 
     openConfirm() {
         this.visible = true;
@@ -78,4 +83,5 @@ export class NavComponent implements OnInit{
         this.audio.currentTime = 0;
         this.partyModevisible = false;
     }
+    
 }
