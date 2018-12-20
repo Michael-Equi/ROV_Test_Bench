@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { ThrustersEnabledService } from "../services/thrusters-enabled.service";
-import { SolenoidService } from '../services/solenoid.service';
-import { SafetyService } from '../services/safety.service';
+import { PowerService } from "../services/publishers-subscribers/power.service";
+import { SolenoidService } from '../services/publishers-subscribers/solenoid.service';
+import { SafetyService } from '../services/publishers-subscribers/safety.service';
 
 @Component({
   selector: 'app-buttons',
@@ -11,7 +11,7 @@ import { SafetyService } from '../services/safety.service';
 export class ButtonsComponent implements OnInit{
 
     constructor(
-        public thrusterService: ThrustersEnabledService,
+        public thrusterService: PowerService,
         public solenoidService: SolenoidService,
         public safetyService: SafetyService) {}
 

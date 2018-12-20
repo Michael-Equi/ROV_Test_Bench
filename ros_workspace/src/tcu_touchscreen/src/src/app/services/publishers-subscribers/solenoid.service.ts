@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import '../../assets/roslib.js';
+import '../../../assets/roslib.js';
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,28 @@ export class SolenoidService{
         url : 'ws://master:9090'
     });
     // Initialize variables to hold ROS data
-    solenoidPublisher;
+    solenoidTopic;
+
+    // Initialize subscriber variable to hold data
+    solenoidSubscriber: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+
 
     // Initialize function sets everything up, called on a ngOnInit in app.component
 
     initialize() {
         // Initialize ROS topic
         // @ts-ignore
-        this.solenoidPublisher = new ROSLIB.Topic({
+        this.solenoidTopic = new ROSLIB.Topic({
             ros : this.ros, // Points to ROS variable
             name : '/tcu/main_solenoid', // Topic Name
             messageType : 'std_msgs/Bool' // Message Type
         });
 
+        // Subscribe to ROS data
+        this.solenoidTopic.subscribe((message) => {
+            // Adds next safety value (true/false) to pass through to observable safety
+            this.solenoidSubscriber.next(message);
+        });
     }
 
     // publish data that's passed through
@@ -34,6 +44,12 @@ export class SolenoidService{
         const message = new ROSLIB.Message({
             data: status
         });
-        this.solenoidPublisher.publish(message);
+        this.solenoidTopic.publish(message);
+    }
+
+    // Getters
+    // Get data variable and return it as observable
+    getData(): Observable<any> {
+        return this.solenoidSubscriber.asObservable();
     }
 }

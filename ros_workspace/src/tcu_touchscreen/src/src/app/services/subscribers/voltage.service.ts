@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import '../../assets/roslib.js';
+import '../../../assets/roslib.js';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,7 @@ export class VoltageService {
     // Initialize function sets everything up, called on a ngOnInit in app.component
 
     initialize() {
-        // Get Data from ROS Drive Control Listener Topic
+        // Get Data from ROS Voltage Listener Topic
         // @ts-ignore
         const voltageListener = new ROSLIB.Topic({
             ros : this.ros, // Points to ROS variable

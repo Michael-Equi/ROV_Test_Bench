@@ -6,31 +6,22 @@ Angular webpage for TCU touchscreen controls
 
 ## Goal and User Experience
 
-What is the goal of the code and why it was done the way it was. How does this add to the user experience. What should the user experience with this code be like (some packages will have a lot more on this than others), provide examples and walk through the features. This will help with tech report.
+To provide an easy to use ui for controlling key TCU functions and viewing TCU data such as voltage.
 
 ## Build Instructions
 
-* Anything extra steps for buidling this package and running the nodes (ex. install)
-  * `sudo apt-get install ...`
+* `catkin_make`
+* `source devel.setup.bash`
+* `cd src`
+* `npm i` Install Dependencies
+* `npm i -g @angular/cli` Install angular command line interface
+* `ng s` (Start Development Server for Webpage)
 
 ## Nodes
 
-### node_name
+### NA
 
-* Node Inforation
- * What exactly deos this Node do
- * Where does it run
- * What are its dependencies
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
-
-example ---------------------------------------------------------------------------------------------
-
-file: hw_thruster_controller_interface.py
-
-Node name:
-* hw_thruster_controller_interface
-
-Topics:
+Publishers
 
 * `rov/cmd_horizontal_vdrive`:
   Subscribes `vector_drive/thrusterPercents` gives the thruster setting from -1000 to 1000 for thrusters T1,2,3,4.
@@ -39,36 +30,17 @@ Topics:
 * `topic_name`:
   Publishes `message_type` info.
 
-Services:
-* `service_name`: info
-
-Parameters/Reconfigs:
-*  `parameter_name`: info
-
-
-### other_node_name (if applicable)
-
-* Node Inforation
- * What exactly deos this Node do
- * Where does it run
- * What are its dependencies
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
-
-
-## Launch Information
-
-Any details about launch files and what they do goes here.
-Any remapping information goes here.
-
 ## Troubleshooting
 
 ## Contributors
 
-* Current maintaner:
+* Current maintaner: Caelin Sutch
 
 * Contributors:
-  * name (anyone who writes stuff into this package) - role (what was the work said person did)
+  * Alden Parker - Front End Development
+  * Caelin Sutch - UI Design, ROS Integration
 
 ## Helpful Resources
 
-* Links, information, external articles that were helpful in creating anything in this package
+* http://wiki.ros.org/roslibjs
+* https://angular.io

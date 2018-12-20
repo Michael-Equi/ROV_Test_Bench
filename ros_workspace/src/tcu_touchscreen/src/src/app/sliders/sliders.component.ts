@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
-import { VoltageService } from '../services/voltage.service';
-import { CurrentService } from '../services/current.service';
+import { VoltageService } from '../services/subscribers/voltage.service';
+import { CurrentService } from '../services/subscribers/current.service';
 
 @Component({
   selector: 'app-sliders',
