@@ -1203,7 +1203,7 @@ function SimpleActionServer(options) {
     this.serverName = options.serverName;
     this.actionName = options.actionName;
 
-    // create and advertise publishers
+    // create and advertise publishers-subscribers
     this.feedbackPublisher = new Topic({
         ros : this.ros,
         name : this.serverName + '/feedback',
