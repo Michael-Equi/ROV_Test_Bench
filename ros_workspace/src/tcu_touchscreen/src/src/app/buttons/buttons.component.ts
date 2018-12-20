@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { PowerService } from "../services/publishers-subscribers/power.service";
+import { PowerService } from '../services/publishers-subscribers/power.service';
 import { SolenoidService } from '../services/publishers-subscribers/solenoid.service';
 import { SafetyService } from '../services/publishers-subscribers/safety.service';
+import { BooleanModel } from "../services/boolean.model";
 
 @Component({
   selector: 'app-buttons',
@@ -11,15 +12,9 @@ import { SafetyService } from '../services/publishers-subscribers/safety.service
 export class ButtonsComponent implements OnInit{
 
     constructor(
-        public thrusterService: PowerService,
+        public powerService: PowerService,
         public solenoidService: SolenoidService,
         public safetyService: SafetyService) {}
-
-    ngOnInit() {
-        this.thrusterService.initialize();
-        this.solenoidService.initialize();
-        this.safetyService.initialize();
-    }
 
     buttonStyle = 'powerbuttonoff';
     togglework = false;
@@ -37,7 +32,7 @@ export class ButtonsComponent implements OnInit{
 
     confirm() {
         this.power = !this.power;
-        this.thrusterService.publish(this.power);
+        this.powerService.publish(this.power);
         this.visible = false;
     }
 
@@ -55,4 +50,12 @@ export class ButtonsComponent implements OnInit{
         this.solenoidService.publish(this.togglepneu);
     }
 
+    ngOnInit() {
+        this.powerService.initialize();
+        this.solenoidService.initialize();
+        this.safetyService.initialize();
+        this.powerService.getData().subscribe((msg: BooleanModel) => { this.power = msg.data; });
+        this.solenoidService.getData().subscribe((msg: BooleanModel) => { this.togglepneu = msg.data; });
+        this.safetyService.getData().subscribe((msg: BooleanModel) => { this.togglesafety = msg.data; });
+    }
 }
