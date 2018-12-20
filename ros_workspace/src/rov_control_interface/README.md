@@ -32,7 +32,7 @@ Topics:
 * `rov/cmd_vel`:
   Publishes `geometry_msgs/Twist` Outputs 2 command velocity vectors. Not a tradition vector3 implementaton: linear.x = linear axis left-right, linear.y = linear axis front-back, linear.z = vertical axis, angular.x = rotational axis, angular.y and angular.z = 0
 
-* `camera_select`:
+* `rov/camera_select`:
   Publishes `std_msgs/UInt8` Camera mux control (1-8).
 
 * `tcu/main_relay`:

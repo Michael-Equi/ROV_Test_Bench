@@ -1,9 +1,5 @@
-
-
-
-
 cmake_minimum_required(VERSION 2.8.3)
-project(rov_control_interface)
+project(tcu_touchscreen)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -11,14 +7,7 @@ project(rov_control_interface)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  joy
-  roscpp
-  copilot_interface
-  dynamic_reconfigure
-  std_msgs
-  message_generation
-)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -54,10 +43,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  rov_sensitivity.msg
-)
+# add_message_files(
+#   FILES
+#   Message1.msg
+#   Message2.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -74,10 +64,10 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-   DEPENDENCIES
-   std_msgs  # Or other packages containing msgs
- )
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs  # Or other packages containing msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -110,10 +100,9 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES rov_control_interface
-#  CATKIN_DEPENDS joy roscpp
+#  LIBRARIES tcu_touchscreen
+#  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
-   CATKIN_DEPENDS message_runtime
 )
 
 ###########
@@ -124,12 +113,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
+# ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/rov_control_interface.cpp
+#   src/${PROJECT_NAME}/tcu_touchscreen.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -140,7 +129,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/rov_control_interface_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/tcu_touchscreen_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -197,15 +186,10 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_rov_control_interface.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_tcu_touchscreen.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-add_executable(drive_control src/drive_control.cpp)
-target_link_libraries(drive_control ${catkin_LIBRARIES})
-add_dependencies(drive_control ${catkin_EXPORTED_TARGETS})
-add_dependencies(drive_control ${catkin_EXPORTED_TARGETS})
