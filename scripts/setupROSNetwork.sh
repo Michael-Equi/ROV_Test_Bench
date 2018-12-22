@@ -37,8 +37,13 @@ elif [ "$response" == "control" ]; then
    echo -e "\nexport ROS_HOSTNAME=control" >> ~/.bashrc
   fi
   echo -e "\n\nYou are now configured as control!"
- 
-else 
+
+else
   echo "Response not found"
 
 fi
+
+echo -e "/n/nTo finish setup, go to the DHCP reservations list on your router, and assign the MAC Address to the following: "
+echo "Topside: 192.168.1.100"
+echo "Bottomside: 192.168.1.111"
+echo "Control (TCU Touchscreen): 192.168.1.101"
