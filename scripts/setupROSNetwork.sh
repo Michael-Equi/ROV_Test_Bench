@@ -16,7 +16,7 @@ fi
 echo -n "What computer are you on? 'topside', 'bottomside', or 'control' (tcu touchscreen)?"
 read response
 
-if ! grep "export ROS_MASTER_URI=https://master:11311" ~/.bashrc ; then
+if ! grep "export ROS_MASTER_URI=http://master:11311" ~/.bashrc ; then
   echo "export ROS_MASTER_URI=http://master:11311" >> ~/.bashrc
 fi
 
@@ -43,7 +43,7 @@ else
 
 fi
 
-echo -e "/n/nTo finish setup, go to the DHCP reservations list on your router, and assign the MAC Address to the following: "
+echo -e "\n\nTo finish setup, go to the DHCP reservations list on your router, and assign the MAC Address to the following: "
 echo "Topside: 192.168.1.100"
 echo "Bottomside: 192.168.1.111"
 echo "Control (TCU Touchscreen): 192.168.1.101"
