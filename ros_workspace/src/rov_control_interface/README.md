@@ -2,7 +2,7 @@
 
 ## Description
 
-Edit the command vector from the joystick. TEMPORARILY serve as the copilot page server and handle camera switching and the tcu board. Manages features such as bilinear threshold, 4-way inversion, and joystick sensitivity.
+Edit the command vector from the joystick. Serve as the copilot page server and handle camera switching and the tcu board. Manages features such as bilinear threshold, 4-way inversion, and joystick sensitivity. Also manages interaction between the RQT copilot page (backup), and the real copilot page.
 
 ## Goal
 
@@ -23,8 +23,20 @@ Node name:
 
 Topics:
 
-* `joy`:
-  Subscribes `sensor_msgs/Joy` gives the input from the logitech Extreme 3D Pro joystick to the node for inital proccessing
+* `joy/joy1`:
+  Subscribes `sensor_msgs/Joy` gives the input from the logitech Extreme 3D Pro joystick to the node for initial proccessing
+
+* `joy/joy2`:
+  Subscribes `sensor_msgs/Joy`, gives the input from the thrustmaster TWS Throttle to the node for initial proccessing
+
+* `rov/inversion`:
+  Subscribes/Publishes `std_msgs::UInt8`, gives the inversion setting from 1-4
+
+* `rov/sensitivty`:
+  Subscribes/Publishes `rov_control_interface::rov_sensitivity`, gives the sensitivity on all 3 axis
+
+* `rov/thruster_status`:
+  Subscribes/Publishes `std_msgs/Bool`, gives thrusters enabled/disabled status
 
 * `rov/cmd_vel`:
   Publishes `geometry_msgs/Twist` Outputs 2 command velocity vectors. Not a tradition vector3 implementaton: linear.x = linear axis left-right, linear.y = linear axis front-back, linear.z = vertical axis, angular.x = rotational axis, angular.y and angular.z = 0
