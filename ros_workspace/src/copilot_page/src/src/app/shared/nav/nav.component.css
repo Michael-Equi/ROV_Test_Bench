@@ -4,8 +4,7 @@
 
 
 .thrusterButton {
-  width: 42px;
-  height: 42px;
+  font-size: 30pt;
   background-color: rgba(0, 0, 0, 0);
 }
 

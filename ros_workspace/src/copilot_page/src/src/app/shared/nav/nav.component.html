@@ -1,3 +1,4 @@
+<!-- Party Mode !!!! -->
 <div class="shadow" [ngClass]="{'visible' : visible, 'hidden': !visible}">
   <div class="dialog" [ngClass]="{'animated fadeInDown faster' : visible, '': !visible}">
     <h2 class="title">Party Mode?</h2>
@@ -20,6 +21,9 @@
 </div>
 <button mat-button style="color: white;" class="mat-button party" (click)="openConfirm()">
 </button>
+<!-- ----------------------------------------------------------------------- -->
+<!-- Normal Code -->
+<!-- ----------------------------------------------------------------------- -->
 <mat-sidenav-container class="sidenav-container" color="secondary">
   <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
     <div class="centeringdiv"></div>
@@ -41,8 +45,8 @@
 
     </mat-nav-list>
     <div class="centeringdiv"></div>
-    <button mat-button class="thrusterButton" (click)="thrustersToggle()">
-      <img src="../../../assets/thruster.png" alt="Thrust" width="42" height="42" border="0">
+    <button mat-button class="thrusterButton" (click)="thrustersToggle()" [disabled]="!thrusterStatus">
+        <mat-icon [inline]="true">verified_user</mat-icon>
     </button>
   </mat-sidenav>
   <mat-sidenav-content style="overflow: hidden;">

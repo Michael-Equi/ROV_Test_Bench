@@ -18,8 +18,8 @@ export class NavComponent implements OnInit{
     ];
 
     thrusterStatus = false;
-    visible = false; // Dialog Visability
-    partyModevisible = false; // Party mode dialog visability
+    visible = false; // Dialog Visibility
+    partyModevisible = false; // Party mode dialog Visibility
     audio = new Audio('../../../assets/Party.mp3'); // Part Music
 
 
@@ -33,6 +33,8 @@ export class NavComponent implements OnInit{
             duration: 3000,
             panelClass: ['snackbar']
         });
+        // Toggle color of icon
+        
     }
 
     //  Runs on key press

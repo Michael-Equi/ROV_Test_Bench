@@ -6,18 +6,18 @@ import {BehaviorSubject, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CameraSelectService {
-  
+
   cameraSelectTopic;
-  
+
   cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
-  
+
   // Creates object with the ROS Library
   // @ts-ignore
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS Communication
     url: 'ws://localhost:9090'
   });
-  
+
   initialize() {
     // @ts-ignore
     this.cameraSelectTopic = new ROSLIB.Topic({
