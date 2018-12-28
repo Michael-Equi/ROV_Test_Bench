@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
+import { GenericModel } from '../data-models/generic.model';
+
+import '../../../assets/roslib';
 
 @Injectable({
   providedIn: 'root'
@@ -21,24 +24,24 @@ export class InversionService {
     // @ts-ignore
     this.inversionTopic = new ROSLIB.Topic({
       ros: this.ros,
-      name: '/rov/camera_select',
+      name: '/rov/inversion',
       messageType: 'std_msgs/UInt8'
     });
 
-    this.inversionTopic.subscribe((msg) => { // Subscribe to inversiont topic
+    this.inversionTopic.subscribe((msg: GenericModel) => { // Subscribe to inversiont topic
       this.inversionState.next(msg); // Add value to behavior subject
-    })
+    });
   }
 
   publish(data) {
-    data = Number(data);
+    const number = Number(data);
     // @ts-ignore
     const message = new ROSLIB.Message({
-      data : data
+      data : number
     });
-    this.inversionTopic.publish(message);
+    try { this.inversionTopic.publish(message); } catch (error) { console.log(error); }
   }
 
-  getData(): Observable<any> { return this.inversionState.asObservable(); } // Returns observable with data
+  getData(): Observable<GenericModel> { return this.inversionState.asObservable(); } // Returns observable with data
 
 }

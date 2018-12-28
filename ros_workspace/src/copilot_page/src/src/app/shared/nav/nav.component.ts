@@ -1,14 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentChecked, AfterViewChecked, Component, OnInit} from '@angular/core';
 import {fromEvent} from 'rxjs';
-import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
 import { MatSnackBar } from '@angular/material';
+
+import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
+import { InversionService } from '../../services/publishers/inversion.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit{
+export class NavComponent implements OnInit {
 
     icons = [
       {src: '../../../assets/House(Unselected).svg', clickedsrc: '../../../assets/House(Selected).svg', selected: false, link: '/copilot'},
@@ -18,12 +20,18 @@ export class NavComponent implements OnInit{
     ];
 
     thrusterStatus = false;
+    inversion = 0; // Default inversion is forward facing forward
     visible = false; // Dialog Visibility
+
     partyModevisible = false; // Party mode dialog Visibility
     audio = new Audio('../../../assets/Party.mp3'); // Part Music
 
 
-    constructor(private thrusterStatusService: ThrustersStatusService, public thrusterNotification: MatSnackBar) {}
+    constructor(
+      private thrusterStatusService: ThrustersStatusService,
+      public thrusterNotification: MatSnackBar,
+      private inversionService: InversionService,
+      public inversionNotification: MatSnackBar) {}
 
     thrustersToggle() { // Toggles UI and code, doesn't publish to topic
         // Changes thruster status
@@ -35,17 +43,49 @@ export class NavComponent implements OnInit{
         });
     }
 
-    //  Runs on key press
+    inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
+        // Change inversion number
+        this.inversion = number;
+        // Opens snackbar that displays inversion number
+        this.inversionNotification.open('Inversion mode chaged to ' + this.inversion, 'Exit', {
+            duration: 3000,
+            panelClass: ['snackbar']
+        });
+    }
+
     keyPress(character) {
-        if (character.code === 'Space') {
-            this.thrustersToggle();
-            // Publish to Topic
-            this.thrusterStatusService.publish(this.thrusterStatus);
+        // Switches thruster direction mode based on wasd and throttle status based on space
+        switch (character.key) {
+            case 'w':
+                this.inversionChange(0); // Forward is forward
+                console.log(this.inversion);
+                this.inversionService.publish(0);
+                break;
+
+            case 'a':
+                this.inversionChange(1); // Left is front
+                this.inversionService.publish(this.inversion);
+                break;
+
+            case 'd':
+                this.inversionChange(2); // Right is front
+                this.inversionService.publish(this.inversion);
+                break;
+
+            case 's':
+                this.inversionChange(3); // Back is front
+                this.inversionService.publish(this.inversion);
+                break;
+
+            case ' ':
+                this.thrustersToggle();
+                this.thrusterStatusService.publish(this.thrusterStatus);
         }
     }
 
+    // Resets icons except for selected icon
     selected(icon) {
-        for (let icon of this.icons) {
+        for (const icon of this.icons) {
           icon.selected = false;
         }
         icon.selected = true;
@@ -54,10 +94,19 @@ export class NavComponent implements OnInit{
     ngOnInit() {
         // Creates and subscribes too observable that listens for keypresses, runs keypress function as callback
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
+
         this.thrusterStatusService.initialize();
         this.thrusterStatusService.getData().subscribe((msg) => {
             try {
                 (this.thrusterStatus !== msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
+            } catch (error) { }
+        });
+
+        this.inversionService.initialize();
+        this.inversionService.getData().subscribe((msg) => {
+            try {
+                // Changes inversion if it's not the same and it exists in the message (avoids bug)
+                (this.inversion !== msg.data && msg.data) ? this.inversionChange(msg.data) : null;
             } catch (error) { }
         });
     }

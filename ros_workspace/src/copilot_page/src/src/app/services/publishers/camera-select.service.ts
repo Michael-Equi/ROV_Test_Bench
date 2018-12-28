@@ -42,7 +42,7 @@ export class CameraSelectService {
     this.cameraSelectTopic.publish(message);
   }
 
-  getData(): Observable<any> { // Define data getter that returns observable
+  getData(): Observable<GenericModel> { // Define data getter that returns observable
     return this.cameraSelectState.asObservable();
   }
 

@@ -28,8 +28,6 @@ export class HorizontalDriveService {
 
     // Subscribe to horizontal drive listener
     horizontalDriveListener.subscribe((message) => {
-      //console.log('Recieved Message on ' + horizontalDriveListener.name + ' : ' + message);
-      //console.log(message);
       this.horizontalDrive.next(message);
     });
   }
