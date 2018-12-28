@@ -15,20 +15,20 @@ export class ThrusterSensitivityComponent implements OnInit {
   min = 0.0;
   step = .05;
   name = 'Thruster Sensitivity';
-  sensitivity = {
+  sensitivity: SensitivityModel = {
+    l_scale: .5,
     v_scale: .5,
     a_scale: .5,
-    l_scale: .5,
   };
-
-  ngOnInit() {
-    this.sensitivityService.initialize();
-    this.sensitivity.v_scale = .5;
-    this.sensitivity.a_scale = .5;
-    this.sensitivity.l_scale = .5;
-  }
 
   update() {
     this.sensitivityService.publish(this.sensitivity);
+  }
+
+  ngOnInit() {
+    this.sensitivityService.initialize();
+    this.sensitivityService.getData().subscribe((msg: SensitivityModel) => {
+      msg ?  this.sensitivity = msg : null;
+    });
   }
 }
