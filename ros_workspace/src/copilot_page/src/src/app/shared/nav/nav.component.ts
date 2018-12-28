@@ -44,13 +44,20 @@ export class NavComponent implements OnInit {
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
+        console.log(number + " Inversion Change Function");
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
-        this.inversionNotification.open('Inversion mode chaged to ' + this.inversion, 'Exit', {
-            duration: 3000,
-            panelClass: ['snackbar']
-        });
+        // TODO Figure out way to do this better? It gives error that ExfpressionChangedAfterItHasBeenChecked if  a real value was passed through the snackbar
+        try {
+            this.inversionNotification.open('Inversion mode changed to ' + this.inversion, 'Exit', {
+                duration: 3000,
+                panelClass: ['snackbar']
+            });
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     keyPress(character) {
@@ -58,7 +65,6 @@ export class NavComponent implements OnInit {
         switch (character.key) {
             case 'w':
                 this.inversionChange(0); // Forward is forward
-                console.log(this.inversion);
                 this.inversionService.publish(0);
                 break;
 
@@ -104,9 +110,10 @@ export class NavComponent implements OnInit {
 
         this.inversionService.initialize();
         this.inversionService.getData().subscribe((msg) => {
+            console.log(msg + " Get Data");
             try {
                 // Changes inversion if it's not the same and it exists in the message (avoids bug)
-                (this.inversion !== msg.data && msg.data) ? this.inversionChange(msg.data) : null;
+                (this.inversion !== msg.data && msg !== undefined) ? this.inversionChange(msg.data) : null;
             } catch (error) { }
         });
     }

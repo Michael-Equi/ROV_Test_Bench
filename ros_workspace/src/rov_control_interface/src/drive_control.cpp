@@ -235,7 +235,7 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
 
     // Inversion Publisher
     std_msgs::UInt8 inversionMsg;
-    inversionMsg.data = thrustEN;
+    inversionMsg.data = inversion;
     inversion_pub.publish(inversionMsg);
 
     // Sensitivty Publisher
