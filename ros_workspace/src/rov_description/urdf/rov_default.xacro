@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot name="rov" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  <xacro:arg name="debug" default="0"/>
   <xacro:arg name="namespace" default="rov"/>
   <xacro:arg name="inertial_reference_frame" default="world"/>
   <!-- Include the ROV macro file -->
@@ -7,14 +8,14 @@
   <xacro:include filename="$(find rov_description)/urdf/rov.gazebo.xacro"/>
 
   <!-- setup base links -->
-  <link name="${namespace}/base_link"/>
+  <link name="${namespace}/frame_link"/>
   <joint name="base_link_joint" type="fixed">
-    <parent link="${namespace}/base_link"/>
-    <child link="${namespace}/frame_link"/>
+    <parent link="${namespace}/frame_link"/>
+    <child link="${namespace}/base_link"/>
     <origin xyz="0 -0.0373 0.15585" rpy="0 0 0"/>
   </joint>
 
-  <!-- Create the rov sim model -->
+  <!-- Create the rov -->
   <xacro:rov_base
     namespace="$(arg namespace)"
     inertial_reference_frame="$(arg inertial_reference_frame)">
@@ -22,9 +23,9 @@
      allow the addition of external models of manipulator units -->
     <gazebo>
       <plugin name="uuv_plugin" filename="libuuv_underwater_object_ros_plugin.so">
-        <fluid_density>1028.0</fluid_density>
+        <fluid_density>1000.0</fluid_density>
         <flow_velocity_topic>hydrodynamics/current_velocity</flow_velocity_topic>
-        <debug>0</debug>
+        <debug>$(arg debug)</debug>
         <!-- Adding the hydrodynamic and hydrostatic parameters for the vehicle-->
         <xacro:rov_hydro_model namespace="$(arg namespace)"/>
       </plugin>
@@ -32,6 +33,5 @@
   </xacro:rov_base>
 
   <!-- Joint state publisher plugin -->
-  <!--<xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>-->
-
+  <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
 </robot>

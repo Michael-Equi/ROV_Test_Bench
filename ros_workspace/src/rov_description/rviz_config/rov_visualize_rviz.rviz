@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /Status1
+        - /RobotModel1/Status1
       Splitter Ratio: 0.5
     Tree Height: 1135
   - Class: rviz/Selection
@@ -62,50 +62,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rov/camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/camera_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraleft_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraleft_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraright_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraright_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
           Value: true
         rov/frame_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        rov/imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rov/pressure_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         rov/thruster_1:
           Alpha: 1
           Show Axes: false
@@ -157,8 +118,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        rov/base_link:
-          rov/frame_link:
+        rov/frame_link:
+          rov/base_link:
             {}
       Update Interval: 0
       Value: true
@@ -166,7 +127,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: rov/base_link
+    Fixed Frame: rov/frame_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -187,25 +148,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.03485703
+      Distance: 0.859341621
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0267058183
-        Y: 0.0330152623
-        Z: 0.0529530384
+        X: 0.0449267887
+        Y: 0.0313582197
+        Z: 0.0476582982
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.110398658
+      Pitch: 0.23539862
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.01353908
+      Yaw: 0.933534384
     Saved: ~
 Window Geometry:
   Displays:

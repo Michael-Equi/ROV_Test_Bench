@@ -1,5 +1,4 @@
 <launch>
-
   <group ns="sim">
 
     <param name="robot_description" command="$(find xacro)/xacro '$(find rov_description)/urdf/rov_default.xacro' --inorder"/>
@@ -10,5 +9,4 @@
     <node name="rov_rviz" pkg="rviz" type="rviz" args="-d $(find rov_description)/rviz_config/rov_visualize_rviz.rviz"/>
 
   </group>
-
 </launch>

@@ -19,7 +19,7 @@
 
   <xacro:macro name="rov_base" params="namespace *gazebo inertial_reference_frame">
     <!-- base_link according to ROS conventions: x forward, z up -->
-    <link name="${namespace}/frame_link">
+    <link name="${namespace}/base_link">
       <inertial>
         <mass value="${mass}"/>
         <origin xyz="0.00056715 0.01957420 -0.12001042"/> <!-- center of mass -->
@@ -79,7 +79,7 @@
     </gazebo> -->
 
     <xacro:include filename="$(find rov_description)/urdf/rov_actuators.xacro"/>
-    <xacro:include filename="$(find rov_description)/urdf/rov_sensors.xacro"/>
+    <!-- <xacro:include filename="$(find rov_description)/urdf/rov_sensors.xacro"/> -->
 
   </xacro:macro>
 </robot>
