@@ -11,7 +11,7 @@ export class Bno055Service {
   // @ts-ignore <= Makes ts happy, wont error
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS communication
-    url : 'ws://localhost:9090'
+    url : 'ws://master:9090'
   });
 
   // Set variables for data

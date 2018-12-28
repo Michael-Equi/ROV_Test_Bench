@@ -11,7 +11,7 @@ export class VerticalDriveService {
   // @ts-ignore
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS communication
-    url : 'ws://localhost:9090'
+    url : 'ws://master:9090'
   });
 
   // Define subject to hold data values

@@ -33,8 +33,6 @@ export class NavComponent implements OnInit{
             duration: 3000,
             panelClass: ['snackbar']
         });
-        // Toggle color of icon
-        
     }
 
     //  Runs on key press
@@ -52,16 +50,18 @@ export class NavComponent implements OnInit{
         }
         icon.selected = true;
     }
-    
+
     ngOnInit() {
         // Creates and subscribes too observable that listens for keypresses, runs keypress function as callback
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
         this.thrusterStatusService.initialize();
         this.thrusterStatusService.getData().subscribe((msg) => {
-            (this.thrusterStatus != msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
-        })
+            try {
+                (this.thrusterStatus !== msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
+            } catch (error) { }
+        });
     }
-    
+
     // -------------------------
     // Party Mode
     // -------------------------
@@ -85,5 +85,4 @@ export class NavComponent implements OnInit{
         this.audio.currentTime = 0;
         this.partyModevisible = false;
     }
-    
 }

@@ -17,7 +17,7 @@ export class SensitivityService {
   // @ts-ignore
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS Communication
-    url: 'ws://localhost:9090'
+    url: 'ws://master:9090'
   });
   
   // Set variable for data

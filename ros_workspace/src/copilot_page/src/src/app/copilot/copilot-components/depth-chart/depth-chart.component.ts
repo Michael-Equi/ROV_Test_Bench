@@ -26,9 +26,7 @@ export class DepthChartComponent implements AfterViewInit {
             // Try catch error because first function call gets undefined value
             try {
                 this.rovDepth = this.round(msg.depth, 1);
-            } catch (err) {
-                console.log(err);
-            }
+            } catch (err) { }
         });
     }
 }

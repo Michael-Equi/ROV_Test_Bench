@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import '../../../assets/roslib';
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable} from 'rxjs';
+import { GenericModel } from '../data-models/generic.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class CameraSelectService {
   // @ts-ignore
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS Communication
-    url: 'ws://localhost:9090'
+    url: 'ws://master:9090'
   });
 
   initialize() {
@@ -25,12 +26,12 @@ export class CameraSelectService {
       name: '/rov/camera_select',
       messageType: 'std_msgs/UInt8'
     });
-    
-    this.cameraSelectTopic.subscribe((msg) => { // Subscribe to camera select topic
+
+    this.cameraSelectTopic.subscribe((msg: GenericModel) => { // Subscribe to camera select topic
       this.cameraSelectState.next(msg); // Add value to behavior subject
-    })
+    });
   }
-  
+
   publish(data) { // Define data publisher that publishes to topic
     const number = Number(data);
     // @ts-ignore
@@ -40,9 +41,9 @@ export class CameraSelectService {
     // console.log(data);
     this.cameraSelectTopic.publish(message);
   }
-  
+
   getData(): Observable<any> { // Define data getter that returns observable
     return this.cameraSelectState.asObservable();
   }
-  
+
 }

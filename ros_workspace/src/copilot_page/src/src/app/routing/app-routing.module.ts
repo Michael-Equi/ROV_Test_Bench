@@ -6,7 +6,7 @@ import {DrqComponent} from '../drq/drq.component';
 import {SensortelemetryComponent} from '../sensor-telemetry/sensortelemetry.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'copilot' },
+  { path: '', redirectTo: '/copilot', pathMatch: 'full' },
   { path: 'drq', component: DrqComponent },
   { path: 'sensor-telemetry', component: SensortelemetryComponent },
   { path: 'copilot', component: CopilotComponent},
