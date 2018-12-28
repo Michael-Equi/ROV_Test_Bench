@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- <xacro:property name="prop_mesh_file" value="file://$(find rov_description)/meshes/T100_cw_propeller.STL"/> -->
+
+  <!-- Thruster joint and link snippet -->
+  <xacro:macro name="thruster_macro"
+    params="namespace thruster_id *origin">
+    <xacro:thruster_module_first_order_basic_fcn_macro
+      namespace="${namespace}"
+      thruster_id="${thruster_id}"
+      mesh_filename="${prop_mesh_file}"
+      dyn_time_constant="0.05"
+      rotor_constant="0.00031">
+      <xacro:insert_block name="origin"/>
+    </xacro:thruster_module_first_order_basic_fcn_macro>
+  </xacro:macro>
+
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="1">
+    <origin xyz="0.230 0.1587 -0.13603" rpy="${0*d2r} ${-74.53*d2r} ${-53.21*d2r}"/>
+  </xacro:thruster_macro>
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="2">
+    <origin xyz="0.230 -0.1587 -0.13603" rpy="${0*d2r} ${-74.53*d2r} ${53.21*d2r}"/>
+  </xacro:thruster_macro>
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="3">
+    <origin xyz="-0.15265 -0.1587 -0.13603" rpy="${0*d2r} ${-105.47*d2r} ${53.21*d2r}"/>
+  </xacro:thruster_macro>
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="4">
+    <origin xyz="-0.15265 0.1587 -0.13603" rpy="${0*d2r} ${-105.47*d2r} ${-53.21*d2r}"/>
+  </xacro:thruster_macro>
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="5">
+    <origin xyz="0.03394 0.25550 -0.8263" rpy="${0*d2r} ${0*d2r} ${45*d2r}"/>
+  </xacro:thruster_macro>
+  <xacro:thruster_macro namespace="${namespace}" thruster_id="6">
+    <origin xyz="0.03394 -0.25550 -0.8263" rpy="${0*d2r} ${0*d2r} ${-45*d2r}"/>
+  </xacro:thruster_macro>
+</robot>
