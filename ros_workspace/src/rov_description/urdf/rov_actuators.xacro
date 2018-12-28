@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- <xacro:property name="prop_mesh_file" value="file://$(find rov_description)/meshes/T100_cw_propeller.STL"/> -->
-
   <!-- Thruster joint and link snippet -->
   <xacro:macro name="thruster_macro"
     params="namespace thruster_id *origin">

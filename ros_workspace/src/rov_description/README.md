@@ -18,11 +18,11 @@ What is the goal of the code and why it was done the way it was. How does this a
 
 ### node_name
 
-* Node Inforation
- * What exactly deos this Node do
+* Node Information
+ * What exactly does this Node do
  * Where does it run
  * What are its dependencies
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
+ * Any other extra information that should be known about this node (dynamic reconfigures, params, etc.)
 
 example ---------------------------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ Parameters/Reconfigs:
  * What exactly deos this Node do
  * Where does it run
  * What are its dependencies
- * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
+ * Any other extra information that should be known about this node (dynamic reconfigures, params, etc.)
 
 
 ## Launch Information
@@ -62,6 +62,9 @@ Any details about launch files and what they do goes here.
 Any remapping information goes here.
 
 ## Troubleshooting
+
+* If updating the mesh from solid works make sure that you select the option "Do not translate stl output data to positive space"
+* Note: The default axis in solid works are flipped -> In order to fix it add a new coordinate system from the `add reference geometry` tool and flip the y and z axis
 
 ## Contributors
 

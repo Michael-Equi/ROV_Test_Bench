@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="cob" value="-0.00037196 -0.05465685 0.03359269"/>
+    <xacro:property name="cob" value="0.00037196 0.03359269 -0.05465685"/>
     <xacro:property name="volume" value="0.00980413"/>
 
     <xacro:macro name="rov_hydro_model" params="namespace">
