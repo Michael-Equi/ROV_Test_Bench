@@ -240,9 +240,9 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
 
     // Sensitivty Publisher
     rov_control_interface::rov_sensitivity sensitivityMsg;
-    sensitivityMsg.data.l_scale = l_scale;
-    sensitivityMsg.data.a_scale = a_scale;
-    sensitivityMsg.data.v_scale = v_scale;
+    sensitivityMsg.l_scale = l_scale;
+    sensitivityMsg.a_scale = a_scale;
+    sensitivityMsg.v_scale = v_scale;
     sensitivity_pub.publish(sensitivityMsg);
 
     // Thrusters Enabled Publisher
