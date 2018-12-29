@@ -14,7 +14,7 @@ calibration = sense.get_orientation_radians()
 start_roll = calibration['roll']
 start_pitch = calibration['pitch']
 start_yaw = calibration['yaw']
-start_time =  datetime.time.microsecond() + (datetime.time.second() * 1000000) + (datetime.time.minute() * 60 * 1000000) + (datetime.time.hour() * 24 * 60 * 1000000)
+start_time =  datetime.time.microsecond + (datetime.time.second * 1000000) + (datetime.time.minute * 60 * 1000000) + (datetime.time.hour * 24 * 60 * 1000000)
 
 def talker():
 	temp_pub = rospy.Publisher('rov/temperature', Temperature, queue_size = 1) #Publisher for the different sensors: Temperature, Humidity, Pressure,
@@ -52,7 +52,7 @@ def talker():
 		start_roll = orientation['roll']
 		start_pitch = orientation['pitch']
 		start_yaw = orientation['yaw']
-		start_time = datetime.time.microsecond() + (datetime.time.second() * 1000000) + (datetime.time.minute() * 60 * 1000000) + (datetime.time.hour() * 24 * 60 * 1000000)
+		start_time = datetime.time.microsecond + (datetime.time.second * 1000000) + (datetime.time.minute * 60 * 1000000) + (datetime.time.hour * 24 * 60 * 1000000)
 
 		
 		rate.sleep()
