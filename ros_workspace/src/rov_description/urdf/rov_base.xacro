@@ -22,10 +22,10 @@
     <link name="${namespace}/base_link">
       <inertial>
         <mass value="${mass}"/>
-        <origin xyz="0.0 0.0 -0.12001042"/> <!-- center of mass -->
-        <inertia ixx = "0.24968270"  ixy = "0.00003120"  ixz = "-0.00076418"
-                 iyx = "0.00003120"  iyy = "0.19606323"  iyz = "-0.01991623"
-                 izx = "-0.00076418" izy = "-0.01991623" izz = "0.22666109" />
+        <origin xyz="0.0 0.0 -0.12"/> <!-- center of mass -->
+        <inertia ixx = "0.24968270"  ixy = "0.0"  ixz = "0.0"
+                 iyx = "0.0"  iyy = "0.19606323"  iyz = "0.0"
+                 izx = "0.0" izy = "0.0" izz = "0.22666109" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -67,6 +67,10 @@
       </collision>
 
     </link>
+
+    <gazebo reference="${namespace}/base_link">
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
 
     <!-- Set up hydrodynamic plugin given as input parameter -->
     <xacro:insert_block name="gazebo"/>

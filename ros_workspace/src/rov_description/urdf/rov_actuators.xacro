@@ -14,22 +14,45 @@
     </xacro:thruster_module_first_order_basic_fcn_macro>
   </xacro:macro>
 
+  <!-- Thrusters rotate along the x-axis -->
+  <!-- The sign of the X-axis is in the opposite direction of the thrust -->
   <xacro:thruster_macro namespace="${namespace}" thruster_id="1">
-    <origin xyz="-0.1587 0.228 -0.14" rpy="${90*d2r} ${0*d2r} ${-225*d2r}"/>
+    <origin xyz="-0.1587 0.228 -0.14" rpy="${0*d2r} ${0*d2r} ${45*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="2">
-    <origin xyz="0.1587 0.228 -0.14" rpy="${90*d2r} ${0*d2r} ${225*d2r}"/>
+    <origin xyz="0.1587 0.228 -0.14" rpy="${0*d2r} ${0*d2r} ${135*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="3">
-    <origin xyz="0.16 -0.157 -0.132" rpy="${90*d2r} ${0*d2r} ${-45*d2r}"/>
+    <origin xyz="0.16 -0.157 -0.132" rpy="${0*d2r} ${0*d2r} ${-135*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="4">
-    <origin xyz="-0.16 -0.157 -0.132" rpy="${90*d2r} ${0*d2r} ${45*d2r}"/>
+    <origin xyz="-0.16 -0.157 -0.132" rpy="${0*d2r} ${0*d2r} ${-45*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="5">
-    <origin xyz="-0.25550 0.03394 -0.08263" rpy="${0*d2r} ${0*d2r} ${0*d2r}"/>
+    <origin xyz="-0.25550 0.03394 -0.08263" rpy="${0*d2r} ${90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="6">
-    <origin xyz="0.25550 0.03394 -0.08263" rpy="${0*d2r} ${0*d2r} ${0*d2r}"/>
+    <origin xyz="0.25550 0.03394 -0.08263" rpy="${0*d2r} ${90*d2r} ${0*d2r}"/>
   </xacro:thruster_macro>
+
+  <!-- Color thruster propellers-->
+  <gazebo reference="${namespace}/thruster_1">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+  <gazebo reference="${namespace}/thruster_2">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+  <gazebo reference="${namespace}/thruster_3">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+  <gazebo reference="${namespace}/thruster_4">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+  <gazebo reference="${namespace}/thruster_5">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+  <gazebo reference="${namespace}/thruster_6">
+    <material>Gazebo/Turquoise</material>
+  </gazebo>
+
 </robot>
