@@ -83,7 +83,7 @@
     </gazebo> -->
 
     <xacro:include filename="$(find rov_description)/urdf/rov_actuators.xacro"/>
-    <!-- <xacro:include filename="$(find rov_description)/urdf/rov_sensors.xacro"/> -->
+    <xacro:include filename="$(find rov_description)/urdf/rov_sensors.xacro"/>
 
   </xacro:macro>
 </robot>

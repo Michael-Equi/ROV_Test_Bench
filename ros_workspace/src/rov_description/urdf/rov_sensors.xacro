@@ -1,30 +1,98 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:property name="namespace" value="rov"/>
+  <xacro:property name="d2r" value="0.01745329"/>
+
   <!-- Pressure  -->
+  <!-- Reading in kilopascals NOT pascals -->
   <xacro:default_pressure_macro namespace="${namespace}" parent_link="${namespace}/base_link">
-    <origin xyz="-1.32 0.5 0.85" rpy="0 0 0"/>
+    <origin xyz="0.05 0.15 -0.22" rpy="${90*d2r} 0 0"/>
   </xacro:default_pressure_macro>
 
   <!-- IMU  -->
-  <xacro:default_imu_macro
-    namespace="${namespace}"
-    parent_link="${namespace}/base_link"
-    inertial_reference_frame="${inertial_reference_frame}">
+  <link name="${namespace}/imu_link"/>
+  <joint name="base_imu_joint" type="fixed">
+    <parent link="${namespace}/base_link"/>
+    <child link="${namespace}/imu_link"/>
+    <origin xyz="0 0.1 -0.05" rpy="0 0 0"/>s
+  </joint>
+
+  <gazebo reference="${namespace}/imu_link">
+    <gravity>true</gravity>
+    <sensor name="${namespace}/imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>${namespace}/imu_link</bodyName>
+        <updateRateHZ>30.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>${namespace}/imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <!-- Mount 4 cameras -->
+  <!-- <xacro:macro name="camera" params="number parent_link namespace *origin">
+
+    <link name="${namespace}/camera${number}_link"/>
+    <joint name="${namespace}/camera${number}_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${namespace}/camera${number}_link"/>
+      <xacro:insert_block name="origin" />
+    </joint>
+
+    <gazebo reference="${namespace}/camera${number}_link">
+      <sensor type="camera" name="${namespace}/camera${number}">
+        <update_rate>30.0</update_rate>
+        <camera name="${namespace}/camera${number}">
+          <horizontal_fov>1.082</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>960</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type> -->
+            <!-- Noise is sampled independently per pixel on each frame.
+                 That pixel's noise value is added to each of its color
+                 channels, which at that point lie in the range [0,1]. -->
+            <!-- <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>${namespace}/camera${number}</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera${number_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:camera number="1" parent_link="${namespace}/frame_link" namespace="${namespace}">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:default_imu_macro>
+  </xacro:camera> -->
 
-  <!-- Mount a camera -->
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="">
-    <origin xyz="1.15 0 0.4" rpy="0 0.6 0"/>
-  </xacro:default_camera>
 
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="right">
-    <origin xyz="1.15 -0.63 0.4" rpy="0 0.6 0.4"/>
-  </xacro:default_camera>
-
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
-    <origin xyz="1.15 0.63 0.4" rpy="0 0.6 -0.4"/>
-  </xacro:default_camera>
 
 </robot>
