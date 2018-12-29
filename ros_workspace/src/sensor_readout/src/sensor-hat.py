@@ -42,10 +42,10 @@ def talker():
 		orientation = sense.get_orientation_radians() #roll pitch and yaw
 		message.orientation.x, message.orientation.y, message.orientation.z, message.orientation.w = quaternion_from_euler(orientation['roll'], orientation['pitch'], orientation['yaw']) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
 
-		angular_velocity_roll = (orientation['roll'] - start_roll) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time)
-		angular_velocity_pitch = (orientation['pitch'] - start_pitch) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time)
-		angular_veloctiy_yaw = (orientation['yaw'] - start_yaw) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time)
-		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (12, 12, 12)
+		angular_velocity_roll = (orientation['roll'] - start_roll) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time) * 1000000
+		angular_velocity_pitch = (orientation['pitch'] - start_pitch) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time) * 1000000
+		angular_veloctiy_yaw = (orientation['yaw'] - start_yaw) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time) * 1000000
+		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (angular_velocity_roll, angular_velocity_pitch, angular_velocity_yaw)
 		
 		imu_pub.publish(message)
 
