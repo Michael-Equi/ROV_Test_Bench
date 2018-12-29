@@ -24,7 +24,7 @@ export class ThrustersComponent implements OnInit {
     constructor(private horizontaldriveService: HorizontalDriveService, private verticaldriveService: VerticalDriveService) {}
 
     thrustToPercent(msg) {
-        msg = (msg + 500) / 10;
+        msg = msg / 10;
         return msg;
     }
 
