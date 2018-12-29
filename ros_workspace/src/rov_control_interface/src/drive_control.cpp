@@ -13,12 +13,16 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <ros/console.h>
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
+#include <std_msgs/UInt8.h> //For camera Pub and Inversion
 
-//Temporary
-#include <std_msgs/UInt8.h> //For camera Pub
+// Custom message type for sensitivty
+#include "rov_control_interface/rov_sensitivity.h"
+
+// Temporary
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
@@ -87,7 +91,7 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
     //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-    //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
+    //check if thrusters disabled
     if (thrustEN) {
 
         //joystick message
@@ -95,23 +99,26 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         //int32[] buttons         the buttons measurements from a joystick
 
         //store axes variables and handle 4 cases of inversion
-        a_axis = joy->axes[angularJoyAxisIndex] * a_scale;
+        a_axis = joy->axes[angularJoyAxisIndex] * a_scale * -1; //changing sign makes rotate right positive
+
+        //NOTE: right and rotate right are negative on the joystick's LR axis
+        //multiple LR axis by -1 in base position (front-front, etc.)to make right positive
 
         switch (inversion){
-        case 1 : //left side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
+        case 1 : //right side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         case 2 : //back side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
-        case 3 : //right side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+        case 3 : //left side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
         default: //front side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         }
@@ -156,7 +163,7 @@ void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
       //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-      //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
+      //check if thrusters disabled
       if (thrustEN) {
 
           //joystick message
@@ -221,7 +228,24 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     solenoid_control.publish(solMsg);
 }
 
+/**
+* @breif What the node does when copilot inversion setting publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
+void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
+    inversion = data->data;
+}
 
+void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr& data) {
+  l_scale = data->l_scale;
+  a_scale = data->a_scale;
+  v_scale = data->v_scale;
+}
+
+void thrusterStatusCallback(const std_msgs::Bool::ConstPtr& data) {
+  thrustEN = data->data;
+  ROS_INFO_STREAM(thrustEN);
+}
 
 int main(int argc, char **argv)
 {
@@ -236,7 +260,7 @@ int main(int argc, char **argv)
     joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
 
     //setup temporary publishers
-    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
+    camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
     solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
 
@@ -246,7 +270,6 @@ int main(int argc, char **argv)
 
     f = boost::bind(&controlCallback, _1, _2);
     server.setCallback(f);
-
 
     //Enter the event loop
     ros::spin();
