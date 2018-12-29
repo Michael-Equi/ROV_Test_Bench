@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-import time
+import datetime
 import math
 from sense_hat import SenseHat
 from std_msgs.msg import Header
@@ -10,6 +10,11 @@ from sensor_msgs.msg import Imu, Temperature, RelativeHumidity, FluidPressure
 
 sense = SenseHat()
 sense.set_imu_config(True, True, True) #compass, gyro, accele
+calibration = sense.get_orientation_radians()
+start_roll = calibration['roll']
+start_pitch = calibration['pitch']
+start_yaw = calibration['yaw']
+start_time = datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)
 
 def talker():
 	temp_pub = rospy.Publisher('rov/temperature', Temperature, queue_size = 1) #Publisher for the different sensors: Temperature, Humidity, Pressure,
@@ -34,12 +39,15 @@ def talker():
 		acceleration = sense.get_accelerometer_raw() #x y and z G force, not rounded
 		message.linear_acceleration.x, message.linear_acceleration.y, message.linear_acceleration.z = (acceleration['x'] * 9.80665, acceleration['y'] * 9.80665, acceleration['z'] * 9.80665) #9.80665 is gs to newtons
 
-
-		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (12, 12, 12)
-
 		orientation = sense.get_orientation_radians() #roll pitch and yaw
 		message.orientation.x, message.orientation.y, message.orientation.z, message.orientation.w = quaternion_from_euler(orientation['roll'], orientation['pitch'], orientation['yaw']) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
 
+		angular_velocity_roll = 
+		angular_velocity_pitch = 
+		angular_veloctiy_yaw = 
+		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (12, 12, 12)
+		
+		
 		imu_pub.publish(message)
 
 		rate.sleep()
