@@ -23,6 +23,6 @@
   </node>
 
   !-- launch all the sensors -->
-  <node type="talker.py" pkg="sensor_readout" name="sensor_interface"/>
+  <node type="sensor-hat.py" pkg="sensor_readout" name="sensor_interface"/>
 
 </launch>
