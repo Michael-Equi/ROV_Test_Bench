@@ -175,7 +175,7 @@ fabric.properties
 
 
 
-# gitignore for electron.js 
+# gitignore for electron.js
 
 #files
 *.tgz
