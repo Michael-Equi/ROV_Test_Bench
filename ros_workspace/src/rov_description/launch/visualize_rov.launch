@@ -1,5 +1,5 @@
 <launch>
-  <group ns="sim">
+  <group ns="rov">
 
     <param name="robot_description" command="$(find xacro)/xacro '$(find rov_description)/urdf/rov_default.xacro' --inorder"/>
 

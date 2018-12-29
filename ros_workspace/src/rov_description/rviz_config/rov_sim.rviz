@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1/Status1
+        - /TF1/Status1
       Splitter Ratio: 0.5
     Tree Height: 1135
   - Class: rviz/Selection
@@ -63,50 +63,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rov/camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/camera_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraleft_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraleft_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraright_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rov/cameraright_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
           Value: true
         rov/frame_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        rov/imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rov/pressure_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         rov/thruster_1:
           Alpha: 1
           Show Axes: false
@@ -138,16 +99,30 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: robot_description
+      Robot Description: rov/robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: world
+    Fixed Frame: rov/frame_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -168,25 +143,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.682552576
+      Distance: 0.85619396
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0566862896
-        Y: 0.0763270408
-        Z: -0.0791104361
+        X: -0.0146648912
+        Y: 0.00280525861
+        Z: 0.0709347799
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.115398519
+      Pitch: 0.355398387
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.735398054
+      Yaw: 0.765398026
     Saved: ~
 Window Geometry:
   Displays:

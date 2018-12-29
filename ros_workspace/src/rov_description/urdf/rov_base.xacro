@@ -22,7 +22,7 @@
     <link name="${namespace}/base_link">
       <inertial>
         <mass value="${mass}"/>
-        <origin xyz="0.00056715 0.01957420 -0.12001042"/> <!-- center of mass -->
+        <origin xyz="0.0 0.0 -0.12001042"/> <!-- center of mass -->
         <inertia ixx = "0.24968270"  ixy = "0.00003120"  ixz = "-0.00076418"
                  iyx = "0.00003120"  iyy = "0.19606323"  iyz = "-0.01991623"
                  izx = "-0.00076418" izy = "-0.01991623" izz = "0.22666109" />

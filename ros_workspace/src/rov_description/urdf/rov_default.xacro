@@ -7,14 +7,6 @@
   <xacro:include filename="$(find rov_description)/urdf/rov_base.xacro"/>
   <xacro:include filename="$(find rov_description)/urdf/rov.gazebo.xacro"/>
 
-  <!-- setup base links -->
-  <link name="${namespace}/frame_link"/>
-  <joint name="base_link_joint" type="fixed">
-    <parent link="${namespace}/frame_link"/>
-    <child link="${namespace}/base_link"/>
-    <origin xyz="0 -0.0373 0.15585" rpy="0 0 0"/>
-  </joint>
-
   <!-- Create the rov -->
   <xacro:rov_base
     namespace="$(arg namespace)"
@@ -31,6 +23,15 @@
       </plugin>
     </gazebo>
   </xacro:rov_base>
+
+
+  <!-- setup base links -->
+  <link name="${namespace}/frame_link"/>
+  <joint name="base_link_joint" type="fixed">
+    <parent link="${namespace}/base_link"/>
+    <child link="${namespace}/frame_link"/>
+    <origin xyz="0 0.0373 -0.15585" rpy="0 0 0"/>
+  </joint>
 
   <!-- Joint state publisher plugin -->
   <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
