@@ -17,7 +17,7 @@
             <hydrodynamic_model>
 
               <type>sphere</type>
-              <radius>0.3</radius>
+              <radius>1</radius>
 
               <!-- <type>fossen</type> -->
               <!-- Added mass: see p.28 in Berg2012 -->
