@@ -44,7 +44,7 @@ def talker():
 
 		angular_velocity_roll = (orientation['roll'] - start_roll) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time) * 1000000
 		angular_velocity_pitch = (orientation['pitch'] - start_pitch) / ((datetime.time(datetime.datetime.now.microsecond) + (datetime.time(datetime.datetime.now.second) * 1000000) + (datetime.time(datetime.datetime.now.minute) * 60 * 1000000) + (datetime.time(datetime.datetime.now.hour) * 24 * 60 * 1000000)) - start_time) * 1000000
-		angular_veloctiy_yaw = (orientation['yaw'] - start_yaw) / ((datetime.time.microsecond() + (datetime.time.second() * 1000000) + (datetime.time.minute() * 60 * 1000000) + (datetime.time.hour() * 24 * 60 * 1000000)) - start_time) * 1000000
+		angular_veloctiy_yaw = (orientation['yaw'] - start_yaw) / ((datetime.time.microsecond + (datetime.time.second * 1000000) + (datetime.time.minute * 60 * 1000000) + (datetime.time.hour * 24 * 60 * 1000000)) - start_time) * 1000000
 		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (angular_velocity_roll, angular_velocity_pitch, angular_velocity_yaw)
 		
 		imu_pub.publish(message)
