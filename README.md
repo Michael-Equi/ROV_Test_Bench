@@ -11,9 +11,17 @@ The goal of this project is to develop preseason software technologies based on 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on the main ROV system (Master).
 
 FOLLOW:
-*  https://docs.google.com/document/d/1C32ucQTIAsE2H7u9OERmmCfyc6WzUvhrB2U6_GgZuWg/edit?usp=sharing
+*  https://docs.google.com/document/d/1tYhxP1HbuTF7Nzl1WnGgJKkUe-KNsBEhQZDjsyUwQTU/edit
 
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)*
+
+### Launching/Running 
+
+Follow Test Bench Setup Steps if Running on Test Bench
+* https://docs.google.com/document/d/1srYgNUE4k3DVHkUv1TwUJawfUWw6kGkveDhAvulWMZ0/edit#heading=h.wyzbdb7zgifi
+
+Locally:
+* https://docs.google.com/document/d/16LQRhCJBEe_hL-SV67Vvk3oH7I2nqO0X7NjB1t-9Mtg/edit#heading=h.v4rl9rent2ka
 
 ### Prerequisites
 
