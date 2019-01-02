@@ -70,6 +70,9 @@ A step by step series of examples that tell you how to get a development env run
 On your Raspberry Pi 3B make sure you are running ubuntu mate 16.04 (image here https://drive.google.com/open?id=1497jupJ2dBQqy_o_x5JBPTjY3lto7-rI)
 * cat /etc/os-release
 
+### Setup Topside Peripheral Communication
+* run `sudo usermod -a -G dialout $USER` to give proper permissions to USB interface programs (similar to `sudo chmod a+rw /dev/tty...`)
+
 ### Simulation Setup
 
 * See https://uuvsimulator.github.io/installation.html#creating-and-configuring-a-workspace
@@ -85,7 +88,7 @@ On your Raspberry Pi 3B make sure you are running ubuntu mate 16.04 (image here 
 * `catkin_make install` <- May not be needed (check on next install)
 * `source devel/setup.bash`
 * `roslaunch rov_descripion full_systems_launch.launch` or `roslaunch rov_descripion partial_systems_launch.launch` and `roslaunch simulate_rov.launch` on another machine
-* `rosrun rov_description simulation_interface.py` 
+* `rosrun rov_description simulation_interface.py`
 
 
 ##UPDATES NEEDED BELOW THIS POINT
