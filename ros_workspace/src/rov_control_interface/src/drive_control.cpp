@@ -26,12 +26,19 @@
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
 
+<<<<<<<<< Temporary merge branch 1
+const int linearAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
+const int linearAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
+const int angularAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
+const int verticalAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
+=========
 const int linearJoyAxisFBIndex(1); //!<forward-backward axis index in the joy topic array from the logitech Extreme 3D Pro
 const int linearJoyAxisLRIndex(0); //!<left-right axis index in the joy topic array from the logitech Extreme 3D Pro
 const int angularJoyAxisIndex(2);  //!<rotational axis index in the joy topic array from the logitech Extreme 3D Pro
 const int verticalJoyAxisIndex(3); //!<vertical axis index in the joy topic array from the logitech Extreme 3D Pro
 
 const int verticalThrottleAxis(2); //!<vertical axis index in the joy topic array from the Thrustmaster TWCS Throttle
+>>>>>>>>> Temporary merge branch 2
 
 double l_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
 double a_scale(0.5); //!< Holds a percent multiplier for sensitivity control. Default = 50%
@@ -56,8 +63,15 @@ const double bilinearRatio(1.5);
 const double bilinearThreshold(1.0 / bilinearRatio);
 
 ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
+<<<<<<<<< Temporary merge branch 1
+ros::Subscriber joy_sub; //!<subscriber to the logitech joystick
+ros::Subscriber inversion_sub; //!<subscriber to the inversion topic from copilot page
+ros::Subscriber sensitivity_sub; //!<subscriber to the sensitivty topic from the copilot page
+ros::Subscriber thruster_status_sub; //!>subscriber to the thruster status topic from the copilot page
+=========
 ros::Subscriber joy_sub1; //!<subscriber to the logitech joystick
 ros::Subscriber joy_sub2; //!<subscriber to the thrustmaster throttle
+>>>>>>>>> Temporary merge branch 2
 
 //Temporary publishers
 ros::Publisher camera_select;    //!<Temporary Camera pub
@@ -91,7 +105,7 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
     //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-    //check if thrusters disabled
+    //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
     if (thrustEN) {
 
         //joystick message
@@ -99,26 +113,23 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         //int32[] buttons         the buttons measurements from a joystick
 
         //store axes variables and handle 4 cases of inversion
-        a_axis = joy->axes[angularJoyAxisIndex] * a_scale * -1; //changing sign makes rotate right positive
-
-        //NOTE: right and rotate right are negative on the joystick's LR axis
-        //multiple LR axis by -1 in base position (front-front, etc.)to make right positive
+        a_axis = joy->axes[angularJoyAxisIndex] * a_scale;
 
         switch (inversion){
-        case 1 : //right side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+        case 1 : //left side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         case 2 : //back side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
-        case 3 : //left side is front
-            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale;
+        case 3 : //right side is front
+            l_axisFB = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
             l_axisLR = joy->axes[linearJoyAxisFBIndex] * l_scale * -1;
             break;
         default: //front side is front
-            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale * -1;
+            l_axisLR = joy->axes[linearJoyAxisLRIndex] * l_scale;
             l_axisFB = joy->axes[linearJoyAxisFBIndex] * l_scale;
             break;
         }
@@ -163,7 +174,7 @@ void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
       //once copilot interface is created the params will be replaced with topics (inversion + sensitivity)
 
-      //check if thrusters disabled
+      //check if thrusters disabled (temporary until addition of a dynamic_reconfigure)
       if (thrustEN) {
 
           //joystick message
@@ -256,8 +267,15 @@ int main(int argc, char **argv)
 
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
+<<<<<<<<< Temporary merge branch 1
+    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 2, &joyCallback);
+    inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
+    sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
+    thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
+=========
     joy_sub1 = n.subscribe<sensor_msgs::Joy>("joy/joy1", 2, &joyHorizontalCallback);
     joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
+>>>>>>>>> Temporary merge branch 2
 
     //setup temporary publishers
     camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub

@@ -23,11 +23,16 @@ Node name:
 
 Topics:
 
+<<<<<<<<< Temporary merge branch 1
+* `joy`:
+  Subscribes `sensor_msgs/Joy` gives the input from the logitech Extreme 3D Pro joystick to the node for inital proccessing
+=========
 * `joy/joy1`:
   Subscribes `sensor_msgs/Joy` gives the input from the Logitech Extreme 3D Pro joystick to the node for inital proccessing
 
 * `joy/joy2`
   Subscribes `sensor_msgs/Joy` gives the input from the Thrustmaster TWCS Throttle to the node for inital proccessing 
+>>>>>>>>> Temporary merge branch 2
 
 * `rov/cmd_vel`:
   Publishes `geometry_msgs/Twist` Outputs 2 command velocity vectors. Not a tradition vector3 implementaton: linear.x = linear axis left-right, linear.y = linear axis front-back, linear.z = vertical axis, angular.x = rotational axis, angular.y and angular.z = 0
@@ -42,7 +47,11 @@ Topics:
   Publishes `std_msgs/Bool` If true then the main solenoid is on else off.
 
 Parameters/Reconfigs:
+<<<<<<<<< Temporary merge branch 1
+*  `copilot_interface/copilotControlParamsConfig`: TEMPORARY copilot interface through a dynamic reconfigure that contains all the params for a fully functional ROV. See copilot_interface/cfg dir for more info.
+=========
 *  `copilot_interface/copilotControlParamsConfig`: TEMPORARY copilot interface through a dynamic reconfigure that contains all the params for a fully fucntional ROV. See copilot_interface/cfg dir for more info.
+>>>>>>>>> Temporary merge branch 2
 
 
 ## Launch Information
