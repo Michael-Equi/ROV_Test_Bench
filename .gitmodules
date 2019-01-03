@@ -25,3 +25,6 @@
 [submodule "ros_workspace/src/Copilot-Page"]
 	path = ros_workspace/src/Copilot-Page
 	url = https://github.com/JHSRobo/Copilot-Page
+[submodule "ros_workspace/src/uuv_simulator"]
+	path = ros_workspace/src/uuv_simulator
+	url = https://github.com/uuvsimulator/uuv_simulator.git
