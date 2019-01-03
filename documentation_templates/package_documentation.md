@@ -10,6 +10,10 @@ Pargraph on how this package fits into the overall architecture. What its nodes 
 
 What is the goal of the code and why it was done the way it was. This will help with tech report.
 
+## Requirements
+
+List the steps that should be taken to make sure this package is meeting its requirements and functioning as intended.
+
 ## Build Instructions 
 
 * Anything extra steps for buidling this package and running the nodes (ex. install)
