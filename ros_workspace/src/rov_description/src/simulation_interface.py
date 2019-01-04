@@ -5,6 +5,8 @@ from math import sqrt
 import random #for noise and fake sensor error
 from vector_drive.msg import thrusterPercents
 from uuv_gazebo_ros_plugins_msgs.msg import FloatStamped
+from std_msgs.msg import UInt8
+from sensor_msgs.msg import Image
 
 thrusterVals = [0,0,0,0,0,0] ##array for holding commands (in prop angular velocity) for individual thrusters T1, T2, ... Tn
 numberOfThrusters = 6
@@ -12,6 +14,9 @@ numberOfThrusters = 6
 # Start the ros node
 rospy.init_node("simulation_interface")
 rospy.loginfo("Simulation interface starting... ")
+
+#advertise muxed camera topic
+muxedImagePub = rospy.Publisher("rov/camera/image_raw", Image, queue_size=1)
 
 ##Maps a variable based an input and an output range
 def map(input, inMin, inMax, outMin, outMax):
@@ -48,11 +53,36 @@ def updateHoriz(data):
     thrusterVals[4] = -toRotorAngVel(data.t1)
     thrusterVals[5] = -toRotorAngVel(data.t2)
 
+#update the status of what camera is selected by the mux
+selectedCamera = 1
+def updateCameraMux(data):
+    global selectedCamera
+    selectedCamera = data.data
+    #if selectedCamera is not a valid camera 1-4
+    if not (selectedCamera > 0 and selectedCamera < 5):
+        selectedCamera = 1
+
+def updateVideoStreams(image):
+    global selectedCamera, muxedImagePub
+    #publish selected image
+    if image.header.frame_id == "rov/camera" +  str(selectedCamera) + "_link":
+        muxedImagePub.publish(image)
+
+
+
 
 verticals = rospy.Subscriber("rov/cmd_horizontal_vdrive", thrusterPercents, updateVert)
 horzontals = rospy.Subscriber("rov/cmd_vertical_vdrive", thrusterPercents, updateHoriz)
 
-cameraMux = rospy.Subscriber("rov/camera_select", thrusterPercents, updateHoriz)
+#Simulated camera multiplexer
+cameraMux = rospy.Subscriber("/camera_select", UInt8, updateCameraMux)
+
+#Subscribe and proccess all the images
+videoStream1 = rospy.Subscriber("rov/camera1/image_raw", Image, updateVideoStreams)
+videoStream2 = rospy.Subscriber("rov/camera2/image_raw", Image, updateVideoStreams)
+videoStream3 = rospy.Subscriber("rov/camera3/image_raw", Image, updateVideoStreams)
+videoStream4 = rospy.Subscriber("rov/camera4/image_raw", Image, updateVideoStreams)
+
 
 #create a list of thruster publishers
 thrusterPubs = []

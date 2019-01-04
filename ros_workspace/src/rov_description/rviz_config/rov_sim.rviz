@@ -63,6 +63,26 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        rov/camera1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rov/camera2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rov/camera3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rov/camera4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rov/frame_link:
           Alpha: 1
           Show Axes: false
@@ -167,7 +187,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: ""
+      Image Topic: /rov/camera/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
