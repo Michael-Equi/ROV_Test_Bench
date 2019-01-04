@@ -23,10 +23,10 @@
     <origin xyz="0.15567119 0.23361171 -0.136" rpy="${0*d2r} ${0*d2r} ${135*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="3">
-    <origin xyz="0.15497139 -0.15963745 -0.136" rpy="${0*d2r} ${0*d2r} ${-135*d2r}"/>
+    <origin xyz="0.15567119 -0.15963745 -0.136" rpy="${0*d2r} ${0*d2r} ${-135*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="4">
-    <origin xyz="-0.15497139 -0.15963745 -0.136" rpy="${0*d2r} ${0*d2r} ${-45*d2r}"/>
+    <origin xyz="-0.15567119 -0.15963745 -0.136" rpy="${0*d2r} ${0*d2r} ${-45*d2r}"/>
   </xacro:thruster_macro>
   <xacro:thruster_macro namespace="${namespace}" thruster_id="5">
     <origin xyz="-0.25550103 0.03425058 -0.08012365" rpy="${0*d2r} ${90*d2r} ${0*d2r}"/>

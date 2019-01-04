@@ -2,13 +2,18 @@
 
 import rospy
 from math import sqrt
+import random #for noise and fake sensor error
 from vector_drive.msg import thrusterPercents
 from uuv_gazebo_ros_plugins_msgs.msg import FloatStamped
 
-T1, T2, T3, T4, T5, T6 = 0, 0, 0, 0, 0, 0
+thrusterVals = [0,0,0,0,0,0] ##array for holding commands (in prop angular velocity) for individual thrusters T1, T2, ... Tn
+numberOfThrusters = 6
 
+# Start the ros node
 rospy.init_node("simulation_interface")
+rospy.loginfo("Simulation interface starting... ")
 
+##Maps a variable based an input and an output range
 def map(input, inMin, inMax, outMin, outMax):
     return(((input-inMin)/(inMax-inMin))*(outMax-outMin)+outMin)
 
@@ -32,49 +37,44 @@ def toRotorAngVel(inputVal):
 #change the sign of the value in oder to compensate for the negative rotor constant
 #rotor constant = -0.00031
 def updateVert(data):
-    global T1, T2, T3, T4
-    T1 = -toRotorAngVel(data.t1)
-    T2 = -toRotorAngVel(data.t2)
-    T3 = -toRotorAngVel(data.t3)
-    T4 = -toRotorAngVel(data.t4)
+    global thrusterVals
+    thrusterVals[0] = -toRotorAngVel(data.t1)
+    thrusterVals[1] = -toRotorAngVel(data.t2)
+    thrusterVals[2] = -toRotorAngVel(data.t3)
+    thrusterVals[3] = -toRotorAngVel(data.t4)
 
 def updateHoriz(data):
-    global T5, T6
-    T5 = -toRotorAngVel(data.t1)
-    T6 = -toRotorAngVel(data.t2)
+    global thrusterVals
+    thrusterVals[4] = -toRotorAngVel(data.t1)
+    thrusterVals[5] = -toRotorAngVel(data.t2)
 
 
 verticals = rospy.Subscriber("rov/cmd_horizontal_vdrive", thrusterPercents, updateVert)
 horzontals = rospy.Subscriber("rov/cmd_vertical_vdrive", thrusterPercents, updateHoriz)
 
-t1_pub = rospy.Publisher("rov/thrusters/1/input", FloatStamped, queue_size=1)
-t2_pub = rospy.Publisher("rov/thrusters/2/input", FloatStamped, queue_size=1)
-t3_pub = rospy.Publisher("rov/thrusters/3/input", FloatStamped, queue_size=1)
-t4_pub = rospy.Publisher("rov/thrusters/4/input", FloatStamped, queue_size=1)
-t5_pub = rospy.Publisher("rov/thrusters/5/input", FloatStamped, queue_size=1)
-t6_pub = rospy.Publisher("rov/thrusters/6/input", FloatStamped, queue_size=1)
+cameraMux = rospy.Subscriber("rov/camera_select", thrusterPercents, updateHoriz)
 
+#create a list of thruster publishers
+thrusterPubs = []
+for i in range(numberOfThrusters):
+    thrusterName = "rov/thrusters/" + str(i+1) + "/input"
+    thrusterPubs.append(rospy.Publisher(thrusterName, FloatStamped, queue_size=1))
+
+rospy.loginfo("Created thruster publishers:  " + str(thrusterPubs))
+
+rate = rospy.Rate(50) #50Hz update frequency
 while not rospy.is_shutdown():
-    t1_msg = FloatStamped()
-    t1_msg.data = T1
-    t1_pub.publish(t1_msg)
+    #Update the thrusters by publishing the thrusterVals
+    for i in range(numberOfThrusters):
+        msg = FloatStamped()
+        #Add noise if the thruster value is not zero
+        if not thrusterVals[i] == 0:
+            thrusterVals[i] += 2*random.random()-1 #random float between -1 to 1 exclusive
+            msg.data = thrusterVals[i]
+        else:
+            msg.data = thrusterVals[i]
+        thrusterPubs[i].publish(msg)
 
-    t2_msg = FloatStamped()
-    t2_msg.data = T2
-    t2_pub.publish(t2_msg)
+    rospy.logdebug("Thrusters values published: " + str(thrusterVals))
 
-    t3_msg = FloatStamped()
-    t3_msg.data = T3
-    t3_pub.publish(t3_msg)
-
-    t4_msg = FloatStamped()
-    t4_msg.data = T4
-    t4_pub.publish(t4_msg)
-
-    t5_msg = FloatStamped()
-    t5_msg.data = T5
-    t5_pub.publish(t5_msg)
-
-    t6_msg = FloatStamped()
-    t6_msg.data = T6
-    t6_pub.publish(t6_msg)
+    rate.sleep()

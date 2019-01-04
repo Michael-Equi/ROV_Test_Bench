@@ -28,7 +28,7 @@
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <topicName>imu</topicName>
         <bodyName>${namespace}/imu_link</bodyName>
-        <updateRateHZ>30.0</updateRateHZ>
+        <updateRateHZ>60.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
@@ -39,11 +39,28 @@
   </gazebo>
 
   <!-- Mount 4 cameras -->
-  <!-- <xacro:macro name="camera" params="number parent_link namespace *origin">
+  <!-- macro name cannot be camera!!! -->
+  <!-- Image lined up with the x axis -->
+  <xacro:macro name="camera_macro" params="number parent *origin">
 
-    <link name="${namespace}/camera${number}_link"/>
+    <link name="${namespace}/camera${number}_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.01 0.03 0.02" />
+        </geometry>
+        <material name="Green">
+          <color rgba="0 0.8 0 1.0"/>
+        </material>
+      </visual>
+    </link>
+
+    <gazebo reference="${namespace}/camera${number}_link">
+      <material>Gazebo/Green</material>
+    </gazebo>
+
     <joint name="${namespace}/camera${number}_joint" type="fixed">
-      <parent link="${parent_link}"/>
+      <parent link="${parent}"/>
       <child link="${namespace}/camera${number}_link"/>
       <xacro:insert_block name="origin" />
     </joint>
@@ -63,20 +80,17 @@
             <far>300</far>
           </clip>
           <noise>
-            <type>gaussian</type> -->
-            <!-- Noise is sampled independently per pixel on each frame.
-                 That pixel's noise value is added to each of its color
-                 channels, which at that point lie in the range [0,1]. -->
-            <!-- <mean>0.0</mean>
+            <type>gaussian</type>
+            <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>${namespace}/camera${number}</cameraName>
+          <cameraName>camera${number}</cameraName>
           <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera${number_info</cameraInfoTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>camera_link</frameName>
           <hackBaseline>0.07</hackBaseline>
           <distortionK1>0.0</distortionK1>
@@ -89,10 +103,20 @@
     </gazebo>
   </xacro:macro>
 
-  <xacro:camera number="1" parent_link="${namespace}/frame_link" namespace="${namespace}">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:camera> -->
+  <xacro:camera_macro number="1" parent="${namespace}/frame_link">
+    <origin xyz="0 0.08 -0.05" rpy="0 0 ${90*d2r}"/>
+  </xacro:camera_macro>
 
+  <xacro:camera_macro number="3" parent="${namespace}/frame_link">
+    <origin xyz="0 -0.08 -0.05" rpy="0 0 ${-90*d2r}"/>
+  </xacro:camera_macro>
 
+  <xacro:camera_macro number="2" parent="${namespace}/frame_link">
+    <origin xyz="0.05 0 -0.05" rpy="0 0 ${0*d2r}"/>
+  </xacro:camera_macro>
+
+  <xacro:camera_macro number="4" parent="${namespace}/frame_link">
+    <origin xyz="-0.05 0 -0.05" rpy="0 0 ${180*d2r}"/>
+  </xacro:camera_macro>
 
 </robot>
