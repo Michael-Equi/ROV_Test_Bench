@@ -17,9 +17,9 @@ start_yaw = calibration['yaw']
 start_time = int(datetime.time.__str__(datetime.time.microsecond))
 
 def talker():
-	temp_pub = rospy.Publisher('rov/temperature', Temperature, queue_size = 1) #Publisher for the different sensors: Temperature, Humidity, Pressure,
-	pressure_pub = rospy.Publisher('rov/pressure', FluidPressure, queue_size = 1)
-	humidity_pub = rospy.Publisher('rov/humidity', RelativeHumidity, queue_size = 1)
+	temp_pub = rospy.Publisher('rov/int_temperature', Temperature, queue_size = 1) #Publisher for the different sensors: Temperature, Humidity, Pressure,
+	pressure_pub = rospy.Publisher('rov/int_pressure', FluidPressure, queue_size = 1)
+	humidity_pub = rospy.Publisher('rov/int_humidity', RelativeHumidity, queue_size = 1)
 
 	imu_pub = rospy.Publisher("rov/imu", Imu, queue_size = 1) #Imu publisher
 
