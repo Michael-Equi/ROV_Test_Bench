@@ -8,17 +8,19 @@ T1, T2, T3, T4, T5, T6 = 0, 0, 0, 0, 0, 0
 
 rospy.init_node("simulation_interface")
 
+#change the sign of the value in oder to compensate for the negative rotor constant
+# rotor constant = -0.00031
 def updateVert(data):
     global T1, T2, T3, T4
-    T1 = data.t1
-    T2 = data.t2
-    T3 = data.t3
-    T4 = data.t4
+    T1 = -data.t1
+    T2 = -data.t2
+    T3 = -data.t3
+    T4 = -data.t4
 
 def updateHoriz(data):
     global T5, T6
-    T5 = data.t1
-    T6 = data.t2
+    T5 = -data.t1
+    T6 = -data.t2
 
 
 verticals = rospy.Subscriber("rov/cmd_horizontal_vdrive", thrusterPercents, updateVert)
