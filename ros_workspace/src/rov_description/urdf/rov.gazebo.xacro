@@ -3,7 +3,7 @@
 
     <xacro:property name="cob" value="0.00037196 0.001 0.01"/>
     <!-- ROV mass = 9.80543312 -->
-    <xacro:property name="volume" value="0.0099"/> <!-- ROV is slightly positively bouyant at 0.0099m^3 -->
+    <xacro:property name="volume" value="0.00985"/> <!-- ROV is slightly positively bouyant at 0.0099m^3 -->
 
     <xacro:macro name="rov_hydro_model" params="namespace">
         <link name="${namespace}/base_link">
@@ -36,9 +36,13 @@
                   -0.44892 -0.41688 -4.3704 -1.6128 -1.85862 -0.63
               </linear_damping>
               <!-- Non-linear damping: see p.30 in Berg2012 -->
+              <!-- <quadratic_damping>
+                  -4.48932 -5.95518 -10.92606 -4.032 -4.64664 -3.13962
+              </quadratic_damping> -->
               <quadratic_damping>
-                  -4.48932 -5.95518 -10.92606 -4.032 4.64664 -3.13962
+                  -6 -8 -12 -25 -25 -5
               </quadratic_damping>
+
 
             </hydrodynamic_model>
         </link>

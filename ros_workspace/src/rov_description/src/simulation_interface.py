@@ -143,7 +143,7 @@ while not rospy.is_shutdown():
         msg = FloatStamped()
         #Add noise if the thruster value is not zero
         if not thrusterVals[i] == 0:
-            thrusterVals[i] += 2*random.random()-1 #random float between -1 to 1 exclusive
+            #thrusterVals[i] += 2*random.random()-1 #random float between -1 to 1 exclusive
             msg.data = thrusterVals[i]
         else:
             msg.data = thrusterVals[i]
