@@ -16,6 +16,7 @@
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
+#include <rov_control_interface/rov_sensitivity.h>
 
 //Temporary
 #include <std_msgs/UInt8.h> //For camera Pub
@@ -62,7 +63,6 @@ ros::Subscriber inversion_sub; //!<subscriber to inversion from copilota
 ros::Subscriber sensitivity_sub; //!<subscriber to sensitivity from copilot
 ros::Subscriber thruster_status_sub; //!<subscriber to thrusters enabled/disabled from copilot
 
-ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
 ros::Publisher camera_select;    //!<Camera pub
 ros::Publisher power_control;    //!<TCU relay controller
 ros::Publisher solenoid_control; //!<TCU solenoid controller
@@ -295,8 +295,6 @@ int main(int argc, char **argv)
     //setup publisher and subscriber
     joy_sub1 = n.subscribe<sensor_msgs::Joy>("joy/joy1", 2, &joyHorizontalCallback);
     joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
-    inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
-    sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
     thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
 
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
