@@ -58,10 +58,17 @@ ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 
 ros::Subscriber joy_sub1; //!<subscriber to the logitech joystick
 ros::Subscriber joy_sub2; //!<subscriber to the thrustmaster throttle
 
-//Temporary publishers
-ros::Publisher camera_select;    //!<Temporary Camera pub
-ros::Publisher power_control;    //!<Temporary TCU relay controller
-ros::Publisher solenoid_control; //!<Temporary TCU solenoid controller
+ros::Subscriber inversion_sub; //!<subscriber to inversion from copilota
+ros::Subscriber sensitivity_sub; //!<subscriber to sensitivity from copilot
+ros::Subscriber thruster_status_sub; //!<subscriber to thrusters enabled/disabled from copilot
+
+ros::Publisher vel_pub; //!<publisher that publishes a Twist message containing 2 non-standard Vector3 data sets
+ros::Publisher camera_select;    //!<Camera pub
+ros::Publisher power_control;    //!<TCU relay controller
+ros::Publisher solenoid_control; //!<TCU solenoid controller
+ros::Publisher inversion_pub; //!<Inversion status publisher
+ros::Publisher sensitivity_pub; //!<Publishes sensitivity from copilot
+ros::Publisher thruster_status_pub; //!<Publishes thruster status from copilot
 
 /**
 * @brief Controls variable joystick sensitivity. Small movements that use a small percent of the maximum control vecotr magnitude have a lower sensitivity than larger movements with the joystick.
@@ -229,8 +236,52 @@ void controlCallback(copilot_interface::copilotControlParamsConfig &config, uint
     solMsg.data = config.pneumatics;
     power_control.publish(relayMsg);
     solenoid_control.publish(solMsg);
+
+    // Inversion Publisher
+    std_msgs::UInt8 inversionMsg;
+    inversionMsg.data = inversion;
+    inversion_pub.publish(inversionMsg);
+
+    // Sensitivty Publisher
+    rov_control_interface::rov_sensitivity sensitivityMsg;
+    sensitivityMsg.l_scale = l_scale;
+    sensitivityMsg.a_scale = a_scale;
+    sensitivityMsg.v_scale = v_scale;
+    sensitivity_pub.publish(sensitivityMsg);
+
+    // Thrusters Enabled Publisher
+    std_msgs::Bool thrusterStatusMsg;
+    thrusterStatusMsg.data = thrustEN;
+    thruster_status_pub.publish(thrusterStatusMsg);
+
 }
 
+/**
+* @breif What the node does when copilot inversion setting publishes a new message
+* @param[in] joy "sensor_msgs/Joy" message that is recieved when the joystick publsihes a new message
+*/
+void inversionCallback(const std_msgs::UInt8::ConstPtr& data) {
+    inversion = data->data;
+}
+
+/**
+* @breif What the node does when copilot sensitivity setting publishes a new message
+* @param[in] "rov_control_interface/rov_sensitivity." message that is recieved when the sensitivty setting is changed
+*/
+void sensitivityCallback(const rov_control_interface::rov_sensitivity::ConstPtr& data) {
+  l_scale = data->l_scale;
+  a_scale = data->a_scale;
+  v_scale = data->v_scale;
+}
+
+/**
+* @breif What the node does when thruster status topic publishes a new message
+* @param[in] "std_msgs/Bool" message that is recieved when the topic publsihes a new message
+*/
+void thrusterStatusCallback(const std_msgs::Bool::ConstPtr& data) {
+  thrustEN = data->data;
+  ROS_INFO_STREAM(thrustEN);
+}
 
 
 int main(int argc, char **argv)
@@ -242,14 +293,19 @@ int main(int argc, char **argv)
     n.getParam("/useJoyVerticalAxis", useJoyVerticalAxis); //Check the parameter server for useJoyVerticalAxis
 
     //setup publisher and subscriber
-    vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
     joy_sub1 = n.subscribe<sensor_msgs::Joy>("joy/joy1", 2, &joyHorizontalCallback);
     joy_sub2 = n.subscribe<sensor_msgs::Joy>("joy/joy2", 2, &joyVerticalCallback);
+    inversion_sub = n.subscribe<std_msgs::UInt8>("rov/inversion", 1, &inversionCallback);
+    sensitivity_sub = n.subscribe<rov_control_interface::rov_sensitivity>("rov/sensitivity", 1, &sensitivityCallback);
+    thruster_status_sub = n.subscribe<std_msgs::Bool>("rov/thruster_status", 1, &thrusterStatusCallback);
 
-    //setup temporary publishers
-    camera_select = n.advertise<std_msgs::UInt8>("camera_select", 3);       //Camera pub
+    vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
+    camera_select = n.advertise<std_msgs::UInt8>("rov/camera_select", 3);       //Camera pub
     power_control = n.advertise<std_msgs::Bool>("tcu/main_relay", 3);       //Relay pub
     solenoid_control = n.advertise<std_msgs::Bool>("tcu/main_solenoid", 3); //Solenoid pub
+    inversion_pub = n.advertise<std_msgs::UInt8>("rov/inversion", 3);
+    sensitivity_pub = n.advertise<rov_control_interface::rov_sensitivity>("rov/sensitivity", 3);
+    thruster_status_pub = n.advertise<std_msgs::Bool>("rov/thruster_status", 3);
 
     //setup dynamic reconfigure
     dynamic_reconfigure::Server<copilot_interface::copilotControlParamsConfig> server;
