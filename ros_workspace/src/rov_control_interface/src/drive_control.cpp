@@ -1,5 +1,4 @@
 /**
-/**
 * @author Michael Equi
 * @version 0.1
 * @date 8-11-2018
@@ -41,6 +40,7 @@ double v_axis(0);   //!< Holds the value of the vertical control axis
 
 
 bool thrustEN(false); //!<thrusters enabled (True = yes, False = default = no)
+bool useJoyVerticalAxis(true); //!< Holds the state that determins wether the joysticks vertical input or the throttles vertical input gets used
 
 
 //! inversion -> 1 Front, 2 Left, 3 Back, 4 Right
@@ -126,7 +126,10 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         bilinearCalc(a_axis);
         bilinearCalc(l_axisLR);
         bilinearCalc(l_axisFB);
-        bilinearCalc(v_axis);
+        if(useJoyVerticalAxis){
+          v_axis = joy->axes[verticalJoyAxisIndex] * v_scale;
+          bilinearCalc(v_axis);
+        }
 
 
 
@@ -167,10 +170,11 @@ void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
           //float32[] axes          the axes measurements from a joystick
           //int32[] buttons         the buttons measurements from a joystick
 
-          //store axes variables and handle 4 cases of inversion
-          v_axis = joy->axes[verticalThrottleAxis] * v_scale;
-
-          bilinearCalc(v_axis);
+          if(!useJoyVerticalAxis){
+            //store axes variables and handle 4 cases of inversion
+            v_axis = joy->axes[verticalThrottleAxis] * v_scale;
+            bilinearCalc(v_axis);
+          }
 
       } else {
 
@@ -233,6 +237,7 @@ int main(int argc, char **argv)
 
     ros::NodeHandle n;
 
+    n.getParam("/useJoyVerticalAxis", useJoyVerticalAxis); //Check the parameter server for useJoyVerticalAxis
 
     //setup publisher and subscriber
     vel_pub = n.advertise<geometry_msgs::Twist>("rov/cmd_vel", 1);
