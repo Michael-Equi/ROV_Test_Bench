@@ -66,6 +66,9 @@ Once the network connection has been verified (on bottomside `ping master` / on 
     * `sudo apt-get install openssh-server`
     * `./sshSetup.sh`
 
+* If topside and bottomside aren't communicating do the following:
+    * ping 192.168.1.100 from bottomside, and 192.168.1.111 from topside (If they don't communicate, make sure all the hardware is setup correctly. Also check your virtual machine network settings, and make sure it is briding to the network (directly connected to physical network and replicating physical connection state)
+    
 Other usefull links for common problems:
 * https://superuser.com/questions/421004/how-to-fix-warning-about-ecdsa-host-key
 * https://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation
