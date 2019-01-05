@@ -127,7 +127,7 @@ void joyHorizontalCallback(const sensor_msgs::Joy::ConstPtr& joy){
         bilinearCalc(l_axisLR);
         bilinearCalc(l_axisFB);
         if(useJoyVerticalAxis){
-          v_axis = joy->axes[verticalJoyAxisIndex] * v_scale;
+          v_axis = joy->axes[verticalJoyAxisIndex] * v_scale * -1;
           bilinearCalc(v_axis);
         }
 
@@ -172,7 +172,7 @@ void joyVerticalCallback(const sensor_msgs::Joy::ConstPtr& joy){
 
           if(!useJoyVerticalAxis){
             //store axes variables and handle 4 cases of inversion
-            v_axis = joy->axes[verticalThrottleAxis] * v_scale;
+            v_axis = joy->axes[verticalThrottleAxis] * v_scale * -1;
             bilinearCalc(v_axis);
           }
 
