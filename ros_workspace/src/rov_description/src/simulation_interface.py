@@ -1,12 +1,28 @@
 #!/usr/bin/env python
 
+## @author Michael Equi
+# @version 0.1
+# @date 4-1-2019
+# @mainpage The simulation_interface node
+# @section intro_sec Introduction
+# This code contains implementations for interfacing our vector drive code with the uuv simulator thruster manager using a basic model,
+# multiplexing simulated cameras, and publishing mock sensor data (humidity/temperature/depth MS5837)
+
 import rospy
 from math import sqrt
 import random #for noise and fake sensor error
+
+#for interfacing vector drive with uuv sim thruster manager
 from vector_drive.msg import thrusterPercents
 from uuv_gazebo_ros_plugins_msgs.msg import FloatStamped
+
+#for simulating camera
 from std_msgs.msg import UInt8
 from sensor_msgs.msg import Image
+
+from ms5837.msg import ms5837_data #for simulating depth sensor
+
+from sensor_msgs.msg import Temperature, RelativeHumidity, FluidPressure #for simulating sensor hat
 
 thrusterVals = [0,0,0,0,0,0] ##array for holding commands (in prop angular velocity) for individual thrusters T1, T2, ... Tn
 numberOfThrusters = 6
@@ -17,6 +33,8 @@ rospy.loginfo("Simulation interface starting... ")
 
 #advertise muxed camera topic
 muxedImagePub = rospy.Publisher("rov/camera/image_raw", Image, queue_size=1)
+#advertise depth sensor topic
+depthSensor = rospy.Publisher("rov/ms5837", ms5837_data, queue_size=1)
 
 ##Maps a variable based an input and an output range
 def map(input, inMin, inMax, outMin, outMax):
@@ -68,21 +86,47 @@ def updateVideoStreams(image):
     if image.header.frame_id == "rov/camera" +  str(selectedCamera) + "_link":
         muxedImagePub.publish(image)
 
+#update depth sensor information
+def updateDepth(pressure):
+    global depthSensor
+    #pressure recieved in kpa
+    #ms5837 data type
+        # Header header
+        # float64 tempC
+        # float64 tempF
+        # float64 depth
+        # float64 altitudeM
+    #https://www.grc.nasa.gov/www/k-12/WindTunnel/Activities/fluid_pressure.html
+    #P=r*g*h
+    #density = 100kg/m^3, g=9.8, fluid_pressure must be converted to pascal (*1000)
+    depth = 1000*9.8/(pressure.fluid_pressure*1000)
+    temp = 27.6 + (2*random.random()-1) #degrees C +- 1
+    msg = ms5837_data()
+    msg.depth = depth
+    msg.tempF = temp*9/5+32
+    msg.tempC = temp
+    msg.altitudeM = -depth
+    depthSensor.publish(msg)
 
-
-
-verticals = rospy.Subscriber("rov/cmd_horizontal_vdrive", thrusterPercents, updateVert)
+verticals  = rospy.Subscriber("rov/cmd_horizontal_vdrive", thrusterPercents, updateVert)
 horzontals = rospy.Subscriber("rov/cmd_vertical_vdrive", thrusterPercents, updateHoriz)
 
 #Simulated camera multiplexer
 cameraMux = rospy.Subscriber("/camera_select", UInt8, updateCameraMux)
 
-#Subscribe and proccess all the images
+#Subscribe and proccess all video streams
 videoStream1 = rospy.Subscriber("rov/camera1/image_raw", Image, updateVideoStreams)
 videoStream2 = rospy.Subscriber("rov/camera2/image_raw", Image, updateVideoStreams)
 videoStream3 = rospy.Subscriber("rov/camera3/image_raw", Image, updateVideoStreams)
 videoStream4 = rospy.Subscriber("rov/camera4/image_raw", Image, updateVideoStreams)
 
+#Subscribe to external pressure sensor in order to get depth
+extPressure = rospy.Subscriber("rov/pressure", FluidPressure, updateDepth)
+
+#internal sensor hat publishers
+sensorTempPub  = rospy.Publisher("rov/int_temperature", Temperature, queue_size=1)
+sensorHumidPub = rospy.Publisher("rov/int_humidity", RelativeHumidity, queue_size=1)
+sensorPresPub  = rospy.Publisher("rov/int_pressure", FluidPressure, queue_size=1)
 
 #create a list of thruster publishers
 thrusterPubs = []
@@ -106,5 +150,19 @@ while not rospy.is_shutdown():
         thrusterPubs[i].publish(msg)
 
     rospy.logdebug("Thrusters values published: " + str(thrusterVals))
+
+    #publish sensor hat data
+    tempMsg  = Temperature()
+    #functions to give realistic sensor data curves over time
+    timeNowMin = rospy.get_time()/60 ##Current ROS time in minutes
+    tempMsg.temperature  = ((60*timeNowMin+30)/(timeNowMin+1)-2) + (0.5*random.random()-0.25)
+    humidMsg = RelativeHumidity()
+    humidMsg.relative_humidity = ((60*timeNowMin+90)/(timeNowMin+1)-25) + (0.5*random.random()-0.25)
+    presMsg  = FluidPressure()
+    presMsg.fluid_pressure  = (3000*timeNowMin/(timeNowMin+1)+101325) + (6*random.random()-3)
+
+    sensorTempPub.publish(tempMsg)
+    sensorHumidPub.publish(humidMsg)
+    sensorPresPub.publish(presMsg)
 
     rate.sleep()
