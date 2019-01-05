@@ -27,7 +27,7 @@
 
   <!-- setup base links -->
   <link name="${namespace}/frame_link"/>
-  <joint name="${namespace}/base_link_joint" type="fixed">
+  <joint name="${namespace}/base_frame_joint" type="fixed">
     <parent link="${namespace}/base_link"/>
     <child link="${namespace}/frame_link"/>
     <origin xyz="0 0.0373 -0.15585" rpy="0 0 0"/>
