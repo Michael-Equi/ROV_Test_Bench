@@ -77,6 +77,8 @@ before_install:
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
   - rosdep update
+  # Protobuf C compiler for the uuv simulator
+  - sudo apt-get install protobuf-compiler protobuf-c-compiler
 
 # Create a catkin workspace with the package under integration.
 install:
