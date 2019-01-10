@@ -1,10 +1,15 @@
-# ROV Test Bench
+# ROSbasic
 
 The goal of this project is to develop preseason software technologies based on ROS. This project will explorer development paths and verify new technologies before more permanent hardware development. Key areas of testing are cameras, vector drive, controllers, and PID algortihms. Additionally new workflows/integration tactics are to be tested and documented (Travis CI, Docker, node documentation, doxygen). This project will expire at the beginning of the 2018-2019 robotics season.   
 
-[![Build Status](https://travis-ci.com/JHSRobo/ROSbasic.svg?branch=development)](https://travis-ci.com/JHSRobo/ROSbasic)
+Release
+[![Build Status](https://travis-ci.com/JHSRobo/ROSbasic.svg?branch=release)](https://travis-ci.com/JHSRobo/ROSbasic)
 
-[![Coverage Status](https://coveralls.io/repos/github/Michael-Equi/ROV_Test_Bench/badge.svg?branch=master)](https://coveralls.io/github/Michael-Equi/ROV_Test_Bench?branch=master)
+Master
+[![Build Status](https://travis-ci.com/JHSRobo/ROSbasic.svg?branch=master)](https://travis-ci.com/JHSRobo/ROSbasic)
+
+Development
+[![Build Status](https://travis-ci.com/JHSRobo/ROSbasic.svg?branch=development)](https://travis-ci.com/JHSRobo/ROSbasic)
 
 ## Getting Started
 
