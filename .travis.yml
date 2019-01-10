@@ -81,7 +81,7 @@ before_install:
 # Go to the ros_workspace and perform a rosdep install for all package dependencies
 install:
   - cd $CI_SOURCE_PATH/ros_workspace
-  - rosdep install --from--paths src --ignore-src -r -y
+  - rosdep install --from-paths src --ignore-src -r -y
   # Protobuf C compiler for the uuv simulator
   - sudo apt-get install protobuf-compiler protobuf-c-compiler
 
