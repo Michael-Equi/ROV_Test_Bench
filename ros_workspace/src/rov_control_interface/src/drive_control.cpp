@@ -18,7 +18,6 @@
 #include <copilot_interface/copilotControlParamsConfig.h>
 #include <rov_control_interface/rov_sensitivity.h>
 
-//Temporary
 #include <std_msgs/UInt8.h> //For camera Pub
 #include <std_msgs/Bool.h>  //For tcu relay and solenoid controller Pub
 
