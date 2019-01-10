@@ -16,7 +16,6 @@
 
 #include <dynamic_reconfigure/server.h>
 #include <copilot_interface/copilotControlParamsConfig.h>
-#include <rov_control_interface/rov_sensitivity.h>
 
 //Temporary
 #include <std_msgs/UInt8.h> //For camera Pub
