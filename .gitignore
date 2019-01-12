@@ -105,6 +105,7 @@ CMakeLists.txt.user*
 bower_components
 node_modules
 dist
+.idea
 
 
 
@@ -175,7 +176,7 @@ fabric.properties
 
 
 
-# gitignore for electron.js 
+# gitignore for electron.js
 
 #files
 *.tgz

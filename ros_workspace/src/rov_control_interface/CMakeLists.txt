@@ -1,7 +1,3 @@
-
-
-
-
 cmake_minimum_required(VERSION 2.8.3)
 project(rov_control_interface)
 
@@ -16,8 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   copilot_interface
   dynamic_reconfigure
-  std_msgs
-  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -54,10 +48,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  rov_sensitivity.msg
-)
+# add_message_files(
+#   FILES
+#   Message1.msg
+#   Message2.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -74,10 +69,10 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-   DEPENDENCIES
-   std_msgs  # Or other packages containing msgs
- )
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs  # Or other packages containing msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -113,7 +108,6 @@ catkin_package(
 #  LIBRARIES rov_control_interface
 #  CATKIN_DEPENDS joy roscpp
 #  DEPENDS system_lib
-   CATKIN_DEPENDS message_runtime
 )
 
 ###########
@@ -207,5 +201,3 @@ include_directories(
 
 add_executable(drive_control src/drive_control.cpp)
 target_link_libraries(drive_control ${catkin_LIBRARIES})
-add_dependencies(drive_control ${catkin_EXPORTED_TARGETS})
-add_dependencies(drive_control ${catkin_EXPORTED_TARGETS})
