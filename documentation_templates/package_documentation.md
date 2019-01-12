@@ -24,8 +24,8 @@ List the steps that should be taken to make sure this package is meeting its req
 
 ### node_name
 
-* Node Inforation
- * What exactly deos this Node do
+* Node Information
+ * What exactly deos this Node do 
  * Where does it run
  * What are its dependencies
  * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
@@ -56,7 +56,7 @@ Parameters/Reconfigs:
 ### other_node_name (if applicable)
 
 * Node Information
- * What exactly does this Node do
+ * What exactly does this Node do 
  * Where does it run
  * What are its dependencies
  * Any other extra information that should be known about this node (dynamic reconfigs, params, etc.)
