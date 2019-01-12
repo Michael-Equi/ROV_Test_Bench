@@ -49,6 +49,12 @@ env:
     # as this is where apt-get installs python packages.
     - PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages:/usr/local/lib/python2.7/dist-packages
 
+branches:
+  only:
+  - master
+  - release
+  - development
+
 ################################################################################
 
 # Install system# trigger a build matrix for different ROS distributions if desired. dependencies, namely a very barebones ROS setup.
@@ -68,7 +74,6 @@ install:
   - rosdep install --from-paths src --ignore-src -r -y
   # Protobuf C compiler for the uuv simulator
   #- sudo apt-get install protobuf-compiler protobuf-c-compiler
-
 
 # Compile and test (mark the build as failed if any step fails). If the
 # CATKIN_OPTIONS file exists, use it as an argument to catkin_make, for example
