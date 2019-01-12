@@ -21,10 +21,10 @@ rospy.loginfo("Initializing PMBUS... ")
 
 DRQ = pmbus(addr) #New pmbus object with device address 0x12
 rospy.sleep(1)
-DRQ.setUVLimit(36.0) #Not sure if this works yet
+#DRQ.setUVLimit(36.0) #Not sure if this works yet
 rospy.sleep(1)
 
-pub = rospy.Publsiher("rov/drq1250", DRQ1250, queue_size=1)
+pub = rospy.Publisher("rov/drq1250", DRQ1250, queue_size=1)
 rate = rospy.Rate(30)
 
 while not rospy.is_shutdown():

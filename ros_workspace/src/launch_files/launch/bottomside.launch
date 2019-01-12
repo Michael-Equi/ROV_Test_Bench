@@ -13,7 +13,7 @@
    </node>
 
    <!-- camera switching -->
-   <node respawn="true" pkg="hardware_interface" type="cameraSwitch.py" name="camera_switch"></node>
+   <node pkg="hardware_interface" type="cameraSwitch.py" name="cameraSwitch"></node>
 
   <!-- start rpi pilot cameras -->
   <node type="raspicam_node" pkg="raspicam_node" name="raspicam_node" output="screen">
