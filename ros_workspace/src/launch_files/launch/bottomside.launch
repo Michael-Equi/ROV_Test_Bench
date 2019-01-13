@@ -25,6 +25,15 @@
     <param name="camera_frame_id" value="pilot_cam"/>
   </node>
 
+ <!-- start DRQ1250s -->
+ <node pkg="drq1250" type="drq1250_ros.py" name="drq1250_1" args="0x08">
+   <remap from="rov/drq1250" to="rov/drq1250_1"/>
+ </node>
+
+ <node pkg="drq1250" type="drq1250_ros.py" name="drq1250_2" args="0x0a">
+   <remap from="rov/drq1250" to="rov/drq1250_2"/>
+ </node>
+
  <!-- launch all the sensors -->
   <node type="sensor-hat.py" pkg="sensor_readout" name="sensor_interface"/>
 

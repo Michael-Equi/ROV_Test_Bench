@@ -20,7 +20,7 @@ FOLLOW:
 
 *Always run IDE's from terminal if on Ubuntu (just type the name of the IDE in terminal and click enter ex. clion)*
 
-### Launching/Running 
+### Launching/Running
 
 Follow Test Bench Setup Steps if Running on Test Bench
 * https://docs.google.com/document/d/1srYgNUE4k3DVHkUv1TwUJawfUWw6kGkveDhAvulWMZ0/edit#heading=h.wyzbdb7zgifi
@@ -38,6 +38,7 @@ Code Blocks IDE on rpi ubuntu mate
 On the RPI turn on the CSI, SPI, I2C, and UART interfaces using `sudo raspi-config`
 
 Setup the I2C interface on Ubutnu Mate
+* `sudo apt-get install python-smbus`
 * `cd /boot/config.txt`
 * uncomment `dtparam=i2c_arm=off` and change to `dtparam=i2c_arm=on`
 * uncomment `dtparam=i2c_arm_baudrate=100000` and change to `dtparam=i2c_arm_baudrate=400000`
@@ -70,7 +71,7 @@ Once the network connection has been verified (on bottomside `ping master` / on 
     * `sudo apt-get purge openssh-server`
     * `sudo apt-get install openssh-server`
     * `./sshSetup.sh`
-    
+
 * If topside and bottomside aren't communicating do the following:
     * ping 192.168.1.100 from bottomside, and 192.168.1.111 from topside (If they don't communicate, make sure all the hardware is setup correctly. Also check your virtual machine network settings, and make sure it is briding to the network (directly connected to physical network and replicating physical connection state)
 
