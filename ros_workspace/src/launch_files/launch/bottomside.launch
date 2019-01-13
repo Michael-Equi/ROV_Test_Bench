@@ -25,7 +25,7 @@
     <param name="camera_frame_id" value="pilot_cam"/>
   </node>
 
- <!-- start DRQ1250s -->
+ <!-- start reading sensor data from DRQ1250s -->
  <node pkg="drq1250" type="drq1250_ros.py" name="drq1250_1" args="0x08">
    <remap from="rov/drq1250" to="rov/drq1250_1"/>
  </node>
