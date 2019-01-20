@@ -7,8 +7,8 @@ import sys
 
 rospy.init_node("drq2150")
 
-myargv = rospy.myargv(argv=sys.argv)
-if len(myargv) == 2:
+myargv = rospy.myargv(sys.argv)
+if len(myargv) >= 2:
     if myargv[1].startswith("0x"):
         addr = int(myargv[1][2:], 16)
     else:
@@ -19,12 +19,12 @@ else:
 
 rospy.loginfo("Initializing PMBUS... ")
 
-DRQ = pmbus(addr) #New pmbus object with device address 0x12
+DRQ = pmbus(addr) #New pmbus object with device address
 rospy.sleep(1)
-DRQ.setUVLimit(36.0) #Not sure if this works yet
+#DRQ.setUVLimit(36.0) #Not sure if this works yet
 rospy.sleep(1)
 
-pub = rospy.Publsiher("rov/drq1250", DRQ1250, queue_size=1)
+pub = rospy.Publisher("rov/drq1250", DRQ1250, queue_size=1)
 rate = rospy.Rate(30)
 
 while not rospy.is_shutdown():
