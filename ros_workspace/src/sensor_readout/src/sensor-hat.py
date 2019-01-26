@@ -41,20 +41,20 @@ def talker():
 
 		orientation = sense.get_orientation_radians() #roll pitch and yaw
 		message.orientation.x, message.orientation.y, message.orientation.z, message.orientation.w = quaternion_from_euler(orientation['roll'], orientation['pitch'], orientation['yaw']) #converts the degrees returned by get_orientation() to radians then uses all 4 directions into a quaternion, then publishes it
-		
+
 		current_time = int(time.time()) * 1000
 		angular_velocity_roll = (orientation['roll'] - start_roll) / ((current_time - start_time) * 1000)
-		angular_velocity_pitch = (orientation['pitch'] - start_pitch) / (((current_time - start_time) * 1000)
+		angular_velocity_pitch = (orientation['pitch'] - start_pitch) / ((current_time - start_time) * 1000)
 		angular_veloctiy_yaw = (orientation['yaw'] - start_yaw) / ((current_time - start_time) * 1000)
 		message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z = (angular_velocity_roll, angular_velocity_pitch, angular_velocity_yaw)
-		
+
 		imu_pub.publish(message)
 
 		start_roll = orientation['roll']
 		start_pitch = orientation['pitch']
 		start_yaw = orientation['yaw']
 		start_time = int(time.time()) * 1000
-		
+
 		rate.sleep()
 
 if __name__ == '__main__':
